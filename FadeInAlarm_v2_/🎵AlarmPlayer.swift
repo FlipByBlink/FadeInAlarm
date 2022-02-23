@@ -5,7 +5,7 @@ import MediaPlayer
 
 class 🎵AlarmPlayer {
     
-    var 📻: AVAudioPlayer = try! AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "PRESET", withExtension: "mp3")!)
+    var 📻: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
     
     
     func play(_ 🕰: Date,_ 🕛: TimeInterval) {
