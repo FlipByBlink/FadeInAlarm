@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		125D910C27C6F117005D99D1 /* FadeInAlarm_v2_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FadeInAlarm_v2_.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		125D910C27C6F117005D99D1 /* FadeInAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FadeInAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInAlarm_v2_App.swift; sourceTree = "<group>"; };
 		125D911127C6F117005D99D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		125D911327C6F118005D99D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,6 +31,7 @@
 		125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔊SystemVolume.swift"; sourceTree = "<group>"; };
 		125D912127C6F18F005D99D1 /* 🔛Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔛Phase.swift"; sourceTree = "<group>"; };
 		125D912227C6F18F005D99D1 /* 🔘Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔘Button.swift"; sourceTree = "<group>"; };
+		125D912927C6F2DE005D99D1 /* FadeInAlarm-v2--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FadeInAlarm-v2--Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +56,7 @@
 		125D910D27C6F117005D99D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				125D910C27C6F117005D99D1 /* FadeInAlarm_v2_.app */,
+				125D910C27C6F117005D99D1 /* FadeInAlarm.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +64,7 @@
 		125D910E27C6F117005D99D1 /* FadeInAlarm_v2_ */ = {
 			isa = PBXGroup;
 			children = (
+				125D912927C6F2DE005D99D1 /* FadeInAlarm-v2--Info.plist */,
 				125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */,
 				125D911127C6F117005D99D1 /* ContentView.swift */,
 				125D911E27C6F18F005D99D1 /* 🎵AlarmPlayer.swift */,
@@ -102,7 +104,7 @@
 			);
 			name = FadeInAlarm_v2_;
 			productName = FadeInAlarm_v2_;
-			productReference = 125D910C27C6F117005D99D1 /* FadeInAlarm_v2_.app */;
+			productReference = 125D910C27C6F117005D99D1 /* FadeInAlarm.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -291,12 +293,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FadeInAlarm_v2_/Preview Content\"";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "FadeInAlarm-v2--Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -305,9 +307,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.self.FadeInAlarm-v2-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FadeInAlarm;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,12 +322,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FadeInAlarm_v2_/Preview Content\"";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "FadeInAlarm-v2--Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -334,9 +336,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.self.FadeInAlarm-v2-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FadeInAlarm;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
