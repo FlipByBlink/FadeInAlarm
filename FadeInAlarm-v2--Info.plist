@@ -11,5 +11,10 @@
 	<array>
 		<string>audio</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>LOGO200</string>
+	</dict>
 </dict>
 </plist>
