@@ -44,7 +44,7 @@ class 🎵AlarmPlayer {
         let 🪧 = MPNowPlayingInfoCenter.default()
         
         let 🖼 = MPMediaItemArtwork(boundsSize: .init(width: 1000, height: 1000)) { _ in
-            return UIImage(named: "🄲over")!
+            return UIImage(named: "COVER1000")!
         }
         
         🪧.nowPlayingInfo = [
