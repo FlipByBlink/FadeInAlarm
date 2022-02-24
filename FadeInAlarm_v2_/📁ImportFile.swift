@@ -43,7 +43,7 @@ struct 📁ImportFile: View {
                 do {
                     let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
                     if let 📍 = 🗂.first {
-                        do { try 🗄.removeItem(at: 📍) } catch { print(error) }
+                        do { try 🗄.removeItem(at: 📍) } catch { print("👿",error) }
                     }
                 } catch { print(error) }
                 
@@ -53,10 +53,10 @@ struct 📁ImportFile: View {
                     do {
                         try 🗄.copyItem(at: 📦, to: 🄽ewURL)
                         💽Name = 🄽ewURL.lastPathComponent
-                    } catch { print(error) }
+                    } catch { print("👿",error) }
                 }
                 📦.stopAccessingSecurityScopedResource()
-            } catch { print(error) }
+            } catch { print("👿",error) }
         }
     }
 }

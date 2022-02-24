@@ -18,7 +18,7 @@ class 🎵AlarmPlayer {
             if let 💽 = 🗂.first {
                 do {
                     📻 = try AVAudioPlayer(contentsOf: 💽)
-                } catch { print(error) }
+                } catch { print("👿",error) }
             }
         } catch { print(error) }
         
@@ -28,7 +28,7 @@ class 🎵AlarmPlayer {
         
         do {
             try AVAudioSession().setCategory(.playback)
-        } catch { print(error) }
+        } catch { print("👿",error) }
         
         let 🄵rom = 🕰.formatted(date: .omitted, time: .standard)
         let 🅃o = 🕰.addingTimeInterval(🕛).formatted(date: .omitted, time: .standard)
@@ -65,6 +65,7 @@ class 🎵AlarmPlayer {
         guard let 🅄serInfo = notification.userInfo,
               let 🅃ypeValue = 🅄serInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
               let 🅃ype = AVAudioSession.InterruptionType(rawValue: 🅃ypeValue) else {
+                  print("👿")
                   return
               }
         
