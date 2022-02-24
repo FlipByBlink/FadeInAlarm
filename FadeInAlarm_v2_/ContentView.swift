@@ -215,6 +215,7 @@ struct ContentView: View {
                             print("==",Date().formatted(date: .omitted, time: .standard),"==")
                             print(🎵.📻.volume)
                             print(🔛)
+                            print("isPlaying",🎵.📻.isPlaying)
                             
                             switch 🔛 {
                             case .waiting:
