@@ -37,6 +37,11 @@ class 🎵AlarmPlayer {
         🪧.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = 📻.url?.lastPathComponent
         
         📻.play()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(🚫),
+                                               name: AVAudioSession.interruptionNotification,
+                                               object: AVAudioSession.sharedInstance())
     }
     
     
@@ -53,4 +58,26 @@ class 🎵AlarmPlayer {
         
         return 🪧
     }()
+    
+    
+    @objc func 🚫(notification: Notification) {
+        
+        guard let 🅄serInfo = notification.userInfo,
+              let 🅃ypeValue = 🅄serInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+              let 🅃ype = AVAudioSession.InterruptionType(rawValue: 🅃ypeValue) else {
+                  return
+              }
+        
+        switch 🅃ype {
+            
+        case .began:
+            📻.pause()
+            
+        case .ended:
+            📻.play()
+            
+        default:
+            print("👿")
+        }
+    }
 }
