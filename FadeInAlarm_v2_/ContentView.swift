@@ -134,7 +134,6 @@ struct ContentView: View {
                 
                 
                 Text(🕰alarm.addingTimeInterval(🕛fadeIn), style: .time)
-                    .font(.title)
                     .foregroundColor(.secondary)
                     .padding()
                 
