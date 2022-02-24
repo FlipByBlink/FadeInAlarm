@@ -38,6 +38,9 @@ struct ContentView: View {
                         Text(.now, style: .time)
                             .animation(.default)
                             .foregroundColor(.secondary)
+                            .onTapGesture {
+                                🕰alarm = Date.now
+                            }
                     }
                     
                     Spacer(minLength: 25)
