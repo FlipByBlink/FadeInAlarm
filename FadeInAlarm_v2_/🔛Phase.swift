@@ -22,8 +22,7 @@ enum 🔛Phase {
             
             Image(systemName: "arrow.right")
                 .font(.largeTitle)
-                .foregroundColor(.secondary)
-                .offset(x: -70)
+                .offset(x: -60)
         }
     }
 }

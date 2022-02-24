@@ -50,9 +50,11 @@ struct ContentView: View {
                     Spacer(minLength: 45)
                     
                     🔔(size: 14, isSlash: true)
+                        .foregroundColor(.secondary)
                         .overlay {
                             if 🔛 == .powerOff {
                                 🔛Phase.arrow()
+                                    .foregroundColor(.secondary)
                             }
                         }
                     
@@ -64,9 +66,12 @@ struct ContentView: View {
                 
                 
                 VStack {
-                    🔔(size: 14,isSlash: 🔔onWaiting == 0 )
-                    🔔(size: 14,isSlash: 🔔onWaiting == 0 )
-                    🔔(size: 14,isSlash: 🔔onWaiting == 0 )
+                    Group {
+                        🔔(size: 14,isSlash: 🔔onWaiting == 0 )
+                        🔔(size: 14,isSlash: 🔔onWaiting == 0 )
+                        🔔(size: 14,isSlash: 🔔onWaiting == 0 )
+                    }
+                    .foregroundColor( 🔛 == .waiting ? nil : .secondary)
                 }
                 .id("🚡start")
                 
@@ -107,12 +112,14 @@ struct ContentView: View {
                 }
                 
                 
-                VStack {
-                    🔔(size: 20)
-                    🔔(size: 25)
-                    🔔(size: 30)
+                VStack{
+                    Group {
+                        🔔(size: 20)
+                        🔔(size: 25)
+                        🔔(size: 30)
+                    }
+                    .foregroundColor( 🔛 == .fadeIn ? nil : .secondary)
                 }
-                
                 .overlay(alignment: .trailing) {
                     Picker("Hour fade in", selection: $🕛fadeIn) {
                         Text("+ 00:00:10").tag(10.0)
@@ -139,11 +146,13 @@ struct ContentView: View {
                 
                 
                 VStack {
-                    🔔(size: 35)
-                    🔔(size: 35)
-                    🔔(size: 35)
+                    Group {
+                        🔔(size: 35)
+                        🔔(size: 35)
+                        🔔(size: 35)
+                    }
+                    .foregroundColor( 🔛 == .maxVolume ? nil : .secondary)
                 }
-                
                 .overlay {
                     if 🔛 == .maxVolume {
                         🔛Phase.arrow()
@@ -158,9 +167,12 @@ struct ContentView: View {
                 
                 
                 VStack {
-                    🔔(size: 28)
-                    🔔(size: 21)
-                    🔔(size: 14, isSlash: true)
+                    Group {
+                        🔔(size: 28)
+                        🔔(size: 21)
+                        🔔(size: 14, isSlash: true)
+                    }
+                    .foregroundColor( 🔛 == .fadeOut ? nil : .secondary)
                 }
                 .id("🚡fadeOut")
                 
@@ -314,8 +326,6 @@ struct ContentView_Previews: PreviewProvider {
 
 //TODO: ==== 優先度たかめ ====
 //音声割り込み処理の実装や挙動チェック
-//勝手にアラーム停止した場合のinfoCenterの挙動を確認する
 
 //TODO: ==== 優先度ひくめ ====
-//アラームが停止した場合の通知機能の検討
 //Accessiblity互換性に関する検討
