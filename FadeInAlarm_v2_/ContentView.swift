@@ -274,11 +274,21 @@ struct ContentView: View {
             
             .overlay(alignment: .topTrailing) {
                 if 🔛 != .powerOff {
-                    Label(🔔volume.description + "%", systemImage: "bell")
-                        .font(.caption)
-                        .opacity(0.9)
-                        .foregroundColor(.secondary)
-                        .padding()
+                    ZStack {
+                        Label(🔔volume.description + "%", systemImage: "bell")
+                            .font(.caption)
+                            .opacity(0.9)
+                            .foregroundColor(.secondary)
+                            .padding()
+                        
+                        TimelineView(.periodic(from: .now, by: 1)) { _ in
+                            if 🎵.📻.isPlaying == false {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .foregroundColor(.secondary)
+                                    .opacity(0.7)
+                            }
+                        }
+                    }
                 }
             }
             
