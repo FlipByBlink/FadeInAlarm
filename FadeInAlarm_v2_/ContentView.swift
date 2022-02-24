@@ -210,7 +210,7 @@ struct ContentView: View {
                         
                         🎵.play(🕰alarm, 🕛fadeIn)
                         
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { 🕛 in
+                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
                             
                             print("==",Date().formatted(date: .omitted, time: .standard),"==")
                             print(🎵.📻.volume)
@@ -225,14 +225,14 @@ struct ContentView: View {
                                     🔛 = .fadeIn
                                 }
                             case .fadeIn:
-                                🎵.📻.volume += Float( 1.0 / 🕛fadeIn )
+                                🎵.📻.volume += Float( 0.5 / 🕛fadeIn )
                                 if 🎵.📻.volume > 1.0 {
                                     🎵.📻.volume = 1.0
                                     🔛 = .maxVolume
                                 }
                             case .maxVolume: break
                             case .fadeOut:
-                                🎵.📻.volume -= Float( 1.0 / 🕛fadeOut )
+                                🎵.📻.volume -= Float( 0.5 / 🕛fadeOut )
                                 if 🎵.📻.volume < 0.0 {
                                     🎵.📻.volume = 0.0
                                     🔛 = .powerOff
