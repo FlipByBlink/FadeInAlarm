@@ -240,6 +240,7 @@ struct ContentView: View {
                                 }
                             case .powerOff:
                                 🎵.📻.stop()
+                                MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
                                 🕛.invalidate()
                             }
                             
