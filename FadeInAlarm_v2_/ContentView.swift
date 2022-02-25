@@ -121,6 +121,7 @@ struct ContentView: View {
                     }
                     .foregroundColor( 🔛 == .fadeIn ? nil : .secondary)
                 }
+                .id("🚡fadeIn")
                 .overlay(alignment: .trailing) {
                     Picker("Hour fade in", selection: $🕛fadeIn) {
                         Text("+ 00:00:10").tag(10.0)
@@ -154,6 +155,7 @@ struct ContentView: View {
                     }
                     .foregroundColor( 🔛 == .maxVolume ? nil : .secondary)
                 }
+                .id("🚡maxVolume")
                 .overlay {
                     if 🔛 == .maxVolume {
                         🔛Phase.arrow()
@@ -236,11 +238,6 @@ struct ContentView: View {
                         
                         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
                             
-                            print("==",Date().formatted(date: .omitted, time: .standard),"==")
-                            print(🎵.📻.volume)
-                            print(🔛)
-                            print("isPlaying",🎵.📻.isPlaying)
-                            
                             switch 🔛 {
                             case .waiting:
                                 🎵.📻.volume = Float(🔔onWaiting) / 100
@@ -248,12 +245,18 @@ struct ContentView: View {
                                 let 🄰larmTime = 🕰alarm.formatted(date: .omitted, time: .shortened)
                                 if 🄽ow == 🄰larmTime {
                                     🔛 = .fadeIn
+                                    withAnimation {
+                                        🚡.scrollTo("🚡fadeIn", anchor: .center)
+                                    }
                                 }
                             case .fadeIn:
                                 🎵.📻.volume += Float( 0.5 / 🕛fadeIn )
                                 if 🎵.📻.volume > 1.0 {
                                     🎵.📻.volume = 1.0
                                     🔛 = .maxVolume
+                                    withAnimation {
+                                        🚡.scrollTo("🚡maxVolume", anchor: .center)
+                                    }
                                 }
                             case .maxVolume: break
                             case .fadeOut:
