@@ -206,12 +206,20 @@ struct ContentView: View {
                     
                     Spacer(minLength: 30)
                     
-                    Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
+                    Group {
                         Image(systemName: "link")
+                            .foregroundColor(.secondary)
+                        
+                        Link("AppStore link",
+                             destination: URL(string: "https://apps.apple.com/app/id1465336070")!)
+                        
+                        Link("Source code link",
+                             destination: URL(string: "https://apps.apple.com/app/id1465336070")!)
                     }
-                    .accessibilityLabel("AppStore link")
+                    .padding(1)
+                    .font(.footnote)
                     
-                    Spacer(minLength: 130)
+                    Spacer(minLength: 170)
                 }
             }
             
