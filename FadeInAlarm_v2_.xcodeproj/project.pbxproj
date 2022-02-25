@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		123D146A27C8671F00A3C1E0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		125D910C27C6F117005D99D1 /* FadeInAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FadeInAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInAlarm_v2_App.swift; sourceTree = "<group>"; };
 		125D911127C6F117005D99D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		125D910327C6F117005D99D1 = {
 			isa = PBXGroup;
 			children = (
+				123D146A27C8671F00A3C1E0 /* README.md */,
 				125D910E27C6F117005D99D1 /* FadeInAlarm_v2_ */,
 				125D910D27C6F117005D99D1 /* Products */,
 			);
