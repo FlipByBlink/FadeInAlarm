@@ -39,7 +39,9 @@ struct ContentView: View {
                             .animation(.default)
                             .foregroundColor(.secondary)
                             .onTapGesture {
-                                🕰alarm = Date.now
+                                if 🔛 == .powerOff {
+                                    🕰alarm = Date.now
+                                }
                             }
                     }
                     
@@ -323,8 +325,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
-
-
-//TODO: ==== 優先度ひくめ ====
-//Accessiblity互換性に関する検討
