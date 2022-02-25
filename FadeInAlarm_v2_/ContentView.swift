@@ -207,6 +207,7 @@ struct ContentView: View {
                     Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
                         Image(systemName: "link")
                     }
+                    .accessibilityLabel("AppStore link")
                     
                     Spacer(minLength: 130)
                 }
@@ -266,6 +267,7 @@ struct ContentView: View {
                         }
                     }
                     .disabled( 🔛 != .powerOff )
+                    .accessibilityLabel("Set alarm")
                     
                     
                     Spacer()
@@ -283,6 +285,7 @@ struct ContentView: View {
                     }
                     .disabled(🔛.beforeStart())
                     .foregroundColor( 🔛.beforeStart() ? nil : .red )
+                    .accessibilityLabel("Stop alarm")
                 }
             }
             

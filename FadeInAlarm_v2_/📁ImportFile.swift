@@ -35,6 +35,7 @@ struct 📁ImportFile: View {
             }
             .font(.title2)
         }
+        .accessibilityLabel("Import file")
         .padding(30)
         .fileImporter(isPresented: $📂, allowedContentTypes: [.audio]) { 🅁esult in
             do {
