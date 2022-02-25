@@ -216,7 +216,7 @@ struct ContentView: View {
                              destination: URL(string: "https://apps.apple.com/app/id1465336070")!)
                         
                         Link("Source code link",
-                             destination: URL(string: "https://apps.apple.com/app/id1465336070")!)
+                             destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!)
                     }
                     .padding(1)
                     .font(.footnote)
