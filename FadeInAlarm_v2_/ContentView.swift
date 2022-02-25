@@ -94,22 +94,21 @@ struct ContentView: View {
                 }
                 
                 
-                DatePicker(selection: $🕰alarm, displayedComponents: .hourAndMinute) {
-                    Text("Alarm time")
-                }
-                .labelsHidden()
-                .padding()
-                .disabled( 🔛 != .powerOff )
-                .onAppear{
-                    if let 🅃ime = UserDefaults.standard.value(forKey: "🕰alarm") {
-                        🕰alarm = 🅃ime as! Date
-                    } else {
-                        🕰alarm = Date.now + 180
+                DatePicker("", selection: $🕰alarm, displayedComponents: .hourAndMinute)
+                    .dynamicTypeSize(SwiftUI.DynamicTypeSize.accessibility1)
+                    .labelsHidden()
+                    .padding()
+                    .disabled( 🔛 != .powerOff )
+                    .onAppear{
+                        if let 🅃ime = UserDefaults.standard.value(forKey: "🕰alarm") {
+                            🕰alarm = 🅃ime as! Date
+                        } else {
+                            🕰alarm = Date.now + 180
+                        }
                     }
-                }
-                .onChange(of: 🕰alarm) { 🅃ime in
-                    UserDefaults.standard.setValue(🅃ime,forKey: "🕰alarm")
-                }
+                    .onChange(of: 🕰alarm) { 🅃ime in
+                        UserDefaults.standard.setValue(🅃ime,forKey: "🕰alarm")
+                    }
                 
                 
                 VStack{
@@ -323,9 +322,6 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
-
-//TODO: ==== 優先度たかめ ====
-//音声割り込み処理の実装や挙動チェック
 
 //TODO: ==== 優先度ひくめ ====
 //Accessiblity互換性に関する検討
