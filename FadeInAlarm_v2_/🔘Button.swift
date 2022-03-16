@@ -22,7 +22,8 @@ struct 🔘Button: View {
         } label: {
             Image(systemName: type.rawValue)
         }
-        .font(.system(size: 80))
+        .symbolRenderingMode(.hierarchical)
+        .font(.system(size: 72))
         .padding(16)
         .background {
             Circle()

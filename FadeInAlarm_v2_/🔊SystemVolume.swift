@@ -10,7 +10,7 @@ struct 🔊SystemVolume: View {
         VolumeSlider()
             .grayscale(1.0)
             .contrast(0.6)
-            .frame(width: 180, height: 30)
+            .frame(width: 150, height: 30)
             .padding()
     }
 }

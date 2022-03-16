@@ -30,10 +30,10 @@ struct ContentView: View {
             ScrollView {
                 
                 VStack {
-                    Spacer(minLength: 35)
-                    
+                    Spacer(minLength: 25)
+
                     🔊SystemVolume()
-                    
+
                     TimelineView(.periodic(from: .now, by: 1)) { _ in
                         Text(.now, style: .time)
                             .animation(.default)
@@ -49,55 +49,46 @@ struct ContentView: View {
                     
                     Divider()
                     
-                    Spacer(minLength: 45)
+                    Spacer(minLength: 40)
                     
-                    🔔(size: 14, isSlash: true)
-                        .foregroundColor(.secondary)
+                    Image(systemName: "power.circle.fill")
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundColor(.accentColor)
+                        .font(.system(size: 72))
+                        .padding()
                         .overlay {
-                            if 🔛 == .powerOff {
-                                🔛Phase.arrow()
-                                    .foregroundColor(.secondary)
-                            }
+                            Image(systemName: "arrow.down")
+                                .font(.system(size: 50).weight(.semibold))
+                                .opacity(0.1)
+                                .offset(x: -120, y: 0)
                         }
                     
-                    Image(systemName: "power.circle")
-                        .font(.largeTitle)
-                        .foregroundColor(.secondary)
-                        .padding()
                 }
                 
                 
-                VStack {
-                    Group {
-                        🔔(size: 14,isSlash: 🔔onWaiting == 0 )
-                        🔔(size: 14,isSlash: 🔔onWaiting == 0 )
-                        🔔(size: 14,isSlash: 🔔onWaiting == 0 )
-                    }
+                🔔(size: 14,isSlash: 🔔onWaiting == 0 )
                     .foregroundColor( 🔛 == .waiting ? nil : .secondary)
-                }
-                .id("🚡start")
-                
-                .overlay {
-                    Picker("Volume on waiting", selection: $🔔onWaiting) {
-                        Text("0%").tag(0)
-                        Text("1%").tag(1)
-                        Text("3%").tag(3)
-                        Text("5%").tag(5)
-                        Text("10%").tag(10)
+                    .id("🚡start")
+                    .overlay {
+                        Picker("Volume on waiting", selection: $🔔onWaiting) {
+                            Text("0%").tag(0)
+                            Text("1%").tag(1)
+                            Text("3%").tag(3)
+                            Text("5%").tag(5)
+                            Text("10%").tag(10)
+                        }
+                        .pickerStyle(.menu)
+                        .offset(x: 40)
+                        .labelsHidden()
+                        .disabled( 🔛 != .powerOff )
+                        
+                        if 🔛 == .waiting {
+                            🔛Phase.arrow()
+                        }
                     }
-                    .pickerStyle(.menu)
-                    .offset(x: 40)
-                    .labelsHidden()
-                    .disabled( 🔛 != .powerOff )
-                    
-                    if 🔛 == .waiting {
-                        🔛Phase.arrow()
-                    }
-                }
                 
                 
                 DatePicker("", selection: $🕰alarm, displayedComponents: .hourAndMinute)
-                    .dynamicTypeSize(SwiftUI.DynamicTypeSize.accessibility1)
                     .labelsHidden()
                     .padding()
                     .disabled( 🔛 != .powerOff )
@@ -113,33 +104,27 @@ struct ContentView: View {
                     }
                 
                 
-                VStack{
-                    Group {
-                        🔔(size: 20)
-                        🔔(size: 25)
-                        🔔(size: 30)
-                    }
+                🔔(size: 20)
                     .foregroundColor( 🔛 == .fadeIn ? nil : .secondary)
-                }
-                .id("🚡fadeIn")
-                .overlay(alignment: .trailing) {
-                    Picker("Hour fade in", selection: $🕛fadeIn) {
-                        Text("+ 00:00:10").tag(10.0)
-                        Text("+ 00:00:30").tag(30.0)
-                        Text("+ 00:01:00").tag(60.0)
-                        Text("+ 00:05:00").tag(300.0)
-                        Text("+ 00:30:00").tag(1800.0)
-                        Text("+ 01:00:00").tag(3600.0)
+                    .id("🚡fadeIn")
+                    .overlay(alignment: .trailing) {
+                        Picker("Hour fade in", selection: $🕛fadeIn) {
+                            Text("+ 00:00:10").tag(10.0)
+                            Text("+ 00:00:30").tag(30.0)
+                            Text("+ 00:01:00").tag(60.0)
+                            Text("+ 00:05:00").tag(300.0)
+                            Text("+ 00:30:00").tag(1800.0)
+                            Text("+ 01:00:00").tag(3600.0)
+                        }
+                        .pickerStyle(.menu)
+                        .offset(x: 90)
+                        .labelsHidden()
+                        .disabled( 🔛 != .powerOff )
+                        
+                        if 🔛 == .fadeIn {
+                            🔛Phase.arrow()
+                        }
                     }
-                    .pickerStyle(.menu)
-                    .offset(x: 90)
-                    .labelsHidden()
-                    .disabled( 🔛 != .powerOff )
-                    
-                    if 🔛 == .fadeIn {
-                        🔛Phase.arrow()
-                    }
-                }
                 
                 
                 Text(🕰alarm.addingTimeInterval(🕛fadeIn), style: .time)
@@ -147,66 +132,54 @@ struct ContentView: View {
                     .padding()
                 
                 
-                VStack {
-                    Group {
-                        🔔(size: 35)
-                        🔔(size: 35)
-                        🔔(size: 35)
-                    }
+                🔔(size: 35)
                     .foregroundColor( 🔛 == .maxVolume ? nil : .secondary)
-                }
-                .id("🚡maxVolume")
-                .overlay {
-                    if 🔛 == .maxVolume {
-                        🔛Phase.arrow()
+                    .id("🚡maxVolume")
+                    .overlay {
+                        if 🔛 == .maxVolume {
+                            🔛Phase.arrow()
+                        }
                     }
-                }
                 
                 
-                Image(systemName: "checkmark.circle")
-                    .font(.largeTitle)
+                Image(systemName: "checkmark.circle.fill")
+                    .symbolRenderingMode(SwiftUI.SymbolRenderingMode.hierarchical)
+                    .font(.system(size: 72))
+                    .scaleEffect(0.8)
                     .foregroundColor(.secondary)
                     .padding()
                 
                 
-                VStack {
-                    Group {
-                        🔔(size: 28)
-                        🔔(size: 21)
-                        🔔(size: 14, isSlash: true)
-                    }
+                🔔(size: 14, isSlash: true)
                     .foregroundColor( 🔛 == .fadeOut ? nil : .secondary)
-                }
-                .id("🚡fadeOut")
-                
-                .overlay(alignment: .trailing) {
-                    Picker("Hour fade out", selection: $🕛fadeOut) {
-                        Text("+ 00:00:03").tag(3.0)
-                        Text("+ 00:00:07").tag(7.0)
-                        Text("+ 00:00:15").tag(15.0)
-                        Text("+ 00:00:30").tag(30.0)
-                        Text("+ 00:01:00").tag(60.0)
-                    }
-                    .pickerStyle(.menu)
-                    .offset(x: 90)
-                    .labelsHidden()
-                    .disabled( 🔛 != .powerOff )
+                    .id("🚡fadeOut")
                     
-                    if 🔛 == .fadeOut {
-                        🔛Phase.arrow()
+                    .overlay(alignment: .trailing) {
+                        Picker("Hour fade out", selection: $🕛fadeOut) {
+                            Text("+ 00:00:03").tag(3.0)
+                            Text("+ 00:00:07").tag(7.0)
+                            Text("+ 00:00:15").tag(15.0)
+                            Text("+ 00:00:30").tag(30.0)
+                            Text("+ 00:01:00").tag(60.0)
+                        }
+                        .pickerStyle(.menu)
+                        .offset(x: 90)
+                        .labelsHidden()
+                        .disabled( 🔛 != .powerOff )
+                        
+                        if 🔛 == .fadeOut {
+                            🔛Phase.arrow()
+                        }
                     }
-                }
                 
                 
                 VStack {
-                    Spacer(minLength: 35)
+                    Spacer(minLength: 60)
                     
                     Divider()
                     
                     📁ImportFile()
                         .disabled( 🔛 != .powerOff )
-                    
-                    Spacer(minLength: 30)
                     
                     Group {
                         Image(systemName: "link")
@@ -225,8 +198,12 @@ struct ContentView: View {
                 }
             }
             
+            /*
             .overlay(alignment: .bottom) {
                 HStack {
+                    
+                    Spacer()
+                    
                     🔘Button(type: .start) {
                         🔛 = .waiting
                         
@@ -283,24 +260,25 @@ struct ContentView: View {
                     .accessibilityLabel("Set alarm")
                     
                     
-                    Spacer()
+//                    Spacer()
                     
                     
-                    🔘Button(type: .stop) {
-                        if 🔛 == .waiting {
-                            🔛 = .powerOff
-                        } else {
-                            🔛 = .fadeOut
-                            withAnimation {
-                                🚡.scrollTo("🚡fadeOut", anchor: .center)
-                            }
-                        }
-                    }
-                    .disabled(🔛.beforeStart())
-                    .foregroundColor( 🔛.beforeStart() ? nil : .red )
-                    .accessibilityLabel("Stop alarm")
+//                    🔘Button(type: .stop) {
+//                        if 🔛 == .waiting {
+//                            🔛 = .powerOff
+//                        } else {
+//                            🔛 = .fadeOut
+//                            withAnimation {
+//                                🚡.scrollTo("🚡fadeOut", anchor: .center)
+//                            }
+//                        }
+//                    }
+//                    .disabled(🔛.beforeStart())
+//                    .foregroundColor( 🔛.beforeStart() ? nil : .red )
+//                    .accessibilityLabel("Stop alarm")
                 }
             }
+             */
             
             .overlay(alignment: .topTrailing) {
                 if 🔛 != .powerOff {
@@ -333,6 +311,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 13 Pro Max")
     }
 }
 
