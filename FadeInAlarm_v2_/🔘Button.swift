@@ -23,13 +23,8 @@ struct 🔘Button: View {
             Image(systemName: type.rawValue)
         }
         .symbolRenderingMode(.hierarchical)
-        .font(.system(size: 72))
-        .padding(16)
-        .background {
-            Circle()
-                .foregroundColor(Color(.systemBackground))
-                .padding()
-        }
+        .font(.system(size: 80))
+        .padding()
     }
 }
 

@@ -104,12 +104,15 @@ struct ContentView: View {
                         }
                     }
                     .disabled( 🔛 != .powerOff )
+                    .scaleEffect( 🔛 != .powerOff ? 0.8 : 1.0 )
                     .accessibilityLabel("Set alarm")
                     .overlay {
-                        Image(systemName: "arrow.down")
-                            .font(.system(size: 50).weight(.semibold))
-                            .opacity(0.2)
-                            .offset(x: -120, y: 30)
+                        if 🔛 == .powerOff {
+                            Image(systemName: "arrow.down")
+                                .font(.system(size: 50).weight(.semibold))
+                                .opacity(0.2)
+                                .offset(x: -120, y: 30)
+                        }
                     }
                 }
                 
@@ -201,6 +204,7 @@ struct ContentView: View {
                     }
                 }
                 .disabled(🔛.beforeStart())
+                .scaleEffect(🔛.beforeStart() ? 0.8 : 1.0 )
                 .foregroundColor( 🔛.beforeStart() ? nil : .red )
                 .accessibilityLabel("Stop alarm")
                 

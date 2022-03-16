@@ -21,7 +21,7 @@ enum 🔛Phase {
         var body: some View {
             
             Image(systemName: "arrow.right")
-                .font(.largeTitle)
+                .font(.title)
                 .offset(x: -60)
         }
     }
