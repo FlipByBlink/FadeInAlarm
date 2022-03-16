@@ -8,7 +8,7 @@ struct 🔔: View {
     
     var ⓘsSlash: Bool = false
     
-    @State private var 🅂cale = 0.3
+    @State private var 🅂cale = 0.4
     
     @State private var 🄾pacity = 1.0
     
