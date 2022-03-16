@@ -22,7 +22,6 @@ struct 🔘Button: View {
         } label: {
             Image(systemName: type.rawValue)
         }
-        .symbolRenderingMode(.hierarchical)
         .font(.system(size: 80))
         .padding()
     }
