@@ -60,7 +60,7 @@ struct ContentView: View {
                             Image(systemName: "arrow.down")
                                 .font(.system(size: 50).weight(.semibold))
                                 .opacity(0.2)
-                                .offset(x: -120, y: 0)
+                                .offset(x: -120, y: 30)
                         }
                     
                 }
