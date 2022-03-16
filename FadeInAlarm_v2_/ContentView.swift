@@ -51,7 +51,7 @@ struct ContentView: View {
                     
                     Spacer(minLength: 40)
                     
-                    Image(systemName: "power.circle.fill")
+                    Image(systemName: "power.circle.fill") // 􀆨
                         .symbolRenderingMode(.hierarchical)
                         .foregroundColor(.accentColor)
                         .font(.system(size: 72))
@@ -142,7 +142,7 @@ struct ContentView: View {
                     }
                 
                 
-                Image(systemName: "checkmark.circle.fill")
+                Image(systemName: "checkmark.circle.fill") // ✓
                     .symbolRenderingMode(SwiftUI.SymbolRenderingMode.hierarchical)
                     .font(.system(size: 72))
                     .scaleEffect(0.8)
