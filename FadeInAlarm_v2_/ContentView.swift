@@ -66,7 +66,7 @@ struct ContentView: View {
                 }
                 
                 
-                🔔(size: 14,isSlash: 🔔onWaiting == 0 )
+                🔔(phase: .waiting,isSlash: 🔔onWaiting == 0 )
                     .foregroundColor( 🔛 == .waiting ? nil : .secondary)
                     .id("🚡start")
                     .overlay {
@@ -104,7 +104,7 @@ struct ContentView: View {
                     }
                 
                 
-                🔔(size: 20)
+                🔔(phase: .fadeIn)
                     .foregroundColor( 🔛 == .fadeIn ? nil : .secondary)
                     .id("🚡fadeIn")
                     .overlay(alignment: .trailing) {
@@ -132,7 +132,7 @@ struct ContentView: View {
                     .padding()
                 
                 
-                🔔(size: 35)
+                🔔(phase: .maxVolume)
                     .foregroundColor( 🔛 == .maxVolume ? nil : .secondary)
                     .id("🚡maxVolume")
                     .overlay {
@@ -150,7 +150,7 @@ struct ContentView: View {
                     .padding()
                 
                 
-                🔔(size: 14, isSlash: true)
+                🔔(phase: .fadeOut)
                     .foregroundColor( 🔛 == .fadeOut ? nil : .secondary)
                     .id("🚡fadeOut")
                     

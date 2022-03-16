@@ -4,7 +4,7 @@ import SwiftUI
 
 struct 🔔: View {
     
-    var size: CGFloat
+    var phase: 🔛Phase
     
     var isSlash: Bool = false
     
@@ -12,8 +12,27 @@ struct 🔔: View {
     var body: some View {
         
         Image(systemName: isSlash ? "bell.slash" : "bell")
+            .font(🄵ont)
+            .symbolVariant(isSlash ? .slash : .none)
             .padding(2)
-            .font(.system(size: size))
+    }
+    
+    
+    var 🄵ont: Font {
+        get {
+            switch phase {
+            case .waiting:
+                return .footnote
+            case .fadeIn:
+                return .title
+            case .maxVolume:
+                return .largeTitle
+            case .fadeOut:
+                return .footnote
+            case .powerOff:
+                return .body
+            }
+        }
     }
 }
 
@@ -22,6 +41,12 @@ struct 🔔: View {
 
 struct 🔔View_Previews: PreviewProvider {
     static var previews: some View {
-        🔔(size: 14)
+        VStack {
+            🔔(phase: .waiting,isSlash: true)
+            🔔(phase: .waiting)
+            🔔(phase: .fadeIn)
+            🔔(phase: .maxVolume)
+            🔔(phase: .fadeOut)
+        }
     }
 }
