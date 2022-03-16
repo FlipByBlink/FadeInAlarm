@@ -55,7 +55,6 @@ struct 🔔: View {
         }
         .symbolVariant(.fill)
         .font(.title)
-        .foregroundColor(.secondary)
     }
     
     
