@@ -30,18 +30,9 @@ struct 🔔: View {
                     .scaleEffect(🅂cale)
                     .opacity(🄾pacity)
                     .task {
-                        let 🕒 = 5.0
+                        🄵ade()
                         Timer.scheduledTimer(withTimeInterval: 🕒, repeats: true) { _ in
-                            🅂cale = 🔉
-                            withAnimation(.linear(duration: 0.2)) {
-                                🄾pacity = 1.0
-                            }
-                            withAnimation(.linear(duration: 🕒)) {
-                                🅂cale = 1.0
-                            }
-                            withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
-                                🄾pacity = 0.0
-                            }
+                            🄵ade()
                         }
                     }
                 
@@ -53,18 +44,9 @@ struct 🔔: View {
                     .scaleEffect(🅂cale)
                     .opacity(🄾pacity)
                     .task {
-                        let 🕒 = 5.0
+                        🄵ade()
                         Timer.scheduledTimer(withTimeInterval: 🕒, repeats: true) { _ in
-                            🅂cale = 1.0
-                            withAnimation(.linear(duration: 0.2)) {
-                                🄾pacity = 1.0
-                            }
-                            withAnimation(.linear(duration: 🕒)) {
-                                🅂cale = 🔉
-                            }
-                            withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
-                                🄾pacity = 0.0
-                            }
+                            🄵ade()
                         }
                     }
                 
@@ -74,6 +56,35 @@ struct 🔔: View {
         .symbolVariant(.fill)
         .font(.title)
         .foregroundColor(.secondary)
+    }
+    
+    
+    let 🕒 = 5.0
+    
+    func 🄵ade() {
+        if ⓟhase == .fadeIn {
+            🅂cale = 🔉
+            withAnimation(.linear(duration: 0.2)) {
+                🄾pacity = 1.0
+            }
+            withAnimation(.linear(duration: 🕒)) {
+                🅂cale = 1.0
+            }
+            withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
+                🄾pacity = 0.0
+            }
+        } else if ⓟhase == .fadeOut {
+            🅂cale = 1.0
+            withAnimation(.linear(duration: 0.2)) {
+                🄾pacity = 1.0
+            }
+            withAnimation(.linear(duration: 🕒)) {
+                🅂cale = 🔉
+            }
+            withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
+                🄾pacity = 0.0
+            }
+        }
     }
 }
 
