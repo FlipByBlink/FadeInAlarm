@@ -4,35 +4,76 @@ import SwiftUI
 
 struct 🔔: View {
     
-    var phase: 🔛Phase
+    var ⓟhase: 🔛Phase
     
-    var isSlash: Bool = false
+    var ⓘsSlash: Bool = false
+    
+    @State private var 🅂cale = 0.3
+    
+    @State private var 🄾pacity = 1.0
+    
+    
+    let 🔉 = 0.4
     
     
     var body: some View {
         
-        Image(systemName: isSlash ? "bell.slash" : "bell")
-            .font(🄵ont)
-            .symbolVariant(isSlash ? .slash : .none)
-            .padding(2)
-    }
-    
-    
-    var 🄵ont: Font {
-        get {
-            switch phase {
+        Group {
+            switch ⓟhase {
             case .waiting:
-                return .footnote
+                Image(systemName: "bell")
+                    .symbolVariant(ⓘsSlash ? .slash : .none)
+                    .scaleEffect(🔉)
+                
             case .fadeIn:
-                return .title
+                Image(systemName: "bell")
+                    .scaleEffect(🅂cale)
+                    .opacity(🄾pacity)
+                    .task {
+                        let 🕒 = 5.0
+                        Timer.scheduledTimer(withTimeInterval: 🕒, repeats: true) { _ in
+                            🅂cale = 🔉
+                            withAnimation(.linear(duration: 0.2)) {
+                                🄾pacity = 1.0
+                            }
+                            withAnimation(.linear(duration: 🕒)) {
+                                🅂cale = 1.0
+                            }
+                            withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
+                                🄾pacity = 0.0
+                            }
+                        }
+                    }
+                
             case .maxVolume:
-                return .largeTitle
+                Image(systemName: "bell")
+                
             case .fadeOut:
-                return .footnote
-            case .powerOff:
-                return .body
+                Image(systemName: "bell")
+                    .scaleEffect(🅂cale)
+                    .opacity(🄾pacity)
+                    .task {
+                        let 🕒 = 5.0
+                        Timer.scheduledTimer(withTimeInterval: 🕒, repeats: true) { _ in
+                            🅂cale = 1.0
+                            withAnimation(.linear(duration: 0.2)) {
+                                🄾pacity = 1.0
+                            }
+                            withAnimation(.linear(duration: 🕒)) {
+                                🅂cale = 🔉
+                            }
+                            withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
+                                🄾pacity = 0.0
+                            }
+                        }
+                    }
+                
+            case .powerOff: Text("👿")
             }
         }
+        .symbolVariant(.fill)
+        .font(.title)
+        .foregroundColor(.secondary)
     }
 }
 
@@ -42,11 +83,11 @@ struct 🔔: View {
 struct 🔔View_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            🔔(phase: .waiting,isSlash: true)
-            🔔(phase: .waiting)
-            🔔(phase: .fadeIn)
-            🔔(phase: .maxVolume)
-            🔔(phase: .fadeOut)
+            🔔(ⓟhase: .waiting, ⓘsSlash: true)
+            🔔(ⓟhase: .waiting)
+            🔔(ⓟhase: .fadeIn)
+            🔔(ⓟhase: .maxVolume)
+            🔔(ⓟhase: .fadeOut)
         }
     }
 }

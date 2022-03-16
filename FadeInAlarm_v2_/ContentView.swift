@@ -59,14 +59,14 @@ struct ContentView: View {
                         .overlay {
                             Image(systemName: "arrow.down")
                                 .font(.system(size: 50).weight(.semibold))
-                                .opacity(0.1)
+                                .opacity(0.2)
                                 .offset(x: -120, y: 0)
                         }
                     
                 }
                 
                 
-                🔔(phase: .waiting,isSlash: 🔔onWaiting == 0 )
+                🔔(ⓟhase: .waiting, ⓘsSlash: 🔔onWaiting == 0 )
                     .foregroundColor( 🔛 == .waiting ? nil : .secondary)
                     .id("🚡start")
                     .overlay {
@@ -104,7 +104,7 @@ struct ContentView: View {
                     }
                 
                 
-                🔔(phase: .fadeIn)
+                🔔(ⓟhase: .fadeIn)
                     .foregroundColor( 🔛 == .fadeIn ? nil : .secondary)
                     .id("🚡fadeIn")
                     .overlay(alignment: .trailing) {
@@ -132,7 +132,7 @@ struct ContentView: View {
                     .padding()
                 
                 
-                🔔(phase: .maxVolume)
+                🔔(ⓟhase: .maxVolume)
                     .foregroundColor( 🔛 == .maxVolume ? nil : .secondary)
                     .id("🚡maxVolume")
                     .overlay {
@@ -150,7 +150,7 @@ struct ContentView: View {
                     .padding()
                 
                 
-                🔔(phase: .fadeOut)
+                🔔(ⓟhase: .fadeOut)
                     .foregroundColor( 🔛 == .fadeOut ? nil : .secondary)
                     .id("🚡fadeOut")
                     
