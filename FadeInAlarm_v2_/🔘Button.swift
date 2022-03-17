@@ -23,7 +23,12 @@ struct 🔘Button: View {
             Image(systemName: type.rawValue)
         }
         .font(.system(size: 80))
-        .padding()
+        .padding(16)
+        .background {
+            Circle()
+                .foregroundColor(Color(.systemBackground))
+                .padding()
+        }
     }
 }
 

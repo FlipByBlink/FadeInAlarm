@@ -53,16 +53,16 @@ struct 🔔: View {
             case .powerOff: Text("👿")
             }
         }
-        .font(.title)
+        .font(.largeTitle)
     }
     
     
-    let 🕒 = 5.0
+    let 🕒 = 4.0
     
     func 🄵ade() {
         if ⓟhase == .fadeIn {
             🅂cale = 🔉
-            withAnimation(.linear(duration: 0.2)) {
+            withAnimation {
                 🄾pacity = 1.0
             }
             withAnimation(.linear(duration: 🕒)) {
@@ -73,7 +73,7 @@ struct 🔔: View {
             }
         } else if ⓟhase == .fadeOut {
             🅂cale = 1.0
-            withAnimation(.linear(duration: 0.2)) {
+            withAnimation {
                 🄾pacity = 1.0
             }
             withAnimation(.linear(duration: 🕒)) {

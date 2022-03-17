@@ -51,69 +51,18 @@ struct ContentView: View {
                     
                     Spacer(minLength: 40)
                     
-                    🔘Button(type: .start) { // 􀆨
-                        🔛 = .waiting
-                        
-                        withAnimation {
-                            🚡.scrollTo("🚡start", anchor: .center)
-                        }
-                        
-                        🎵.play(🕰alarm, 🕛fadeIn)
-                        
-                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
-                            
-                            switch 🔛 {
-                            case .waiting:
-                                🎵.📻.volume = Float(🔔onWaiting) / 100
-                                let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
-                                let 🄰larmTime = 🕰alarm.formatted(date: .omitted, time: .shortened)
-                                if 🄽ow == 🄰larmTime {
-                                    🔛 = .fadeIn
-                                    withAnimation {
-                                        🚡.scrollTo("🚡fadeIn", anchor: .center)
-                                    }
-                                }
-                            case .fadeIn:
-                                🎵.📻.volume += Float( 0.5 / 🕛fadeIn )
-                                if 🎵.📻.volume > 1.0 {
-                                    🎵.📻.volume = 1.0
-                                    🔛 = .maxVolume
-                                    withAnimation {
-                                        🚡.scrollTo("🚡maxVolume", anchor: .center)
-                                    }
-                                }
-                            case .maxVolume: break
-                            case .fadeOut:
-                                🎵.📻.volume -= Float( 0.5 / 🕛fadeOut )
-                                if 🎵.📻.volume < 0.0 {
-                                    🎵.📻.volume = 0.0
-                                    🔛 = .powerOff
-                                }
-                            case .powerOff:
-                                🎵.📻.stop()
-                                MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
-                                🕛.invalidate()
+                    Image(systemName: "power.circle")
+                        .foregroundColor(.secondary)
+                        .font(.largeTitle.weight(.light))
+                        .padding(16)
+                        .overlay {
+                            if 🔛 == .powerOff {
+                                Image(systemName: "arrow.down")
+                                    .font(.title.weight(.light))
+                                    .foregroundColor(.secondary)
+                                    .offset(x: -60)
                             }
-                            
-                            🔔volume = Int( 🎵.📻.volume * 100 )
                         }
-                        
-                        MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
-                            🔛 = .fadeOut
-                            return .success
-                        }
-                    }
-                    .disabled( 🔛 != .powerOff )
-                    .scaleEffect( 🔛 != .powerOff ? 0.8 : 1.0 )
-                    .accessibilityLabel("Set alarm")
-                    .overlay {
-                        if 🔛 == .powerOff {
-                            Image(systemName: "arrow.down")
-                                .font(.system(size: 50).weight(.semibold))
-                                .opacity(0.2)
-                                .offset(x: -120, y: 30)
-                        }
-                    }
                 }
                 
                 
@@ -193,20 +142,10 @@ struct ContentView: View {
                     }
                 
                 
-                🔘Button(type: .stop) { // ✓
-                    if 🔛 == .waiting {
-                        🔛 = .powerOff
-                    } else {
-                        🔛 = .fadeOut
-                        withAnimation {
-                            🚡.scrollTo("🚡fadeOut", anchor: .center)
-                        }
-                    }
-                }
-                .disabled(🔛.beforeStart())
-                .scaleEffect(🔛.beforeStart() ? 0.8 : 1.0 )
-                .foregroundColor( 🔛.beforeStart() ? nil : .red )
-                .accessibilityLabel("Stop alarm")
+                Image(systemName: "checkmark.circle")
+                    .font(.largeTitle.weight(.light))
+                    .foregroundColor(.secondary)
+                    .padding(16)
                 
                 
                 🔔(ⓟhase: .fadeOut)
@@ -254,6 +193,84 @@ struct ContentView: View {
                     .font(.footnote)
                     
                     Spacer(minLength: 170)
+                }
+            }
+            
+            .overlay(alignment: .bottom) {
+                HStack {
+                    if 🔛 == .powerOff {
+                        🔘Button(type: .start) { // 􀆨
+                            🔛 = .waiting
+                            
+                            withAnimation {
+                                🚡.scrollTo("🚡start", anchor: .center)
+                            }
+                            
+                            🎵.play(🕰alarm, 🕛fadeIn)
+                            
+                            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
+                                
+                                switch 🔛 {
+                                case .waiting:
+                                    🎵.📻.volume = Float(🔔onWaiting) / 100
+                                    let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
+                                    let 🄰larmTime = 🕰alarm.formatted(date: .omitted, time: .shortened)
+                                    if 🄽ow == 🄰larmTime {
+                                        🔛 = .fadeIn
+                                        withAnimation {
+                                            🚡.scrollTo("🚡fadeIn", anchor: .center)
+                                        }
+                                    }
+                                case .fadeIn:
+                                    🎵.📻.volume += Float( 0.5 / 🕛fadeIn )
+                                    if 🎵.📻.volume > 1.0 {
+                                        🎵.📻.volume = 1.0
+                                        🔛 = .maxVolume
+                                        withAnimation {
+                                            🚡.scrollTo("🚡maxVolume", anchor: .center)
+                                        }
+                                    }
+                                case .maxVolume: break
+                                case .fadeOut:
+                                    🎵.📻.volume -= Float( 0.5 / 🕛fadeOut )
+                                    if 🎵.📻.volume < 0.0 {
+                                        🎵.📻.volume = 0.0
+                                        🔛 = .powerOff
+                                    }
+                                case .powerOff:
+                                    🎵.📻.stop()
+                                    MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
+                                    🕛.invalidate()
+                                }
+                                
+                                🔔volume = Int( 🎵.📻.volume * 100 )
+                            }
+                            
+                            MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
+                                🔛 = .fadeOut
+                                return .success
+                            }
+                        }
+                        .accessibilityLabel("Set alarm")
+                        
+                    } else {
+                        
+                        🔘Button(type: .stop) { // ✓
+                            if 🔛 == .waiting {
+                                🔛 = .powerOff
+                            } else {
+                                🔛 = .fadeOut
+                                withAnimation {
+                                    🚡.scrollTo("🚡fadeOut", anchor: .center)
+                                }
+                            }
+                        }
+                        .disabled(🔛 == .fadeOut)
+                        .foregroundColor( 🔛.beforeStart() ? nil : .red )
+                        .accessibilityLabel("Stop alarm")
+                    }
+
+                    Spacer()
                 }
             }
             
