@@ -53,7 +53,6 @@ struct 🔔: View {
             case .powerOff: Text("👿")
             }
         }
-        .symbolVariant(.fill)
         .font(.title)
     }
     
