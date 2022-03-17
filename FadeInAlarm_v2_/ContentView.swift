@@ -7,7 +7,7 @@ import MediaPlayer
 struct ContentView: View {
     
     
-    @State private var 🕰Setted = Date.now + 180
+    @State private var 🕰setted = Date.now + 180
     
     @AppStorage("🕛fadeIn") var 🕛fadeIn: TimeInterval = 30.0
     
@@ -16,7 +16,7 @@ struct ContentView: View {
     @AppStorage("🔔onWaiting") var 🔔onWaiting: Int = 5
     
     
-    @State private var 🔛Now: 🔛Phase = .powerOff
+    @State private var 🔛now: 🔛Phase = .powerOff
     
     @State private var 🔔volume: Int = 0
     
@@ -39,8 +39,8 @@ struct ContentView: View {
                             .animation(.default)
                             .foregroundColor(.secondary)
                             .onTapGesture {
-                                if 🔛Now == .powerOff {
-                                    🕰Setted = Date.now
+                                if 🔛now == .powerOff {
+                                    🕰setted = Date.now
                                 }
                             }
                     }
@@ -56,7 +56,7 @@ struct ContentView: View {
                         .font(.largeTitle.weight(.light))
                         .padding(16)
                         .overlay {
-                            if 🔛Now == .powerOff {
+                            if 🔛now == .powerOff {
                                 Image(systemName: "arrow.down")
                                     .font(.title.weight(.thin))
                                     .foregroundColor(.secondary)
@@ -66,7 +66,7 @@ struct ContentView: View {
                 }
                 
                 
-                🔔(ⓟhase: .waiting, ⓝow: 🔛Now, ⓘsSlash: 🔔onWaiting == 0 )
+                🔔(ⓟhase: .waiting, ⓝow: 🔛now, ⓘsSlash: 🔔onWaiting == 0 )
                     .id("🚡start")
                     .overlay {
                         Picker("Volume on waiting", selection: $🔔onWaiting) {
@@ -79,31 +79,31 @@ struct ContentView: View {
                         .pickerStyle(.menu)
                         .offset(x: 40)
                         .labelsHidden()
-                        .disabled( 🔛Now != .powerOff )
+                        .disabled( 🔛now != .powerOff )
                         
-                        if 🔛Now == .waiting {
+                        if 🔛now == .waiting {
                             🔛Phase.arrow()
                         }
                     }
                 
                 
-                DatePicker("", selection: $🕰Setted, displayedComponents: .hourAndMinute)
+                DatePicker("", selection: $🕰setted, displayedComponents: .hourAndMinute)
                     .labelsHidden()
                     .padding()
-                    .disabled( 🔛Now != .powerOff )
+                    .disabled( 🔛now != .powerOff )
                     .onAppear{
                         if let 🅃ime = UserDefaults.standard.value(forKey: "🕰alarm") {
-                            🕰Setted = 🅃ime as! Date
+                            🕰setted = 🅃ime as! Date
                         } else {
-                            🕰Setted = Date.now + 180
+                            🕰setted = Date.now + 180
                         }
                     }
-                    .onChange(of: 🕰Setted) { 🅃ime in
+                    .onChange(of: 🕰setted) { 🅃ime in
                         UserDefaults.standard.setValue(🅃ime,forKey: "🕰alarm")
                     }
                 
                 
-                🔔(ⓟhase: .fadeIn, ⓝow: 🔛Now)
+                🔔(ⓟhase: .fadeIn, ⓝow: 🔛now)
                     .id("🚡fadeIn")
                     .overlay(alignment: .trailing) {
                         Picker("Hour fade in", selection: $🕛fadeIn) {
@@ -117,23 +117,23 @@ struct ContentView: View {
                         .pickerStyle(.menu)
                         .offset(x: 90)
                         .labelsHidden()
-                        .disabled( 🔛Now != .powerOff )
+                        .disabled( 🔛now != .powerOff )
                         
-                        if 🔛Now == .fadeIn {
+                        if 🔛now == .fadeIn {
                             🔛Phase.arrow()
                         }
                     }
                 
                 
-                Text(🕰Setted.addingTimeInterval(🕛fadeIn), style: .time)
+                Text(🕰setted.addingTimeInterval(🕛fadeIn), style: .time)
                     .foregroundColor(.secondary)
                     .padding()
                 
                 
-                🔔(ⓟhase: .maxVolume, ⓝow: 🔛Now)
+                🔔(ⓟhase: .maxVolume, ⓝow: 🔛now)
                     .id("🚡maxVolume")
                     .overlay {
-                        if 🔛Now == .maxVolume {
+                        if 🔛now == .maxVolume {
                             🔛Phase.arrow()
                         }
                     }
@@ -145,7 +145,7 @@ struct ContentView: View {
                     .padding(16)
                 
                 
-                🔔(ⓟhase: .fadeOut, ⓝow: 🔛Now)
+                🔔(ⓟhase: .fadeOut, ⓝow: 🔛now)
                     .id("🚡fadeOut")
                     
                     .overlay(alignment: .trailing) {
@@ -159,9 +159,9 @@ struct ContentView: View {
                         .pickerStyle(.menu)
                         .offset(x: 90)
                         .labelsHidden()
-                        .disabled( 🔛Now != .powerOff )
+                        .disabled( 🔛now != .powerOff )
                         
-                        if 🔛Now == .fadeOut {
+                        if 🔛now == .fadeOut {
                             🔛Phase.arrow()
                         }
                     }
@@ -173,7 +173,7 @@ struct ContentView: View {
                     Divider()
                     
                     📁ImportFile()
-                        .disabled( 🔛Now != .powerOff )
+                        .disabled( 🔛now != .powerOff )
                     
                     Group {
                         Image(systemName: "link")
@@ -194,25 +194,25 @@ struct ContentView: View {
             
             .overlay(alignment: .bottom) {
                 HStack {
-                    if 🔛Now == .powerOff {
+                    if 🔛now == .powerOff {
                         🔘Button(type: .start) { // 􀆨
-                            🔛Now = .waiting
+                            🔛now = .waiting
                             
                             withAnimation {
                                 🚡.scrollTo("🚡start", anchor: .center)
                             }
                             
-                            🎵.play(🕰Setted, 🕛fadeIn)
+                            🎵.play(🕰setted, 🕛fadeIn)
                             
                             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
                                 
-                                switch 🔛Now {
+                                switch 🔛now {
                                 case .waiting:
                                     🎵.📻.volume = Float(🔔onWaiting) / 100
                                     let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
-                                    let 🄰larmTime = 🕰Setted.formatted(date: .omitted, time: .shortened)
+                                    let 🄰larmTime = 🕰setted.formatted(date: .omitted, time: .shortened)
                                     if 🄽ow == 🄰larmTime {
-                                        🔛Now = .fadeIn
+                                        🔛now = .fadeIn
                                         withAnimation {
                                             🚡.scrollTo("🚡fadeIn", anchor: .center)
                                         }
@@ -221,7 +221,7 @@ struct ContentView: View {
                                     🎵.📻.volume += Float( 0.5 / 🕛fadeIn )
                                     if 🎵.📻.volume > 1.0 {
                                         🎵.📻.volume = 1.0
-                                        🔛Now = .maxVolume
+                                        🔛now = .maxVolume
                                         withAnimation {
                                             🚡.scrollTo("🚡maxVolume", anchor: .center)
                                         }
@@ -231,7 +231,7 @@ struct ContentView: View {
                                     🎵.📻.volume -= Float( 0.5 / 🕛fadeOut )
                                     if 🎵.📻.volume < 0.0 {
                                         🎵.📻.volume = 0.0
-                                        🔛Now = .powerOff
+                                        🔛now = .powerOff
                                     }
                                 case .powerOff:
                                     🎵.📻.stop()
@@ -243,7 +243,7 @@ struct ContentView: View {
                             }
                             
                             MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
-                                🔛Now = .fadeOut
+                                🔛now = .fadeOut
                                 return .success
                             }
                         }
@@ -252,17 +252,17 @@ struct ContentView: View {
                     } else {
                         
                         🔘Button(type: .stop) { // ✓
-                            if 🔛Now == .waiting {
-                                🔛Now = .powerOff
+                            if 🔛now == .waiting {
+                                🔛now = .powerOff
                             } else {
-                                🔛Now = .fadeOut
+                                🔛now = .fadeOut
                                 withAnimation {
                                     🚡.scrollTo("🚡fadeOut", anchor: .center)
                                 }
                             }
                         }
-                        .disabled(🔛Now == .fadeOut)
-                        .foregroundColor( 🔛Now.beforeStart() ? nil : .red )
+                        .disabled(🔛now == .fadeOut)
+                        .foregroundColor( 🔛now.beforeStart() ? nil : .red )
                         .accessibilityLabel("Stop alarm")
                     }
 
@@ -271,7 +271,7 @@ struct ContentView: View {
             }
             
             .overlay(alignment: .topTrailing) {
-                if 🔛Now != .powerOff {
+                if 🔛now != .powerOff {
                     ZStack {
                         Label(🔔volume.description + "%", systemImage: "bell")
                             .font(.caption)
@@ -290,7 +290,7 @@ struct ContentView: View {
                 }
             }
             
-            .animation(.default, value: 🔛Now)
+            .animation(.default, value: 🔛now)
         }
     }
 }
