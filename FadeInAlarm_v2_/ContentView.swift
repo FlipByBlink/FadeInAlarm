@@ -66,9 +66,7 @@ struct ContentView: View {
                 }
                 
                 
-                🔔(ⓟhase: .waiting, ⓘsSlash: 🔔onWaiting == 0 )
-                    .symbolVariant( 🔛 == .waiting ? .fill : .none)
-                    .foregroundColor( 🔛 == .waiting ? nil : .secondary)
+                🔔(ⓟhase: .waiting, ⓝow: 🔛, ⓘsSlash: 🔔onWaiting == 0 )
                     .id("🚡start")
                     .overlay {
                         Picker("Volume on waiting", selection: $🔔onWaiting) {
@@ -105,9 +103,7 @@ struct ContentView: View {
                     }
                 
                 
-                🔔(ⓟhase: .fadeIn)
-                    .symbolVariant( 🔛 == .fadeIn ? .fill : .none)
-                    .foregroundColor( 🔛 == .fadeIn ? nil : .secondary)
+                🔔(ⓟhase: .fadeIn, ⓝow: 🔛)
                     .id("🚡fadeIn")
                     .overlay(alignment: .trailing) {
                         Picker("Hour fade in", selection: $🕛fadeIn) {
@@ -134,9 +130,7 @@ struct ContentView: View {
                     .padding()
                 
                 
-                🔔(ⓟhase: .maxVolume)
-                    .symbolVariant( 🔛 == .maxVolume ? .fill : .none)
-                    .foregroundColor( 🔛 == .maxVolume ? nil : .secondary)
+                🔔(ⓟhase: .maxVolume, ⓝow: 🔛)
                     .id("🚡maxVolume")
                     .overlay {
                         if 🔛 == .maxVolume {
@@ -151,9 +145,7 @@ struct ContentView: View {
                     .padding(16)
                 
                 
-                🔔(ⓟhase: .fadeOut)
-                    .symbolVariant( 🔛 == .fadeOut ? .fill : .none)
-                    .foregroundColor( 🔛 == .fadeOut ? nil : .secondary)
+                🔔(ⓟhase: .fadeOut, ⓝow: 🔛)
                     .id("🚡fadeOut")
                     
                     .overlay(alignment: .trailing) {

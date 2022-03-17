@@ -6,6 +6,8 @@ struct 🔔: View {
     
     var ⓟhase: 🔛Phase
     
+    var ⓝow: 🔛Phase
+    
     var ⓘsSlash: Bool = false
     
     @State private var 🅂cale = 0.4
@@ -22,11 +24,15 @@ struct 🔔: View {
             switch ⓟhase {
             case .waiting:
                 Image(systemName: "bell")
+                    .symbolVariant( ⓝow == .waiting ? .fill : .none)
+                    .foregroundColor( ⓝow == .waiting ? nil : .secondary)
                     .symbolVariant(ⓘsSlash ? .slash : .none)
                     .scaleEffect(🔉)
                 
             case .fadeIn:
                 Image(systemName: "bell")
+                    .symbolVariant( ⓝow == .fadeIn ? .fill : .none)
+                    .foregroundColor( ⓝow == .fadeIn ? nil : .secondary)
                     .scaleEffect(🅂cale)
                     .opacity(🄾pacity)
                     .task {
@@ -38,9 +44,13 @@ struct 🔔: View {
                 
             case .maxVolume:
                 Image(systemName: "bell")
+                    .symbolVariant( ⓝow == .maxVolume ? .fill : .none)
+                    .foregroundColor( ⓝow == .maxVolume ? nil : .secondary)
                 
             case .fadeOut:
                 Image(systemName: "bell")
+                    .symbolVariant( ⓝow == .fadeOut ? .fill : .none)
+                    .foregroundColor( ⓝow == .fadeOut ? nil : .secondary)
                     .scaleEffect(🅂cale)
                     .opacity(🄾pacity)
                     .task {
@@ -91,12 +101,15 @@ struct 🔔: View {
 
 struct 🔔View_Previews: PreviewProvider {
     static var previews: some View {
+        
+        let now:🔛Phase = .waiting
+        
         VStack {
-            🔔(ⓟhase: .waiting, ⓘsSlash: true)
-            🔔(ⓟhase: .waiting)
-            🔔(ⓟhase: .fadeIn)
-            🔔(ⓟhase: .maxVolume)
-            🔔(ⓟhase: .fadeOut)
+            🔔(ⓟhase: .waiting, ⓝow: now, ⓘsSlash: true)
+            🔔(ⓟhase: .waiting, ⓝow: now)
+            🔔(ⓟhase: .fadeIn, ⓝow: now)
+            🔔(ⓟhase: .maxVolume, ⓝow: now)
+            🔔(ⓟhase: .fadeOut, ⓝow: now)
         }
     }
 }
