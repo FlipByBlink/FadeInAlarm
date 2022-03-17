@@ -58,7 +58,7 @@ struct ContentView: View {
                         .overlay {
                             if 🔛 == .powerOff {
                                 Image(systemName: "arrow.down")
-                                    .font(.title.weight(.light))
+                                    .font(.title.weight(.thin))
                                     .foregroundColor(.secondary)
                                     .offset(x: -60)
                             }
