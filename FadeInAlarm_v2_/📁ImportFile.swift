@@ -22,7 +22,6 @@ struct 📁ImportFile: View {
                 Image(systemName: "folder")
                 
                 Text(💽Name)
-                    .padding(1)
                     .onAppear {
                         do {
                             let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
@@ -36,7 +35,7 @@ struct 📁ImportFile: View {
             }
         }
         .accessibilityLabel("Import file")
-        .padding(20)
+        .padding(30)
         .fileImporter(isPresented: $📂, allowedContentTypes: [.audio]) { 🅁esult in
             do {
                 let 📦 = try 🅁esult.get()

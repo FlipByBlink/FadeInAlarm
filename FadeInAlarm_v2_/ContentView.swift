@@ -179,20 +179,18 @@ struct ContentView: View {
                     📁ImportFile()
                         .disabled( 🔛now != .powerOff )
                     
-                    Group {
-                        Image(systemName: "link")
-                            .foregroundColor(.secondary)
-                        
+                    Menu {
                         Link("AppStore link",
                              destination: URL(string: "https://apps.apple.com/app/id1465336070")!)
                         
                         Link("Source code link",
                              destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!)
+                    } label: {
+                        Image(systemName: "link")
+                            .font(.caption)
                     }
-                    .padding(1)
-                    .font(.footnote)
                     
-                    Spacer(minLength: 150)
+                    Spacer(minLength: 100)
                 }
             }
             
