@@ -203,7 +203,7 @@ struct ContentView: View {
                             🔛now = .waiting
                             
                             withAnimation {
-                                🚡.scrollTo("🚡start", anchor: .center)
+                                🚡.scrollTo("🚡start")
                             }
                             
                             🎵.play(🕰setted, 🕛fadeIn)
@@ -218,7 +218,7 @@ struct ContentView: View {
                                     if 🄽ow == 🄰larmTime {
                                         🔛now = .fadeIn
                                         withAnimation {
-                                            🚡.scrollTo("🚡fadeIn", anchor: .center)
+                                            🚡.scrollTo("🚡fadeIn")
                                         }
                                     }
                                 case .fadeIn:
@@ -227,7 +227,7 @@ struct ContentView: View {
                                         🎵.📻.volume = 1.0
                                         🔛now = .maxVolume
                                         withAnimation {
-                                            🚡.scrollTo("🚡maxVolume", anchor: .center)
+                                            🚡.scrollTo("🚡maxVolume")
                                         }
                                     }
                                 case .maxVolume: break
@@ -261,7 +261,7 @@ struct ContentView: View {
                             } else {
                                 🔛now = .fadeOut
                                 withAnimation {
-                                    🚡.scrollTo("🚡fadeOut", anchor: .center)
+                                    🚡.scrollTo("🚡fadeOut")
                                 }
                             }
                         }
