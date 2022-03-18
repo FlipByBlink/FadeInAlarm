@@ -52,8 +52,6 @@ struct ContentView: View {
                 
                 
                 VStack {
-                    Spacer(minLength: 20)
-                    
                     HStack {
                         Image(systemName: "power.circle")
                             .foregroundColor(.secondary)
@@ -62,12 +60,10 @@ struct ContentView: View {
                         
                         Spacer()
 
-                        if 🔛now == .powerOff {
-                            Image(systemName: "arrow.down")
-                                .font(.title.weight(.light))
-                                .foregroundColor(.secondary)
-                                .padding()
-                        }
+                        Image(systemName: "arrow.down")
+                            .font(.largeTitle.weight(.thin))
+                            .foregroundColor(.secondary)
+                            .padding()
                     }
                     
                     
@@ -84,10 +80,6 @@ struct ContentView: View {
                         .pickerStyle(.menu)
                         .labelsHidden()
                         .disabled( 🔛now != .powerOff )
-                        
-                        if 🔛now == .waiting {
-                            🔛Phase.arrow()
-                        }
                         
                         Spacer()
                     }
@@ -129,10 +121,6 @@ struct ContentView: View {
                         .labelsHidden()
                         .disabled( 🔛now != .powerOff )
                         
-                        if 🔛now == .fadeIn {
-                            🔛Phase.arrow()
-                        }
-                        
                         Spacer()
                     }
                     .id("🚡fadeIn")
@@ -149,10 +137,6 @@ struct ContentView: View {
                     
                     HStack {
                         🔔(ⓟhase: .maxVolume, ⓝow: 🔛now)
-                        
-                        if 🔛now == .maxVolume {
-                            🔛Phase.arrow()
-                        }
                         
                         Spacer()
                     }
@@ -183,10 +167,6 @@ struct ContentView: View {
                         .labelsHidden()
                         .disabled( 🔛now != .powerOff )
                         
-                        if 🔛now == .fadeOut {
-                            🔛Phase.arrow()
-                        }
-                        
                         Spacer()
                     }
                     .id("🚡fadeOut")
@@ -194,8 +174,6 @@ struct ContentView: View {
                 .padding()
                 
                 VStack {
-                    Spacer(minLength: 20)
-                    
                     Divider()
                     
                     📁ImportFile()

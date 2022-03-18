@@ -15,7 +15,7 @@ struct 🔔: View {
     @State private var 🄾pacity = 1.0
     
     
-    let 🔉 = 0.4
+    let 🔉 = 0.5
     
     
     var body: some View {
