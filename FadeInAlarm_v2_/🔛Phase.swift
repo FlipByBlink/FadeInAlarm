@@ -20,9 +20,9 @@ enum 🔛Phase {
         
         var body: some View {
             
-            Image(systemName: "arrow.right")
-                .font(.title)
-                .offset(x: -60)
+            Image(systemName: "arrow.left")
+                .padding()
+                .font(.title.weight(.semibold))
         }
     }
 }

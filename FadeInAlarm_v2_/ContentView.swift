@@ -31,9 +31,9 @@ struct ContentView: View {
                 
                 VStack {
                     Spacer(minLength: 25)
-
+                    
                     🔊SystemVolume()
-
+                    
                     TimelineView(.periodic(from: .now, by: 1)) { _ in
                         Text(.now, style: .time)
                             .animation(.default)
@@ -48,27 +48,32 @@ struct ContentView: View {
                     Spacer(minLength: 25)
                     
                     Divider()
-                    
-                    Spacer(minLength: 40)
-                    
-                    Image(systemName: "power.circle")
-                        .foregroundColor(.secondary)
-                        .font(.largeTitle.weight(.light))
-                        .padding(16)
-                        .overlay {
-                            if 🔛now == .powerOff {
-                                Image(systemName: "arrow.down")
-                                    .font(.title.weight(.thin))
-                                    .foregroundColor(.secondary)
-                                    .offset(x: -60)
-                            }
-                        }
                 }
                 
                 
-                🔔(ⓟhase: .waiting, ⓝow: 🔛now, ⓘsSlash: 🔔onWaiting == 0 )
-                    .id("🚡start")
-                    .overlay {
+                VStack {
+                    Spacer(minLength: 20)
+                    
+                    HStack {
+                        Image(systemName: "power.circle")
+                            .foregroundColor(.secondary)
+                            .font(.largeTitle.weight(.light))
+                            .padding()
+                        
+                        Spacer()
+
+                        if 🔛now == .powerOff {
+                            Image(systemName: "arrow.down")
+                                .font(.title.weight(.light))
+                                .foregroundColor(.secondary)
+                                .padding()
+                        }
+                    }
+                    
+                    
+                    HStack {
+                        🔔(ⓟhase: .waiting, ⓝow: 🔛now, ⓘsSlash: 🔔onWaiting == 0 )
+                        
                         Picker("Volume on waiting", selection: $🔔onWaiting) {
                             Text("0%").tag(0)
                             Text("1%").tag(1)
@@ -77,35 +82,41 @@ struct ContentView: View {
                             Text("10%").tag(10)
                         }
                         .pickerStyle(.menu)
-                        .offset(x: 40)
                         .labelsHidden()
                         .disabled( 🔛now != .powerOff )
                         
                         if 🔛now == .waiting {
                             🔛Phase.arrow()
                         }
+                        
+                        Spacer()
                     }
-                
-                
-                DatePicker("", selection: $🕰setted, displayedComponents: .hourAndMinute)
-                    .labelsHidden()
-                    .padding()
-                    .disabled( 🔛now != .powerOff )
-                    .onAppear{
-                        if let 🅃ime = UserDefaults.standard.value(forKey: "🕰alarm") {
-                            🕰setted = 🅃ime as! Date
-                        } else {
-                            🕰setted = Date.now + 180
-                        }
+                    .id("🚡start")
+                    
+                    
+                    HStack {
+                        DatePicker("", selection: $🕰setted, displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                            .padding()
+                            .disabled( 🔛now != .powerOff )
+                            .onAppear{
+                                if let 🅃ime = UserDefaults.standard.value(forKey: "🕰alarm") {
+                                    🕰setted = 🅃ime as! Date
+                                } else {
+                                    🕰setted = Date.now + 180
+                                }
+                            }
+                            .onChange(of: 🕰setted) { 🅃ime in
+                                UserDefaults.standard.setValue(🅃ime,forKey: "🕰alarm")
+                            }
+                        
+                        Spacer()
                     }
-                    .onChange(of: 🕰setted) { 🅃ime in
-                        UserDefaults.standard.setValue(🅃ime,forKey: "🕰alarm")
-                    }
-                
-                
-                🔔(ⓟhase: .fadeIn, ⓝow: 🔛now)
-                    .id("🚡fadeIn")
-                    .overlay(alignment: .trailing) {
+                    
+                    
+                    HStack {
+                        🔔(ⓟhase: .fadeIn, ⓝow: 🔛now)
+                        
                         Picker("Hour fade in", selection: $🕛fadeIn) {
                             Text("+ 00:00:10").tag(10.0)
                             Text("+ 00:00:30").tag(30.0)
@@ -115,40 +126,52 @@ struct ContentView: View {
                             Text("+ 01:00:00").tag(3600.0)
                         }
                         .pickerStyle(.menu)
-                        .offset(x: 90)
                         .labelsHidden()
                         .disabled( 🔛now != .powerOff )
                         
                         if 🔛now == .fadeIn {
                             🔛Phase.arrow()
                         }
+                        
+                        Spacer()
                     }
-                
-                
-                Text(🕰setted.addingTimeInterval(🕛fadeIn), style: .time)
-                    .foregroundColor(.secondary)
-                    .padding()
-                
-                
-                🔔(ⓟhase: .maxVolume, ⓝow: 🔛now)
-                    .id("🚡maxVolume")
-                    .overlay {
+                    .id("🚡fadeIn")
+                    
+                    
+                    HStack {
+                        Text(🕰setted.addingTimeInterval(🕛fadeIn), style: .time)
+                            .foregroundColor(.secondary)
+                            .padding()
+                        
+                        Spacer()
+                    }
+                    
+                    
+                    HStack {
+                        🔔(ⓟhase: .maxVolume, ⓝow: 🔛now)
+                        
                         if 🔛now == .maxVolume {
                             🔛Phase.arrow()
                         }
+                        
+                        Spacer()
                     }
-                
-                
-                Image(systemName: "checkmark.circle")
-                    .font(.largeTitle.weight(.light))
-                    .foregroundColor(.secondary)
-                    .padding(16)
-                
-                
-                🔔(ⓟhase: .fadeOut, ⓝow: 🔛now)
-                    .id("🚡fadeOut")
+                    .id("🚡maxVolume")
+
                     
-                    .overlay(alignment: .trailing) {
+                    HStack {
+                        Image(systemName: "checkmark.circle")
+                            .font(.largeTitle.weight(.light))
+                            .foregroundColor(.secondary)
+                            .padding()
+                        
+                        Spacer()
+                    }
+                    
+                    
+                    HStack {
+                        🔔(ⓟhase: .fadeOut, ⓝow: 🔛now)
+                        
                         Picker("Hour fade out", selection: $🕛fadeOut) {
                             Text("+ 00:00:03").tag(3.0)
                             Text("+ 00:00:07").tag(7.0)
@@ -157,18 +180,21 @@ struct ContentView: View {
                             Text("+ 00:01:00").tag(60.0)
                         }
                         .pickerStyle(.menu)
-                        .offset(x: 90)
                         .labelsHidden()
                         .disabled( 🔛now != .powerOff )
                         
                         if 🔛now == .fadeOut {
                             🔛Phase.arrow()
                         }
+                        
+                        Spacer()
                     }
-                
+                    .id("🚡fadeOut")
+                }
+                .padding()
                 
                 VStack {
-                    Spacer(minLength: 60)
+                    Spacer(minLength: 20)
                     
                     Divider()
                     
@@ -188,12 +214,14 @@ struct ContentView: View {
                     .padding(1)
                     .font(.footnote)
                     
-                    Spacer(minLength: 170)
+                    Spacer(minLength: 150)
                 }
             }
             
             .overlay(alignment: .bottom) {
                 HStack {
+                    Spacer()
+                    
                     if 🔛now == .powerOff {
                         🔘Button(type: .start) { // 􀆨
                             🔛now = .waiting
@@ -265,8 +293,6 @@ struct ContentView: View {
                         .foregroundColor( 🔛now.beforeStart() ? nil : .red )
                         .accessibilityLabel("Stop alarm")
                     }
-
-                    Spacer()
                 }
             }
             
