@@ -51,127 +51,134 @@ struct ContentView: View {
                 }
                 
                 
-                VStack {
-                    HStack {
-                        Image(systemName: "power.circle")
-                            .foregroundColor(.secondary)
-                            .font(.largeTitle.weight(.light))
-                            .padding()
-                        
-                        Spacer()
-
-                        Image(systemName: "arrow.down")
-                            .font(.largeTitle.weight(.thin))
-                            .foregroundColor(.secondary)
-                            .padding()
-                    }
+                HStack {
+                    Image(systemName: "power.circle") // 􀆨
+                        .foregroundColor(.secondary)
+                        .font(.largeTitle.weight(.light))
+                        .padding()
                     
+                    Spacer()
                     
-                    HStack {
-                        🔔(ⓟhase: .waiting, ⓝow: 🔛now, ⓘsSlash: 🔔onWaiting == 0 )
-                        
-                        Picker("Volume on waiting", selection: $🔔onWaiting) {
-                            Text("0%").tag(0)
-                            Text("1%").tag(1)
-                            Text("3%").tag(3)
-                            Text("5%").tag(5)
-                            Text("10%").tag(10)
-                        }
-                        .pickerStyle(.menu)
-                        .labelsHidden()
-                        .disabled( 🔛now != .powerOff )
-                        
-                        Spacer()
-                    }
-                    .id("🚡start")
-                    
-                    
-                    HStack {
-                        DatePicker("", selection: $🕰setted, displayedComponents: .hourAndMinute)
-                            .labelsHidden()
-                            .padding()
-                            .disabled( 🔛now != .powerOff )
-                            .onAppear{
-                                if let 🅃ime = UserDefaults.standard.value(forKey: "🕰alarm") {
-                                    🕰setted = 🅃ime as! Date
-                                } else {
-                                    🕰setted = Date.now + 180
-                                }
-                            }
-                            .onChange(of: 🕰setted) { 🅃ime in
-                                UserDefaults.standard.setValue(🅃ime,forKey: "🕰alarm")
-                            }
-                        
-                        Spacer()
-                    }
-                    
-                    
-                    HStack {
-                        🔔(ⓟhase: .fadeIn, ⓝow: 🔛now)
-                        
-                        Picker("Hour fade in", selection: $🕛fadeIn) {
-                            Text("+ 00:00:10").tag(10.0)
-                            Text("+ 00:00:30").tag(30.0)
-                            Text("+ 00:01:00").tag(60.0)
-                            Text("+ 00:05:00").tag(300.0)
-                            Text("+ 00:30:00").tag(1800.0)
-                            Text("+ 01:00:00").tag(3600.0)
-                        }
-                        .pickerStyle(.menu)
-                        .labelsHidden()
-                        .disabled( 🔛now != .powerOff )
-                        
-                        Spacer()
-                    }
-                    .id("🚡fadeIn")
-                    
-                    
-                    HStack {
-                        Text(🕰setted.addingTimeInterval(🕛fadeIn), style: .time)
-                            .foregroundColor(.secondary)
-                            .padding()
-                        
-                        Spacer()
-                    }
-                    
-                    
-                    HStack {
-                        🔔(ⓟhase: .maxVolume, ⓝow: 🔛now)
-                        
-                        Spacer()
-                    }
-                    .id("🚡maxVolume")
-
-                    
-                    HStack {
-                        Image(systemName: "checkmark.circle")
-                            .font(.largeTitle.weight(.light))
-                            .foregroundColor(.secondary)
-                            .padding()
-                        
-                        Spacer()
-                    }
-                    
-                    
-                    HStack {
-                        🔔(ⓟhase: .fadeOut, ⓝow: 🔛now)
-                        
-                        Picker("Hour fade out", selection: $🕛fadeOut) {
-                            Text("+ 00:00:03").tag(3.0)
-                            Text("+ 00:00:07").tag(7.0)
-                            Text("+ 00:00:15").tag(15.0)
-                            Text("+ 00:00:30").tag(30.0)
-                            Text("+ 00:01:00").tag(60.0)
-                        }
-                        .pickerStyle(.menu)
-                        .labelsHidden()
-                        .disabled( 🔛now != .powerOff )
-                        
-                        Spacer()
-                    }
-                    .id("🚡fadeOut")
+                    Image(systemName: "arrow.down")
+                        .font(.largeTitle.weight(.thin))
+                        .foregroundColor(.secondary)
+                        .padding()
                 }
-                .padding()
+                .padding(.top)
+                .padding(.horizontal)
+                
+                
+                HStack {
+                    🔔(ⓟhase: .waiting, ⓝow: 🔛now, ⓘsSlash: 🔔onWaiting == 0 )
+                    
+                    Picker("Volume on waiting", selection: $🔔onWaiting) {
+                        Text("0%").tag(0)
+                        Text("1%").tag(1)
+                        Text("3%").tag(3)
+                        Text("5%").tag(5)
+                        Text("10%").tag(10)
+                    }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                    .disabled( 🔛now != .powerOff )
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .id("🚡start")
+                
+                
+                HStack {
+                    DatePicker("", selection: $🕰setted, displayedComponents: .hourAndMinute)
+                        .labelsHidden()
+                        .padding()
+                        .disabled( 🔛now != .powerOff )
+                        .onAppear{
+                            if let 🅃ime = UserDefaults.standard.value(forKey: "🕰alarm") {
+                                🕰setted = 🅃ime as! Date
+                            } else {
+                                🕰setted = Date.now + 180
+                            }
+                        }
+                        .onChange(of: 🕰setted) { 🅃ime in
+                            UserDefaults.standard.setValue(🅃ime,forKey: "🕰alarm")
+                        }
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                
+                HStack {
+                    🔔(ⓟhase: .fadeIn, ⓝow: 🔛now)
+                    
+                    Picker("Hour fade in", selection: $🕛fadeIn) {
+                        Text("+ 00:00:10").tag(10.0)
+                        Text("+ 00:00:30").tag(30.0)
+                        Text("+ 00:01:00").tag(60.0)
+                        Text("+ 00:05:00").tag(300.0)
+                        Text("+ 00:30:00").tag(1800.0)
+                        Text("+ 01:00:00").tag(3600.0)
+                    }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                    .disabled( 🔛now != .powerOff )
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .id("🚡fadeIn")
+                
+                
+                HStack {
+                    Text(🕰setted.addingTimeInterval(🕛fadeIn), style: .time)
+                        .foregroundColor(.secondary)
+                        .padding()
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                
+                HStack {
+                    🔔(ⓟhase: .maxVolume, ⓝow: 🔛now)
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .id("🚡maxVolume")
+                
+                
+                HStack {
+                    Image(systemName: "checkmark.circle") // ✓
+                        .font(.largeTitle.weight(.light))
+                        .foregroundColor(.secondary)
+                        .padding()
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                
+                HStack {
+                    🔔(ⓟhase: .fadeOut, ⓝow: 🔛now)
+                    
+                    Picker("Hour fade out", selection: $🕛fadeOut) {
+                        Text("+ 00:00:03").tag(3.0)
+                        Text("+ 00:00:07").tag(7.0)
+                        Text("+ 00:00:15").tag(15.0)
+                        Text("+ 00:00:30").tag(30.0)
+                        Text("+ 00:01:00").tag(60.0)
+                    }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                    .disabled( 🔛now != .powerOff )
+                    
+                    Spacer()
+                }
+                .padding(.bottom)
+                .padding(.horizontal)
+                .id("🚡fadeOut")
                 
                 VStack {
                     Divider()
@@ -203,7 +210,7 @@ struct ContentView: View {
                             🔛now = .waiting
                             
                             withAnimation {
-                                🚡.scrollTo("🚡start")
+                                🚡.scrollTo("🚡start", anchor: .center)
                             }
                             
                             🎵.play(🕰setted, 🕛fadeIn)
@@ -218,7 +225,7 @@ struct ContentView: View {
                                     if 🄽ow == 🄰larmTime {
                                         🔛now = .fadeIn
                                         withAnimation {
-                                            🚡.scrollTo("🚡fadeIn")
+                                            🚡.scrollTo("🚡fadeIn", anchor: .center)
                                         }
                                     }
                                 case .fadeIn:
@@ -227,7 +234,7 @@ struct ContentView: View {
                                         🎵.📻.volume = 1.0
                                         🔛now = .maxVolume
                                         withAnimation {
-                                            🚡.scrollTo("🚡maxVolume")
+                                            🚡.scrollTo("🚡maxVolume", anchor: .center)
                                         }
                                     }
                                 case .maxVolume: break
@@ -261,7 +268,7 @@ struct ContentView: View {
                             } else {
                                 🔛now = .fadeOut
                                 withAnimation {
-                                    🚡.scrollTo("🚡fadeOut")
+                                    🚡.scrollTo("🚡fadeOut", anchor: .center)
                                 }
                             }
                         }
