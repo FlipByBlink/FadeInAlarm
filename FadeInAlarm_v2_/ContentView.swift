@@ -71,15 +71,16 @@ struct ContentView: View {
                 HStack {
                     🔔(ⓟhase: .waiting, ⓝow: 🔛now, ⓘsSlash: 🔔onWaiting == 0 )
                     
-                    Picker("Volume on waiting", selection: $🔔onWaiting) {
-                        Text("0%").tag(0)
-                        Text("1%").tag(1)
-                        Text("3%").tag(3)
-                        Text("5%").tag(5)
-                        Text("10%").tag(10)
+                    Menu(🔔onWaiting.description + "%") {
+                        Picker("Volume on waiting", selection: $🔔onWaiting) {
+                            Text("0%").tag(0)
+                            Text("1%").tag(1)
+                            Text("3%").tag(3)
+                            Text("5%").tag(5)
+                            Text("10%").tag(10)
+                        }
                     }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
+                    .font(.caption)
                     .disabled( 🔛now != .powerOff )
                     
                     Spacer()
