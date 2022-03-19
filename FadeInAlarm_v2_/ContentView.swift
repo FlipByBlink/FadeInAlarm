@@ -52,7 +52,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    Image(systemName: "power.circle") // 􀆨
+                    Image(systemName: "power.circle") // ⏻
                         .foregroundColor(.secondary)
                         .font(.largeTitle.weight(.light))
                         .padding()
@@ -77,9 +77,7 @@ struct ContentView: View {
                     👆🔊VolumeOnWaiting(ⓢelected: $🎚🔊VolumeOnWaiting)
                         .disabled( 🔛now != .powerOff )
                     
-                    if 🔛now == .waiting {
-                        🔛Phase.ⓐrrow()
-                    }
+                    if 🔛now == .waiting { 🔛Phase.arrow() }
                     
                     Spacer()
                 }
@@ -102,9 +100,7 @@ struct ContentView: View {
                     👆🕛HourFadeIn(ⓢelected: $🎚🕛HourFadein)
                         .disabled( 🔛now != .powerOff )
                     
-                    if 🔛now == .fadeIn {
-                        🔛Phase.ⓐrrow()
-                    }
+                    if 🔛now == .fadeIn { 🔛Phase.arrow() }
                     
                     Spacer()
                 }
@@ -125,9 +121,7 @@ struct ContentView: View {
                 HStack {
                     🔔(ⓟhase: .maxVolume, ⓝow: 🔛now)
                     
-                    if 🔛now == .maxVolume {
-                        🔛Phase.ⓐrrow()
-                    }
+                    if 🔛now == .maxVolume { 🔛Phase.arrow() }
                     
                     Spacer()
                 }
@@ -152,9 +146,7 @@ struct ContentView: View {
                     👆🕛HourFadeOut(ⓢelected: $🎚🕛HourFadeOut)
                         .disabled( 🔛now != .powerOff )
                     
-                    if 🔛now == .fadeOut {
-                        🔛Phase.ⓐrrow()
-                    }
+                    if 🔛now == .fadeOut { 🔛Phase.arrow() }
                     
                     Spacer()
                 }
