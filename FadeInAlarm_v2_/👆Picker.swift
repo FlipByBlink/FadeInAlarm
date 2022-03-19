@@ -2,20 +2,9 @@
 import SwiftUI
 
 
-enum 💾Data: String {
-    case 🔊VolumeOnWaiting
-    case 🕰TimeFadeIn
-    case 🕛HourFadein
-    case 🕛HourFadeOut
-}
-
-
 struct 👆🔊VolumeOnWaiting: View {
     
     @Binding var ⓢelected: Int
-    
-//    var ⓓisabled: 🔛Phase
-    
     
     var body: some View {
         Menu( ⓢelected.description + "%" ) {
@@ -33,12 +22,11 @@ struct 👆🔊VolumeOnWaiting: View {
 }
 
 
+
+
 struct 👆🕰TimeFadeIn: View {
     
     @Binding var ⓢelected: Date
-    
-//    var ⓓisabled: 🔛Phase
-    
     
     var body: some View {
         DatePicker("", selection: $ⓢelected, displayedComponents: .hourAndMinute)
@@ -57,6 +45,8 @@ struct 👆🕰TimeFadeIn: View {
             .accessibilityLabel("Set time to start fade-in")
     }
 }
+
+
 
 
 enum 🄲hoicesFadeIn: Double, CaseIterable, Identifiable {
@@ -86,7 +76,6 @@ struct 👆🕛HourFadeIn: View {
     
     @Binding var ⓢelected: TimeInterval
     
-    
     var body: some View {
         Menu( "+ " + (🄲hoicesFadeIn(rawValue: ⓢelected)?.ⓣext ?? "👿") ) {
             Picker("", selection: $ⓢelected) {
@@ -98,6 +87,8 @@ struct 👆🕛HourFadeIn: View {
         .accessibilityLabel("Select hour fade-in")
     }
 }
+
+
 
 
 enum 🄲hoicesFadeOut: Double, CaseIterable, Identifiable {
@@ -124,7 +115,6 @@ enum 🄲hoicesFadeOut: Double, CaseIterable, Identifiable {
 struct 👆🕛HourFadeOut: View {
     
     @Binding var ⓢelected: TimeInterval
-    
     
     var body: some View {
         Menu( "+ " + (🄲hoicesFadeOut(rawValue: ⓢelected)?.ⓣext ?? "👿") ) {

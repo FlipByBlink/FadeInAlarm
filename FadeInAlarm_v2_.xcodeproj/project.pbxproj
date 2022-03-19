@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1227B4E327E5F71A000E4DFE /* 💾Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1227B4E227E5F71A000E4DFE /* 💾Data.swift */; };
 		124A43DB27E5B73C00DB1447 /* 👆Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A43DA27E5B73C00DB1447 /* 👆Picker.swift */; };
 		125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */; };
 		125D911227C6F117005D99D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911127C6F117005D99D1 /* ContentView.swift */; };
 		125D911427C6F118005D99D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 125D911327C6F118005D99D1 /* Assets.xcassets */; };
 		125D911727C6F118005D99D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 125D911627C6F118005D99D1 /* Preview Assets.xcassets */; };
-		125D912327C6F18F005D99D1 /* 🔔.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911D27C6F18F005D99D1 /* 🔔.swift */; };
+		125D912327C6F18F005D99D1 /* 🔔Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911D27C6F18F005D99D1 /* 🔔Icon.swift */; };
 		125D912427C6F18F005D99D1 /* 🎵AlarmPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911E27C6F18F005D99D1 /* 🎵AlarmPlayer.swift */; };
 		125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */; };
 		125D912627C6F18F005D99D1 /* 🔊SystemVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1227B4E227E5F71A000E4DFE /* 💾Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💾Data.swift"; sourceTree = "<group>"; };
 		123D146A27C8671F00A3C1E0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		124A43DA27E5B73C00DB1447 /* 👆Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👆Picker.swift"; sourceTree = "<group>"; };
 		125D910C27C6F117005D99D1 /* FadeInAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FadeInAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,7 +30,7 @@
 		125D911127C6F117005D99D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		125D911327C6F118005D99D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		125D911627C6F118005D99D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		125D911D27C6F18F005D99D1 /* 🔔.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔔.swift"; sourceTree = "<group>"; };
+		125D911D27C6F18F005D99D1 /* 🔔Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔔Icon.swift"; sourceTree = "<group>"; };
 		125D911E27C6F18F005D99D1 /* 🎵AlarmPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🎵AlarmPlayer.swift"; sourceTree = "<group>"; };
 		125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📁ImportFile.swift"; sourceTree = "<group>"; };
 		125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔊SystemVolume.swift"; sourceTree = "<group>"; };
@@ -74,8 +76,9 @@
 				125D911E27C6F18F005D99D1 /* 🎵AlarmPlayer.swift */,
 				125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */,
 				125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */,
-				125D911D27C6F18F005D99D1 /* 🔔.swift */,
+				125D911D27C6F18F005D99D1 /* 🔔Icon.swift */,
 				125D912227C6F18F005D99D1 /* 🔘Button.swift */,
+				1227B4E227E5F71A000E4DFE /* 💾Data.swift */,
 				124A43DA27E5B73C00DB1447 /* 👆Picker.swift */,
 				125D912127C6F18F005D99D1 /* 🔛Phase.swift */,
 				125D911327C6F118005D99D1 /* Assets.xcassets */,
@@ -162,13 +165,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				125D912327C6F18F005D99D1 /* 🔔.swift in Sources */,
+				125D912327C6F18F005D99D1 /* 🔔Icon.swift in Sources */,
 				125D912427C6F18F005D99D1 /* 🎵AlarmPlayer.swift in Sources */,
 				125D912827C6F18F005D99D1 /* 🔘Button.swift in Sources */,
 				125D911227C6F117005D99D1 /* ContentView.swift in Sources */,
 				125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */,
 				125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */,
 				125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */,
+				1227B4E327E5F71A000E4DFE /* 💾Data.swift in Sources */,
 				124A43DB27E5B73C00DB1447 /* 👆Picker.swift in Sources */,
 				125D912627C6F18F005D99D1 /* 🔊SystemVolume.swift in Sources */,
 			);

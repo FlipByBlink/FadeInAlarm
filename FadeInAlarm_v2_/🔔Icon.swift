@@ -2,7 +2,7 @@
 import SwiftUI
 
 
-struct 🔔: View {
+struct 🔔Icon: View {
     
     var ⓟhase: 🔛Phase
     
@@ -106,11 +106,11 @@ struct 🔔View_Previews: PreviewProvider {
         let now:🔛Phase = .waiting
         
         VStack {
-            🔔(ⓟhase: .waiting, ⓝow: now, ⓘsSlash: true)
-            🔔(ⓟhase: .waiting, ⓝow: now)
-            🔔(ⓟhase: .fadeIn, ⓝow: now)
-            🔔(ⓟhase: .maxVolume, ⓝow: now)
-            🔔(ⓟhase: .fadeOut, ⓝow: now)
+            🔔Icon(ⓟhase: .waiting, ⓝow: now, ⓘsSlash: true)
+            🔔Icon(ⓟhase: .waiting, ⓝow: now)
+            🔔Icon(ⓟhase: .fadeIn, ⓝow: now)
+            🔔Icon(ⓟhase: .maxVolume, ⓝow: now)
+            🔔Icon(ⓟhase: .fadeOut, ⓝow: now)
         }
     }
 }
