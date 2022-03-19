@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124A43DB27E5B73C00DB1447 /* 👆Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A43DA27E5B73C00DB1447 /* 👆Picker.swift */; };
 		125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */; };
 		125D911227C6F117005D99D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911127C6F117005D99D1 /* ContentView.swift */; };
 		125D911427C6F118005D99D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 125D911327C6F118005D99D1 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		123D146A27C8671F00A3C1E0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		124A43DA27E5B73C00DB1447 /* 👆Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👆Picker.swift"; sourceTree = "<group>"; };
 		125D910C27C6F117005D99D1 /* FadeInAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FadeInAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInAlarm_v2_App.swift; sourceTree = "<group>"; };
 		125D911127C6F117005D99D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */,
 				125D911D27C6F18F005D99D1 /* 🔔.swift */,
 				125D912227C6F18F005D99D1 /* 🔘Button.swift */,
+				124A43DA27E5B73C00DB1447 /* 👆Picker.swift */,
 				125D912127C6F18F005D99D1 /* 🔛Phase.swift */,
 				125D911327C6F118005D99D1 /* Assets.xcassets */,
 				125D911527C6F118005D99D1 /* Preview Content */,
@@ -166,6 +169,7 @@
 				125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */,
 				125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */,
 				125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */,
+				124A43DB27E5B73C00DB1447 /* 👆Picker.swift in Sources */,
 				125D912627C6F18F005D99D1 /* 🔊SystemVolume.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

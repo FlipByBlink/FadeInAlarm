@@ -7,13 +7,13 @@ import MediaPlayer
 struct ContentView: View {
     
     
-    @State private var 🕰setted = Date.now + 180
+    @AppStorage(💾Data.🔊VolumeOnWaiting.rawValue) var 🎚🔊VolumeOnWaiting = 3
     
-    @AppStorage("🕛fadeIn") var 🕛fadeIn: TimeInterval = 30.0
+    @State private var 🎚🕰TimeFadeIn = Date() + 180
     
-    @AppStorage("🕛fadeOut") var 🕛fadeOut: TimeInterval = 7.0
+    @AppStorage(💾Data.🕛HourFadein.rawValue) var 🎚🕛HourFadein = 10.0
     
-    @AppStorage("🔔onWaiting") var 🔔onWaiting: Int = 5
+    @AppStorage(💾Data.🕛HourFadeOut.rawValue) var 🎚🕛HourFadeOut = 7.0
     
     
     @State private var 🔛now: 🔛Phase = .powerOff
@@ -40,7 +40,7 @@ struct ContentView: View {
                             .foregroundColor(.secondary)
                             .onTapGesture {
                                 if 🔛now == .powerOff {
-                                    🕰setted = Date.now
+                                    🎚🕰TimeFadeIn = Date.now
                                 }
                             }
                     }
@@ -69,19 +69,10 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔(ⓟhase: .waiting, ⓝow: 🔛now, ⓘsSlash: 🔔onWaiting == 0 )
+                    🔔(ⓟhase: .waiting, ⓝow: 🔛now, ⓘsSlash: 🎚🔊VolumeOnWaiting == 0 )
                     
-                    Menu(🔔onWaiting.description + "%") {
-                        Picker("Volume on waiting", selection: $🔔onWaiting) {
-                            Text("0%").tag(0)
-                            Text("1%").tag(1)
-                            Text("3%").tag(3)
-                            Text("5%").tag(5)
-                            Text("10%").tag(10)
-                        }
-                    }
-                    .font(.caption)
-                    .disabled( 🔛now != .powerOff )
+                    👆🔊VolumeOnWaiting(ⓢelected: $🎚🔊VolumeOnWaiting)
+                        .disabled( 🔛now != .powerOff )
                     
                     Spacer()
                 }
@@ -90,20 +81,8 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    DatePicker("", selection: $🕰setted, displayedComponents: .hourAndMinute)
-                        .labelsHidden()
-                        .padding()
+                    👆🕰TimeFadeIn(ⓢelected: $🎚🕰TimeFadeIn)
                         .disabled( 🔛now != .powerOff )
-                        .onAppear{
-                            if let 🅃ime = UserDefaults.standard.value(forKey: "🕰alarm") {
-                                🕰setted = 🅃ime as! Date
-                            } else {
-                                🕰setted = Date.now + 180
-                            }
-                        }
-                        .onChange(of: 🕰setted) { 🅃ime in
-                            UserDefaults.standard.setValue(🅃ime,forKey: "🕰alarm")
-                        }
                     
                     Spacer()
                 }
@@ -113,17 +92,8 @@ struct ContentView: View {
                 HStack {
                     🔔(ⓟhase: .fadeIn, ⓝow: 🔛now)
                     
-                    Picker("Hour fade in", selection: $🕛fadeIn) {
-                        Text("+ 00:00:10").tag(10.0)
-                        Text("+ 00:00:30").tag(30.0)
-                        Text("+ 00:01:00").tag(60.0)
-                        Text("+ 00:05:00").tag(300.0)
-                        Text("+ 00:30:00").tag(1800.0)
-                        Text("+ 01:00:00").tag(3600.0)
-                    }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
-                    .disabled( 🔛now != .powerOff )
+                    👆🕛HourFadeIn(ⓢelected: $🎚🕛HourFadein)
+                        .disabled( 🔛now != .powerOff )
                     
                     Spacer()
                 }
@@ -132,7 +102,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    Text(🕰setted.addingTimeInterval(🕛fadeIn), style: .time)
+                    Text(🎚🕰TimeFadeIn.addingTimeInterval(🎚🕛HourFadein), style: .time)
                         .foregroundColor(.secondary)
                         .padding()
                     
@@ -164,16 +134,8 @@ struct ContentView: View {
                 HStack {
                     🔔(ⓟhase: .fadeOut, ⓝow: 🔛now)
                     
-                    Picker("Hour fade out", selection: $🕛fadeOut) {
-                        Text("+ 00:00:03").tag(3.0)
-                        Text("+ 00:00:07").tag(7.0)
-                        Text("+ 00:00:15").tag(15.0)
-                        Text("+ 00:00:30").tag(30.0)
-                        Text("+ 00:01:00").tag(60.0)
-                    }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
-                    .disabled( 🔛now != .powerOff )
+                    👆🕛HourFadeOut(ⓢelected: $🎚🕛HourFadeOut)
+                        .disabled( 🔛now != .powerOff )
                     
                     Spacer()
                 }
@@ -186,6 +148,8 @@ struct ContentView: View {
                     
                     📁ImportFile()
                         .disabled( 🔛now != .powerOff )
+                    
+                    Spacer(minLength: 30)
                     
                     Menu {
                         Link("AppStore link",
@@ -214,15 +178,15 @@ struct ContentView: View {
                                 🚡.scrollTo("🚡start", anchor: .center)
                             }
                             
-                            🎵.play(🕰setted, 🕛fadeIn)
+                            🎵.play(🎚🕰TimeFadeIn, 🎚🕛HourFadein)
                             
                             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
                                 
                                 switch 🔛now {
                                 case .waiting:
-                                    🎵.📻.volume = Float(🔔onWaiting) / 100
+                                    🎵.📻.volume = Float(🎚🔊VolumeOnWaiting) / 100
                                     let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
-                                    let 🄰larmTime = 🕰setted.formatted(date: .omitted, time: .shortened)
+                                    let 🄰larmTime = 🎚🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
                                     if 🄽ow == 🄰larmTime {
                                         🔛now = .fadeIn
                                         withAnimation {
@@ -230,7 +194,7 @@ struct ContentView: View {
                                         }
                                     }
                                 case .fadeIn:
-                                    🎵.📻.volume += Float( 0.5 / 🕛fadeIn )
+                                    🎵.📻.volume += Float( 0.5 / 🎚🕛HourFadein )
                                     if 🎵.📻.volume > 1.0 {
                                         🎵.📻.volume = 1.0
                                         🔛now = .maxVolume
@@ -240,7 +204,7 @@ struct ContentView: View {
                                     }
                                 case .maxVolume: break
                                 case .fadeOut:
-                                    🎵.📻.volume -= Float( 0.5 / 🕛fadeOut )
+                                    🎵.📻.volume -= Float( 0.5 / 🎚🕛HourFadeOut )
                                     if 🎵.📻.volume < 0.0 {
                                         🎵.📻.volume = 0.0
                                         🔛now = .powerOff
@@ -299,7 +263,6 @@ struct ContentView: View {
                     }
                 }
             }
-            
             .animation(.default, value: 🔛now)
         }
     }
