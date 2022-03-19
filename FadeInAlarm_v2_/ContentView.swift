@@ -13,7 +13,7 @@ struct ContentView: View {
     
     @AppStorage(💾Data.🕛HourFadein.rawValue) var 🎚🕛HourFadein = 10.0
     
-    @AppStorage(💾Data.🕛HourFadeOut.rawValue) var 🎚🕛HourFadeOut = 7.0
+    @AppStorage(💾Data.🕛HourFadeOut.rawValue) var 🎚🕛HourFadeOut = 3.0
     
     
     @State private var 🔛now: 🔛Phase = .powerOff
