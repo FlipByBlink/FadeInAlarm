@@ -11,18 +11,14 @@ enum 🔛Phase {
     case powerOff
     
     
-    func beforeStart() -> Bool {
-        self == .fadeOut || self == .powerOff
-    }
-    
-    
-    struct arrow: View {
+    struct ⓐrrow: View {
         
         var body: some View {
             
             Image(systemName: "arrow.left")
+                .font(.largeTitle.weight(.thin))
+                .foregroundColor(.secondary)
                 .padding()
-                .font(.title.weight(.semibold))
         }
     }
 }

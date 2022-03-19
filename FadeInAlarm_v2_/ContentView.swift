@@ -59,10 +59,13 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Image(systemName: "arrow.down")
-                        .font(.largeTitle.weight(.thin))
-                        .foregroundColor(.secondary)
-                        .padding()
+                    if 🔛now ==  .powerOff {
+                        Image(systemName: "arrow.down")
+                            .font(.largeTitle.weight(.thin))
+                            .foregroundColor(.secondary)
+                            .padding()
+                    }
+                    
                 }
                 .padding(.top)
                 .padding(.horizontal)
@@ -73,6 +76,10 @@ struct ContentView: View {
                     
                     👆🔊VolumeOnWaiting(ⓢelected: $🎚🔊VolumeOnWaiting)
                         .disabled( 🔛now != .powerOff )
+                    
+                    if 🔛now == .waiting {
+                        🔛Phase.ⓐrrow()
+                    }
                     
                     Spacer()
                 }
@@ -95,6 +102,10 @@ struct ContentView: View {
                     👆🕛HourFadeIn(ⓢelected: $🎚🕛HourFadein)
                         .disabled( 🔛now != .powerOff )
                     
+                    if 🔛now == .fadeIn {
+                        🔛Phase.ⓐrrow()
+                    }
+                    
                     Spacer()
                 }
                 .padding(.horizontal)
@@ -113,6 +124,10 @@ struct ContentView: View {
                 
                 HStack {
                     🔔(ⓟhase: .maxVolume, ⓝow: 🔛now)
+                    
+                    if 🔛now == .maxVolume {
+                        🔛Phase.ⓐrrow()
+                    }
                     
                     Spacer()
                 }
@@ -136,6 +151,10 @@ struct ContentView: View {
                     
                     👆🕛HourFadeOut(ⓢelected: $🎚🕛HourFadeOut)
                         .disabled( 🔛now != .powerOff )
+                    
+                    if 🔛now == .fadeOut {
+                        🔛Phase.ⓐrrow()
+                    }
                     
                     Spacer()
                 }
@@ -238,7 +257,7 @@ struct ContentView: View {
                             }
                         }
                         .disabled(🔛now == .fadeOut)
-                        .foregroundColor( 🔛now.beforeStart() ? nil : .red )
+                        .tint(.red)
                         .accessibilityLabel("Stop alarm")
                     }
                 }
@@ -263,6 +282,7 @@ struct ContentView: View {
                     }
                 }
             }
+            
             .animation(.default, value: 🔛now)
         }
     }
