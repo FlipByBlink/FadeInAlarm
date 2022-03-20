@@ -39,28 +39,28 @@ class 📻AlarmPlayer {
         ⓟlayer.play()
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(🚫),
+                                               selector: #selector(🚦),
                                                name: AVAudioSession.interruptionNotification,
                                                object: AVAudioSession.sharedInstance())
     }
     
     
     let 🪧: MPNowPlayingInfoCenter = {
-        let 🪧 = MPNowPlayingInfoCenter.default()
+        let 🄲enter = MPNowPlayingInfoCenter.default()
         
         let 🖼 = MPMediaItemArtwork(boundsSize: .init(width: 1000, height: 1000)) { _ in
             return UIImage(named: "COVER1000")!
         }
         
-        🪧.nowPlayingInfo = [
+        🄲enter.nowPlayingInfo = [
             MPNowPlayingInfoPropertyIsLiveStream : true,
             MPMediaItemPropertyArtwork : 🖼 ]
         
-        return 🪧
+        return 🄲enter
     }()
     
     
-    @objc func 🚫(notification: Notification) {
+    @objc func 🚦(notification: Notification) {
         
         guard let 🅄serInfo = notification.userInfo,
               let 🅃ypeValue = 🅄serInfo[AVAudioSessionInterruptionTypeKey] as? UInt,

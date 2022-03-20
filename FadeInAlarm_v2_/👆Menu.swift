@@ -52,7 +52,6 @@ struct 👆🕰TimeFadeIn: View {
 struct 👆🕛HourFadeIn: View {
     
     enum 🄲hoices: Double, CaseIterable, Identifiable {
-        
         case second10 =  10.0
         case second30 = 30.0
         case minute01 = 60.0
@@ -95,7 +94,6 @@ struct 👆🕛HourFadeIn: View {
 struct 👆🕛HourFadeOut: View {
     
     enum 🄲hoices: Double, CaseIterable, Identifiable {
-        
         case second3 =  3.0
         case second7 =  7.0
         case second15 = 15.0
