@@ -4,12 +4,12 @@ import SwiftUI
 
 struct 🔘Button: View {
     
-    enum 🄱uttonIs: String {
+    enum 🅃ype: String {
         case Start = "power.circle.fill"
         case Stop = "checkmark.circle.fill"
     }
     
-    var ⓣype: 🄱uttonIs
+    var ⓣype: 🅃ype
     
     var 🄰ction: () -> Void
     
