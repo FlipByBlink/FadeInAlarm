@@ -60,7 +60,7 @@ struct ContentView: View {
                     Spacer()
                     
                     if 🔛now ==  .powerOff {
-                        Image(systemName: "arrow.down")
+                        Image(systemName: "arrow.down") // ↓
                             .font(.largeTitle.weight(.thin))
                             .foregroundColor(.secondary)
                             .padding()
@@ -169,7 +169,7 @@ struct ContentView: View {
                         Link("Source code link",
                              destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!)
                     } label: {
-                        Image(systemName: "link")
+                        Image(systemName: "link") // 🔗
                             .font(.caption)
                     }
                     
@@ -182,7 +182,7 @@ struct ContentView: View {
                     Spacer()
                     
                     if 🔛now == .powerOff {
-                        🔘Button(type: .start) { // 􀆨
+                        🔘Button(type: .start) { // ⏻
                             🔛now = .waiting
                             
                             withAnimation {
