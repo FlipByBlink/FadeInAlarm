@@ -83,7 +83,7 @@ struct ContentView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
-                .id("🚡start")
+                .id(🔛Phase.Waiting)
                 
                 
                 HStack {
@@ -106,7 +106,7 @@ struct ContentView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
-                .id("🚡fadeIn")
+                .id(🔛Phase.FadeIn)
                 
                 
                 HStack {
@@ -127,7 +127,7 @@ struct ContentView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
-                .id("🚡maxVolume")
+                .id(🔛Phase.MaxVolume)
                 
                 
                 HStack {
@@ -153,7 +153,7 @@ struct ContentView: View {
                 }
                 .padding(.bottom)
                 .padding(.horizontal)
-                .id("🚡FadeOut")
+                .id(🔛Phase.FadeOut)
                 
                 
                 VStack {
@@ -189,7 +189,7 @@ struct ContentView: View {
                             🔛Now = .Waiting
                             
                             withAnimation {
-                                🚡.scrollTo("🚡start", anchor: .center)
+                                🚡.scrollTo(🔛Phase.Waiting, anchor: .center)
                             }
                             
                             🎵.ⓟlay(🕰TimeFadeIn, 🕛HourFadein)
@@ -204,7 +204,7 @@ struct ContentView: View {
                                     if 🄽ow == 🄰larmTime {
                                         🔛Now = .FadeIn
                                         withAnimation {
-                                            🚡.scrollTo("🚡fadeIn", anchor: .center)
+                                            🚡.scrollTo(🔛Phase.FadeIn, anchor: .center)
                                         }
                                     }
                                 case .FadeIn:
@@ -213,7 +213,7 @@ struct ContentView: View {
                                         🎵.📻.volume = 1.0
                                         🔛Now = .MaxVolume
                                         withAnimation {
-                                            🚡.scrollTo("🚡maxVolume", anchor: .center)
+                                            🚡.scrollTo(🔛Phase.MaxVolume, anchor: .center)
                                         }
                                     }
                                 case .MaxVolume: break
@@ -247,7 +247,7 @@ struct ContentView: View {
                             } else {
                                 🔛Now = .FadeOut
                                 withAnimation {
-                                    🚡.scrollTo("🚡FadeOut", anchor: .center)
+                                    🚡.scrollTo(🔛Phase.FadeOut, anchor: .center)
                                 }
                             }
                         }
