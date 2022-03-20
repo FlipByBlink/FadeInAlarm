@@ -98,7 +98,7 @@ struct 🔔Icon: View {
 
 
 
-struct 🔔View_Previews: PreviewProvider {
+struct 🔔Icon_Previews: PreviewProvider {
     static var previews: some View {
         
         let 🄽ow:🔛Phase = .Waiting

@@ -40,5 +40,9 @@ struct 🔘Button_Previews: PreviewProvider {
         🔘Button(ⓣype: .Start){
             print("No action.")
         }
+        
+        🔘Button(ⓣype: .Stop){
+            print("No action.")
+        }
     }
 }
