@@ -9,7 +9,7 @@ struct ContentView: View {
     
     @AppStorage(💾Data.VolumeOnWaiting.rawValue) var 🔊VolumeOnWaiting = 3
     
-    @State private var 🕰TimeFadeIn = Date() + 180
+    @State private var 🕰TimeFadeIn = Date.now + 180
     
     @AppStorage(💾Data.HourFadein.rawValue) var 🕛HourFadein = 10.0
     
@@ -164,14 +164,14 @@ struct ContentView: View {
                     
                     Spacer(minLength: 30)
                     
-                    Menu {
+                    Menu { // 🔗
                         Link("AppStore link",
                              destination: URL(string: "https://apps.apple.com/app/id1465336070")!)
                         
                         Link("Source code link",
                              destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!)
                     } label: {
-                        Image(systemName: "link") // 🔗
+                        Image(systemName: "link")
                     }
                     
                     Spacer(minLength: 100)
@@ -193,7 +193,7 @@ struct ContentView: View {
                             
                             📻.ⓟlay(🕰TimeFadeIn, 🕛HourFadein)
                             
-                            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
+                            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🤖 in
                                 
                                 switch 🔛 {
                                 case .Waiting:
@@ -206,6 +206,7 @@ struct ContentView: View {
                                             🚡.scrollTo(🔛Phase.FadeIn, anchor: .center)
                                         }
                                     }
+                                    
                                 case .FadeIn:
                                     📻.ⓟlayer.volume += Float( 0.5 / 🕛HourFadein )
                                     if 📻.ⓟlayer.volume > 1.0 {
@@ -215,17 +216,20 @@ struct ContentView: View {
                                             🚡.scrollTo(🔛Phase.MaxVolume, anchor: .center)
                                         }
                                     }
+                                    
                                 case .MaxVolume: break
+                                    
                                 case .FadeOut:
                                     📻.ⓟlayer.volume -= Float( 0.5 / 🕛HourFadeOut )
                                     if 📻.ⓟlayer.volume < 0.0 {
                                         📻.ⓟlayer.volume = 0.0
                                         🔛 = .PowerOff
                                     }
+                                    
                                 case .PowerOff:
                                     📻.ⓟlayer.stop()
                                     MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
-                                    🕛.invalidate()
+                                    🤖.invalidate()
                                 }
                                 
                                 🔔Volume = Int( 📻.ⓟlayer.volume * 100 )
