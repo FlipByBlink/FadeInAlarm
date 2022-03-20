@@ -11,12 +11,10 @@ struct 🔘Button: View {
     
     var ⓣype: 🄱uttonIs
     
-    
     var 🄰ction: () -> Void
     
     
     var body: some View {
-        
         Button {
             🄰ction()
         } label: {

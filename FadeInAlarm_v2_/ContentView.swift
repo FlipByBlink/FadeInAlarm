@@ -6,7 +6,6 @@ import MediaPlayer
 
 struct ContentView: View {
     
-    
     @AppStorage(💾Data.VolumeOnWaiting.rawValue) var 🔊VolumeOnWaiting = 3
     
     @State private var 🕰TimeFadeIn = Date.now + 180
@@ -15,20 +14,16 @@ struct ContentView: View {
     
     @AppStorage(💾Data.HourFadeOut.rawValue) var 🕛HourFadeOut = 3.0
     
-    
     @State private var 🔛: 🔛Phase = .PowerOff
     
     @State private var 🔔Volume: Int = 0
-    
     
     let 📻 = 📻AlarmPlayer()
     
     
     var body: some View {
-        
         ScrollViewReader { 🚡 in
             ScrollView {
-                
                 VStack {
                     Spacer(minLength: 25)
                     

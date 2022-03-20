@@ -8,16 +8,16 @@ struct 🔔Icon: View {
     
     var ⓝow: 🔛Phase
     
-    @State private var 🅂cale = 0.4
+    
+    @State private var 🔍 = 0.4
+    
+    let 🔍OnWaiting = 0.4
+    
     
     @State private var 🄾pacity = 1.0
     
     
-    let 🅂caleOnWaiting = 0.4
-    
-    
     var body: some View {
-        
         Group {
             switch ⓟhase {
             case .Waiting:
@@ -25,13 +25,13 @@ struct 🔔Icon: View {
                     .symbolVariant( ⓝow == .Waiting ? .fill : .none)
                     .foregroundColor( ⓝow == .Waiting ? nil : .secondary)
                     .symbolVariant(ⓟhase == ⓝow ? .slash : .none)
-                    .scaleEffect(🅂caleOnWaiting)
+                    .scaleEffect(🔍OnWaiting)
                 
             case .FadeIn:
                 Image(systemName: "bell")
                     .symbolVariant( ⓝow == .FadeIn ? .fill : .none)
                     .foregroundColor( ⓝow == .FadeIn ? nil : .secondary)
-                    .scaleEffect(🅂cale)
+                    .scaleEffect(🔍)
                     .opacity(🄾pacity)
                     .task {
                         🄵ade()
@@ -49,7 +49,7 @@ struct 🔔Icon: View {
                 Image(systemName: "bell")
                     .symbolVariant( ⓝow == .FadeOut ? .fill : .none)
                     .foregroundColor( ⓝow == .FadeOut ? nil : .secondary)
-                    .scaleEffect(🅂cale)
+                    .scaleEffect(🔍)
                     .opacity(🄾pacity)
                     .task {
                         🄵ade()
@@ -70,23 +70,23 @@ struct 🔔Icon: View {
     
     func 🄵ade() {
         if ⓟhase == .FadeIn {
-            🅂cale = 🅂caleOnWaiting
+            🔍 = 🔍OnWaiting
             withAnimation {
                 🄾pacity = 1.0
             }
             withAnimation(.linear(duration: 🄳uration)) {
-                🅂cale = 1.0
+                🔍 = 1.0
             }
             withAnimation(.linear(duration: 0.2).delay( 🄳uration - 0.2 )) {
                 🄾pacity = 0.0
             }
         } else if ⓟhase == .FadeOut {
-            🅂cale = 1.0
+            🔍 = 1.0
             withAnimation {
                 🄾pacity = 1.0
             }
             withAnimation(.linear(duration: 🄳uration)) {
-                🅂cale = 🅂caleOnWaiting
+                🔍 = 🔍OnWaiting
             }
             withAnimation(.linear(duration: 0.2).delay( 🄳uration - 0.2 )) {
                 🄾pacity = 0.0
@@ -100,7 +100,6 @@ struct 🔔Icon: View {
 
 struct 🔔Icon_Previews: PreviewProvider {
     static var previews: some View {
-        
         let 🄽ow:🔛Phase = .Waiting
         
         VStack {

@@ -12,9 +12,7 @@ enum 🔛Phase {
     
     
     struct ⓐrrow: View {
-        
         var body: some View {
-            
             Image(systemName: "arrow.left")
                 .font(.largeTitle.weight(.thin))
                 .foregroundColor(.secondary)
