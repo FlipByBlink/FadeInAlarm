@@ -172,7 +172,6 @@ struct ContentView: View {
                              destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!)
                     } label: {
                         Image(systemName: "link") // 🔗
-                            .font(.caption)
                     }
                     
                     Spacer(minLength: 100)
