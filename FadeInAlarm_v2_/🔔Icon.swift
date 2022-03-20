@@ -22,17 +22,11 @@ struct 🔔Icon: View {
             switch ⓟhase {
             case .Waiting:
                 Image(systemName: "bell")
-                    .symbolVariant( ⓝow == .Waiting ? .fill : .none)
-                    .foregroundColor( ⓝow == .Waiting ? nil : .secondary)
-                    .symbolVariant(ⓟhase == ⓝow ? .slash : .none)
                     .scaleEffect(🔍OnWaiting)
                 
             case .FadeIn:
                 Image(systemName: "bell")
-                    .symbolVariant( ⓝow == .FadeIn ? .fill : .none)
-                    .foregroundColor( ⓝow == .FadeIn ? nil : .secondary)
                     .scaleEffect(🔍)
-                    .opacity(🄾pacity)
                     .task {
                         🄵ade()
                         Timer.scheduledTimer(withTimeInterval: 🄳uration, repeats: true) { _ in
@@ -42,15 +36,10 @@ struct 🔔Icon: View {
                 
             case .MaxVolume:
                 Image(systemName: "bell")
-                    .symbolVariant( ⓝow == .MaxVolume ? .fill : .none)
-                    .foregroundColor( ⓝow == .MaxVolume ? nil : .secondary)
                 
             case .FadeOut:
                 Image(systemName: "bell")
-                    .symbolVariant( ⓝow == .FadeOut ? .fill : .none)
-                    .foregroundColor( ⓝow == .FadeOut ? nil : .secondary)
                     .scaleEffect(🔍)
-                    .opacity(🄾pacity)
                     .task {
                         🄵ade()
                         Timer.scheduledTimer(withTimeInterval: 🄳uration, repeats: true) { _ in
@@ -61,6 +50,9 @@ struct 🔔Icon: View {
             case .PowerOff: Text("👿")
             }
         }
+        .symbolVariant( ⓝow == ⓟhase ? .fill : .none)
+        .foregroundColor( ⓝow == ⓟhase ? nil : .secondary)
+        .opacity(🄾pacity)
         .padding()
         .font(.largeTitle)
     }
