@@ -59,8 +59,8 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    if 🔛 ==  .PowerOff {
-                        Image(systemName: "arrow.down") // ↓
+                    if 🔛 ==  .PowerOff { // ↓
+                        Image(systemName: "arrow.down")
                             .font(.largeTitle.weight(.thin))
                             .foregroundColor(.secondary)
                             .padding()

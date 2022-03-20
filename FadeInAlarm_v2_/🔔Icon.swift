@@ -13,7 +13,7 @@ struct 🔔Icon: View {
     @State private var 🄾pacity = 1.0
     
     
-    let 🔉 = 0.4
+    let 🅂caleOnWaiting = 0.4
     
     
     var body: some View {
@@ -25,7 +25,7 @@ struct 🔔Icon: View {
                     .symbolVariant( ⓝow == .Waiting ? .fill : .none)
                     .foregroundColor( ⓝow == .Waiting ? nil : .secondary)
                     .symbolVariant(ⓟhase == ⓝow ? .slash : .none)
-                    .scaleEffect(🔉)
+                    .scaleEffect(🅂caleOnWaiting)
                 
             case .FadeIn:
                 Image(systemName: "bell")
@@ -35,7 +35,7 @@ struct 🔔Icon: View {
                     .opacity(🄾pacity)
                     .task {
                         🄵ade()
-                        Timer.scheduledTimer(withTimeInterval: 🕒, repeats: true) { _ in
+                        Timer.scheduledTimer(withTimeInterval: 🄳uration, repeats: true) { _ in
                             🄵ade()
                         }
                     }
@@ -53,7 +53,7 @@ struct 🔔Icon: View {
                     .opacity(🄾pacity)
                     .task {
                         🄵ade()
-                        Timer.scheduledTimer(withTimeInterval: 🕒, repeats: true) { _ in
+                        Timer.scheduledTimer(withTimeInterval: 🄳uration, repeats: true) { _ in
                             🄵ade()
                         }
                     }
@@ -66,18 +66,18 @@ struct 🔔Icon: View {
     }
     
     
-    let 🕒 = 4.0
+    let 🄳uration = 4.0
     
     func 🄵ade() {
         if ⓟhase == .FadeIn {
-            🅂cale = 🔉
+            🅂cale = 🅂caleOnWaiting
             withAnimation {
                 🄾pacity = 1.0
             }
-            withAnimation(.linear(duration: 🕒)) {
+            withAnimation(.linear(duration: 🄳uration)) {
                 🅂cale = 1.0
             }
-            withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
+            withAnimation(.linear(duration: 0.2).delay( 🄳uration - 0.2 )) {
                 🄾pacity = 0.0
             }
         } else if ⓟhase == .FadeOut {
@@ -85,10 +85,10 @@ struct 🔔Icon: View {
             withAnimation {
                 🄾pacity = 1.0
             }
-            withAnimation(.linear(duration: 🕒)) {
-                🅂cale = 🔉
+            withAnimation(.linear(duration: 🄳uration)) {
+                🅂cale = 🅂caleOnWaiting
             }
-            withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
+            withAnimation(.linear(duration: 0.2).delay( 🄳uration - 0.2 )) {
                 🄾pacity = 0.0
             }
         }
