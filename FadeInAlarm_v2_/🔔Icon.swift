@@ -101,13 +101,13 @@ struct 🔔Icon: View {
 struct 🔔View_Previews: PreviewProvider {
     static var previews: some View {
         
-        let now:🔛Phase = .waiting
+        let 🄽ow:🔛Phase = .waiting
         
         VStack {
-            🔔Icon(ⓟhase: .waiting, ⓝow: now)
-            🔔Icon(ⓟhase: .fadeIn, ⓝow: now)
-            🔔Icon(ⓟhase: .maxVolume, ⓝow: now)
-            🔔Icon(ⓟhase: .fadeOut, ⓝow: now)
+            🔔Icon(ⓟhase: .waiting, ⓝow: 🄽ow)
+            🔔Icon(ⓟhase: .fadeIn, ⓝow: 🄽ow)
+            🔔Icon(ⓟhase: .maxVolume, ⓝow: 🄽ow)
+            🔔Icon(ⓟhase: .fadeOut, ⓝow: 🄽ow)
         }
     }
 }

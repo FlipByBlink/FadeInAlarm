@@ -7,13 +7,13 @@ import MediaPlayer
 struct ContentView: View {
     
     
-    @AppStorage(💾Data.🔊VolumeOnWaiting.rawValue) var 🎚🔊VolumeOnWaiting = 3
+    @AppStorage(💾Data.VolumeOnWaiting.rawValue) var 🔊VolumeOnWaiting = 3
     
-    @State private var 🎚🕰TimeFadeIn = Date() + 180
+    @State private var 🕰TimeFadeIn = Date() + 180
     
-    @AppStorage(💾Data.🕛HourFadein.rawValue) var 🎚🕛HourFadein = 10.0
+    @AppStorage(💾Data.HourFadein.rawValue) var 🕛HourFadein = 10.0
     
-    @AppStorage(💾Data.🕛HourFadeOut.rawValue) var 🎚🕛HourFadeOut = 3.0
+    @AppStorage(💾Data.HourFadeOut.rawValue) var 🕛HourFadeOut = 3.0
     
     
     @State private var 🔛Now: 🔛Phase = .powerOff
@@ -40,7 +40,7 @@ struct ContentView: View {
                             .foregroundColor(.secondary)
                             .onTapGesture {
                                 if 🔛Now == .powerOff {
-                                    🎚🕰TimeFadeIn = Date.now
+                                    🕰TimeFadeIn = Date.now
                                 }
                             }
                     }
@@ -73,9 +73,9 @@ struct ContentView: View {
                 
                 HStack {
                     🔔Icon(ⓟhase: .waiting, ⓝow: 🔛Now)
-                        .symbolVariant( 🎚🔊VolumeOnWaiting == 0 ? .slash : .none )
+                        .symbolVariant( 🔊VolumeOnWaiting == 0 ? .slash : .none )
                     
-                    👆🔊VolumeOnWaiting(ⓢelected: $🎚🔊VolumeOnWaiting)
+                    👆🔊VolumeOnWaiting(ⓢelected: $🔊VolumeOnWaiting)
                         .disabled( 🔛Now != .powerOff )
                     
                     if 🔛Now == .waiting { 🔛Phase.ⓐrrow() }
@@ -87,7 +87,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    👆🕰TimeFadeIn(ⓢelected: $🎚🕰TimeFadeIn)
+                    👆🕰TimeFadeIn(ⓢelected: $🕰TimeFadeIn)
                         .disabled( 🔛Now != .powerOff )
                     
                     Spacer()
@@ -98,7 +98,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(ⓟhase: .fadeIn, ⓝow: 🔛Now)
                     
-                    👆🕛HourFadeIn(ⓢelected: $🎚🕛HourFadein)
+                    👆🕛HourFadeIn(ⓢelected: $🕛HourFadein)
                         .disabled( 🔛Now != .powerOff )
                     
                     if 🔛Now == .fadeIn { 🔛Phase.ⓐrrow() }
@@ -110,7 +110,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    Text(🎚🕰TimeFadeIn.addingTimeInterval(🎚🕛HourFadein), style: .time)
+                    Text(🕰TimeFadeIn.addingTimeInterval(🕛HourFadein), style: .time)
                         .foregroundColor(.secondary)
                         .padding()
                     
@@ -144,7 +144,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(ⓟhase: .fadeOut, ⓝow: 🔛Now)
                     
-                    👆🕛HourFadeOut(ⓢelected: $🎚🕛HourFadeOut)
+                    👆🕛HourFadeOut(ⓢelected: $🕛HourFadeOut)
                         .disabled( 🔛Now != .powerOff )
                     
                     if 🔛Now == .fadeOut { 🔛Phase.ⓐrrow() }
@@ -192,15 +192,15 @@ struct ContentView: View {
                                 🚡.scrollTo("🚡start", anchor: .center)
                             }
                             
-                            🎵.ⓟlay(🎚🕰TimeFadeIn, 🎚🕛HourFadein)
+                            🎵.ⓟlay(🕰TimeFadeIn, 🕛HourFadein)
                             
                             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
                                 
                                 switch 🔛Now {
                                 case .waiting:
-                                    🎵.📻.volume = Float(🎚🔊VolumeOnWaiting) / 100
+                                    🎵.📻.volume = Float(🔊VolumeOnWaiting) / 100
                                     let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
-                                    let 🄰larmTime = 🎚🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
+                                    let 🄰larmTime = 🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
                                     if 🄽ow == 🄰larmTime {
                                         🔛Now = .fadeIn
                                         withAnimation {
@@ -208,7 +208,7 @@ struct ContentView: View {
                                         }
                                     }
                                 case .fadeIn:
-                                    🎵.📻.volume += Float( 0.5 / 🎚🕛HourFadein )
+                                    🎵.📻.volume += Float( 0.5 / 🕛HourFadein )
                                     if 🎵.📻.volume > 1.0 {
                                         🎵.📻.volume = 1.0
                                         🔛Now = .maxVolume
@@ -218,7 +218,7 @@ struct ContentView: View {
                                     }
                                 case .maxVolume: break
                                 case .fadeOut:
-                                    🎵.📻.volume -= Float( 0.5 / 🎚🕛HourFadeOut )
+                                    🎵.📻.volume -= Float( 0.5 / 🕛HourFadeOut )
                                     if 🎵.📻.volume < 0.0 {
                                         🎵.📻.volume = 0.0
                                         🔛Now = .powerOff

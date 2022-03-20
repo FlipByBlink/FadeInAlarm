@@ -7,7 +7,7 @@ struct 🔊SystemVolume: View {
     
     var body: some View {
         
-        VolumeSlider()
+        🎚VolumeSlider()
             .grayscale(1.0)
             .contrast(0.6)
             .frame(width: 150, height: 30)
@@ -16,7 +16,7 @@ struct 🔊SystemVolume: View {
 }
 
 
-struct VolumeSlider: UIViewRepresentable {
+struct 🎚VolumeSlider: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MPVolumeView {
         MPVolumeView(frame: .zero)

@@ -33,14 +33,14 @@ struct 👆🕰TimeFadeIn: View {
             .labelsHidden()
             .padding()
             .onAppear {
-                if let 🅃ime = UserDefaults.standard.value(forKey: 💾Data.🕰TimeFadeIn.rawValue) {
+                if let 🅃ime = UserDefaults.standard.value(forKey: 💾Data.TimeFadeIn.rawValue) {
                     ⓢelected = 🅃ime as! Date
                 } else {
                     ⓢelected = Date.now + 180
                 }
             }
             .onChange(of: ⓢelected) { 🅃ime in
-                UserDefaults.standard.setValue(🅃ime,forKey: 💾Data.🕰TimeFadeIn.rawValue)
+                UserDefaults.standard.setValue(🅃ime,forKey: 💾Data.TimeFadeIn.rawValue)
             }
             .accessibilityLabel("Set time to start fade-in")
     }
