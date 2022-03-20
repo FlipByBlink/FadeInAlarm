@@ -185,7 +185,7 @@ struct ContentView: View {
                     Spacer()
                     
                     if 🔛Now == .powerOff {
-                        🔘Button(type: .start) { // ⏻
+                        🔘Button(ⓣype: .start) { // ⏻
                             🔛Now = .waiting
                             
                             withAnimation {
@@ -241,7 +241,7 @@ struct ContentView: View {
                         
                     } else {
                         
-                        🔘Button(type: .stop) { // ✓
+                        🔘Button(ⓣype: .stop) { // ✓
                             if 🔛Now == .waiting {
                                 🔛Now = .powerOff
                             } else {

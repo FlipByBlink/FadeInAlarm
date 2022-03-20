@@ -4,23 +4,23 @@ import SwiftUI
 
 struct 🔘Button: View {
     
-    enum ButtonIs: String {
+    enum 🄱uttonIs: String {
         case start = "power.circle.fill"
         case stop = "checkmark.circle.fill"
     }
     
-    var type: ButtonIs
+    var ⓣype: 🄱uttonIs
     
     
-    var action: () -> Void
+    var 🄰ction: () -> Void
     
     
     var body: some View {
         
         Button {
-            action()
+            🄰ction()
         } label: {
-            Image(systemName: type.rawValue)
+            Image(systemName: ⓣype.rawValue)
         }
         .font(.system(size: 80))
         .padding(16)
@@ -37,7 +37,7 @@ struct 🔘Button: View {
 
 struct 🔘Button_Previews: PreviewProvider {
     static var previews: some View {
-        🔘Button(type: .start){
+        🔘Button(ⓣype: .start){
             print("No action.")
         }
     }
