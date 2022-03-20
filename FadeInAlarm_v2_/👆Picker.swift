@@ -84,6 +84,7 @@ struct 👆🕛HourFadeIn: View {
                 }
             }
         }
+        .font(.headline)
         .accessibilityLabel("Select hour fade-in")
     }
 }
