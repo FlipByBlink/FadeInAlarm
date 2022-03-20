@@ -5,8 +5,8 @@ import SwiftUI
 struct 🔘Button: View {
     
     enum 🄱uttonIs: String {
-        case start = "power.circle.fill"
-        case stop = "checkmark.circle.fill"
+        case Start = "power.circle.fill"
+        case Stop = "checkmark.circle.fill"
     }
     
     var ⓣype: 🄱uttonIs
@@ -37,7 +37,7 @@ struct 🔘Button: View {
 
 struct 🔘Button_Previews: PreviewProvider {
     static var previews: some View {
-        🔘Button(ⓣype: .start){
+        🔘Button(ⓣype: .Start){
             print("No action.")
         }
     }
