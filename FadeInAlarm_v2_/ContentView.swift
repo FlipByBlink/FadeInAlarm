@@ -16,12 +16,12 @@ struct ContentView: View {
     @AppStorage(💾Data.HourFadeOut.rawValue) var 🕛HourFadeOut = 3.0
     
     
-    @State private var 🔛Now: 🔛Phase = .PowerOff
+    @State private var 🔛: 🔛Phase = .PowerOff
     
     @State private var 🔔Volume: Int = 0
     
     
-    let 🎵 = 🎵AlarmPlayer()
+    let 📻 = 📻AlarmPlayer()
     
     
     var body: some View {
@@ -39,7 +39,7 @@ struct ContentView: View {
                             .animation(.default)
                             .foregroundColor(.secondary)
                             .onTapGesture {
-                                if 🔛Now == .PowerOff {
+                                if 🔛 == .PowerOff {
                                     🕰TimeFadeIn = Date.now
                                 }
                             }
@@ -59,7 +59,7 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    if 🔛Now ==  .PowerOff {
+                    if 🔛 ==  .PowerOff {
                         Image(systemName: "arrow.down") // ↓
                             .font(.largeTitle.weight(.thin))
                             .foregroundColor(.secondary)
@@ -72,13 +72,13 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(ⓟhase: .Waiting, ⓝow: 🔛Now)
+                    🔔Icon(ⓟhase: .Waiting, ⓝow: 🔛)
                         .symbolVariant( 🔊VolumeOnWaiting == 0 ? .slash : .none )
                     
                     👆🔊VolumeOnWaiting(ⓢelected: $🔊VolumeOnWaiting)
-                        .disabled( 🔛Now != .PowerOff )
+                        .disabled( 🔛 != .PowerOff )
                     
-                    if 🔛Now == .Waiting { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .Waiting { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
@@ -88,7 +88,7 @@ struct ContentView: View {
                 
                 HStack {
                     👆🕰TimeFadeIn(ⓢelected: $🕰TimeFadeIn)
-                        .disabled( 🔛Now != .PowerOff )
+                        .disabled( 🔛 != .PowerOff )
                     
                     Spacer()
                 }
@@ -96,12 +96,12 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(ⓟhase: .FadeIn, ⓝow: 🔛Now)
+                    🔔Icon(ⓟhase: .FadeIn, ⓝow: 🔛)
                     
                     👆🕛HourFadeIn(ⓢelected: $🕛HourFadein)
-                        .disabled( 🔛Now != .PowerOff )
+                        .disabled( 🔛 != .PowerOff )
                     
-                    if 🔛Now == .FadeIn { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .FadeIn { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
@@ -120,9 +120,9 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(ⓟhase: .MaxVolume, ⓝow: 🔛Now)
+                    🔔Icon(ⓟhase: .MaxVolume, ⓝow: 🔛)
                     
-                    if 🔛Now == .MaxVolume { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .MaxVolume { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
@@ -142,12 +142,12 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(ⓟhase: .FadeOut, ⓝow: 🔛Now)
+                    🔔Icon(ⓟhase: .FadeOut, ⓝow: 🔛)
                     
                     👆🕛HourFadeOut(ⓢelected: $🕛HourFadeOut)
-                        .disabled( 🔛Now != .PowerOff )
+                        .disabled( 🔛 != .PowerOff )
                     
-                    if 🔛Now == .FadeOut { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .FadeOut { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
@@ -160,7 +160,7 @@ struct ContentView: View {
                     Divider()
                     
                     📁ImportFile()
-                        .disabled( 🔛Now != .PowerOff )
+                        .disabled( 🔛 != .PowerOff )
                     
                     Spacer(minLength: 30)
                     
@@ -184,56 +184,56 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    if 🔛Now == .PowerOff {
+                    if 🔛 == .PowerOff {
                         🔘Button(ⓣype: .Start) { // ⏻
-                            🔛Now = .Waiting
+                            🔛 = .Waiting
                             
                             withAnimation {
                                 🚡.scrollTo(🔛Phase.Waiting, anchor: .center)
                             }
                             
-                            🎵.ⓟlay(🕰TimeFadeIn, 🕛HourFadein)
+                            📻.ⓟlay(🕰TimeFadeIn, 🕛HourFadein)
                             
                             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
                                 
-                                switch 🔛Now {
+                                switch 🔛 {
                                 case .Waiting:
-                                    🎵.📻.volume = Float(🔊VolumeOnWaiting) / 100
+                                    📻.ⓟlayer.volume = Float(🔊VolumeOnWaiting) / 100
                                     let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
                                     let 🄰larmTime = 🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
                                     if 🄽ow == 🄰larmTime {
-                                        🔛Now = .FadeIn
+                                        🔛 = .FadeIn
                                         withAnimation {
                                             🚡.scrollTo(🔛Phase.FadeIn, anchor: .center)
                                         }
                                     }
                                 case .FadeIn:
-                                    🎵.📻.volume += Float( 0.5 / 🕛HourFadein )
-                                    if 🎵.📻.volume > 1.0 {
-                                        🎵.📻.volume = 1.0
-                                        🔛Now = .MaxVolume
+                                    📻.ⓟlayer.volume += Float( 0.5 / 🕛HourFadein )
+                                    if 📻.ⓟlayer.volume > 1.0 {
+                                        📻.ⓟlayer.volume = 1.0
+                                        🔛 = .MaxVolume
                                         withAnimation {
                                             🚡.scrollTo(🔛Phase.MaxVolume, anchor: .center)
                                         }
                                     }
                                 case .MaxVolume: break
                                 case .FadeOut:
-                                    🎵.📻.volume -= Float( 0.5 / 🕛HourFadeOut )
-                                    if 🎵.📻.volume < 0.0 {
-                                        🎵.📻.volume = 0.0
-                                        🔛Now = .PowerOff
+                                    📻.ⓟlayer.volume -= Float( 0.5 / 🕛HourFadeOut )
+                                    if 📻.ⓟlayer.volume < 0.0 {
+                                        📻.ⓟlayer.volume = 0.0
+                                        🔛 = .PowerOff
                                     }
                                 case .PowerOff:
-                                    🎵.📻.stop()
+                                    📻.ⓟlayer.stop()
                                     MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
                                     🕛.invalidate()
                                 }
                                 
-                                🔔Volume = Int( 🎵.📻.volume * 100 )
+                                🔔Volume = Int( 📻.ⓟlayer.volume * 100 )
                             }
                             
                             MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
-                                🔛Now = .FadeOut
+                                🔛 = .FadeOut
                                 return .success
                             }
                         }
@@ -242,16 +242,16 @@ struct ContentView: View {
                     } else {
                         
                         🔘Button(ⓣype: .Stop) { // ✓
-                            if 🔛Now == .Waiting {
-                                🔛Now = .PowerOff
+                            if 🔛 == .Waiting {
+                                🔛 = .PowerOff
                             } else {
-                                🔛Now = .FadeOut
+                                🔛 = .FadeOut
                                 withAnimation {
                                     🚡.scrollTo(🔛Phase.FadeOut, anchor: .center)
                                 }
                             }
                         }
-                        .disabled(🔛Now == .FadeOut)
+                        .disabled(🔛 == .FadeOut)
                         .tint(.red)
                         .accessibilityLabel("Stop alarm")
                     }
@@ -260,16 +260,16 @@ struct ContentView: View {
             
             
             .overlay(alignment: .topTrailing) {
-                if 🔛Now != .PowerOff {
+                if 🔛 != .PowerOff {
                     ZStack {
-                        Label(🔔Volume.description + "%", systemImage: "bell")
+                        Label( 🔔Volume.description + "%" , systemImage: "bell")
                             .font(.caption)
                             .opacity(0.9)
                             .foregroundColor(.secondary)
                             .padding()
                         
                         TimelineView(.periodic(from: .now, by: 1)) { _ in
-                            if 🎵.📻.isPlaying == false {
+                            if 📻.ⓟlayer.isPlaying == false {
                                 Image(systemName: "exclamationmark.triangle.fill")
                                     .foregroundColor(.secondary)
                                     .opacity(0.7)
@@ -280,7 +280,7 @@ struct ContentView: View {
             }
             
             
-            .animation(.default, value: 🔛Now)
+            .animation(.default, value: 🔛)
         }
     }
 }

@@ -14,7 +14,7 @@
 		125D911427C6F118005D99D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 125D911327C6F118005D99D1 /* Assets.xcassets */; };
 		125D911727C6F118005D99D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 125D911627C6F118005D99D1 /* Preview Assets.xcassets */; };
 		125D912327C6F18F005D99D1 /* 🔔Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911D27C6F18F005D99D1 /* 🔔Icon.swift */; };
-		125D912427C6F18F005D99D1 /* 🎵AlarmPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911E27C6F18F005D99D1 /* 🎵AlarmPlayer.swift */; };
+		125D912427C6F18F005D99D1 /* 📻AlarmPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */; };
 		125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */; };
 		125D912627C6F18F005D99D1 /* 🔊SystemVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */; };
 		125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912127C6F18F005D99D1 /* 🔛Phase.swift */; };
@@ -31,7 +31,7 @@
 		125D911327C6F118005D99D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		125D911627C6F118005D99D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		125D911D27C6F18F005D99D1 /* 🔔Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔔Icon.swift"; sourceTree = "<group>"; };
-		125D911E27C6F18F005D99D1 /* 🎵AlarmPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🎵AlarmPlayer.swift"; sourceTree = "<group>"; };
+		125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📻AlarmPlayer.swift"; sourceTree = "<group>"; };
 		125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📁ImportFile.swift"; sourceTree = "<group>"; };
 		125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔊SystemVolume.swift"; sourceTree = "<group>"; };
 		125D912127C6F18F005D99D1 /* 🔛Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔛Phase.swift"; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 				125D912927C6F2DE005D99D1 /* FadeInAlarm-v2--Info.plist */,
 				125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */,
 				125D911127C6F117005D99D1 /* ContentView.swift */,
-				125D911E27C6F18F005D99D1 /* 🎵AlarmPlayer.swift */,
+				125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */,
 				125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */,
 				125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */,
 				125D911D27C6F18F005D99D1 /* 🔔Icon.swift */,
@@ -166,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				125D912327C6F18F005D99D1 /* 🔔Icon.swift in Sources */,
-				125D912427C6F18F005D99D1 /* 🎵AlarmPlayer.swift in Sources */,
+				125D912427C6F18F005D99D1 /* 📻AlarmPlayer.swift in Sources */,
 				125D912827C6F18F005D99D1 /* 🔘Button.swift in Sources */,
 				125D911227C6F117005D99D1 /* ContentView.swift in Sources */,
 				125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */,

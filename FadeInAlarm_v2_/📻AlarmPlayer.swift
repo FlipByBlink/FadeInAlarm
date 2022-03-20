@@ -3,9 +3,9 @@ import AVFAudio
 import MediaPlayer
 
 
-class 🎵AlarmPlayer {
+class 📻AlarmPlayer {
     
-    var 📻: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
+    var ⓟlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
     
     
     func ⓟlay(_ 🕰: Date,_ 🕛: TimeInterval) {
@@ -17,14 +17,14 @@ class 🎵AlarmPlayer {
             let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
             if let 💽 = 🗂.first {
                 do {
-                    📻 = try AVAudioPlayer(contentsOf: 💽)
+                    ⓟlayer = try AVAudioPlayer(contentsOf: 💽)
                 } catch { print("👿",error) }
             }
         } catch { print(error) }
         
-        📻.numberOfLoops = -1
-        📻.volume = 0
-        📻.prepareToPlay()
+        ⓟlayer.numberOfLoops = -1
+        ⓟlayer.volume = 0
+        ⓟlayer.prepareToPlay()
         
         do {
             try AVAudioSession().setCategory(.playback)
@@ -34,9 +34,9 @@ class 🎵AlarmPlayer {
         let 🅃o = 🕰.addingTimeInterval(🕛).formatted(date: .omitted, time: .standard)
         🪧.nowPlayingInfo![MPMediaItemPropertyTitle] = 🄵rom + " → " + 🅃o
         
-        🪧.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = 📻.url?.lastPathComponent
+        🪧.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = ⓟlayer.url?.lastPathComponent
         
-        📻.play()
+        ⓟlayer.play()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(🚫),
@@ -72,10 +72,10 @@ class 🎵AlarmPlayer {
         switch 🅃ype {
             
         case .began:
-            📻.pause()
+            ⓟlayer.pause()
             
         case .ended:
-            📻.play()
+            ⓟlayer.play()
             
         default:
             print("👿")
