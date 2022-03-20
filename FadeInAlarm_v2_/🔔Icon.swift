@@ -8,14 +8,12 @@ struct 🔔Icon: View {
     
     var ⓝow: 🔛Phase
     
-    var ⓘsSlash: Bool = false
-    
-    @State private var 🅂cale = 0.25
+    @State private var 🅂cale = 0.4
     
     @State private var 🄾pacity = 1.0
     
     
-    let 🔉 = 0.5
+    let 🔉 = 0.4
     
     
     var body: some View {
@@ -26,7 +24,7 @@ struct 🔔Icon: View {
                 Image(systemName: "bell")
                     .symbolVariant( ⓝow == .waiting ? .fill : .none)
                     .foregroundColor( ⓝow == .waiting ? nil : .secondary)
-                    .symbolVariant(ⓘsSlash ? .slash : .none)
+                    .symbolVariant(ⓟhase == ⓝow ? .slash : .none)
                     .scaleEffect(🔉)
                 
             case .fadeIn:
@@ -106,7 +104,6 @@ struct 🔔View_Previews: PreviewProvider {
         let now:🔛Phase = .waiting
         
         VStack {
-            🔔Icon(ⓟhase: .waiting, ⓝow: now, ⓘsSlash: true)
             🔔Icon(ⓟhase: .waiting, ⓝow: now)
             🔔Icon(ⓟhase: .fadeIn, ⓝow: now)
             🔔Icon(ⓟhase: .maxVolume, ⓝow: now)
