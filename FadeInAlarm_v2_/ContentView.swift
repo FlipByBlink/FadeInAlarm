@@ -154,6 +154,7 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .id("🚡fadeOut")
                 
+                
                 VStack {
                     Divider()
                     
@@ -176,6 +177,7 @@ struct ContentView: View {
                     Spacer(minLength: 100)
                 }
             }
+            
             
             .overlay(alignment: .bottom) {
                 HStack {
@@ -255,6 +257,7 @@ struct ContentView: View {
                 }
             }
             
+            
             .overlay(alignment: .topTrailing) {
                 if 🔛now != .powerOff {
                     ZStack {
@@ -274,6 +277,7 @@ struct ContentView: View {
                     }
                 }
             }
+            
             
             .animation(.default, value: 🔛now)
         }

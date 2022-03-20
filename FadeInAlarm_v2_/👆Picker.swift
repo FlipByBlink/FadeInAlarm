@@ -29,7 +29,7 @@ struct 👆🕰TimeFadeIn: View {
     @Binding var ⓢelected: Date
     
     var body: some View {
-        DatePicker("", selection: $ⓢelected, displayedComponents: .hourAndMinute)
+        DatePicker("Time fade-In", selection: $ⓢelected, displayedComponents: .hourAndMinute)
             .labelsHidden()
             .padding()
             .onAppear {
@@ -78,7 +78,7 @@ struct 👆🕛HourFadeIn: View {
     
     var body: some View {
         Menu( "+ " + (🄲hoicesFadeIn(rawValue: ⓢelected)?.ⓣext ?? "👿") ) {
-            Picker("", selection: $ⓢelected) {
+            Picker("Hour fade-in", selection: $ⓢelected) {
                 ForEach(🄲hoicesFadeIn.allCases) { 🄲hoice in
                     Text(🄲hoice.ⓣext)
                 }
@@ -118,7 +118,7 @@ struct 👆🕛HourFadeOut: View {
     
     var body: some View {
         Menu( "+ " + (🄲hoicesFadeOut(rawValue: ⓢelected)?.ⓣext ?? "👿") ) {
-            Picker("", selection: $ⓢelected) {
+            Picker("Hour fade-out", selection: $ⓢelected) {
                 ForEach(🄲hoicesFadeOut.allCases) { 🄲hoice in
                     Text(🄲hoice.ⓣext)
                 }
