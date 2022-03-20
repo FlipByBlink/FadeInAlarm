@@ -8,7 +8,7 @@ class 🎵AlarmPlayer {
     var 📻: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
     
     
-    func play(_ 🕰: Date,_ 🕛: TimeInterval) {
+    func ⓟlay(_ 🕰: Date,_ 🕛: TimeInterval) {
         
         let 🗄 = FileManager.default
         let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]

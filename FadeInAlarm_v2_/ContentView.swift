@@ -78,7 +78,7 @@ struct ContentView: View {
                     👆🔊VolumeOnWaiting(ⓢelected: $🎚🔊VolumeOnWaiting)
                         .disabled( 🔛Now != .powerOff )
                     
-                    if 🔛Now == .waiting { 🔛Phase.arrow() }
+                    if 🔛Now == .waiting { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
@@ -101,7 +101,7 @@ struct ContentView: View {
                     👆🕛HourFadeIn(ⓢelected: $🎚🕛HourFadein)
                         .disabled( 🔛Now != .powerOff )
                     
-                    if 🔛Now == .fadeIn { 🔛Phase.arrow() }
+                    if 🔛Now == .fadeIn { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
@@ -122,7 +122,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(ⓟhase: .maxVolume, ⓝow: 🔛Now)
                     
-                    if 🔛Now == .maxVolume { 🔛Phase.arrow() }
+                    if 🔛Now == .maxVolume { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
@@ -147,7 +147,7 @@ struct ContentView: View {
                     👆🕛HourFadeOut(ⓢelected: $🎚🕛HourFadeOut)
                         .disabled( 🔛Now != .powerOff )
                     
-                    if 🔛Now == .fadeOut { 🔛Phase.arrow() }
+                    if 🔛Now == .fadeOut { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
@@ -192,7 +192,7 @@ struct ContentView: View {
                                 🚡.scrollTo("🚡start", anchor: .center)
                             }
                             
-                            🎵.play(🎚🕰TimeFadeIn, 🎚🕛HourFadein)
+                            🎵.ⓟlay(🎚🕰TimeFadeIn, 🎚🕛HourFadein)
                             
                             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🕛 in
                                 

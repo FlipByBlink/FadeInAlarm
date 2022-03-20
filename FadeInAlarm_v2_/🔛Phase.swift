@@ -11,7 +11,7 @@ enum 🔛Phase {
     case powerOff
     
     
-    struct arrow: View {
+    struct ⓐrrow: View {
         
         var body: some View {
             
