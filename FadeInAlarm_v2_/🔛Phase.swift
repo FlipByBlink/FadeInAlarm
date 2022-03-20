@@ -4,11 +4,11 @@ import SwiftUI
 
 enum 🔛Phase {
     
-    case waiting
-    case fadeIn
-    case maxVolume
-    case fadeOut
-    case powerOff
+    case Waiting
+    case FadeIn
+    case MaxVolume
+    case FadeOut
+    case PowerOff
     
     
     struct ⓐrrow: View {

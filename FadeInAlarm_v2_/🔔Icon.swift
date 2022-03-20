@@ -20,17 +20,17 @@ struct 🔔Icon: View {
         
         Group {
             switch ⓟhase {
-            case .waiting:
+            case .Waiting:
                 Image(systemName: "bell")
-                    .symbolVariant( ⓝow == .waiting ? .fill : .none)
-                    .foregroundColor( ⓝow == .waiting ? nil : .secondary)
+                    .symbolVariant( ⓝow == .Waiting ? .fill : .none)
+                    .foregroundColor( ⓝow == .Waiting ? nil : .secondary)
                     .symbolVariant(ⓟhase == ⓝow ? .slash : .none)
                     .scaleEffect(🔉)
                 
-            case .fadeIn:
+            case .FadeIn:
                 Image(systemName: "bell")
-                    .symbolVariant( ⓝow == .fadeIn ? .fill : .none)
-                    .foregroundColor( ⓝow == .fadeIn ? nil : .secondary)
+                    .symbolVariant( ⓝow == .FadeIn ? .fill : .none)
+                    .foregroundColor( ⓝow == .FadeIn ? nil : .secondary)
                     .scaleEffect(🅂cale)
                     .opacity(🄾pacity)
                     .task {
@@ -40,15 +40,15 @@ struct 🔔Icon: View {
                         }
                     }
                 
-            case .maxVolume:
+            case .MaxVolume:
                 Image(systemName: "bell")
-                    .symbolVariant( ⓝow == .maxVolume ? .fill : .none)
-                    .foregroundColor( ⓝow == .maxVolume ? nil : .secondary)
+                    .symbolVariant( ⓝow == .MaxVolume ? .fill : .none)
+                    .foregroundColor( ⓝow == .MaxVolume ? nil : .secondary)
                 
-            case .fadeOut:
+            case .FadeOut:
                 Image(systemName: "bell")
-                    .symbolVariant( ⓝow == .fadeOut ? .fill : .none)
-                    .foregroundColor( ⓝow == .fadeOut ? nil : .secondary)
+                    .symbolVariant( ⓝow == .FadeOut ? .fill : .none)
+                    .foregroundColor( ⓝow == .FadeOut ? nil : .secondary)
                     .scaleEffect(🅂cale)
                     .opacity(🄾pacity)
                     .task {
@@ -58,7 +58,7 @@ struct 🔔Icon: View {
                         }
                     }
                 
-            case .powerOff: Text("👿")
+            case .PowerOff: Text("👿")
             }
         }
         .padding()
@@ -69,7 +69,7 @@ struct 🔔Icon: View {
     let 🕒 = 4.0
     
     func 🄵ade() {
-        if ⓟhase == .fadeIn {
+        if ⓟhase == .FadeIn {
             🅂cale = 🔉
             withAnimation {
                 🄾pacity = 1.0
@@ -80,7 +80,7 @@ struct 🔔Icon: View {
             withAnimation(.linear(duration: 0.2).delay( 🕒 - 0.2 )) {
                 🄾pacity = 0.0
             }
-        } else if ⓟhase == .fadeOut {
+        } else if ⓟhase == .FadeOut {
             🅂cale = 1.0
             withAnimation {
                 🄾pacity = 1.0
@@ -101,13 +101,13 @@ struct 🔔Icon: View {
 struct 🔔View_Previews: PreviewProvider {
     static var previews: some View {
         
-        let 🄽ow:🔛Phase = .waiting
+        let 🄽ow:🔛Phase = .Waiting
         
         VStack {
-            🔔Icon(ⓟhase: .waiting, ⓝow: 🄽ow)
-            🔔Icon(ⓟhase: .fadeIn, ⓝow: 🄽ow)
-            🔔Icon(ⓟhase: .maxVolume, ⓝow: 🄽ow)
-            🔔Icon(ⓟhase: .fadeOut, ⓝow: 🄽ow)
+            🔔Icon(ⓟhase: .Waiting, ⓝow: 🄽ow)
+            🔔Icon(ⓟhase: .FadeIn, ⓝow: 🄽ow)
+            🔔Icon(ⓟhase: .MaxVolume, ⓝow: 🄽ow)
+            🔔Icon(ⓟhase: .FadeOut, ⓝow: 🄽ow)
         }
     }
 }
