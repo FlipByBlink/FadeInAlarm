@@ -50,18 +50,16 @@ struct ContentView: View {
                         .foregroundColor(.secondary)
                         .font(.largeTitle.weight(.light))
                         .padding()
+                        .padding(.leading, 32)
                     
                     Spacer()
                     
-                    if 🔛 ==  .PowerOff { // ↓
-                        Image(systemName: "arrow.down")
-                            .font(.largeTitle.weight(.thin))
-                            .foregroundColor(.secondary)
-                            .padding()
-                    }
-                    
+                    Image(systemName: "arrow.down") // ↓
+                        .font(.largeTitle.weight(.thin))
+                        .foregroundColor(.secondary)
+                        .padding(.trailing, 24)
+                        .opacity( 🔛 ==  .PowerOff ? 1 : 0 )
                 }
-                .padding(.horizontal)
                 
                 
                 HStack {
@@ -75,7 +73,6 @@ struct ContentView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal)
                 .id(🔛Phase.Waiting)
                 
                 
@@ -85,7 +82,6 @@ struct ContentView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal)
                 
                 
                 HStack {
@@ -98,18 +94,18 @@ struct ContentView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal)
                 .id(🔛Phase.FadeIn)
                 
                 
                 HStack {
                     Text(🕰TimeFadeIn.addingTimeInterval(🕛HourFadein), style: .time)
+                        .font(.largeTitle)
                         .foregroundColor(.secondary)
                         .padding()
+                        .padding(.leading, 32)
                     
                     Spacer()
                 }
-                .padding(.horizontal)
                 
                 
                 HStack {
@@ -119,7 +115,6 @@ struct ContentView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal)
                 .id(🔛Phase.MaxVolume)
                 
                 
@@ -128,10 +123,10 @@ struct ContentView: View {
                         .font(.largeTitle.weight(.light))
                         .foregroundColor(.secondary)
                         .padding()
+                        .padding(.leading, 32)
                     
                     Spacer()
                 }
-                .padding(.horizontal)
                 
                 
                 HStack {
@@ -144,7 +139,6 @@ struct ContentView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal)
                 .id(🔛Phase.FadeOut)
                 
                 

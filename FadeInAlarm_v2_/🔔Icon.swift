@@ -54,6 +54,7 @@ struct 🔔Icon: View {
         .foregroundColor( ⓝow == ⓟhase ? nil : .secondary)
         .opacity(🄾pacity)
         .padding()
+        .padding(.leading, 32)
         .font(.largeTitle)
     }
     

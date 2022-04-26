@@ -16,7 +16,7 @@ struct 👆🔊VolumeOnWaiting: View {
                 Text("10%").tag(10)
             }
         }
-        .font(.caption)
+        .font(.body.bold())
         .accessibilityLabel("Select volume on waiting")
     }
 }
@@ -32,7 +32,8 @@ struct 👆🕰TimeFadeIn: View {
         DatePicker("Time fade-In", selection: $ⓢelected, displayedComponents: .hourAndMinute)
             .labelsHidden()
             .dynamicTypeSize(.accessibility3)
-            .padding(.vertical)
+            .padding()
+            .padding(.leading, 6)
             .onAppear {
                 if let 🅃ime = UserDefaults.standard.value(forKey: 💾Data.TimeFadeIn.rawValue) {
                     ⓢelected = 🅃ime as! Date
