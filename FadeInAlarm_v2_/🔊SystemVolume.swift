@@ -8,8 +8,8 @@ struct 🔊SystemVolume: View {
     var body: some View {
         🎚VolumeSlider()
             .contrast(0)
-            .frame(width: 150, height: 24)
-            .padding()
+            .frame(width: 140, height: 24)
+            .padding(24)
     }
 }
 

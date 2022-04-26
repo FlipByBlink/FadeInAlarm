@@ -24,26 +24,7 @@ struct ContentView: View {
     var body: some View {
         ScrollViewReader { 🚡 in
             ScrollView {
-                VStack {
-                    Spacer(minLength: 25)
-                    
-                    🔊SystemVolume()
-                    
-                    TimelineView(.periodic(from: .now, by: 1)) { _ in
-                        Text(.now, style: .time)
-                            .animation(.default)
-                            .foregroundColor(.secondary)
-                            .onTapGesture {
-                                if 🔛 == .PowerOff {
-                                    🕰TimeFadeIn = Date.now
-                                }
-                            }
-                    }
-                    
-                    Divider()
-                        .padding(.vertical)
-                }
-                
+                Spacer(minLength: 64)
                 
                 HStack {
                     Image(systemName: "power.circle") // ⏻
@@ -53,12 +34,6 @@ struct ContentView: View {
                         .padding(.leading, 32)
                     
                     Spacer()
-                    
-                    Image(systemName: "arrow.down") // ↓
-                        .font(.largeTitle.weight(.thin))
-                        .foregroundColor(.secondary)
-                        .padding(.trailing, 24)
-                        .opacity( 🔛 ==  .PowerOff ? 1 : 0 )
                 }
                 
                 
@@ -167,96 +142,13 @@ struct ContentView: View {
             
             
             .overlay(alignment: .bottom) {
-                HStack {
-                    Spacer()
-                    
-                    if 🔛 == .PowerOff {
-                        🔘Button(ⓣype: .Start) { // ⏻
-                            🔛 = .Waiting
-                            
-                            withAnimation {
-                                🚡.scrollTo(🔛Phase.Waiting, anchor: .center)
-                            }
-                            
-                            📻.ⓟlay(🕰TimeFadeIn, 🕛HourFadein)
-                            
-                            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🤖 in
-                                
-                                switch 🔛 {
-                                case .Waiting:
-                                    📻.ⓟlayer.volume = Float(🔊VolumeOnWaiting) / 100
-                                    let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
-                                    let 🄰larmTime = 🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
-                                    if 🄽ow == 🄰larmTime {
-                                        🔛 = .FadeIn
-                                        withAnimation {
-                                            🚡.scrollTo(🔛Phase.FadeIn, anchor: .center)
-                                        }
-                                    }
-                                    
-                                case .FadeIn:
-                                    📻.ⓟlayer.volume += Float( 0.5 / 🕛HourFadein )
-                                    if 📻.ⓟlayer.volume > 1.0 {
-                                        📻.ⓟlayer.volume = 1.0
-                                        🔛 = .MaxVolume
-                                        withAnimation {
-                                            🚡.scrollTo(🔛Phase.MaxVolume, anchor: .center)
-                                        }
-                                    }
-                                    
-                                case .MaxVolume: break
-                                    
-                                case .FadeOut:
-                                    📻.ⓟlayer.volume -= Float( 0.5 / 🕛HourFadeOut )
-                                    if 📻.ⓟlayer.volume < 0.0 {
-                                        📻.ⓟlayer.volume = 0.0
-                                        🔛 = .PowerOff
-                                    }
-                                    
-                                case .PowerOff:
-                                    📻.ⓟlayer.stop()
-                                    MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
-                                    🤖.invalidate()
-                                }
-                                
-                                🔔Volume = Int( 📻.ⓟlayer.volume * 100 )
-                            }
-                            
-                            MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
-                                🔛 = .FadeOut
-                                return .success
-                            }
-                        }
-                        .accessibilityLabel("Set alarm")
-                        
-                    } else {
-                        
-                        🔘Button(ⓣype: .Stop) { // ✓
-                            if 🔛 == .Waiting {
-                                🔛 = .PowerOff
-                            } else {
-                                🔛 = .FadeOut
-                                withAnimation {
-                                    🚡.scrollTo(🔛Phase.FadeOut, anchor: .center)
-                                }
-                            }
-                        }
-                        .disabled(🔛 == .FadeOut)
-                        .tint(.red)
-                        .accessibilityLabel("Stop alarm")
-                    }
-                }
-            }
-            
-            
-            .overlay(alignment: .topTrailing) {
                 if 🔛 != .PowerOff {
                     ZStack {
                         Label( 🔔Volume.description + "%" , systemImage: "bell")
                             .font(.caption)
                             .opacity(0.9)
                             .foregroundColor(.secondary)
-                            .padding()
+                            .padding(24)
                         
                         TimelineView(.periodic(from: .now, by: 1)) { _ in
                             if 📻.ⓟlayer.isPlaying == false {
@@ -267,6 +159,89 @@ struct ContentView: View {
                         }
                     }
                 }
+            }
+            
+            
+            .overlay(alignment: .bottomTrailing) {
+                if 🔛 == .PowerOff {
+                    🔘Button(ⓣype: .Start) { // ⏻
+                        🔛 = .Waiting
+                        
+                        withAnimation {
+                            🚡.scrollTo(🔛Phase.Waiting, anchor: .center)
+                        }
+                        
+                        📻.ⓟlay(🕰TimeFadeIn, 🕛HourFadein)
+                        
+                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🤖 in
+                            
+                            switch 🔛 {
+                            case .Waiting:
+                                📻.ⓟlayer.volume = Float(🔊VolumeOnWaiting) / 100
+                                let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
+                                let 🄰larmTime = 🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
+                                if 🄽ow == 🄰larmTime {
+                                    🔛 = .FadeIn
+                                    withAnimation {
+                                        🚡.scrollTo(🔛Phase.FadeIn, anchor: .center)
+                                    }
+                                }
+                                
+                            case .FadeIn:
+                                📻.ⓟlayer.volume += Float( 0.5 / 🕛HourFadein )
+                                if 📻.ⓟlayer.volume > 1.0 {
+                                    📻.ⓟlayer.volume = 1.0
+                                    🔛 = .MaxVolume
+                                    withAnimation {
+                                        🚡.scrollTo(🔛Phase.MaxVolume, anchor: .center)
+                                    }
+                                }
+                                
+                            case .MaxVolume: break
+                                
+                            case .FadeOut:
+                                📻.ⓟlayer.volume -= Float( 0.5 / 🕛HourFadeOut )
+                                if 📻.ⓟlayer.volume < 0.0 {
+                                    📻.ⓟlayer.volume = 0.0
+                                    🔛 = .PowerOff
+                                }
+                                
+                            case .PowerOff:
+                                📻.ⓟlayer.stop()
+                                MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
+                                🤖.invalidate()
+                            }
+                            
+                            🔔Volume = Int( 📻.ⓟlayer.volume * 100 )
+                        }
+                        
+                        MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
+                            🔛 = .FadeOut
+                            return .success
+                        }
+                    }
+                    .accessibilityLabel("Set alarm")
+                    
+                } else {
+                    🔘Button(ⓣype: .Stop) { // ✓
+                        if 🔛 == .Waiting {
+                            🔛 = .PowerOff
+                        } else {
+                            🔛 = .FadeOut
+                            withAnimation {
+                                🚡.scrollTo(🔛Phase.FadeOut, anchor: .center)
+                            }
+                        }
+                    }
+                    .disabled(🔛 == .FadeOut)
+                    .tint(.red)
+                    .accessibilityLabel("Stop alarm")
+                }
+            }
+            
+            
+            .overlay(alignment: .topTrailing) {
+                🔊SystemVolume()
             }
             
             
