@@ -135,11 +135,15 @@ struct 👆🕛HourFadeOut: View {
 struct 👆Menu_Previews: PreviewProvider {
     static var previews: some View {
         👆🔊VolumeOnWaiting(ⓢelected: .constant(1))
+            .previewLayout(.fixed(width: 300, height: 200))
         
         👆🕰TimeFadeIn(ⓢelected: .constant(Date()))
+            .previewLayout(.fixed(width: 300, height: 200))
         
         👆🕛HourFadeIn(ⓢelected: .constant(10))
+            .previewLayout(.fixed(width: 300, height: 200))
         
         👆🕛HourFadeOut(ⓢelected: .constant(7))
+            .previewLayout(.fixed(width: 300, height: 200))
     }
 }

@@ -40,9 +40,8 @@ struct ContentView: View {
                             }
                     }
                     
-                    Spacer(minLength: 25)
-                    
                     Divider()
+                        .padding(.vertical)
                 }
                 
                 
@@ -62,7 +61,6 @@ struct ContentView: View {
                     }
                     
                 }
-                .padding(.top)
                 .padding(.horizontal)
                 
                 
@@ -146,13 +144,13 @@ struct ContentView: View {
                     
                     Spacer()
                 }
-                .padding(.bottom)
                 .padding(.horizontal)
                 .id(🔛Phase.FadeOut)
                 
                 
                 VStack {
                     Divider()
+                        .padding(.vertical)
                     
                     📁ImportFile()
                         .disabled( 🔛 != .PowerOff )
@@ -289,5 +287,9 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewLayout(.fixed(width: 400, height: 900))
+        
+        ContentView()
+            .previewLayout(.fixed(width: 1200, height: 900))
     }
 }
