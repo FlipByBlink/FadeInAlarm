@@ -20,8 +20,8 @@ struct 🔘Button: View {
         } label: {
             Image(systemName: ⓣype.rawValue)
         }
-        .font(.system(size: 80))
-        .padding(16)
+        .font(.system(size: 96))
+        .padding()
         .background {
             Circle()
                 .foregroundColor(Color(.systemBackground))
