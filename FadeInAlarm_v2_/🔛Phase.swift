@@ -14,8 +14,7 @@ enum 🔛Phase {
     struct ⓐrrow: View {
         var body: some View {
             Image(systemName: "arrow.left")
-                .font(.title.weight(.thin))
-                .foregroundColor(.secondary)
+                .font(.title)
                 .padding()
         }
     }

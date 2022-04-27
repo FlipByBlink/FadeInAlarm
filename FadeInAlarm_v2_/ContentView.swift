@@ -34,7 +34,10 @@ struct ContentView: View {
                             🕰TimeFadeIn = Date.now
                         }
                     
-                    if 🔛 == .PowerOff { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .PowerOff {
+                        🔛Phase.ⓐrrow()
+                            .foregroundColor(.secondary)
+                    }
                     
                     Spacer()
                 }
@@ -68,6 +71,7 @@ struct ContentView: View {
                     
                     👆🕛HourFadeIn(ⓢelected: $🕛HourFadein)
                         .disabled( 🔛 != .PowerOff )
+                        .foregroundColor(🔛 != .PowerOff ? .secondary : nil)
                     
                     if 🔛 == .FadeIn { 🔛Phase.ⓐrrow() }
                     
@@ -113,6 +117,7 @@ struct ContentView: View {
                     
                     👆🕛HourFadeOut(ⓢelected: $🕛HourFadeOut)
                         .disabled( 🔛 != .PowerOff )
+                        .foregroundColor(🔛 != .PowerOff ? .secondary : nil)
                     
                     if 🔛 == .FadeOut { 🔛Phase.ⓐrrow() }
                     
@@ -141,26 +146,6 @@ struct ContentView: View {
                     }
                     
                     Spacer(minLength: 100)
-                }
-            }
-            
-            
-            .overlay(alignment: .topLeading) {
-                if 🔛 != .PowerOff {
-                    ZStack {
-                        Label( 🔔Volume.description + "%" , systemImage: "bell")
-                            .opacity(0.9)
-                            .foregroundColor(.secondary)
-                            .padding(24)
-                        
-                        TimelineView(.periodic(from: .now, by: 1)) { _ in
-                            if 📻.ⓟlayer.isPlaying == false {
-                                Image(systemName: "exclamationmark.triangle.fill")
-                                    .foregroundColor(.secondary)
-                                    .opacity(0.7)
-                            }
-                        }
-                    }
                 }
             }
             
@@ -226,7 +211,7 @@ struct ContentView: View {
                     .accessibilityLabel("Set alarm")
                     
                 } else {
-                    🔘Button(ⓣype: .Stop) { // ✓
+                    🔘Button(ⓣype: .Stop, now: 🔛) { // ✓
                         if 🔛 == .Waiting {
                             🔛 = .PowerOff
                         } else {
@@ -236,15 +221,32 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .disabled(🔛 == .FadeOut)
-                    .tint(.red)
                     .accessibilityLabel("Stop alarm")
                 }
             }
             
             
             .overlay(alignment: .topTrailing) {
-                🔊SystemVolume()
+                VStack(alignment: .trailing) {
+                    🔊SystemVolume()
+                    
+                    if 🔛 != .PowerOff {
+                        ZStack {
+                            Label( 🔔Volume.description + "%" , systemImage: "bell")
+                                .opacity(0.9)
+                                .foregroundColor(.secondary)
+                                .padding()
+                            
+                            TimelineView(.periodic(from: .now, by: 1)) { _ in
+                                if 📻.ⓟlayer.isPlaying == false {
+                                    Image(systemName: "exclamationmark.triangle.fill")
+                                        .foregroundColor(.secondary)
+                                        .opacity(0.7)
+                                }
+                            }
+                        }
+                    }
+                }
             }
             
             
