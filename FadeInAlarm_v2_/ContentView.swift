@@ -130,7 +130,7 @@ struct ContentView: View {
                     📁ImportFile()
                         .disabled( 🔛 != .PowerOff )
                     
-                    Spacer(minLength: 30)
+                    Spacer(minLength: 12)
                     
                     Menu { // 🔗
                         Link("AppStore link",
@@ -141,6 +141,8 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "link")
                     }
+                    .disabled( 🔛 != .PowerOff )
+                    .font(.body.bold())
                     
                     Spacer(minLength: 100)
                 }
