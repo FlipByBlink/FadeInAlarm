@@ -31,9 +31,9 @@ struct 👆🕰TimeFadeIn: View {
     var body: some View {
         DatePicker("Time fade-In", selection: $ⓢelected, displayedComponents: .hourAndMinute)
             .labelsHidden()
-            .dynamicTypeSize(.accessibility3)
+            .dynamicTypeSize(.accessibility2)
             .padding()
-            .padding(.leading, 6)
+            .padding(.leading, 9)
             .onAppear {
                 if let 🅃ime = UserDefaults.standard.value(forKey: 💾Data.TimeFadeIn.rawValue) {
                     ⓢelected = 🅃ime as! Date
@@ -85,7 +85,7 @@ struct 👆🕛HourFadeIn: View {
                 }
             }
         }
-        .font(.largeTitle.bold())
+        .font(.title.bold())
         .accessibilityLabel("Select hour fade-in")
     }
 }

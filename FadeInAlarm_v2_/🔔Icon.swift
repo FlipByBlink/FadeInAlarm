@@ -55,7 +55,7 @@ struct 🔔Icon: View {
         .opacity(🄾pacity)
         .padding()
         .padding(.leading, 32)
-        .font(.largeTitle)
+        .font(.title)
     }
     
     

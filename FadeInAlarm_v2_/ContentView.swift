@@ -27,7 +27,7 @@ struct ContentView: View {
                 HStack {
                     Image(systemName: "power.circle") // ⏻
                         .foregroundColor(.secondary)
-                        .font(.largeTitle.weight(.light))
+                        .font(.title.weight(.light))
                         .padding()
                         .padding(.leading, 32)
                         .padding(.top, 64)
@@ -73,10 +73,10 @@ struct ContentView: View {
                 
                 HStack {
                     Text(🕰TimeFadeIn.addingTimeInterval(🕛HourFadein), style: .time)
-                        .font(.largeTitle)
+                        .font(.title2)
                         .foregroundColor(.secondary)
                         .padding()
-                        .padding(.leading, 32)
+                        .padding(.leading, 28)
                     
                     Spacer()
                 }
@@ -94,7 +94,7 @@ struct ContentView: View {
                 
                 HStack {
                     Image(systemName: "checkmark.circle") // ✓
-                        .font(.largeTitle.weight(.light))
+                        .font(.title.weight(.light))
                         .foregroundColor(.secondary)
                         .padding()
                         .padding(.leading, 32)
@@ -144,7 +144,6 @@ struct ContentView: View {
                 if 🔛 != .PowerOff {
                     ZStack {
                         Label( 🔔Volume.description + "%" , systemImage: "bell")
-                            .font(.caption)
                             .opacity(0.9)
                             .foregroundColor(.secondary)
                             .padding(24)
