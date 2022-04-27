@@ -16,7 +16,7 @@ struct 👆🔊VolumeOnWaiting: View {
                 Text("10%").tag(10)
             }
         }
-        .font(.body.bold())
+        .font(.caption.bold())
         .accessibilityLabel("Select volume on waiting")
     }
 }

@@ -22,8 +22,7 @@ struct 🔘Button: View {
                 .font(.system(size: 96))
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(.white, .primary)
-                .shadow(color: .secondary,
-                        radius: 5,
+                .shadow(radius: 4,
                         x: 1, y: 1.5)
         }
         .padding()
