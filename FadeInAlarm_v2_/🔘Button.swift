@@ -48,19 +48,23 @@ struct 🔘Button: View {
 
 struct 🔘Button_Previews: PreviewProvider {
     static var previews: some View {
-        🔘Button(ⓣype: .Start, ⓝow: .PowerOff){
-            print("No action.")
+        VStack {
+            🔘Button(ⓣype: .Start, ⓝow: .PowerOff){ }
+            
+            🔘Button(ⓣype: .Stop, ⓝow: .MaxVolume){ }
+            
+            🔘Button(ⓣype: .Stop, ⓝow: .FadeOut){ }
         }
-        .previewLayout(.fixed(width: 300, height: 300))
+        .previewLayout(.fixed(width: 300, height: 500))
         
-        🔘Button(ⓣype: .Stop, ⓝow: .MaxVolume){
-            print("No action.")
+        VStack {
+            🔘Button(ⓣype: .Start, ⓝow: .PowerOff){ }
+            
+            🔘Button(ⓣype: .Stop, ⓝow: .MaxVolume){ }
+            
+            🔘Button(ⓣype: .Stop, ⓝow: .FadeOut){ }
         }
-        .previewLayout(.fixed(width: 300, height: 300))
-        
-        🔘Button(ⓣype: .Stop, ⓝow: .FadeOut){
-            print("No action.")
-        }
-        .previewLayout(.fixed(width: 300, height: 300))
+        .previewLayout(.fixed(width: 300, height: 500))
+        .preferredColorScheme(.dark)
     }
 }

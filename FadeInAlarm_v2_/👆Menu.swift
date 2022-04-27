@@ -139,19 +139,23 @@ struct 👆🕛HourFadeOut: View {
 
 struct 👆Menu_Previews: PreviewProvider {
     static var previews: some View {
-        👆🔊VolumeOnWaiting(ⓢelected: .constant(1))
-            .previewLayout(.fixed(width: 300, height: 200))
+        VStack {
+            👆🔊VolumeOnWaiting(ⓢelected: .constant(1))
+            👆🕰TimeFadeIn(ⓢelected: .constant(Date()))
+            👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .PowerOff)
+            👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .Waiting)
+            👆🕛HourFadeOut(ⓢelected: .constant(7))
+        }
+        .previewLayout(.fixed(width: 300, height: 600))
         
-        👆🕰TimeFadeIn(ⓢelected: .constant(Date()))
-            .previewLayout(.fixed(width: 300, height: 200))
-        
-        👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .PowerOff)
-            .previewLayout(.fixed(width: 300, height: 200))
-        
-        👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .Waiting)
-            .previewLayout(.fixed(width: 300, height: 200))
-        
-        👆🕛HourFadeOut(ⓢelected: .constant(7))
-            .previewLayout(.fixed(width: 300, height: 200))
+        VStack {
+            👆🔊VolumeOnWaiting(ⓢelected: .constant(1))
+            👆🕰TimeFadeIn(ⓢelected: .constant(Date()))
+            👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .PowerOff)
+            👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .Waiting)
+            👆🕛HourFadeOut(ⓢelected: .constant(7))
+        }
+        .previewLayout(.fixed(width: 300, height: 600))
+        .preferredColorScheme(.dark)
     }
 }
