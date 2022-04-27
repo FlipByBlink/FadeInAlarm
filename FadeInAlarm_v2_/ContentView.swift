@@ -30,10 +30,15 @@ struct ContentView: View {
                         .font(.title.weight(.light))
                         .padding()
                         .padding(.leading, 32)
-                        .padding(.top, 64)
+                        .onTapGesture(count: 2) {
+                            🕰TimeFadeIn = Date.now
+                        }
+                    
+                    if 🔛 == .PowerOff { 🔛Phase.ⓐrrow() }
                     
                     Spacer()
                 }
+                .padding(.top, 64)
                 
                 
                 HStack {
@@ -140,7 +145,7 @@ struct ContentView: View {
             }
             
             
-            .overlay(alignment: .bottom) {
+            .overlay(alignment: .topLeading) {
                 if 🔛 != .PowerOff {
                     ZStack {
                         Label( 🔔Volume.description + "%" , systemImage: "bell")
