@@ -41,7 +41,7 @@ struct ContentView: View {
                     
                     Spacer()
                 }
-                .padding(.top, 64)
+                .padding(.top, 80)
                 
                 
                 HStack {
@@ -69,9 +69,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(ⓟhase: .FadeIn, ⓝow: 🔛)
                     
-                    👆🕛HourFadeIn(ⓢelected: $🕛HourFadein)
-                        .disabled( 🔛 != .PowerOff )
-                        .foregroundColor(🔛 != .PowerOff ? .secondary : nil)
+                    👆🕛HourFadeIn(ⓢelected: $🕛HourFadein, ⓝow: 🔛)
                     
                     if 🔛 == .FadeIn { 🔛Phase.ⓐrrow() }
                     
@@ -117,7 +115,6 @@ struct ContentView: View {
                     
                     👆🕛HourFadeOut(ⓢelected: $🕛HourFadeOut)
                         .disabled( 🔛 != .PowerOff )
-                        .foregroundColor(🔛 != .PowerOff ? .secondary : nil)
                     
                     if 🔛 == .FadeOut { 🔛Phase.ⓐrrow() }
                     
@@ -128,7 +125,7 @@ struct ContentView: View {
                 
                 VStack {
                     Divider()
-                        .padding(.top, 64)
+                        .padding(.top, 56)
                     
                     📁ImportFile()
                         .disabled( 🔛 != .PowerOff )
@@ -211,7 +208,7 @@ struct ContentView: View {
                     .accessibilityLabel("Set alarm")
                     
                 } else {
-                    🔘Button(ⓣype: .Stop, now: 🔛) { // ✓
+                    🔘Button(ⓣype: .Stop,ⓝow: 🔛) { // ✓
                         if 🔛 == .Waiting {
                             🔛 = .PowerOff
                         } else {

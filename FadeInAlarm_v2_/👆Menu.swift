@@ -77,6 +77,8 @@ struct 👆🕛HourFadeIn: View {
     
     @Binding var ⓢelected: TimeInterval
     
+    var ⓝow: 🔛Phase
+    
     var body: some View {
         Menu( "+ " + (🄲hoices(rawValue: ⓢelected)?.ⓣext ?? "👿") ) {
             Picker("Hour fade-in", selection: $ⓢelected) {
@@ -87,6 +89,8 @@ struct 👆🕛HourFadeIn: View {
         }
         .font(.title.bold())
         .accessibilityLabel("Select hour fade-in")
+        .disabled( ⓝow != .PowerOff )
+        .foregroundColor(ⓝow != .PowerOff ? .secondary : nil)
     }
 }
 
@@ -141,7 +145,10 @@ struct 👆Menu_Previews: PreviewProvider {
         👆🕰TimeFadeIn(ⓢelected: .constant(Date()))
             .previewLayout(.fixed(width: 300, height: 200))
         
-        👆🕛HourFadeIn(ⓢelected: .constant(10))
+        👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .PowerOff)
+            .previewLayout(.fixed(width: 300, height: 200))
+        
+        👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .Waiting)
             .previewLayout(.fixed(width: 300, height: 200))
         
         👆🕛HourFadeOut(ⓢelected: .constant(7))
