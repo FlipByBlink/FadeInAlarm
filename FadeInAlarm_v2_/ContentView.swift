@@ -24,14 +24,13 @@ struct ContentView: View {
     var body: some View {
         ScrollViewReader { 🚡 in
             ScrollView {
-                Spacer(minLength: 64)
-                
                 HStack {
                     Image(systemName: "power.circle") // ⏻
                         .foregroundColor(.secondary)
                         .font(.largeTitle.weight(.light))
                         .padding()
                         .padding(.leading, 32)
+                        .padding(.top, 64)
                     
                     Spacer()
                 }
@@ -119,7 +118,7 @@ struct ContentView: View {
                 
                 VStack {
                     Divider()
-                        .padding(.vertical)
+                        .padding(.top, 64)
                     
                     📁ImportFile()
                         .disabled( 🔛 != .PowerOff )
@@ -256,7 +255,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewLayout(.fixed(width: 400, height: 900))
+            .previewLayout(.fixed(width: 400, height: 800))
         
         ContentView()
             .previewLayout(.fixed(width: 1200, height: 900))

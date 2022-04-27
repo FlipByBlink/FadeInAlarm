@@ -67,5 +67,6 @@ struct 📁ImportFile: View {
 struct 📁ImportFile_Previews: PreviewProvider {
     static var previews: some View {
         📁ImportFile()
+            .previewLayout(.fixed(width: 400, height: 400))
     }
 }

@@ -19,14 +19,14 @@ struct 🔘Button: View {
             🄰ction()
         } label: {
             Image(systemName: ⓣype.rawValue)
+                .font(.system(size: 96))
+                .symbolRenderingMode(.palette)
+                .foregroundStyle(.white, .primary)
+                .shadow(color: .secondary,
+                        radius: 5,
+                        x: 1, y: 1.5)
         }
-        .font(.system(size: 96))
         .padding()
-        .background {
-            Circle()
-                .foregroundColor(Color(.systemBackground))
-                .padding()
-        }
     }
 }
 
@@ -38,9 +38,11 @@ struct 🔘Button_Previews: PreviewProvider {
         🔘Button(ⓣype: .Start){
             print("No action.")
         }
+        .previewLayout(.fixed(width: 300, height: 300))
         
         🔘Button(ⓣype: .Stop){
             print("No action.")
         }
+        .previewLayout(.fixed(width: 300, height: 300))
     }
 }
