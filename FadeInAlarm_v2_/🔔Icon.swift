@@ -68,7 +68,7 @@ struct 🔔Icon: View {
                 🄾pacity = 1.0
             }
             withAnimation(.linear(duration: 🄳uration)) {
-                🔍 = 1.0
+                🔍 = 1.2
             }
             withAnimation(.linear(duration: 0.2).delay( 🄳uration - 0.2 )) {
                 🄾pacity = 0.0
