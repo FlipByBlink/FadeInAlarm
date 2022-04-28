@@ -6,13 +6,13 @@ import MediaPlayer
 
 struct ContentView: View {
     
-    @AppStorage(💾DataName.VolumeOnWaiting.rawValue) var 🔊VolumeOnWaiting = 3
+    @AppStorage("VolumeOnWaiting") var 🔊VolumeOnWaiting = 3
     
     @State private var 🕰TimeFadeIn = Date.now + 180
     
-    @AppStorage(💾DataName.HourFadein.rawValue) var 🕛HourFadein = 10.0
+    @AppStorage("HourFadein") var 🕛HourFadein = 10.0
     
-    @AppStorage(💾DataName.HourFadeOut.rawValue) var 🕛HourFadeOut = 3.0
+    @AppStorage("HourFadeOut") var 🕛HourFadeOut = 3.0
     
     @State private var 🔛: 🔛Phase = .PowerOff
     
