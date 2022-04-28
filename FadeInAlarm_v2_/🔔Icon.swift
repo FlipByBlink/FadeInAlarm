@@ -6,7 +6,7 @@ struct 🔔Icon: View {
     
     var ⓟhase: 🔛Phase
     
-    var ⓝow: 🔛Phase
+    var 🔛: 🔛Phase
     
     
     @State private var 🔍 = 0.4
@@ -50,8 +50,8 @@ struct 🔔Icon: View {
             case .PowerOff: Text("👿")
             }
         }
-        .symbolVariant( ⓝow == ⓟhase ? .fill : .none)
-        .foregroundColor( ⓝow == ⓟhase ? nil : .secondary)
+        .symbolVariant( 🔛 == ⓟhase ? .fill : .none)
+        .foregroundColor( 🔛 == ⓟhase ? nil : .secondary)
         .opacity(🄾pacity)
         .padding()
         .padding(.leading, 32)
@@ -86,6 +86,11 @@ struct 🔔Icon: View {
             }
         }
     }
+    
+    init(_ phase: 🔛Phase, _ now: 🔛Phase) {
+        ⓟhase = phase
+        🔛 = now
+    }
 }
 
 
@@ -93,13 +98,11 @@ struct 🔔Icon: View {
 
 struct 🔔Icon_Previews: PreviewProvider {
     static var previews: some View {
-        let 🄽ow:🔛Phase = .Waiting
-        
         VStack {
-            🔔Icon(ⓟhase: .Waiting, ⓝow: 🄽ow)
-            🔔Icon(ⓟhase: .FadeIn, ⓝow: 🄽ow)
-            🔔Icon(ⓟhase: .MaxVolume, ⓝow: 🄽ow)
-            🔔Icon(ⓟhase: .FadeOut, ⓝow: 🄽ow)
+            🔔Icon(.Waiting, .PowerOff)
+            🔔Icon(.FadeIn, .PowerOff)
+            🔔Icon(.MaxVolume, .PowerOff)
+            🔔Icon(.FadeOut, .PowerOff)
         }
     }
 }

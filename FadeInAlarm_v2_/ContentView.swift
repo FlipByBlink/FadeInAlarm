@@ -45,7 +45,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(ⓟhase: .Waiting, ⓝow: 🔛)
+                    🔔Icon(.Waiting, 🔛)
                         .symbolVariant( 🔊VolumeOnWaiting == 0 ? .slash : .none )
                     
                     👆🔊VolumeOnWaiting(ⓢelected: $🔊VolumeOnWaiting)
@@ -67,7 +67,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(ⓟhase: .FadeIn, ⓝow: 🔛)
+                    🔔Icon(.FadeIn, 🔛)
                     
                     👆🕛HourFadeIn(ⓢelected: $🕛HourFadein, ⓝow: 🔛)
                     
@@ -90,7 +90,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(ⓟhase: .MaxVolume, ⓝow: 🔛)
+                    🔔Icon(.MaxVolume, 🔛)
                     
                     if 🔛 == .MaxVolume { 🔛Phase.ⓐrrow() }
                     
@@ -111,7 +111,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(ⓟhase: .FadeOut, ⓝow: 🔛)
+                    🔔Icon(.FadeOut, 🔛)
                     
                     👆🕛HourFadeOut(ⓢelected: $🕛HourFadeOut)
                         .disabled( 🔛 != .PowerOff )
