@@ -201,7 +201,7 @@ struct ContentView: View {
                     .accessibilityLabel("Set alarm")
                     
                 } else {
-                    🔘Button(ⓣype: .Stop,ⓝow: 🔛) { // ✓
+                    🔘Button(ⓣype: .Stop, ⓝow: 🔛) { // ✓
                         if 🔛 == .Waiting {
                             🔛 = .PowerOff
                         } else {
