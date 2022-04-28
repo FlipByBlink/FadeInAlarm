@@ -69,7 +69,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(.FadeIn, 🔛)
                     
-                    👆HourFadeIn($🕛HourFadein, now: 🔛)
+                    👆HourFadeIn($🕛HourFadein, 🔛)
                     
                     if 🔛 == .FadeIn { A︭rrow() } // ←
                     

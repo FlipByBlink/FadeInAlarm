@@ -20,8 +20,8 @@ struct 👆VolumeOnWaiting: View {
         .accessibilityLabel("Select volume on waiting")
     }
     
-    init(_ selected: Binding<Int>) {
-        _🎚 = selected
+    init(_ 🎚: Binding<Int>) {
+        self._🎚 = 🎚
     }
 }
 
@@ -51,8 +51,8 @@ struct 👆TimeFadeIn: View {
             .accessibilityLabel("Set time to start fade-in")
     }
     
-    init(_ selected: Binding<Date>) {
-        _🎚 = selected
+    init(_ 🎚: Binding<Date>) {
+        self._🎚 = 🎚
     }
 }
 
@@ -85,7 +85,7 @@ struct 👆HourFadeIn: View {
     
     @Binding var 🎚: TimeInterval
     
-    var ⓝow: 🔛Phase
+    var 🔛: 🔛Phase
     
     var body: some View {
         Menu( "+ " + (🄲hoices(rawValue: 🎚)?.ⓣext ?? "👿") ) {
@@ -97,13 +97,13 @@ struct 👆HourFadeIn: View {
         }
         .font(.title.bold())
         .accessibilityLabel("Select hour fade-in")
-        .disabled( ⓝow != .PowerOff )
-        .foregroundColor(ⓝow != .PowerOff ? .secondary : nil)
+        .disabled( 🔛 != .PowerOff )
+        .foregroundColor(🔛 != .PowerOff ? .secondary : nil)
     }
     
-    init(_ selected: Binding<TimeInterval>, now: 🔛Phase) {
-        _🎚 = selected
-        ⓝow = now
+    init(_ 🎚: Binding<TimeInterval>, _ 🔛: 🔛Phase) {
+        self._🎚 = 🎚
+        self.🔛 = 🔛
     }
 }
 
@@ -146,8 +146,8 @@ struct 👆HourFadeOut: View {
         .accessibilityLabel("Select hour fade-out")
     }
     
-    init(_ selected: Binding<TimeInterval>) {
-        _🎚 = selected
+    init(_ 🎚: Binding<TimeInterval>) {
+        self._🎚 = 🎚
     }
 }
 
@@ -159,8 +159,8 @@ struct 👆Menu_Previews: PreviewProvider {
         VStack {
             👆VolumeOnWaiting(.constant(1))
             👆TimeFadeIn(.constant(Date()))
-            👆HourFadeIn(.constant(10), now: .PowerOff)
-            👆HourFadeIn(.constant(10), now: .Waiting)
+            👆HourFadeIn(.constant(10), .PowerOff)
+            👆HourFadeIn(.constant(10), .Waiting)
             👆HourFadeOut(.constant(7))
         }
         .previewLayout(.fixed(width: 300, height: 600))
@@ -168,8 +168,8 @@ struct 👆Menu_Previews: PreviewProvider {
         VStack {
             👆VolumeOnWaiting(.constant(1))
             👆TimeFadeIn(.constant(Date()))
-            👆HourFadeIn(.constant(10), now: .PowerOff)
-            👆HourFadeIn(.constant(10), now: .Waiting)
+            👆HourFadeIn(.constant(10), .PowerOff)
+            👆HourFadeIn(.constant(10), .Waiting)
             👆HourFadeOut(.constant(7))
         }
         .previewLayout(.fixed(width: 300, height: 600))

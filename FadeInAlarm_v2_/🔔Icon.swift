@@ -87,9 +87,9 @@ struct 🔔Icon: View {
         }
     }
     
-    init(_ phase: 🔛Phase, _ now: 🔛Phase) {
-        ⓟhase = phase
-        🔛 = now
+    init(_ ⓟhase: 🔛Phase, _ 🔛: 🔛Phase) {
+        self.ⓟhase = ⓟhase
+        self.🔛 = 🔛
     }
 }
 
