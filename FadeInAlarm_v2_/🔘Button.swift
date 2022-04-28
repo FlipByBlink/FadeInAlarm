@@ -11,7 +11,7 @@ struct 🔘Button: View {
     
     var ⓣype: 🅃ype
     
-    var ⓝow: 🔛Phase = .Waiting
+    var ⓝow: 🔛Phase
     
     var 🄰ction: () -> Void
     
@@ -41,6 +41,12 @@ struct 🔘Button: View {
         .disabled(ⓝow == .FadeOut)
         .opacity(ⓝow == .FadeOut ? 0.6 : 1.0)
     }
+    
+    init(_ type: 🅃ype,_ now: 🔛Phase = .Waiting, _ action: @escaping () -> Void) {
+        ⓣype = type
+        ⓝow = now
+        🄰ction = action
+    }
 }
 
 
@@ -49,20 +55,20 @@ struct 🔘Button: View {
 struct 🔘Button_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            🔘Button(ⓣype: .Start, ⓝow: .PowerOff){ }
+            🔘Button(.Start, .PowerOff){ }
             
-            🔘Button(ⓣype: .Stop, ⓝow: .MaxVolume){ }
+            🔘Button(.Stop, .MaxVolume){ }
             
-            🔘Button(ⓣype: .Stop, ⓝow: .FadeOut){ }
+            🔘Button(.Stop, .FadeOut){ }
         }
         .previewLayout(.fixed(width: 300, height: 500))
         
         VStack {
-            🔘Button(ⓣype: .Start, ⓝow: .PowerOff){ }
+            🔘Button(.Start, .PowerOff){ }
             
-            🔘Button(ⓣype: .Stop, ⓝow: .MaxVolume){ }
+            🔘Button(.Stop, .MaxVolume){ }
             
-            🔘Button(ⓣype: .Stop, ⓝow: .FadeOut){ }
+            🔘Button(.Stop, .FadeOut){ }
         }
         .previewLayout(.fixed(width: 300, height: 500))
         .preferredColorScheme(.dark)

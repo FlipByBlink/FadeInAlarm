@@ -142,7 +142,7 @@ struct ContentView: View {
             
             .overlay(alignment: .bottomTrailing) {
                 if 🔛 == .PowerOff {
-                    🔘Button(ⓣype: .Start) { // ⏻
+                    🔘Button(.Start) { // ⏻
                         🔛 = .Waiting
                         
                         withAnimation {
@@ -201,7 +201,7 @@ struct ContentView: View {
                     .accessibilityLabel("Set alarm")
                     
                 } else {
-                    🔘Button(ⓣype: .Stop, ⓝow: 🔛) { // ✓
+                    🔘Button(.Stop, 🔛) { // ✓
                         if 🔛 == .Waiting {
                             🔛 = .PowerOff
                         } else {
