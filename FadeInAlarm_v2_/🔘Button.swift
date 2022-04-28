@@ -11,12 +11,12 @@ struct 🔘Button: View {
     
     var ⓣype: 🅃ype
     
-    var ⓝow: 🔛Phase
+    var 🔛: 🔛Phase
     
     var 🄰ction: () -> Void
     
     var 🎨: Color {
-        if ⓝow == .FadeOut { return .gray }
+        if 🔛 == .FadeOut { return .gray }
         
         switch ⓣype {
         case .Start:
@@ -38,13 +38,13 @@ struct 🔘Button: View {
                         x: 1, y: 1.5)
         }
         .padding()
-        .disabled(ⓝow == .FadeOut)
-        .opacity(ⓝow == .FadeOut ? 0.6 : 1.0)
+        .disabled(🔛 == .FadeOut)
+        .opacity(🔛 == .FadeOut ? 0.6 : 1.0)
     }
     
     init(_ type: 🅃ype,_ now: 🔛Phase = .Waiting, _ action: @escaping () -> Void) {
         ⓣype = type
-        ⓝow = now
+        🔛 = now
         🄰ction = action
     }
 }
