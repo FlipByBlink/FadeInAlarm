@@ -4,11 +4,11 @@ import SwiftUI
 
 struct 👆🔊VolumeOnWaiting: View {
     
-    @Binding var ⓢelected: Int
+    @Binding var 🎚: Int
     
     var body: some View {
-        Menu( ⓢelected.description + "%" ) {
-            Picker("Volume on waiting", selection: $ⓢelected) {
+        Menu( 🎚.description + "%" ) {
+            Picker("Volume on waiting", selection: $🎚) {
                 Text("0%").tag(0)
                 Text("1%").tag(1)
                 Text("3%").tag(3)
@@ -19,6 +19,10 @@ struct 👆🔊VolumeOnWaiting: View {
         .font(.caption.bold())
         .accessibilityLabel("Select volume on waiting")
     }
+    
+    init(_ selected: Binding<Int>) {
+        _🎚 = selected
+    }
 }
 
 
@@ -26,25 +30,29 @@ struct 👆🔊VolumeOnWaiting: View {
 
 struct 👆🕰TimeFadeIn: View {
     
-    @Binding var ⓢelected: Date
+    @Binding var 🎚: Date
     
     var body: some View {
-        DatePicker("Time fade-In", selection: $ⓢelected, displayedComponents: .hourAndMinute)
+        DatePicker("Time fade-In", selection: $🎚, displayedComponents: .hourAndMinute)
             .labelsHidden()
             .dynamicTypeSize(.accessibility2)
             .padding()
             .padding(.leading, 9)
             .onAppear {
                 if let t︭ime = UserDefaults.standard.value(forKey: "TimeFadeIn") {
-                    ⓢelected = t︭ime as! Date
+                    🎚 = t︭ime as! Date
                 } else {
-                    ⓢelected = Date.now + 180
+                    🎚 = Date.now + 180
                 }
             }
-            .onChange(of: ⓢelected) { t︭ime in
+            .onChange(of: 🎚) { t︭ime in
                 UserDefaults.standard.setValue(t︭ime, forKey: "TimeFadeIn")
             }
             .accessibilityLabel("Set time to start fade-in")
+    }
+    
+    init(_ selected: Binding<Date>) {
+        _🎚 = selected
     }
 }
 
@@ -75,13 +83,13 @@ struct 👆🕛HourFadeIn: View {
         }
     }
     
-    @Binding var ⓢelected: TimeInterval
+    @Binding var 🎚: TimeInterval
     
     var ⓝow: 🔛Phase
     
     var body: some View {
-        Menu( "+ " + (🄲hoices(rawValue: ⓢelected)?.ⓣext ?? "👿") ) {
-            Picker("Hour fade-in", selection: $ⓢelected) {
+        Menu( "+ " + (🄲hoices(rawValue: 🎚)?.ⓣext ?? "👿") ) {
+            Picker("Hour fade-in", selection: $🎚) {
                 ForEach(🄲hoices.allCases) { 🄲hoice in
                     Text(🄲hoice.ⓣext)
                 }
@@ -91,6 +99,11 @@ struct 👆🕛HourFadeIn: View {
         .accessibilityLabel("Select hour fade-in")
         .disabled( ⓝow != .PowerOff )
         .foregroundColor(ⓝow != .PowerOff ? .secondary : nil)
+    }
+    
+    init(_ selected: Binding<TimeInterval>, now: 🔛Phase) {
+        _🎚 = selected
+        ⓝow = now
     }
 }
 
@@ -119,11 +132,11 @@ struct 👆🕛HourFadeOut: View {
         }
     }
     
-    @Binding var ⓢelected: TimeInterval
+    @Binding var 🎚: TimeInterval
     
     var body: some View {
-        Menu( "+ " + (🄲hoices(rawValue: ⓢelected)?.ⓣext ?? "👿") ) {
-            Picker("Hour fade-out", selection: $ⓢelected) {
+        Menu( "+ " + (🄲hoices(rawValue: 🎚)?.ⓣext ?? "👿") ) {
+            Picker("Hour fade-out", selection: $🎚) {
                 ForEach(🄲hoices.allCases) { 🄲hoice in
                     Text(🄲hoice.ⓣext)
                 }
@@ -131,6 +144,10 @@ struct 👆🕛HourFadeOut: View {
         }
         .font(.body.bold())
         .accessibilityLabel("Select hour fade-out")
+    }
+    
+    init(_ selected: Binding<TimeInterval>) {
+        _🎚 = selected
     }
 }
 
@@ -140,20 +157,20 @@ struct 👆🕛HourFadeOut: View {
 struct 👆Menu_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            👆🔊VolumeOnWaiting(ⓢelected: .constant(1))
-            👆🕰TimeFadeIn(ⓢelected: .constant(Date()))
-            👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .PowerOff)
-            👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .Waiting)
-            👆🕛HourFadeOut(ⓢelected: .constant(7))
+            👆🔊VolumeOnWaiting(.constant(1))
+            👆🕰TimeFadeIn(.constant(Date()))
+            👆🕛HourFadeIn(.constant(10), now: .PowerOff)
+            👆🕛HourFadeIn(.constant(10), now: .Waiting)
+            👆🕛HourFadeOut(.constant(7))
         }
         .previewLayout(.fixed(width: 300, height: 600))
         
         VStack {
-            👆🔊VolumeOnWaiting(ⓢelected: .constant(1))
-            👆🕰TimeFadeIn(ⓢelected: .constant(Date()))
-            👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .PowerOff)
-            👆🕛HourFadeIn(ⓢelected: .constant(10), ⓝow: .Waiting)
-            👆🕛HourFadeOut(ⓢelected: .constant(7))
+            👆🔊VolumeOnWaiting(.constant(1))
+            👆🕰TimeFadeIn(.constant(Date()))
+            👆🕛HourFadeIn(.constant(10), now: .PowerOff)
+            👆🕛HourFadeIn(.constant(10), now: .Waiting)
+            👆🕛HourFadeOut(.constant(7))
         }
         .previewLayout(.fixed(width: 300, height: 600))
         .preferredColorScheme(.dark)
