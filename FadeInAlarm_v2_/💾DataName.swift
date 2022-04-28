@@ -1,5 +1,5 @@
 
-enum 💾Data: String {
+enum 💾DataName: String {
     case VolumeOnWaiting
     case TimeFadeIn
     case HourFadein

@@ -9,13 +9,4 @@ enum 🔛Phase {
     case MaxVolume
     case FadeOut
     case PowerOff
-    
-    
-    struct ⓐrrow: View {
-        var body: some View {
-            Image(systemName: "arrow.left")
-                .font(.title)
-                .padding()
-        }
-    }
 }

@@ -6,13 +6,13 @@ import MediaPlayer
 
 struct ContentView: View {
     
-    @AppStorage(💾Data.VolumeOnWaiting.rawValue) var 🔊VolumeOnWaiting = 3
+    @AppStorage(💾DataName.VolumeOnWaiting.rawValue) var 🔊VolumeOnWaiting = 3
     
     @State private var 🕰TimeFadeIn = Date.now + 180
     
-    @AppStorage(💾Data.HourFadein.rawValue) var 🕛HourFadein = 10.0
+    @AppStorage(💾DataName.HourFadein.rawValue) var 🕛HourFadein = 10.0
     
-    @AppStorage(💾Data.HourFadeOut.rawValue) var 🕛HourFadeOut = 3.0
+    @AppStorage(💾DataName.HourFadeOut.rawValue) var 🕛HourFadeOut = 3.0
     
     @State private var 🔛: 🔛Phase = .PowerOff
     
@@ -35,7 +35,7 @@ struct ContentView: View {
                         }
                     
                     if 🔛 == .PowerOff {
-                        🔛Phase.ⓐrrow()
+                        🄰rrow() // ←
                             .foregroundColor(.secondary)
                     }
                     
@@ -51,7 +51,7 @@ struct ContentView: View {
                     👆🔊VolumeOnWaiting(ⓢelected: $🔊VolumeOnWaiting)
                         .disabled( 🔛 != .PowerOff )
                     
-                    if 🔛 == .Waiting { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .Waiting { 🄰rrow() } // ←
                     
                     Spacer()
                 }
@@ -71,7 +71,7 @@ struct ContentView: View {
                     
                     👆🕛HourFadeIn(ⓢelected: $🕛HourFadein, ⓝow: 🔛)
                     
-                    if 🔛 == .FadeIn { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .FadeIn { 🄰rrow() } // ←
                     
                     Spacer()
                 }
@@ -92,7 +92,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(.MaxVolume, 🔛)
                     
-                    if 🔛 == .MaxVolume { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .MaxVolume { 🄰rrow() } // ←
                     
                     Spacer()
                 }
@@ -116,7 +116,7 @@ struct ContentView: View {
                     👆🕛HourFadeOut(ⓢelected: $🕛HourFadeOut)
                         .disabled( 🔛 != .PowerOff )
                     
-                    if 🔛 == .FadeOut { 🔛Phase.ⓐrrow() }
+                    if 🔛 == .FadeOut { 🄰rrow() } // ←
                     
                     Spacer()
                 }
@@ -244,6 +244,19 @@ struct ContentView: View {
         }
     }
 }
+
+
+struct 🄰rrow: View {
+    var body: some View {
+        Image(systemName: "arrow.left")
+            .font(.title)
+            .padding()
+    }
+}
+
+
+
+
 
 
 
