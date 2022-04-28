@@ -48,7 +48,7 @@ struct ContentView: View {
                     🔔Icon(.Waiting, 🔛)
                         .symbolVariant( 🔊VolumeOnWaiting == 0 ? .slash : .none )
                     
-                    👆🔊VolumeOnWaiting($🔊VolumeOnWaiting)
+                    👆VolumeOnWaiting($🔊VolumeOnWaiting)
                         .disabled( 🔛 != .PowerOff )
                     
                     if 🔛 == .Waiting { A︭rrow() } // ←
@@ -59,7 +59,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    👆🕰TimeFadeIn($🕰TimeFadeIn)
+                    👆TimeFadeIn($🕰TimeFadeIn)
                         .disabled( 🔛 != .PowerOff )
                     
                     Spacer()
@@ -69,7 +69,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(.FadeIn, 🔛)
                     
-                    👆🕛HourFadeIn($🕛HourFadein, now: 🔛)
+                    👆HourFadeIn($🕛HourFadein, now: 🔛)
                     
                     if 🔛 == .FadeIn { A︭rrow() } // ←
                     
@@ -113,7 +113,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(.FadeOut, 🔛)
                     
-                    👆🕛HourFadeOut($🕛HourFadeOut)
+                    👆HourFadeOut($🕛HourFadeOut)
                         .disabled( 🔛 != .PowerOff )
                     
                     if 🔛 == .FadeOut { A︭rrow() } // ←

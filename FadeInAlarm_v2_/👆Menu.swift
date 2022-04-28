@@ -2,7 +2,7 @@
 import SwiftUI
 
 
-struct 👆🔊VolumeOnWaiting: View {
+struct 👆VolumeOnWaiting: View {
     
     @Binding var 🎚: Int
     
@@ -28,7 +28,7 @@ struct 👆🔊VolumeOnWaiting: View {
 
 
 
-struct 👆🕰TimeFadeIn: View {
+struct 👆TimeFadeIn: View {
     
     @Binding var 🎚: Date
     
@@ -59,7 +59,7 @@ struct 👆🕰TimeFadeIn: View {
 
 
 
-struct 👆🕛HourFadeIn: View {
+struct 👆HourFadeIn: View {
     
     enum 🄲hoices: Double, CaseIterable, Identifiable {
         case second10 =  10.0
@@ -110,7 +110,7 @@ struct 👆🕛HourFadeIn: View {
 
 
 
-struct 👆🕛HourFadeOut: View {
+struct 👆HourFadeOut: View {
     
     enum 🄲hoices: Double, CaseIterable, Identifiable {
         case second3 =  3.0
@@ -157,20 +157,20 @@ struct 👆🕛HourFadeOut: View {
 struct 👆Menu_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            👆🔊VolumeOnWaiting(.constant(1))
-            👆🕰TimeFadeIn(.constant(Date()))
-            👆🕛HourFadeIn(.constant(10), now: .PowerOff)
-            👆🕛HourFadeIn(.constant(10), now: .Waiting)
-            👆🕛HourFadeOut(.constant(7))
+            👆VolumeOnWaiting(.constant(1))
+            👆TimeFadeIn(.constant(Date()))
+            👆HourFadeIn(.constant(10), now: .PowerOff)
+            👆HourFadeIn(.constant(10), now: .Waiting)
+            👆HourFadeOut(.constant(7))
         }
         .previewLayout(.fixed(width: 300, height: 600))
         
         VStack {
-            👆🔊VolumeOnWaiting(.constant(1))
-            👆🕰TimeFadeIn(.constant(Date()))
-            👆🕛HourFadeIn(.constant(10), now: .PowerOff)
-            👆🕛HourFadeIn(.constant(10), now: .Waiting)
-            👆🕛HourFadeOut(.constant(7))
+            👆VolumeOnWaiting(.constant(1))
+            👆TimeFadeIn(.constant(Date()))
+            👆HourFadeIn(.constant(10), now: .PowerOff)
+            👆HourFadeIn(.constant(10), now: .Waiting)
+            👆HourFadeOut(.constant(7))
         }
         .previewLayout(.fixed(width: 300, height: 600))
         .preferredColorScheme(.dark)
