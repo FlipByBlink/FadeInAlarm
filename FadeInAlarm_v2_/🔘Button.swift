@@ -42,7 +42,7 @@ struct 🔘Button: View {
         .opacity(🔛 == .FadeOut ? 0.6 : 1.0)
     }
     
-    init(_ type: 🅃ype,_ now: 🔛Phase = .Waiting, _ action: @escaping () -> Void) {
+    init(_ type: 🅃ype, _ now: 🔛Phase = .Waiting, _ action: @escaping () -> Void) {
         ⓣype = type
         🔛 = now
         🄰ction = action
