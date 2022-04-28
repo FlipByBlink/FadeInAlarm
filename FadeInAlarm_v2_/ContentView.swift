@@ -35,7 +35,7 @@ struct ContentView: View {
                         }
                     
                     if 🔛 == .PowerOff {
-                        A︭rrow() // ←
+                        A⃞rrow() // ←
                             .foregroundColor(.secondary)
                     }
                     
@@ -51,7 +51,7 @@ struct ContentView: View {
                     👆VolumeOnWaiting($🔊VolumeOnWaiting)
                         .disabled( 🔛 != .PowerOff )
                     
-                    if 🔛 == .Waiting { A︭rrow() } // ←
+                    if 🔛 == .Waiting { A⃞rrow() } // ←
                     
                     Spacer()
                 }
@@ -71,7 +71,7 @@ struct ContentView: View {
                     
                     👆HourFadeIn($🕛HourFadein, 🔛)
                     
-                    if 🔛 == .FadeIn { A︭rrow() } // ←
+                    if 🔛 == .FadeIn { A⃞rrow() } // ←
                     
                     Spacer()
                 }
@@ -92,7 +92,7 @@ struct ContentView: View {
                 HStack {
                     🔔Icon(.MaxVolume, 🔛)
                     
-                    if 🔛 == .MaxVolume { A︭rrow() } // ←
+                    if 🔛 == .MaxVolume { A⃞rrow() } // ←
                     
                     Spacer()
                 }
@@ -116,7 +116,7 @@ struct ContentView: View {
                     👆HourFadeOut($🕛HourFadeOut)
                         .disabled( 🔛 != .PowerOff )
                     
-                    if 🔛 == .FadeOut { A︭rrow() } // ←
+                    if 🔛 == .FadeOut { A⃞rrow() } // ←
                     
                     Spacer()
                 }
@@ -246,7 +246,7 @@ struct ContentView: View {
 }
 
 
-struct A︭rrow: View {
+struct A⃞rrow: View {
     var body: some View {
         Image(systemName: "arrow.left")
             .font(.title)
