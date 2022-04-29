@@ -4,25 +4,25 @@ import SwiftUI
 
 struct 🔘Button: View {
     
-    enum 🅃ype: String {
-        case Start = "power.circle.fill"
-        case Stop = "checkmark.circle.fill"
-    }
-    
-    var ⓣype: 🅃ype
-    
     var 🔛: 🔛Phase
     
     var 🄰ction: () -> Void
     
     var 🎨: Color {
-        if 🔛 == .FadeOut { return .gray }
-        
-        switch ⓣype {
-        case .Start:
-            return .accentColor
-        case .Stop:
-            return .red
+        switch 🔛 {
+        case .Waiting: return .red
+        case .FadeIn: return .red
+        case .MaxVolume: return .red
+        case .FadeOut: return .gray
+        case .PowerOff: return .accentColor
+        }
+    }
+    
+    var 🖼Name: String {
+        if 🔛 == .PowerOff {
+            return "power.circle.fill"
+        } else {
+            return "checkmark.circle.fill"
         }
     }
     
@@ -30,7 +30,7 @@ struct 🔘Button: View {
         Button {
             🄰ction()
         } label: {
-            Image(systemName: ⓣype.rawValue)
+            Image(systemName: 🖼Name)
                 .font(.system(size: 96))
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(Color(.systemBackground), 🎨)
@@ -42,8 +42,7 @@ struct 🔘Button: View {
         .opacity(🔛 == .FadeOut ? 0.6 : 1.0)
     }
     
-    init(_ ⓣype: 🅃ype, _ 🔛: 🔛Phase = .Waiting, _ 🄰ction: @escaping () -> Void) {
-        self.ⓣype = ⓣype
+    init(_ 🔛: 🔛Phase = .Waiting, _ 🄰ction: @escaping () -> Void) {
         self.🔛 = 🔛
         self.🄰ction = 🄰ction
     }
@@ -55,20 +54,20 @@ struct 🔘Button: View {
 struct 🔘Button_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            🔘Button(.Start, .PowerOff){ }
+            🔘Button(.PowerOff){ }
             
-            🔘Button(.Stop, .MaxVolume){ }
+            🔘Button(.MaxVolume){ }
             
-            🔘Button(.Stop, .FadeOut){ }
+            🔘Button(.FadeOut){ }
         }
         .previewLayout(.fixed(width: 300, height: 500))
         
         VStack {
-            🔘Button(.Start, .PowerOff){ }
+            🔘Button(.PowerOff){ }
             
-            🔘Button(.Stop, .MaxVolume){ }
+            🔘Button(.MaxVolume){ }
             
-            🔘Button(.Stop, .FadeOut){ }
+            🔘Button(.FadeOut){ }
         }
         .previewLayout(.fixed(width: 300, height: 500))
         .preferredColorScheme(.dark)
