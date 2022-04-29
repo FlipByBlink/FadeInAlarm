@@ -19,11 +19,7 @@ struct 🔘Button: View {
     }
     
     var 🖼Name: String {
-        if 🔛 == .PowerOff {
-            return "power.circle.fill"
-        } else {
-            return "checkmark.circle.fill"
-        }
+        🔛 == .PowerOff ? "power.circle.fill" : "checkmark.circle.fill"
     }
     
     var body: some View {
@@ -40,6 +36,7 @@ struct 🔘Button: View {
         .padding()
         .disabled(🔛 == .FadeOut)
         .opacity(🔛 == .FadeOut ? 0.6 : 1.0)
+        .accessibilityLabel(🔛 == .PowerOff ? "Set alarm" : "Stop alarm")
     }
     
     init(_ 🔛: 🔛Phase = .Waiting, _ 🄰ction: @escaping () -> Void) {
