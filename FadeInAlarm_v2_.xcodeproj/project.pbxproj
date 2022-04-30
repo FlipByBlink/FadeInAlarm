@@ -19,6 +19,7 @@
 		125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912127C6F18F005D99D1 /* 🔛Phase.swift */; };
 		125D912827C6F18F005D99D1 /* 🔘Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912227C6F18F005D99D1 /* 🔘Button.swift */; };
 		12A675E6281CCFFC00D24E15 /* 📱Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱Model.swift */; };
+		12A675EA281D149C00D24E15 /* 🔊LocalVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */; };
 		12F82392281932B0006D180B /* 🔗Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F82391281932B0006D180B /* 🔗Link.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		125D912227C6F18F005D99D1 /* 🔘Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔘Button.swift"; sourceTree = "<group>"; };
 		125D912927C6F2DE005D99D1 /* FadeInAlarm-v2--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FadeInAlarm-v2--Info.plist"; sourceTree = SOURCE_ROOT; };
 		12A675E5281CCFFC00D24E15 /* 📱Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱Model.swift"; sourceTree = "<group>"; };
+		12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔊LocalVolume.swift"; sourceTree = "<group>"; };
 		12F82391281932B0006D180B /* 🔗Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔗Link.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 				125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */,
 				12F82391281932B0006D180B /* 🔗Link.swift */,
 				125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */,
+				12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */,
 				125D911327C6F118005D99D1 /* Assets.xcassets */,
 				125D911527C6F118005D99D1 /* Preview Content */,
 			);
@@ -175,6 +178,7 @@
 				125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */,
 				125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */,
 				125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */,
+				12A675EA281D149C00D24E15 /* 🔊LocalVolume.swift in Sources */,
 				124A43DB27E5B73C00DB1447 /* 👆Menu.swift in Sources */,
 				12A675E6281CCFFC00D24E15 /* 📱Model.swift in Sources */,
 				12F82392281932B0006D180B /* 🔗Link.swift in Sources */,
