@@ -143,7 +143,7 @@ struct ContentView: View {
             
             
             .overlay(alignment: .bottomTrailing) {
-                🔘Button(📱.🔛) {
+                🔘Button {
                     if 📱.🔛 == .PowerOff { // ⏻
                         📱.🔛 = .Waiting
                             
