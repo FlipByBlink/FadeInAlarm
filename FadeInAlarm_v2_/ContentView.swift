@@ -52,10 +52,8 @@ struct ContentView: View {
                 
                 HStack {
                     🔔Icon(.Waiting)
-                        .symbolVariant( 📱.🔊VolumeOnWaiting == 0 ? .slash : .none )
                     
                     👆VolumeOnWaiting()
-                        .disabled( 📱.🔛 != .PowerOff )
                     
                     if 📱.🔛 == .Waiting { A⃞rrow() } // ←
                     
@@ -66,7 +64,6 @@ struct ContentView: View {
                 
                 HStack {
                     👆TimeFadeIn()
-                        .disabled( 📱.🔛 != .PowerOff )
                     
                     Spacer()
                 }
@@ -120,7 +117,6 @@ struct ContentView: View {
                     🔔Icon(.FadeOut)
                     
                     👆HourFadeOut()
-                        .disabled( 📱.🔛 != .PowerOff )
                     
                     if 📱.🔛 == .FadeOut { A⃞rrow() } // ←
                     

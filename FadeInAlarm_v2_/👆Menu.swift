@@ -19,6 +19,7 @@ struct 👆VolumeOnWaiting: View {
             }
         }
         .font(.caption.bold())
+        .disabled( 📱.🔛 != .PowerOff )
         .accessibilityLabel("Select volume on waiting")
     }
     
@@ -52,6 +53,7 @@ struct 👆TimeFadeIn: View {
             .onChange(of: 📱.🕰TimeFadeIn) { t︭ime in
                 UserDefaults.standard.setValue(t︭ime, forKey: "TimeFadeIn")
             }
+            .disabled( 📱.🔛 != .PowerOff )
             .accessibilityLabel("Set time to start fade-in")
     }
     
@@ -95,7 +97,7 @@ struct 👆HourFadeIn: View {
     
     var body: some View {
         Menu( "+ " + (🄲hoices(rawValue: 📱.🕛HourFadein)?.ⓣext ?? "👿") ) {
-            Picker("Hour fade-in", selection: $📱.🕛HourFadeOut) {
+            Picker("Hour fade-in", selection: $📱.🕛HourFadein) {
                 ForEach(🄲hoices.allCases) { 🄲hoice in
                     Text(🄲hoice.ⓣext)
                 }
@@ -151,6 +153,7 @@ struct 👆HourFadeOut: View {
             }
         }
         .font(.body.bold())
+        .disabled( 📱.🔛 != .PowerOff )
         .accessibilityLabel("Select hour fade-out")
     }
     

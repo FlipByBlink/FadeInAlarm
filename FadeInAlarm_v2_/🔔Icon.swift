@@ -25,6 +25,7 @@ struct 🔔Icon: View {
             case .Waiting:
                 Image(systemName: "bell")
                     .scaleEffect(🔍OnWaiting)
+                    .symbolVariant( 📱.🔊VolumeOnWaiting == 0 ? .slash : .none )
                 
             case .FadeIn:
                 Image(systemName: "bell")
