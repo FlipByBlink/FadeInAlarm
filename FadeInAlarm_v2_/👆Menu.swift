@@ -4,11 +4,13 @@ import SwiftUI
 
 struct 👆VolumeOnWaiting: View {
     
-    @Binding var 🎚: Int
+//    @Binding var 🎚: Int
+    
+    @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
-        Menu( 🎚.description + "%" ) {
-            Picker("Volume on waiting", selection: $🎚) {
+        Menu( 📱.🔊VolumeOnWaiting.description + "%" ) {
+            Picker("Volume on waiting", selection: $📱.🔊VolumeOnWaiting) {
                 Text("0%").tag(0)
                 Text("1%").tag(1)
                 Text("3%").tag(3)
@@ -20,9 +22,9 @@ struct 👆VolumeOnWaiting: View {
         .accessibilityLabel("Select volume on waiting")
     }
     
-    init(_ 🎚: Binding<Int>) {
-        self._🎚 = 🎚
-    }
+//    init(_ 🎚: Binding<Int>) {
+//        self._🎚 = 🎚
+//    }
 }
 
 
@@ -30,30 +32,32 @@ struct 👆VolumeOnWaiting: View {
 
 struct 👆TimeFadeIn: View {
     
-    @Binding var 🎚: Date
+//    @Binding var 🎚: Date
+    
+    @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
-        DatePicker("Time fade-In", selection: $🎚, displayedComponents: .hourAndMinute)
+        DatePicker("Time fade-In", selection: $📱.🕰TimeFadeIn, displayedComponents: .hourAndMinute)
             .labelsHidden()
             .dynamicTypeSize(.accessibility2)
             .padding()
             .padding(.leading, 9)
             .onAppear {
                 if let t︭ime = UserDefaults.standard.value(forKey: "TimeFadeIn") {
-                    🎚 = t︭ime as! Date
+                    📱.🕰TimeFadeIn = t︭ime as! Date
                 } else {
-                    🎚 = Date.now + 180
+                    📱.🕰TimeFadeIn = Date.now + 180
                 }
             }
-            .onChange(of: 🎚) { t︭ime in
+            .onChange(of: 📱.🕰TimeFadeIn) { t︭ime in
                 UserDefaults.standard.setValue(t︭ime, forKey: "TimeFadeIn")
             }
             .accessibilityLabel("Set time to start fade-in")
     }
     
-    init(_ 🎚: Binding<Date>) {
-        self._🎚 = 🎚
-    }
+//    init(_ 🎚: Binding<Date>) {
+//        self._🎚 = 🎚
+//    }
 }
 
 
@@ -83,13 +87,15 @@ struct 👆HourFadeIn: View {
         }
     }
     
-    @Binding var 🎚: TimeInterval
+//    @Binding var 🎚: TimeInterval
     
-    var 🔛: 🔛Phase
+    @EnvironmentObject var 📱: 📱Model
+    
+//    var 🔛: 🔛Phase
     
     var body: some View {
-        Menu( "+ " + (🄲hoices(rawValue: 🎚)?.ⓣext ?? "👿") ) {
-            Picker("Hour fade-in", selection: $🎚) {
+        Menu( "+ " + (🄲hoices(rawValue: 📱.🕛HourFadein)?.ⓣext ?? "👿") ) {
+            Picker("Hour fade-in", selection: $📱.🕛HourFadeOut) {
                 ForEach(🄲hoices.allCases) { 🄲hoice in
                     Text(🄲hoice.ⓣext)
                 }
@@ -97,14 +103,14 @@ struct 👆HourFadeIn: View {
         }
         .font(.title.bold())
         .accessibilityLabel("Select hour fade-in")
-        .disabled( 🔛 != .PowerOff )
-        .foregroundColor(🔛 != .PowerOff ? .secondary : nil)
+        .disabled( 📱.🔛 != .PowerOff )
+        .foregroundColor(📱.🔛 != .PowerOff ? .secondary : nil)
     }
     
-    init(_ 🎚: Binding<TimeInterval>, _ 🔛: 🔛Phase) {
-        self._🎚 = 🎚
-        self.🔛 = 🔛
-    }
+//    init(/*_ 🎚: Binding<TimeInterval>,*/ _ 🔛: 🔛Phase) {
+////        self._🎚 = 🎚
+//        self.🔛 = 🔛
+//    }
 }
 
 
@@ -132,11 +138,13 @@ struct 👆HourFadeOut: View {
         }
     }
     
-    @Binding var 🎚: TimeInterval
+//    @Binding var 🎚: TimeInterval
+    
+    @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
-        Menu( "+ " + (🄲hoices(rawValue: 🎚)?.ⓣext ?? "👿") ) {
-            Picker("Hour fade-out", selection: $🎚) {
+        Menu( "+ " + (🄲hoices(rawValue: 📱.🕛HourFadeOut)?.ⓣext ?? "👿") ) {
+            Picker("Hour fade-out", selection: 📱.$🕛HourFadeOut) {
                 ForEach(🄲hoices.allCases) { 🄲hoice in
                     Text(🄲hoice.ⓣext)
                 }
@@ -146,32 +154,37 @@ struct 👆HourFadeOut: View {
         .accessibilityLabel("Select hour fade-out")
     }
     
-    init(_ 🎚: Binding<TimeInterval>) {
-        self._🎚 = 🎚
-    }
+//    init(_ 🎚: Binding<TimeInterval>) {
+//        self._🎚 = 🎚
+//    }
 }
 
 
 
 
 struct 👆Menu_Previews: PreviewProvider {
+    
+    static let 📱 = 📱Model()
+
     static var previews: some View {
         VStack {
-            👆VolumeOnWaiting(.constant(1))
-            👆TimeFadeIn(.constant(Date()))
-            👆HourFadeIn(.constant(10), .PowerOff)
-            👆HourFadeIn(.constant(10), .Waiting)
-            👆HourFadeOut(.constant(7))
+            👆VolumeOnWaiting()
+            👆TimeFadeIn()
+            👆HourFadeIn()
+            👆HourFadeIn()
+            👆HourFadeOut()
         }
+        .environmentObject(📱)
         .previewLayout(.fixed(width: 300, height: 600))
         
         VStack {
-            👆VolumeOnWaiting(.constant(1))
-            👆TimeFadeIn(.constant(Date()))
-            👆HourFadeIn(.constant(10), .PowerOff)
-            👆HourFadeIn(.constant(10), .Waiting)
-            👆HourFadeOut(.constant(7))
+            👆VolumeOnWaiting()
+            👆TimeFadeIn()
+            👆HourFadeIn()
+            👆HourFadeIn()
+            👆HourFadeOut()
         }
+        .environmentObject(📱)
         .previewLayout(.fixed(width: 300, height: 600))
         .preferredColorScheme(.dark)
     }

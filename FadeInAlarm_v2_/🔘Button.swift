@@ -6,6 +6,8 @@ struct 🔘Button: View {
     
     var 🔛: 🔛Phase
     
+    @EnvironmentObject var 📱: 📱Model
+    
     var 🄰ction: () -> Void
     
     var 🎨: Color {
@@ -49,6 +51,8 @@ struct 🔘Button: View {
 
 
 struct 🔘Button_Previews: PreviewProvider {
+    static let 📱 = 📱Model()
+    
     static var previews: some View {
         VStack {
             🔘Button(.PowerOff){ }
@@ -57,6 +61,7 @@ struct 🔘Button_Previews: PreviewProvider {
             
             🔘Button(.FadeOut){ }
         }
+        .environmentObject(📱)
         .previewLayout(.fixed(width: 300, height: 500))
         
         VStack {
@@ -66,6 +71,7 @@ struct 🔘Button_Previews: PreviewProvider {
             
             🔘Button(.FadeOut){ }
         }
+        .environmentObject(📱)
         .previewLayout(.fixed(width: 300, height: 500))
         .preferredColorScheme(.dark)
     }

@@ -51,10 +51,10 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(.Waiting, 📱.🔛)
+                    🔔Icon(.Waiting)
                         .symbolVariant( 📱.🔊VolumeOnWaiting == 0 ? .slash : .none )
                     
-                    👆VolumeOnWaiting($📱.🔊VolumeOnWaiting)
+                    👆VolumeOnWaiting()
                         .disabled( 📱.🔛 != .PowerOff )
                     
                     if 📱.🔛 == .Waiting { A⃞rrow() } // ←
@@ -65,7 +65,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    👆TimeFadeIn($📱.🕰TimeFadeIn)
+                    👆TimeFadeIn()
                         .disabled( 📱.🔛 != .PowerOff )
                     
                     Spacer()
@@ -73,9 +73,9 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(.FadeIn, 📱.🔛)
+                    🔔Icon(.FadeIn)
                     
-                    👆HourFadeIn($📱.🕛HourFadein, 📱.🔛)
+                    👆HourFadeIn()
                     
                     if 📱.🔛 == .FadeIn { A⃞rrow() } // ←
                     
@@ -96,7 +96,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(.MaxVolume, 📱.🔛)
+                    🔔Icon(.MaxVolume)
                     
                     if 📱.🔛 == .MaxVolume { A⃞rrow() } // ←
                     
@@ -117,9 +117,9 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🔔Icon(.FadeOut, 📱.🔛)
+                    🔔Icon(.FadeOut)
                     
-                    👆HourFadeOut($📱.🕛HourFadeOut)
+                    👆HourFadeOut()
                         .disabled( 📱.🔛 != .PowerOff )
                     
                     if 📱.🔛 == .FadeOut { A⃞rrow() } // ←
@@ -264,11 +264,16 @@ struct A⃞rrow: View {
 
 
 struct ContentView_Previews: PreviewProvider {
+    
+    static let 📱 = 📱Model()
+        
     static var previews: some View {
         ContentView()
+            .environmentObject(📱)
             .previewLayout(.fixed(width: 350, height: 700))
         
         ContentView()
+            .environmentObject(📱)
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 800, height: 600))
     }

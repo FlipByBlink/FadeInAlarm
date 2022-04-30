@@ -4,9 +4,11 @@ import SwiftUI
 
 struct 🔔Icon: View {
     
+    @EnvironmentObject var 📱: 📱Model
+    
     var ⓟhase: 🔛Phase
     
-    var 🔛: 🔛Phase
+//    var 🔛: 🔛Phase
     
     
     @State private var 🔍 = 0.4
@@ -50,8 +52,8 @@ struct 🔔Icon: View {
             case .PowerOff: Text("👿")
             }
         }
-        .symbolVariant( 🔛 == ⓟhase ? .fill : .none)
-        .foregroundColor( 🔛 == ⓟhase ? nil : .secondary)
+        .symbolVariant( 📱.🔛 == ⓟhase ? .fill : .none)
+        .foregroundColor( 📱.🔛 == ⓟhase ? nil : .secondary)
         .opacity(🄾pacity)
         .padding()
         .padding(.leading, 32)
@@ -87,9 +89,9 @@ struct 🔔Icon: View {
         }
     }
     
-    init(_ ⓟhase: 🔛Phase, _ 🔛: 🔛Phase) {
+    init(_ ⓟhase: 🔛Phase/*, _ 🔛: 🔛Phase*/) {
         self.ⓟhase = ⓟhase
-        self.🔛 = 🔛
+//        self.🔛 = 🔛
     }
 }
 
@@ -97,12 +99,17 @@ struct 🔔Icon: View {
 
 
 struct 🔔Icon_Previews: PreviewProvider {
+    
+    static let 📱 = 📱Model()
+    
     static var previews: some View {
+        
         VStack {
-            🔔Icon(.Waiting, .PowerOff)
-            🔔Icon(.FadeIn, .PowerOff)
-            🔔Icon(.MaxVolume, .PowerOff)
-            🔔Icon(.FadeOut, .PowerOff)
+            🔔Icon(.Waiting)
+            🔔Icon(.FadeIn)
+            🔔Icon(.MaxVolume)
+            🔔Icon(.FadeOut)
         }
+        .environmentObject(📱)
     }
 }
