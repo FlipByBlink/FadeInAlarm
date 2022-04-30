@@ -1,5 +1,6 @@
 
 import SwiftUI
+import MediaPlayer
 
 
 struct 🔘Button: View {
@@ -8,7 +9,9 @@ struct 🔘Button: View {
     
     @EnvironmentObject var 📱: 📱Model
     
-    var 🄰ction: () -> Void
+    var 🚡: ScrollViewProxy
+    
+//    var 🄰ction: () -> Void
     
     var 🎨: Color {
         switch 📱.🔛 {
@@ -26,7 +29,72 @@ struct 🔘Button: View {
     
     var body: some View {
         Button {
-            🄰ction()
+            if 📱.🔛 == .PowerOff { // ⏻
+                📱.🔛 = .Waiting
+                
+                withAnimation {
+                    🚡.scrollTo(🔛Phase.Waiting, anchor: .center)
+                }
+                
+                📱.📻.ⓟlay(📱.🕰TimeFadeIn, 📱.🕛HourFadein)
+                
+                Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🤖 in
+                    
+                    switch 📱.🔛 {
+                    case .Waiting:
+                        📱.📻.ⓟlayer.volume = Float(📱.🔊VolumeOnWaiting) / 100
+                        let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
+                        let 🄰larmTime = 📱.🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
+                        if 🄽ow == 🄰larmTime {
+                            📱.🔛 = .FadeIn
+                            withAnimation {
+                                🚡.scrollTo(🔛Phase.FadeIn, anchor: .center)
+                            }
+                        }
+                        
+                    case .FadeIn:
+                        📱.📻.ⓟlayer.volume += Float( 0.5 / 📱.🕛HourFadein )
+                        if 📱.📻.ⓟlayer.volume > 1.0 {
+                            📱.📻.ⓟlayer.volume = 1.0
+                            📱.🔛 = .MaxVolume
+                            withAnimation {
+                                🚡.scrollTo(🔛Phase.MaxVolume, anchor: .center)
+                            }
+                        }
+                        
+                    case .MaxVolume: break
+                        
+                    case .FadeOut:
+                        📱.📻.ⓟlayer.volume -= Float( 0.5 / 📱.🕛HourFadeOut )
+                        if 📱.📻.ⓟlayer.volume < 0.0 {
+                            📱.📻.ⓟlayer.volume = 0.0
+                            📱.🔛 = .PowerOff
+                        }
+                        
+                    case .PowerOff:
+                        📱.📻.ⓟlayer.stop()
+                        MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
+                        🤖.invalidate()
+                    }
+                    
+                    📱.🔔Volume = Int( 📱.📻.ⓟlayer.volume * 100 )
+                }
+                
+                MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
+                    📱.🔛 = .FadeOut
+                    return .success
+                }
+                
+            } else { // ✓
+                if 📱.🔛 == .Waiting {
+                    📱.🔛 = .PowerOff
+                } else {
+                    📱.🔛 = .FadeOut
+                    withAnimation {
+                        🚡.scrollTo(🔛Phase.FadeOut, anchor: .center)
+                    }
+                }
+            }
         } label: {
             Image(systemName: 🖼Name)
                 .font(.system(size: 96))
@@ -41,9 +109,13 @@ struct 🔘Button: View {
         .accessibilityLabel(📱.🔛 == .PowerOff ? "Set alarm" : "Stop alarm")
     }
     
-    init(/*_ 🔛: 🔛Phase = .Waiting,*/_ 🄰ction: @escaping () -> Void) {
-//        self.🔛 = 🔛
-        self.🄰ction = 🄰ction
+//    init(/*_ 🔛: 🔛Phase = .Waiting,*/_ 🄰ction: @escaping () -> Void) {
+////        self.🔛 = 🔛
+//        self.🄰ction = 🄰ction
+//    }
+    
+    init(_ 🚡: ScrollViewProxy) {
+        self.🚡 = 🚡
     }
 }
 
@@ -70,29 +142,33 @@ struct 🔘Button_Previews: PreviewProvider {
     }()
     
     static var previews: some View {
-        VStack {
-            🔘Button(){ }
-                .environmentObject(📱p)
-            
-            🔘Button(){ }
-                .environmentObject(📱m)
-            
-            🔘Button(){ }
-                .environmentObject(📱f)
+        ScrollViewReader { b in
+            VStack {
+                🔘Button(b)
+                    .environmentObject(📱p)
+                
+                🔘Button(b)
+                    .environmentObject(📱m)
+                
+                🔘Button(b)
+                    .environmentObject(📱f)
+            }
         }
         .previewLayout(.fixed(width: 300, height: 500))
         
-        VStack {
-            🔘Button(){ }
-                .environmentObject(📱p)
-            
-            🔘Button(){ }
-                .environmentObject(📱m)
-            
-            🔘Button(){ }
-                .environmentObject(📱f)
+        ScrollViewReader { b in
+            VStack {
+                🔘Button(b)
+                    .environmentObject(📱p)
+                
+                🔘Button(b)
+                    .environmentObject(📱m)
+                
+                🔘Button(b)
+                    .environmentObject(📱f)
+            }
+            .preferredColorScheme(.dark)
         }
         .previewLayout(.fixed(width: 300, height: 500))
-        .preferredColorScheme(.dark)
     }
 }
