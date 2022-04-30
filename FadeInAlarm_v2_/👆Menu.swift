@@ -4,8 +4,6 @@ import SwiftUI
 
 struct 👆VolumeOnWaiting: View {
     
-//    @Binding var 🎚: Int
-    
     @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
@@ -22,18 +20,12 @@ struct 👆VolumeOnWaiting: View {
         .disabled( 📱.🔛 != .PowerOff )
         .accessibilityLabel("Select volume on waiting")
     }
-    
-//    init(_ 🎚: Binding<Int>) {
-//        self._🎚 = 🎚
-//    }
 }
 
 
 
 
 struct 👆TimeFadeIn: View {
-    
-//    @Binding var 🎚: Date
     
     @EnvironmentObject var 📱: 📱Model
     
@@ -56,10 +48,6 @@ struct 👆TimeFadeIn: View {
             .disabled( 📱.🔛 != .PowerOff )
             .accessibilityLabel("Set time to start fade-in")
     }
-    
-//    init(_ 🎚: Binding<Date>) {
-//        self._🎚 = 🎚
-//    }
 }
 
 
@@ -89,11 +77,7 @@ struct 👆HourFadeIn: View {
         }
     }
     
-//    @Binding var 🎚: TimeInterval
-    
     @EnvironmentObject var 📱: 📱Model
-    
-//    var 🔛: 🔛Phase
     
     var body: some View {
         Menu( "+ " + (🄲hoices(rawValue: 📱.🕛HourFadein)?.ⓣext ?? "👿") ) {
@@ -108,11 +92,6 @@ struct 👆HourFadeIn: View {
         .disabled( 📱.🔛 != .PowerOff )
         .foregroundColor(📱.🔛 != .PowerOff ? .secondary : nil)
     }
-    
-//    init(/*_ 🎚: Binding<TimeInterval>,*/ _ 🔛: 🔛Phase) {
-////        self._🎚 = 🎚
-//        self.🔛 = 🔛
-//    }
 }
 
 
@@ -140,8 +119,6 @@ struct 👆HourFadeOut: View {
         }
     }
     
-//    @Binding var 🎚: TimeInterval
-    
     @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
@@ -156,10 +133,6 @@ struct 👆HourFadeOut: View {
         .disabled( 📱.🔛 != .PowerOff )
         .accessibilityLabel("Select hour fade-out")
     }
-    
-//    init(_ 🎚: Binding<TimeInterval>) {
-//        self._🎚 = 🎚
-//    }
 }
 
 

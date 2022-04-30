@@ -5,13 +5,9 @@ import MediaPlayer
 
 struct 🔘Button: View {
     
-//    var 🔛: 🔛Phase
-    
     @EnvironmentObject var 📱: 📱Model
     
     var 🚡: ScrollViewProxy
-    
-//    var 🄰ction: () -> Void
     
     var 🎨: Color {
         switch 📱.🔛 {
@@ -108,11 +104,6 @@ struct 🔘Button: View {
         .opacity(📱.🔛 == .FadeOut ? 0.6 : 1.0)
         .accessibilityLabel(📱.🔛 == .PowerOff ? "Set alarm" : "Stop alarm")
     }
-    
-//    init(/*_ 🔛: 🔛Phase = .Waiting,*/_ 🄰ction: @escaping () -> Void) {
-////        self.🔛 = 🔛
-//        self.🄰ction = 🄰ction
-//    }
     
     init(_ 🚡: ScrollViewProxy) {
         self.🚡 = 🚡

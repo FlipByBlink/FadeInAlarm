@@ -8,8 +8,6 @@ struct 🔔Icon: View {
     
     var ⓟhase: 🔛Phase
     
-//    var 🔛: 🔛Phase
-    
     
     @State private var 🔍 = 0.4
     
@@ -90,9 +88,8 @@ struct 🔔Icon: View {
         }
     }
     
-    init(_ ⓟhase: 🔛Phase/*, _ 🔛: 🔛Phase*/) {
+    init(_ ⓟhase: 🔛Phase) {
         self.ⓟhase = ⓟhase
-//        self.🔛 = 🔛
     }
 }
 

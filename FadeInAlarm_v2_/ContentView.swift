@@ -4,24 +4,7 @@ import AVFAudio
 import MediaPlayer
 
 
-//model側のAppStorageが適切に動くかが不透明
-
-
 struct ContentView: View {
-    
-//    @AppStorage("VolumeOnWaiting") var 🔊VolumeOnWaiting = 3
-//
-//    @State private var 🕰TimeFadeIn = Date.now + 180
-//
-//    @AppStorage("HourFadein") var 🕛HourFadein = 10.0
-//
-//    @AppStorage("HourFadeOut") var 🕛HourFadeOut = 3.0
-//
-//    @State private var 🔛: 🔛Phase = .PowerOff
-//
-//    @State private var 🔔Volume: Int = 0
-//
-//    let 📻 = 📻AlarmPlayer()
     
     @EnvironmentObject var 📱: 📱Model
     
