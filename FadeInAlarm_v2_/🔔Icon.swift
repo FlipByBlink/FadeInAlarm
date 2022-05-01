@@ -13,11 +13,7 @@ struct 🔔Icon: View {
     
     let 🔍OnWaiting = 0.4
     
-    
     @State private var 🄾pacity = 0.0
-    
-    
-    @Environment(\.scenePhase) var sp: ScenePhase
     
     
     var body: some View {
@@ -33,8 +29,20 @@ struct 🔔Icon: View {
                     .scaleEffect(🔍)
                     .opacity(🄾pacity)
                     .task {
-                        Timer.scheduledTimer(withTimeInterval: 1/PerSec, repeats: true) { _ in
-                            🄵ade()
+                        Timer.scheduledTimer(withTimeInterval: 1/30, repeats: true) { _ in
+                            🔍 += ( 1 - 🔍OnWaiting ) / ( 30 * 4 )
+                            
+                            if 🔍 > 1.0 - ( 1 / 30 ) * 0.35 {
+                                🄾pacity -= 1.0 / ( 30 * 0.35 )
+                            } else {
+                                if 🄾pacity < 1.0 {
+                                    🄾pacity += 1.0 / ( 30 * 0.35 )
+                                }
+                            }
+                            
+                            if 🔍 >= 1 && 🄾pacity <= 0 {
+                                🔍 = 🔍OnWaiting
+                            }
                         }
                     }
                 
@@ -46,8 +54,20 @@ struct 🔔Icon: View {
                     .scaleEffect(🔍)
                     .opacity(🄾pacity)
                     .task {
-                        Timer.scheduledTimer(withTimeInterval: 1/PerSec, repeats: true) { _ in
-                            🄵ade()
+                        Timer.scheduledTimer(withTimeInterval: 1/30, repeats: true) { _ in
+                            🔍 -= ( 1 - 🔍OnWaiting ) / ( 30 * 4 )
+                            
+                            if 🔍 < 🔍OnWaiting + ( 1 / 30 ) * 0.35 {
+                                🄾pacity -= 1.0 / ( 30 * 0.35 )
+                            } else {
+                                if 🄾pacity < 1.0 {
+                                    🄾pacity += 1.0 / ( 30 * 0.35 )
+                                }
+                            }
+                            
+                            if 🔍 <= 🔍OnWaiting && 🄾pacity <= 0 {
+                                🔍 = 1.0
+                            }
                         }
                     }
                 
@@ -61,44 +81,9 @@ struct 🔔Icon: View {
         .font(.title)
     }
     
-    let PerSec = 30.0
-    let Sec = 4.0
-    let transitionHour = 0.35
-    
-    func 🄵ade() {
-        
-        if ⓟhase == .FadeIn {
-            
-            🔍 += ( 1 - 🔍OnWaiting ) / ( PerSec * Sec )
-            
-            if 🔍 > 1.0 - ( 1 / PerSec ) * transitionHour {
-                🄾pacity -= 1.0 / ( PerSec * transitionHour )
-            } else {
-                if 🄾pacity < 1.0 {
-                    🄾pacity += 1.0 / ( PerSec * transitionHour )
-                }
-            }
-            
-            if 🔍 >= 1 && 🄾pacity <= 0 {
-                🔍 = 🔍OnWaiting
-            }
-            
-        } else if ⓟhase == .FadeOut {
-            🔍 -= ( 1 - 🔍OnWaiting ) / ( PerSec * Sec )
-            
-            if 🔍 < 🔍OnWaiting + ( 1 / PerSec ) * transitionHour {
-                🄾pacity -= 1.0 / ( PerSec * transitionHour )
-            } else {
-                if 🄾pacity < 1.0 {
-                    🄾pacity += 1.0 / ( PerSec * transitionHour )
-                }
-            }
-            
-            if 🔍 <= 🔍OnWaiting && 🄾pacity <= 0 {
-                🔍 = 1.0
-            }
-        }
-    }
+//    let PerSec = 30.0
+//    let Sec = 4.0
+//    let transitionHour = 0.35
     
     init(_ ⓟhase: 🔛Phase) {
         self.ⓟhase = ⓟhase
