@@ -60,12 +60,12 @@ struct 🔔Icon: View {
         .padding()
         .padding(.leading, 32)
         .font(.title)
-        .onChange(of: sp) { newValue in
-            if newValue == .active {
-                🔍 = 0.4
-                🄾pacity = 0
-            }
-        }
+//        .onChange(of: sp) { newValue in
+//            if newValue == .active {
+//                🔍 = 0.4
+//                🄾pacity = 0
+//            }
+//        }
     }
     
     
