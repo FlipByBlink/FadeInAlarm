@@ -17,6 +17,9 @@ struct 🔔Icon: View {
     @State private var 🄾pacity = 1.0
     
     
+    @Environment(\.scenePhase) var sp: ScenePhase
+    
+    
     var body: some View {
         Group {
             switch ⓟhase {
@@ -28,9 +31,9 @@ struct 🔔Icon: View {
             case .FadeIn:
                 Image(systemName: "bell")
                     .scaleEffect(🔍)
+                    .opacity(🄾pacity)
                     .task {
-                        🄵ade()
-                        Timer.scheduledTimer(withTimeInterval: 🄳uration, repeats: true) { _ in
+                        Timer.scheduledTimer(withTimeInterval: 1/30, repeats: true) { _ in
                             🄵ade()
                         }
                     }
@@ -41,6 +44,7 @@ struct 🔔Icon: View {
             case .FadeOut:
                 Image(systemName: "bell")
                     .scaleEffect(🔍)
+                    .opacity(🄾pacity)
                     .task {
                         🄵ade()
                         Timer.scheduledTimer(withTimeInterval: 🄳uration, repeats: true) { _ in
@@ -53,10 +57,15 @@ struct 🔔Icon: View {
         }
         .symbolVariant( 📱.🔛 == ⓟhase ? .fill : .none)
         .foregroundColor( 📱.🔛 == ⓟhase ? nil : .secondary)
-        .opacity(🄾pacity)
         .padding()
         .padding(.leading, 32)
         .font(.title)
+        .onChange(of: sp) { newValue in
+            if newValue == .active {
+                🔍 = 0.4
+                🄾pacity = 0
+            }
+        }
     }
     
     
@@ -64,16 +73,22 @@ struct 🔔Icon: View {
     
     func 🄵ade() {
         if ⓟhase == .FadeIn {
-            🔍 = 🔍OnWaiting
-            withAnimation {
-                🄾pacity = 1.0
+            
+            🔍 += 0.6/(30*4)
+            
+            if 🔍 > 0.97 {
+                🄾pacity -= 1.0/(30*0.2)
+            } else {
+                if 🄾pacity < 1.0 {
+                    🄾pacity += 1.0/(30*0.2)
+                }
             }
-            withAnimation(.linear(duration: 🄳uration)) {
-                🔍 = 1.2
-            }
-            withAnimation(.linear(duration: 0.2).delay( 🄳uration - 0.2 )) {
+            
+            if 🔍 >= 1 && 🄾pacity <= 0 {
+                🔍 = 0.4
                 🄾pacity = 0.0
             }
+            
         } else if ⓟhase == .FadeOut {
             🔍 = 1.0
             withAnimation {
