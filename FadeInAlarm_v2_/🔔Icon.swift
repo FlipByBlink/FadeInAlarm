@@ -33,7 +33,7 @@ struct 🔔Icon: View {
                     .scaleEffect(🔍)
                     .opacity(🄾pacity)
                     .task {
-                        Timer.scheduledTimer(withTimeInterval: 1/30, repeats: true) { _ in
+                        Timer.scheduledTimer(withTimeInterval: 1/PerSec, repeats: true) { _ in
                             🄵ade()
                         }
                     }
@@ -60,33 +60,31 @@ struct 🔔Icon: View {
         .padding()
         .padding(.leading, 32)
         .font(.title)
-//        .onChange(of: sp) { newValue in
-//            if newValue == .active {
-//                🔍 = 0.4
-//                🄾pacity = 0
-//            }
-//        }
     }
     
     
     let 🄳uration = 4.0
     
+    let PerSec = 30.0
+    let Sec = 4.0
+    let transitionHour = 0.35/2
+    
     func 🄵ade() {
+        
         if ⓟhase == .FadeIn {
             
-            🔍 += 0.6/(30*4)
+            🔍 += ( 1 - 🔍OnWaiting ) / ( PerSec * Sec )
             
-            if 🔍 > 0.97 {
-                🄾pacity -= 1.0/(30*0.2)
+            if 🔍 > 1.0 - ( 1 / PerSec ) * transitionHour {
+                🄾pacity -= 1.0 / ( PerSec * transitionHour )
             } else {
                 if 🄾pacity < 1.0 {
-                    🄾pacity += 1.0/(30*0.2)
+                    🄾pacity += 1.0 / ( PerSec * transitionHour )
                 }
             }
             
             if 🔍 >= 1 && 🄾pacity <= 0 {
-                🔍 = 0.4
-                🄾pacity = 0.0
+                🔍 = 🔍OnWaiting
             }
             
         } else if ⓟhase == .FadeOut {
