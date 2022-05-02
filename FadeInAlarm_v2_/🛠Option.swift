@@ -14,10 +14,16 @@ struct 🛠Option: View {
                 .font(.title)
         }
         .popover(isPresented: $🛠) {
-            VStack {
+            VStack(spacing: 16) {
                 📁ImportFile()
                 
-                🔗Link()
+                Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
+                    Label("AppStore link", systemImage: "link")
+                }
+                
+                Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
+                    Label("Source code link", systemImage: "link")
+                }
             }
         }
     }

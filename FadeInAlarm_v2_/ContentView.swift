@@ -110,11 +110,13 @@ struct ContentView: View {
             
             
             .overlay(alignment: .bottomTrailing) {
-                HStack {
+                HStack(alignment: .bottom) {
                     🛠Option()
+                        .padding(8)
                     
                     🔘Button(🚡) // ⏻ ✓
                 }
+                .padding()
             }
             
             

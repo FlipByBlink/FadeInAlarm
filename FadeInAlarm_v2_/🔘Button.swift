@@ -99,7 +99,6 @@ struct 🔘Button: View {
                 .shadow(radius: 4,
                         x: 1, y: 1.5)
         }
-        .padding()
         .disabled(📱.🔛 == .FadeOut)
         .opacity(📱.🔛 == .FadeOut ? 0.6 : 1.0)
         .accessibilityLabel(📱.🔛 == .PowerOff ? "Set alarm" : "Stop alarm")

@@ -34,9 +34,8 @@ struct 📁ImportFile: View {
                 Image(systemName: "repeat")
             }
         }
-        .font(.body.bold())
+        .font(.title.bold())
         .accessibilityLabel("Import file")
-        .padding(30)
         .fileImporter(isPresented: $📂, allowedContentTypes: [.audio]) { 🅁esult in
             do {
                 let 📦 = try 🅁esult.get()
