@@ -8,6 +8,8 @@ struct ContentView: View {
     
     @EnvironmentObject var 📱: 📱Model
     
+    @State private var 🛠 = false
+    
     
     var body: some View {
         ScrollViewReader { 🚡 in
@@ -106,27 +108,26 @@ struct ContentView: View {
                     Spacer()
                 }
                 .id(🔛Phase.FadeOut)
-                
-                
-                VStack {
-                    Divider()
-                        .padding(.top, 56)
-                    
-                    📁ImportFile()
-                        .disabled( 📱.🔛 != .PowerOff )
-                    
-                    Spacer(minLength: 12)
-                    
-                    🔗Link()
-                        .disabled( 📱.🔛 != .PowerOff )
-                    
-                    Spacer(minLength: 100)
-                }
             }
             
             
             .overlay(alignment: .bottomTrailing) {
-                🔘Button(🚡) // ⏻ ✓
+                HStack {
+                    Button {
+                        🛠 = true
+                    } label: {
+                        Image(systemName: "gear")
+                    }
+                    .popover(isPresented: $🛠) {
+                        VStack {
+                            📁ImportFile()
+                            
+                            🔗Link()
+                        }
+                    }
+                    
+                    🔘Button(🚡) // ⏻ ✓
+                }
             }
             
             
