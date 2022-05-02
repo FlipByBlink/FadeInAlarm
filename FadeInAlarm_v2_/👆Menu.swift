@@ -32,7 +32,6 @@ struct 👆TimeFadeIn: View {
     var body: some View {
         DatePicker("Time fade-In", selection: $📱.🕰TimeFadeIn, displayedComponents: .hourAndMinute)
             .labelsHidden()
-            .padding(.leading, 9)
             .onAppear {
                 if let t︭ime = UserDefaults.standard.value(forKey: "TimeFadeIn") {
                     📱.🕰TimeFadeIn = t︭ime as! Date

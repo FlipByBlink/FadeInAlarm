@@ -14,6 +14,11 @@ struct ContentView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     HStack {
+                        Text("0%")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                            .frame(width: 40)
+                        
                         Image(systemName: "power.circle") // ⏻
                             .foregroundColor(.secondary)
                             .font(.body.weight(.light))
@@ -32,9 +37,10 @@ struct ContentView: View {
                     
                     
                     HStack {
-                        🔔IconWaiting()
-                        
                         👆VolumeOnWaiting()
+                            .frame(width: 40)
+                        
+                        🔔IconWaiting()
                         
                         if 📱.🔛 == .Waiting { A⃞rrow() } // ←
                         
@@ -44,6 +50,11 @@ struct ContentView: View {
                     
                     
                     HStack {
+                        Text("0%")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                            .frame(width: 40)
+                        
                         👆TimeFadeIn()
                         
                         Spacer()
@@ -51,6 +62,11 @@ struct ContentView: View {
                     
                     
                     HStack {
+                        Text("50%")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .frame(width: 40)
+                        
                         🔔IconFadeIn()
                         
                         👆HourFadeIn()
@@ -63,6 +79,11 @@ struct ContentView: View {
                     
                     
                     HStack {
+                        Text("100%")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                            .frame(width: 40)
+                        
                         Text(📱.🕰TimeFadeIn.addingTimeInterval(📱.🕛HourFadein), style: .time)
                             .foregroundColor(.secondary)
                         
@@ -71,6 +92,11 @@ struct ContentView: View {
                     
                     
                     HStack {
+                        Text("100%")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                            .frame(width: 40)
+                        
                         🔔IconMaxVolume()
                         
                         if 📱.🔛 == .MaxVolume { A⃞rrow() } // ←
@@ -82,6 +108,11 @@ struct ContentView: View {
                     Divider ()
                     
                     HStack {
+                        Text("100%")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                            .frame(width: 40)
+                        
                         Image(systemName: "checkmark.circle") // ✓
                             .font(.body.weight(.light))
                             .foregroundColor(.secondary)
@@ -91,6 +122,11 @@ struct ContentView: View {
                     
                     
                     HStack {
+                        Text("50%")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .frame(width: 40)
+                        
                         🔔IconFadeOut()
                         
                         👆HourFadeOut()
