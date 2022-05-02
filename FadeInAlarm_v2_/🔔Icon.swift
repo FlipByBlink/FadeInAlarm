@@ -10,10 +10,8 @@ struct 🔔Icon: View {
     
     var body: some View {
         Image(systemName: "bell")
-            .font(.title)
             .symbolVariant( 📱.🔛 == ⓟhase ? .fill : .none)
             .foregroundColor( 📱.🔛 == ⓟhase ? nil : .secondary)
-            .padding()
     }
     
     init(_ ⓟhase: 🔛Phase) {

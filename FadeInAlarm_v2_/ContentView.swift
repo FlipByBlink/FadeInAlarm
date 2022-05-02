@@ -12,100 +12,107 @@ struct ContentView: View {
     var body: some View {
         ScrollViewReader { 🚡 in
             ScrollView {
-                HStack {
-                    Image(systemName: "power.circle") // ⏻
-                        .foregroundColor(.secondary)
-                        .font(.title.weight(.light))
-                        .padding()
-                        .padding(.leading, 32)
-                        .onTapGesture(count: 2) {
-                            📱.🕰TimeFadeIn = Date.now
-                        }
-                        .accessibilityHidden(true)
-                    
-                    if 📱.🔛 == .PowerOff {
-                        A⃞rrow() // ←
+                VStack(spacing: 16) {
+                    HStack {
+                        Image(systemName: "power.circle") // ⏻
                             .foregroundColor(.secondary)
+                            .font(.body.weight(.light))
+                            .onTapGesture(count: 2) {
+                                📱.🕰TimeFadeIn = Date.now
+                            }
+                            .accessibilityHidden(true)
+                        
+                        if 📱.🔛 == .PowerOff {
+                            A⃞rrow() // ←
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
                     }
                     
-                    Spacer()
+                    
+                    HStack {
+                        🔔IconWaiting()
+                        
+                        👆VolumeOnWaiting()
+                        
+                        if 📱.🔛 == .Waiting { A⃞rrow() } // ←
+                        
+                        Spacer()
+                    }
+                    .id(🔛Phase.Waiting)
+                    
+                    
+                    HStack {
+                        👆TimeFadeIn()
+                        
+                        Spacer()
+                    }
+                    
+                    
+                    HStack {
+                        🔔IconFadeIn()
+                        
+                        👆HourFadeIn()
+                        
+                        if 📱.🔛 == .FadeIn { A⃞rrow() } // ←
+                        
+                        Spacer()
+                    }
+                    .id(🔛Phase.FadeIn)
+                    
+                    
+                    HStack {
+                        Text(📱.🕰TimeFadeIn.addingTimeInterval(📱.🕛HourFadein), style: .time)
+                            .foregroundColor(.secondary)
+                        
+                        Spacer()
+                    }
+                    
+                    
+                    HStack {
+                        🔔IconMaxVolume()
+                        
+                        if 📱.🔛 == .MaxVolume { A⃞rrow() } // ←
+                        
+                        Spacer()
+                    }
+                    .id(🔛Phase.MaxVolume)
+                    
+                    Divider ()
+                    
+                    HStack {
+                        Image(systemName: "checkmark.circle") // ✓
+                            .font(.body.weight(.light))
+                            .foregroundColor(.secondary)
+                        
+                        Spacer()
+                    }
+                    
+                    
+                    HStack {
+                        🔔IconFadeOut()
+                        
+                        👆HourFadeOut()
+                        
+                        if 📱.🔛 == .FadeOut { A⃞rrow() } // ←
+                        
+                        Spacer()
+                    }
+                    .id(🔛Phase.FadeOut)
                 }
-                .padding(.top, 80)
-                
-                
-                HStack {
-                    🔔IconWaiting()
-                    
-                    👆VolumeOnWaiting()
-                    
-                    if 📱.🔛 == .Waiting { A⃞rrow() } // ←
-                    
-                    Spacer()
+                .padding(24)
+                .background {
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .foregroundColor(Color(.systemBackground))
+                        .shadow(radius: 6)
                 }
-                .id(🔛Phase.Waiting)
-                
-                
-                HStack {
-                    👆TimeFadeIn()
-                    
-                    Spacer()
-                }
-                
-                
-                HStack {
-                    🔔IconFadeIn()
-                    
-                    👆HourFadeIn()
-                    
-                    if 📱.🔛 == .FadeIn { A⃞rrow() } // ←
-                    
-                    Spacer()
-                }
-                .id(🔛Phase.FadeIn)
-                
-                
-                HStack {
-                    Text(📱.🕰TimeFadeIn.addingTimeInterval(📱.🕛HourFadein), style: .time)
-                        .font(.title2)
-                        .foregroundColor(.secondary)
-                        .padding()
-                        .padding(.leading, 28)
-                    
-                    Spacer()
-                }
-                
-                
-                HStack {
-                    🔔IconMaxVolume()
-                    
-                    if 📱.🔛 == .MaxVolume { A⃞rrow() } // ←
-                    
-                    Spacer()
-                }
-                .id(🔛Phase.MaxVolume)
-                
-                
-                HStack {
-                    Image(systemName: "checkmark.circle") // ✓
-                        .font(.title.weight(.light))
-                        .foregroundColor(.secondary)
-                        .padding()
-                        .padding(.leading, 32)
-                    
-                    Spacer()
-                }
-                
-                
-                HStack {
-                    🔔IconFadeOut()
-                    
-                    👆HourFadeOut()
-                    
-                    if 📱.🔛 == .FadeOut { A⃞rrow() } // ←
-                    
-                    Spacer()
-                }
-                .id(🔛Phase.FadeOut)
+                .padding(32)
+                .padding(.vertical, 64)
+            }
+            .background {
+                Color(.secondarySystemBackground)
+                    .ignoresSafeArea()
             }
             
             
@@ -138,8 +145,6 @@ struct ContentView: View {
 struct A⃞rrow: View {
     var body: some View {
         Image(systemName: "arrow.left")
-            .font(.title)
-            .padding()
     }
 }
 
@@ -152,7 +157,7 @@ struct A⃞rrow: View {
 
 struct ContentView_Previews: PreviewProvider {
     static let 📱 = 📱Model()
-        
+    
     static var previews: some View {
         ContentView()
             .environmentObject(📱)
