@@ -8,8 +8,6 @@ struct ContentView: View {
     
     @EnvironmentObject var 📱: 📱Model
     
-    @State private var 🛠 = false
-    
     
     var body: some View {
         ScrollViewReader { 🚡 in
@@ -113,18 +111,7 @@ struct ContentView: View {
             
             .overlay(alignment: .bottomTrailing) {
                 HStack {
-                    Button {
-                        🛠 = true
-                    } label: {
-                        Image(systemName: "gear")
-                    }
-                    .popover(isPresented: $🛠) {
-                        VStack {
-                            📁ImportFile()
-                            
-                            🔗Link()
-                        }
-                    }
+                    🛠Option()
                     
                     🔘Button(🚡) // ⏻ ✓
                 }
