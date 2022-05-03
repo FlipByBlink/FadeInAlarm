@@ -13,6 +13,10 @@ https://apps.apple.com/app/id1465336070
 https://github.com/FlipByBlink/FadeInAlarm_v2
 
 
+## 📺 Demo video
+https://www.youtube.com/watch?v=d66thA-K5Dg
+
+
 
 
 ------
