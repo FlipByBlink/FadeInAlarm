@@ -148,7 +148,11 @@ struct ContentView: View {
                         .shadow(radius: 6)
                 }
                 .padding(32)
-                .padding(.vertical, 64)
+                
+                
+                🔊SystemVolume()
+                
+                🔊LocalVolume()
             }
             .background {
                 Color(.secondarySystemBackground)
@@ -167,13 +171,13 @@ struct ContentView: View {
             }
             
             
-            .overlay(alignment: .topTrailing) {
-                VStack(alignment: .trailing) {
-                    🔊SystemVolume()
-                    
-                    🔊LocalVolume()
-                }
-            }
+//            .overlay(alignment: .topTrailing) {
+//                VStack(alignment: .trailing) {
+//                    🔊SystemVolume()
+//
+//                    🔊LocalVolume()
+//                }
+//            }
             
             
             .animation(.default, value: 📱.🔛)
