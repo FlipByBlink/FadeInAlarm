@@ -130,9 +130,9 @@ struct ContentView: View {
                 }
                 .padding(24)
                 .background {
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
                         .foregroundColor(Color(.systemBackground))
-                        .shadow(radius: 6)
+                        .shadow(radius: 4)
                 }
                 .padding(32)
                 .frame(maxWidth: 450)
@@ -140,13 +140,16 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    VStack {
+                    VStack(spacing: 32) {
                         🔊SystemVolume()
                         
+                        Text("placeholder.mp3")
+                            .foregroundStyle(.secondary)
+                        
                         🛠Option()
-                            .padding()
                             .disabled(📱.📻.ⓟlayer.isPlaying)
                     }
+                    .padding(24)
                     
                     Spacer()
                 }

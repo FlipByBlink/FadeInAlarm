@@ -7,9 +7,7 @@ class 📻AlarmPlayer {
     
     var ⓟlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
     
-    
     func ⓟlay(_ 🕰: Date,_ 🕛: TimeInterval) {
-        
         let 🗄 = FileManager.default
         let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
@@ -61,7 +59,6 @@ class 📻AlarmPlayer {
     
     
     @objc func 🚦(notification: Notification) {
-        
         guard let 🅄serInfo = notification.userInfo,
               let 🅃ypeValue = 🅄serInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
               let 🅃ype = AVAudioSession.InterruptionType(rawValue: 🅃ypeValue) else {
@@ -70,15 +67,9 @@ class 📻AlarmPlayer {
               }
         
         switch 🅃ype {
-            
-        case .began:
-            ⓟlayer.pause()
-            
-        case .ended:
-            ⓟlayer.play()
-            
-        default:
-            print("👿")
+        case .began: ⓟlayer.pause()
+        case .ended: ⓟlayer.play()
+        default: print("👿")
         }
     }
 }
