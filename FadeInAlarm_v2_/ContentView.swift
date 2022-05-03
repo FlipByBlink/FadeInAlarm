@@ -11,7 +11,7 @@ struct ContentView: View {
     
     var body: some View {
             ScrollView {
-                VStack(spacing: 16) {
+                VStack(alignment: .leading, spacing: 16) {
                     HStack {
                         Text("0%")
                             .font(.caption)
@@ -30,8 +30,6 @@ struct ContentView: View {
                             A⃞rrow() // ←
                                 .foregroundColor(.secondary)
                         }
-                        
-                        Spacer()
                     }
                     
                     
@@ -42,8 +40,6 @@ struct ContentView: View {
                         🔔IconWaiting()
                         
                         if 📱.🔛 == .Waiting { A⃞rrow() } // ←
-                        
-                        Spacer()
                     }
                     
                     
@@ -54,8 +50,6 @@ struct ContentView: View {
                             .frame(width: 50)
                         
                         👆TimeFadeIn()
-                        
-                        Spacer()
                     }
                     
                     
@@ -70,8 +64,6 @@ struct ContentView: View {
                         👆HourFadeIn()
                         
                         if 📱.🔛 == .FadeIn { A⃞rrow() } // ←
-                        
-                        Spacer()
                     }
                     
                     
@@ -83,8 +75,6 @@ struct ContentView: View {
                         
                         Text(📱.🕰TimeFadeIn.addingTimeInterval(📱.🕛HourFadein), style: .time)
                             .foregroundColor(.secondary)
-                        
-                        Spacer()
                     }
                     
                     
@@ -101,8 +91,6 @@ struct ContentView: View {
                             .foregroundColor(.secondary)
                         
                         if 📱.🔛 == .MaxVolume { A⃞rrow() } // ←
-                        
-                        Spacer()
                     }
                     
                     Divider ()
@@ -116,8 +104,6 @@ struct ContentView: View {
                         Image(systemName: "checkmark.circle") // ✓
                             .font(.body.weight(.light))
                             .foregroundColor(.secondary)
-                        
-                        Spacer()
                     }
                     
                     
@@ -132,8 +118,6 @@ struct ContentView: View {
                         👆HourFadeOut()
                         
                         if 📱.🔛 == .FadeOut { A⃞rrow() } // ←
-                        
-                        Spacer()
                     }
                 }
                 .padding(24)
@@ -145,10 +129,18 @@ struct ContentView: View {
                 .padding(32)
                 .frame(maxWidth: 450)
                 
-                🔊SystemVolume()
-                
-                🛠Option()
-                    .padding()
+                HStack {
+                    Spacer()
+                    
+                    VStack {
+                        🔊SystemVolume()
+                        
+                        🛠Option()
+                            .padding()
+                    }
+                    
+                    Spacer()
+                }
             }
             
             .animation(.default, value: 📱.🔛)
