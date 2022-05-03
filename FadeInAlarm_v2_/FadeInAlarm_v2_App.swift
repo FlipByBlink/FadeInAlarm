@@ -16,12 +16,10 @@ struct FadeInAlarm_v2_App: App {
                 ContentView()
             }
             .overlay(alignment: .bottomTrailing) {
-                HStack(alignment: .bottom) {
-                    🔊LocalVolume()
-                    
-                    🔘Button() // ⏻ ✓
-                }
-                .padding()
+                🔘Button() // ⏻ ✓
+            }
+            .overlay(alignment: .bottomLeading) {
+                🔊LocalVolume()
             }
             .environmentObject(📱)
         }

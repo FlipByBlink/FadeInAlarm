@@ -22,6 +22,7 @@ struct 🔊LocalVolume: View {
                     }
                 }
             }
+            .padding()
         } else {
             EmptyView()
         }
