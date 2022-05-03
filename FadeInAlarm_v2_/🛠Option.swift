@@ -16,15 +16,17 @@ struct 🛠Option: View {
         .popover(isPresented: $🛠) {
             VStack(spacing: 16) {
                 📁ImportFile()
+                    .padding()
                 
                 Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
-                    Label("AppStore link", systemImage: "link")
+                    Label("AppStore", systemImage: "link")
                 }
                 
                 Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
-                    Label("Source code link", systemImage: "link")
+                    Label("Source code", systemImage: "link")
                 }
             }
+            .padding()
         }
     }
 }

@@ -30,8 +30,6 @@ struct 📁ImportFile: View {
                             }
                         } catch { print(error) }
                     }
-                
-                Image(systemName: "repeat")
             }
         }
         .font(.title.bold())
