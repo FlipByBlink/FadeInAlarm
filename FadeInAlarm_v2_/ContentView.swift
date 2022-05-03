@@ -43,20 +43,14 @@ struct ContentView: View {
                     
                     
                     HStack {
-                        Text("0%")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
-                            .frame(width: 50)
+                        🪧LocalVolumePercentage("0%")
                         
                         👆TimeFadeIn()
                     }
                     
                     
                     HStack {
-                        Text("50%")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .frame(width: 50)
+                        🪧LocalVolumePercentage("60%", .secondary)
                         
                         🔔IconFadeIn()
                         
@@ -69,10 +63,7 @@ struct ContentView: View {
                     
                     
                     HStack {
-                        Text("100%")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
-                            .frame(width: 50)
+                        🪧LocalVolumePercentage("100%")
                         
                         Text(📱.🕰TimeFadeIn.addingTimeInterval(📱.🕛HourFadein), style: .time)
                             .foregroundColor(.secondary)
@@ -80,10 +71,7 @@ struct ContentView: View {
                     
                     
                     HStack {
-                        Text("100%")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
-                            .frame(width: 50)
+                        🪧LocalVolumePercentage("100%")
                         
                         🔔IconMaxVolume()
                         
@@ -99,10 +87,7 @@ struct ContentView: View {
                     Divider ()
                     
                     HStack {
-                        Text("100%")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
-                            .frame(width: 50)
+                        🪧LocalVolumePercentage("100%")
                         
                         Image(systemName: "checkmark.circle") // ✓
                             .font(.body.weight(.light))
@@ -111,10 +96,7 @@ struct ContentView: View {
                     
                     
                     HStack {
-                        Text("50%")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
-                            .frame(width: 50)
+                        🪧LocalVolumePercentage("33%")
                         
                         🔔IconFadeOut()
                         

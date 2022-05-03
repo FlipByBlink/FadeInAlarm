@@ -6,16 +6,19 @@ struct 🪧LocalVolumePercentage: View {
     
     var 🪧: String
     
+    var 🎨: HierarchicalShapeStyle
+    
     var body: some View {
         Text(🪧)
             .font(.caption)
-            .foregroundStyle(.tertiary)
+            .foregroundStyle(🎨)
             .frame(width: 50)
             .minimumScaleFactor(0.1)
     }
     
-    init(_ 🪧: String) {
+    init(_ 🪧: String, _ 🎨: HierarchicalShapeStyle = .tertiary) {
         self.🪧 = 🪧
+        self.🎨 = 🎨
     }
 }
 
