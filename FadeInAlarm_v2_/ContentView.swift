@@ -49,6 +49,7 @@ struct ContentView: View {
                     
                     
                     HStack {
+                        //TODO: 実装
                         🪧LocalVolumePercentage("60%", .secondary)
                         
                         🔔IconFadeIn()
@@ -95,6 +96,7 @@ struct ContentView: View {
                     
                     
                     HStack {
+                        //TODO: 実装
                         🪧LocalVolumePercentage("33%")
                         
                         🔔IconFadeOut()
@@ -121,7 +123,7 @@ struct ContentView: View {
                     VStack(spacing: 32) {
                         🔊SystemVolume()
                         
-                        Text("placeholder.mp3") //FIXME: 実装
+                        Text("placeholder.mp3") //TODO: 実装
                             .foregroundStyle(.secondary)
                         
                         🛠Option()
