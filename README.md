@@ -1,15 +1,15 @@
-#  FadeInAlarm
+# ⏰ FadeInAlarm ver 2.x
 
 Alarm clock with taking a long time from small volume to max volume.
 
 時間をかけて少しずつ音量が大きくなるアラームアプリ。
 
 
-## AppStore link
+## 🔗 AppStore
 https://apps.apple.com/app/id1465336070
 
 
-## Source code link
+## 🔗 Source code
 https://github.com/FlipByBlink/FadeInAlarm_v2
 
 
