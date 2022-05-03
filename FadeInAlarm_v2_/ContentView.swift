@@ -27,7 +27,7 @@ struct ContentView: View {
                             .accessibilityHidden(true)
                         
                         if 📱.🔛 == .PowerOff {
-                            A⃞rrow() // ←
+                            Image(systemName: "arrow.left") // ←
                                 .foregroundColor(.secondary)
                         }
                     }
@@ -39,7 +39,9 @@ struct ContentView: View {
                         
                         🔔IconWaiting()
                         
-                        if 📱.🔛 == .Waiting { A⃞rrow() } // ←
+                        if 📱.🔛 == .Waiting {
+                            Image(systemName: "arrow.left") // ←
+                        }
                     }
                     
                     
@@ -63,7 +65,9 @@ struct ContentView: View {
                         
                         👆HourFadeIn()
                         
-                        if 📱.🔛 == .FadeIn { A⃞rrow() } // ←
+                        if 📱.🔛 == .FadeIn {
+                            Image(systemName: "arrow.left") // ←
+                        }
                     }
                     
                     
@@ -90,7 +94,9 @@ struct ContentView: View {
                             .font(.caption)
                             .foregroundColor(.secondary)
                         
-                        if 📱.🔛 == .MaxVolume { A⃞rrow() } // ←
+                        if 📱.🔛 == .MaxVolume {
+                            Image(systemName: "arrow.left") // ←
+                        }
                     }
                     
                     Divider ()
@@ -117,7 +123,9 @@ struct ContentView: View {
                         
                         👆HourFadeOut()
                         
-                        if 📱.🔛 == .FadeOut { A⃞rrow() } // ←
+                        if 📱.🔛 == .FadeOut {
+                            Image(systemName: "arrow.left") // ←
+                        }
                     }
                 }
                 .padding(24)
@@ -146,17 +154,6 @@ struct ContentView: View {
             .animation(.default, value: 📱.🔛)
     }
 }
-
-
-struct A⃞rrow: View {
-    var body: some View {
-        Image(systemName: "arrow.left")
-    }
-}
-
-
-
-
 
 
 
