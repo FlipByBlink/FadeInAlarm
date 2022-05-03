@@ -7,13 +7,13 @@ struct 👆VolumeOnWaiting: View {
     @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
-        Menu( 📱.🔊VolumeOnWaiting.description + "%" ) {
+        Menu( 📱.🔊VolumeOnWaiting.description + " %" ) {
             Picker("Volume on waiting", selection: $📱.🔊VolumeOnWaiting) {
-                Text("0%").tag(0)
-                Text("1%").tag(1)
-                Text("3%").tag(3)
-                Text("5%").tag(5)
-                Text("10%").tag(10)
+                Text("0 %").tag(0)
+                Text("1 %").tag(1)
+                Text("3 %").tag(3)
+                Text("5 %").tag(5)
+                Text("10 %").tag(10)
             }
         }
         .font(.caption.bold())

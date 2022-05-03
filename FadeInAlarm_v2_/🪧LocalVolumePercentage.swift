@@ -10,7 +10,7 @@ struct 🪧LocalVolumePercentage: View {
     
     var body: some View {
         Text(🪧)
-            .font(.caption)
+            .font(.caption.monospacedDigit())
             .foregroundStyle(🎨)
             .frame(width: 60, height: 24)
             .lineLimit(1)
@@ -28,12 +28,19 @@ struct 🪧LocalVolumePercentageFadeIn: View {
     
     @EnvironmentObject var 📱: 📱Model
     
-    var 🪧: String {
-        String(Int(((📱.🪧LVP🔍FadeIn - 0.4)/0.6)*100)) + "%"
+    var 🔍Percentage: String {
+        let 🔍 = Int(((📱.🪧LVP🔍FadeIn - 0.4)/0.6)*100)
+        if 🔍 >= 100 {
+            return 100.description + " %"
+        } else if 🔍 < 10 {
+            return "0" + 🔍.description + " %"
+        } else {
+            return 🔍.description + " %"
+        }
     }
     
     var body: some View {
-        🪧LocalVolumePercentage(🪧, .secondary)
+        🪧LocalVolumePercentage(🔍Percentage, .secondary)
     }
 }
 
@@ -42,12 +49,16 @@ struct 🪧LocalVolumePercentageFadeOut: View {
     
     @EnvironmentObject var 📱: 📱Model
     
-    var 🪧: String {
-        String(Int(((📱.🪧LVP🔍FadeOut - 0.4)/0.6)*100)) + "%"
+    var 🄿ercentage: String {
+        let 🔍 = Int(((📱.🪧LVP🔍FadeOut - 0.4)/0.6)*100)
+        if 🔍 < 0 {
+            return 0.description + " %"
+        }
+        return 🔍.description + " %"
     }
     
     var body: some View {
-        🪧LocalVolumePercentage(🪧)
+        🪧LocalVolumePercentage(🄿ercentage)
     }
 }
 
@@ -56,6 +67,6 @@ struct 🪧LocalVolumePercentageFadeOut: View {
 
 struct 🪧LocalVolumePercentage_Previews: PreviewProvider {
     static var previews: some View {
-        🪧LocalVolumePercentage("88%")
+        🪧LocalVolumePercentage("88 %")
     }
 }

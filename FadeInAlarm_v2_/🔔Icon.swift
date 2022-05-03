@@ -40,8 +40,6 @@ struct 🔔IconWaiting: View {
 struct 🔔IconFadeIn: View {
     @EnvironmentObject var 📱: 📱Model
     
-//    @State private var 🔍 = 0.4
-    
     @State private var 🄾pacity = 0.0
     
     var body: some View {
@@ -80,8 +78,6 @@ struct 🔔IconMaxVolume: View {
 
 struct 🔔IconFadeOut: View {
     @EnvironmentObject var 📱: 📱Model
-    
-//    @State private var 🔍 = 0.4
     
     @State private var 🄾pacity = 0.0
     

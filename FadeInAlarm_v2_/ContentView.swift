@@ -12,7 +12,7 @@ struct ContentView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
-                    🪧LocalVolumePercentage("0%")
+                    🪧LocalVolumePercentage("0 %")
                     
                     Image(systemName: "power.circle") // ⏻
                         .foregroundColor(.secondary)
@@ -41,7 +41,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🪧LocalVolumePercentage("0%")
+                    🪧LocalVolumePercentage("0 %")
                     
                     👆TimeFadeIn()
                 }
@@ -62,7 +62,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🪧LocalVolumePercentage("100%")
+                    🪧LocalVolumePercentage("100 %")
                     
                     Text(📱.🕰TimeFadeIn.addingTimeInterval(📱.🕛HourFadein), style: .time)
                         .foregroundColor(.secondary)
@@ -70,7 +70,7 @@ struct ContentView: View {
                 
                 
                 HStack {
-                    🪧LocalVolumePercentage("100%")
+                    🪧LocalVolumePercentage("100 %")
                     
                     🔔IconMaxVolume()
                     
@@ -86,7 +86,7 @@ struct ContentView: View {
                 Divider ()
                 
                 HStack {
-                    🪧LocalVolumePercentage("100%")
+                    🪧LocalVolumePercentage("100 %")
                     
                     Image(systemName: "checkmark.circle") // ✓
                         .font(.body.weight(.light))
