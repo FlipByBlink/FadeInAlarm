@@ -128,7 +128,7 @@ struct 👆HourFadeOut: View {
                 }
             }
         }
-        .font(.body.bold())
+        .font(.caption.bold())
         .disabled( 📱.🔛 != .PowerOff )
         .accessibilityLabel("Select hour fade-out")
     }

@@ -22,6 +22,7 @@ struct 📁ImportFile: View {
                 Image(systemName: "folder")
                 
                 Text(💽Name)
+                    .padding(2)
                     .onAppear {
                         do {
                             let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)

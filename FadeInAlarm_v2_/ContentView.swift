@@ -24,7 +24,7 @@ struct ContentView: View {
                     
                     if 📱.🔛 == .PowerOff {
                         Image(systemName: "arrow.left") // ←
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                 }
                 
@@ -75,7 +75,7 @@ struct ContentView: View {
                     
                     Image(systemName: "repeat")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     if 📱.🔛 == .MaxVolume {
                         Image(systemName: "arrow.left") // ←
