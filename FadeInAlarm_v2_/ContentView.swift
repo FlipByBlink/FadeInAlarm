@@ -10,7 +10,7 @@ struct ContentView: View {
     
     
     var body: some View {
-        ScrollViewReader { 🚡 in
+//        ScrollViewReader { 🚡 in
             ScrollView {
                 VStack(spacing: 16) {
                     HStack {
@@ -46,7 +46,7 @@ struct ContentView: View {
                         
                         Spacer()
                     }
-                    .id(🔛Phase.Waiting)
+//                    .id(🔛Phase.Waiting)
                     
                     
                     HStack {
@@ -75,7 +75,7 @@ struct ContentView: View {
                         
                         Spacer()
                     }
-                    .id(🔛Phase.FadeIn)
+//                    .id(🔛Phase.FadeIn)
                     
                     
                     HStack {
@@ -107,7 +107,7 @@ struct ContentView: View {
                         
                         Spacer()
                     }
-                    .id(🔛Phase.MaxVolume)
+//                    .id(🔛Phase.MaxVolume)
                     
                     Divider ()
                     
@@ -139,7 +139,7 @@ struct ContentView: View {
                         
                         Spacer()
                     }
-                    .id(🔛Phase.FadeOut)
+//                    .id(🔛Phase.FadeOut)
                 }
                 .padding(24)
                 .background {
@@ -156,18 +156,8 @@ struct ContentView: View {
             }
             
             
-            .overlay(alignment: .bottomTrailing) {
-                HStack(alignment: .bottom) {
-                    🔊LocalVolume()
-                    
-                    🔘Button(🚡) // ⏻ ✓
-                }
-                .padding()
-            }
-            
-            
             .animation(.default, value: 📱.🔛)
-        }
+//        }
     }
 }
 

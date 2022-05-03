@@ -7,7 +7,7 @@ struct 🔘Button: View {
     
     @EnvironmentObject var 📱: 📱Model
     
-    var 🚡: ScrollViewProxy
+//    var 🚡: ScrollViewProxy
     
     var 🎨: Color {
         switch 📱.🔛 {
@@ -28,9 +28,9 @@ struct 🔘Button: View {
             if 📱.🔛 == .PowerOff { // ⏻
                 📱.🔛 = .Waiting
                 
-                withAnimation {
-                    🚡.scrollTo(🔛Phase.Waiting, anchor: .center)
-                }
+//                withAnimation {
+//                    🚡.scrollTo(🔛Phase.Waiting, anchor: .center)
+//                }
                 
                 📱.📻.ⓟlay(📱.🕰TimeFadeIn, 📱.🕛HourFadein)
                 
@@ -43,9 +43,9 @@ struct 🔘Button: View {
                         let 🄰larmTime = 📱.🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
                         if 🄽ow == 🄰larmTime {
                             📱.🔛 = .FadeIn
-                            withAnimation {
-                                🚡.scrollTo(🔛Phase.FadeIn, anchor: .center)
-                            }
+//                            withAnimation {
+//                                🚡.scrollTo(🔛Phase.FadeIn, anchor: .center)
+//                            }
                         }
                         
                     case .FadeIn:
@@ -53,9 +53,9 @@ struct 🔘Button: View {
                         if 📱.📻.ⓟlayer.volume > 1.0 {
                             📱.📻.ⓟlayer.volume = 1.0
                             📱.🔛 = .MaxVolume
-                            withAnimation {
-                                🚡.scrollTo(🔛Phase.MaxVolume, anchor: .center)
-                            }
+//                            withAnimation {
+//                                🚡.scrollTo(🔛Phase.MaxVolume, anchor: .center)
+//                            }
                         }
                         
                     case .MaxVolume: break
@@ -86,9 +86,9 @@ struct 🔘Button: View {
                     📱.🔛 = .PowerOff
                 } else {
                     📱.🔛 = .FadeOut
-                    withAnimation {
-                        🚡.scrollTo(🔛Phase.FadeOut, anchor: .center)
-                    }
+//                    withAnimation {
+//                        🚡.scrollTo(🔛Phase.FadeOut, anchor: .center)
+//                    }
                 }
             }
         } label: {
@@ -104,9 +104,9 @@ struct 🔘Button: View {
         .accessibilityLabel(📱.🔛 == .PowerOff ? "Set alarm" : "Stop alarm")
     }
     
-    init(_ 🚡: ScrollViewProxy) {
-        self.🚡 = 🚡
-    }
+//    init(_ 🚡: ScrollViewProxy) {
+//        self.🚡 = 🚡
+//    }
 }
 
 
@@ -132,33 +132,33 @@ struct 🔘Button_Previews: PreviewProvider {
     }()
     
     static var previews: some View {
-        ScrollViewReader { b in
+//        ScrollViewReader { b in
             VStack {
-                🔘Button(b)
+                🔘Button()
                     .environmentObject(📱p)
                 
-                🔘Button(b)
+                🔘Button()
                     .environmentObject(📱m)
                 
-                🔘Button(b)
+                🔘Button()
                     .environmentObject(📱f)
             }
-        }
+//        }
         .previewLayout(.fixed(width: 300, height: 500))
         
-        ScrollViewReader { b in
+//        ScrollViewReader { b in
             VStack {
-                🔘Button(b)
+                🔘Button()
                     .environmentObject(📱p)
                 
-                🔘Button(b)
+                🔘Button()
                     .environmentObject(📱m)
                 
-                🔘Button(b)
+                🔘Button()
                     .environmentObject(📱f)
             }
             .preferredColorScheme(.dark)
-        }
+//        }
         .previewLayout(.fixed(width: 300, height: 500))
     }
 }

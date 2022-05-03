@@ -14,8 +14,16 @@ struct FadeInAlarm_v2_App: App {
                     .ignoresSafeArea()
                 
                 ContentView()
-                    .environmentObject(📱)
             }
+            .overlay(alignment: .bottomTrailing) {
+                HStack(alignment: .bottom) {
+                    🔊LocalVolume()
+                    
+                    🔘Button() // ⏻ ✓
+                }
+                .padding()
+            }
+            .environmentObject(📱)
         }
     }
 }
