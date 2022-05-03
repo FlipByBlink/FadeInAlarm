@@ -19,7 +19,7 @@ struct FadeInAlarm_v2_App: App {
                 🔘Button() // ⏻ ✓
             }
             .overlay(alignment: .bottomLeading) {
-                🔊LocalVolume()
+                🔊LocalVolumeNow()
             }
             .environmentObject(📱)
         }

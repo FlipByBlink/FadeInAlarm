@@ -13,7 +13,7 @@ struct ContentView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
-                        🔊LocalVolumePercentageIcon("0%")
+                        🪧LocalVolumePercentage("0%")
                         
                         Image(systemName: "power.circle") // ⏻
                             .foregroundColor(.secondary)

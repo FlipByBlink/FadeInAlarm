@@ -2,7 +2,7 @@
 import SwiftUI
 
 
-struct 🔊LocalVolume: View {
+struct 🔊LocalVolumeNow: View {
     
     @EnvironmentObject var 📱: 📱Model
     
@@ -32,12 +32,12 @@ struct 🔊LocalVolume: View {
 
 
 
-struct 🔊LocalVolume_Previews: PreviewProvider {
+struct 🔊LocalVolumeNow_Previews: PreviewProvider {
     
     static let 📱 = 📱Model()
     
     static var previews: some View {
-        🔊LocalVolume()
+        🔊LocalVolumeNow()
             .environmentObject(📱)
     }
 }

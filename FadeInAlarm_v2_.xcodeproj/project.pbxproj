@@ -18,8 +18,9 @@
 		125D912627C6F18F005D99D1 /* 🔊SystemVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */; };
 		125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912127C6F18F005D99D1 /* 🔛Phase.swift */; };
 		125D912827C6F18F005D99D1 /* 🔘Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912227C6F18F005D99D1 /* 🔘Button.swift */; };
+		12A081922821027600C8040A /* 🪧LocalVolumePercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */; };
 		12A675E6281CCFFC00D24E15 /* 📱Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱Model.swift */; };
-		12A675EA281D149C00D24E15 /* 🔊LocalVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */; };
+		12A675EA281D149C00D24E15 /* 🔊LocalVolumeNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔊LocalVolumeNow.swift */; };
 		12F56F58282001AE007E7D89 /* 🛠Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F56F57282001AE007E7D89 /* 🛠Option.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +39,9 @@
 		125D912127C6F18F005D99D1 /* 🔛Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔛Phase.swift"; sourceTree = "<group>"; };
 		125D912227C6F18F005D99D1 /* 🔘Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔘Button.swift"; sourceTree = "<group>"; };
 		125D912927C6F2DE005D99D1 /* FadeInAlarm-v2--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FadeInAlarm-v2--Info.plist"; sourceTree = SOURCE_ROOT; };
+		12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧LocalVolumePercentage.swift"; sourceTree = "<group>"; };
 		12A675E5281CCFFC00D24E15 /* 📱Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱Model.swift"; sourceTree = "<group>"; };
-		12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔊LocalVolume.swift"; sourceTree = "<group>"; };
+		12A675E9281D149C00D24E15 /* 🔊LocalVolumeNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔊LocalVolumeNow.swift"; sourceTree = "<group>"; };
 		12F56F57282001AE007E7D89 /* 🛠Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🛠Option.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,12 +83,13 @@
 				125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */,
 				125D912127C6F18F005D99D1 /* 🔛Phase.swift */,
 				125D911D27C6F18F005D99D1 /* 🔔Icon.swift */,
+				12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */,
 				124A43DA27E5B73C00DB1447 /* 👆Menu.swift */,
 				125D912227C6F18F005D99D1 /* 🔘Button.swift */,
 				12F56F57282001AE007E7D89 /* 🛠Option.swift */,
 				125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */,
 				125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */,
-				12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */,
+				12A675E9281D149C00D24E15 /* 🔊LocalVolumeNow.swift */,
 				125D911327C6F118005D99D1 /* Assets.xcassets */,
 				125D911527C6F118005D99D1 /* Preview Content */,
 			);
@@ -176,10 +179,11 @@
 				125D912827C6F18F005D99D1 /* 🔘Button.swift in Sources */,
 				125D911227C6F117005D99D1 /* ContentView.swift in Sources */,
 				125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */,
+				12A081922821027600C8040A /* 🪧LocalVolumePercentage.swift in Sources */,
 				125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */,
 				125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */,
 				12F56F58282001AE007E7D89 /* 🛠Option.swift in Sources */,
-				12A675EA281D149C00D24E15 /* 🔊LocalVolume.swift in Sources */,
+				12A675EA281D149C00D24E15 /* 🔊LocalVolumeNow.swift in Sources */,
 				124A43DB27E5B73C00DB1447 /* 👆Menu.swift in Sources */,
 				12A675E6281CCFFC00D24E15 /* 📱Model.swift in Sources */,
 				125D912627C6F18F005D99D1 /* 🔊SystemVolume.swift in Sources */,
