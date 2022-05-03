@@ -32,7 +32,6 @@ struct ContentView: View {
                     
                     HStack {
                         👆VolumeOnWaiting()
-                            .frame(width: 50)
                         
                         🔔IconWaiting()
                         
@@ -114,7 +113,7 @@ struct ContentView: View {
                         .shadow(radius: 4)
                 }
                 .padding(32)
-                .frame(maxWidth: 450)
+                .frame(maxWidth: 460)
                 
                 HStack {
                     Spacer()
@@ -122,13 +121,13 @@ struct ContentView: View {
                     VStack(spacing: 32) {
                         🔊SystemVolume()
                         
-                        Text("placeholder.mp3")
+                        Text("placeholder.mp3") //FIXME: 実装
                             .foregroundStyle(.secondary)
                         
                         🛠Option()
                             .disabled(📱.📻.ⓟlayer.isPlaying)
                     }
-                    .padding(24)
+                    .padding(.bottom, 36)
                     
                     Spacer()
                 }

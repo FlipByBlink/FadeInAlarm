@@ -12,7 +12,8 @@ struct 🪧LocalVolumePercentage: View {
         Text(🪧)
             .font(.caption)
             .foregroundStyle(🎨)
-            .frame(width: 50)
+            .frame(width: 60, height: 24)
+            .lineLimit(1)
             .minimumScaleFactor(0.1)
     }
     

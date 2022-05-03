@@ -17,6 +17,9 @@ struct 👆VolumeOnWaiting: View {
             }
         }
         .font(.caption.bold())
+        .frame(width: 60, height: 28)
+        .lineLimit(1)
+        .minimumScaleFactor(0.1)
         .disabled( 📱.🔛 != .PowerOff )
         .accessibilityLabel("Select volume on waiting")
     }
