@@ -21,7 +21,6 @@
 		12A675E6281CCFFC00D24E15 /* 📱Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱Model.swift */; };
 		12A675EA281D149C00D24E15 /* 🔊LocalVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */; };
 		12F56F58282001AE007E7D89 /* 🛠Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F56F57282001AE007E7D89 /* 🛠Option.swift */; };
-		12F82392281932B0006D180B /* 🔗Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F82391281932B0006D180B /* 🔗Link.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 		12A675E5281CCFFC00D24E15 /* 📱Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱Model.swift"; sourceTree = "<group>"; };
 		12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔊LocalVolume.swift"; sourceTree = "<group>"; };
 		12F56F57282001AE007E7D89 /* 🛠Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🛠Option.swift"; sourceTree = "<group>"; };
-		12F82391281932B0006D180B /* 🔗Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔗Link.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 				125D912227C6F18F005D99D1 /* 🔘Button.swift */,
 				12F56F57282001AE007E7D89 /* 🛠Option.swift */,
 				125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */,
-				12F82391281932B0006D180B /* 🔗Link.swift */,
 				125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */,
 				12A675E9281D149C00D24E15 /* 🔊LocalVolume.swift */,
 				125D911327C6F118005D99D1 /* Assets.xcassets */,
@@ -185,7 +182,6 @@
 				12A675EA281D149C00D24E15 /* 🔊LocalVolume.swift in Sources */,
 				124A43DB27E5B73C00DB1447 /* 👆Menu.swift in Sources */,
 				12A675E6281CCFFC00D24E15 /* 📱Model.swift in Sources */,
-				12F82392281932B0006D180B /* 🔗Link.swift in Sources */,
 				125D912627C6F18F005D99D1 /* 🔊SystemVolume.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
