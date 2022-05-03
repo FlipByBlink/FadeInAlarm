@@ -145,6 +145,7 @@ struct ContentView: View {
                         
                         🛠Option()
                             .padding()
+                            .disabled(📱.📻.ⓟlayer.isPlaying)
                     }
                     
                     Spacer()

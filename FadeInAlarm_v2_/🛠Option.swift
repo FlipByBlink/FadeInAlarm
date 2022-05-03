@@ -11,22 +11,23 @@ struct 🛠Option: View {
             🛠 = true
         } label: {
             Image(systemName: "gearshape")
-                .font(.title)
+                .font(.headline)
         }
         .popover(isPresented: $🛠) {
-            VStack(spacing: 16) {
+            VStack(spacing: 24) {
                 📁ImportFile()
-                    .padding()
                 
                 Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
                     Label("AppStore", systemImage: "link")
+                        .font(.caption)
                 }
                 
                 Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
                     Label("Source code", systemImage: "link")
+                        .font(.caption)
                 }
             }
-            .padding()
+            .padding(32)
         }
     }
 }
