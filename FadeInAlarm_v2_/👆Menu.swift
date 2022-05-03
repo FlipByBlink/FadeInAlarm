@@ -16,7 +16,8 @@ struct 👆VolumeOnWaiting: View {
             }
         }
         .font(.caption.bold())
-        .frame(width: 60, height: 28)
+        .frame(width: 54, height: 24, alignment: .trailing)
+        .padding(.trailing, 4)
         .lineLimit(1)
         .minimumScaleFactor(0.1)
         .disabled( 📱.🔛 != .PowerOff )

@@ -12,7 +12,8 @@ struct 🪧LocalVolumePercentage: View {
         Text(🪧)
             .font(.caption.monospacedDigit())
             .foregroundStyle(🎨)
-            .frame(width: 60, height: 24)
+            .frame(width: 54, height: 24, alignment: .trailing)
+            .padding(.trailing, 4)
             .lineLimit(1)
             .minimumScaleFactor(0.1)
     }
@@ -31,8 +32,6 @@ struct 🪧LocalVolumePercentageFadeIn: View {
         let 🔍 = Int(((📱.🪧LVP🔍FadeIn - 0.4)/0.6)*100)
         if 🔍 >= 100 {
             return 100.description + " %"
-        } else if 🔍 < 10 {
-            return "0" + 🔍.description + " %"
         } else {
             return 🔍.description + " %"
         }
