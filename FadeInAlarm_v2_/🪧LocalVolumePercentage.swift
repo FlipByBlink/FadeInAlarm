@@ -4,12 +4,12 @@ import SwiftUI
 
 struct 🪧LocalVolumePercentage: View {
     
-    var 🪧: String
+    var 🪧: Int
     
     var 🎨: HierarchicalShapeStyle
     
     var body: some View {
-        Text(🪧)
+        Text(🪧.description + " %")
             .font(.caption.monospacedDigit())
             .foregroundStyle(🎨)
             .frame(width: 54, height: 24, alignment: .trailing)
@@ -18,7 +18,7 @@ struct 🪧LocalVolumePercentage: View {
             .minimumScaleFactor(0.1)
     }
     
-    init(_ 🪧: String, _ 🎨: HierarchicalShapeStyle = .tertiary) {
+    init(_ 🪧: Int, _ 🎨: HierarchicalShapeStyle = .tertiary) {
         self.🪧 = 🪧
         self.🎨 = 🎨
     }
@@ -28,17 +28,17 @@ struct 🪧LocalVolumePercentage: View {
 struct 🪧LocalVolumePercentageFadeIn: View {
     @EnvironmentObject var 📱: 📱Model
     
-    var 🔍Percentage: String {
+    var 📈: Int {
         let 🔍 = Int(((📱.🪧LVP🔍FadeIn - 0.4)/0.6)*100)
         if 🔍 >= 100 {
-            return 100.description + " %"
+            return 100
         } else {
-            return 🔍.description + " %"
+            return 🔍
         }
     }
     
     var body: some View {
-        🪧LocalVolumePercentage(🔍Percentage, .secondary)
+        🪧LocalVolumePercentage(📈, .secondary)
     }
 }
 
@@ -46,16 +46,16 @@ struct 🪧LocalVolumePercentageFadeIn: View {
 struct 🪧LocalVolumePercentageFadeOut: View {
     @EnvironmentObject var 📱: 📱Model
     
-    var 🄿ercentage: String {
+    var 📉: Int {
         let 🔍 = Int(((📱.🪧LVP🔍FadeOut - 0.4)/0.6)*100)
         if 🔍 < 0 {
-            return 0.description + " %"
+            return 0
         }
-        return 🔍.description + " %"
+        return 🔍
     }
     
     var body: some View {
-        🪧LocalVolumePercentage(🄿ercentage)
+        🪧LocalVolumePercentage(📉)
     }
 }
 
@@ -64,6 +64,6 @@ struct 🪧LocalVolumePercentageFadeOut: View {
 
 struct 🪧LocalVolumePercentage_Previews: PreviewProvider {
     static var previews: some View {
-        🪧LocalVolumePercentage("88 %")
+        🪧LocalVolumePercentage(88)
     }
 }
