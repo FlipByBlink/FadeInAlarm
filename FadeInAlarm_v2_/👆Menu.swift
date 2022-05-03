@@ -36,14 +36,14 @@ struct 👆TimeFadeIn: View {
         DatePicker("Time fade-In", selection: $📱.🕰TimeFadeIn, displayedComponents: .hourAndMinute)
             .labelsHidden()
             .onAppear {
-                if let t︭ime = UserDefaults.standard.value(forKey: "TimeFadeIn") {
-                    📱.🕰TimeFadeIn = t︭ime as! Date
+                if let 📦 = UserDefaults.standard.value(forKey: "TimeFadeIn") {
+                    📱.🕰TimeFadeIn = 📦 as! Date
                 } else {
                     📱.🕰TimeFadeIn = Date.now + 180
                 }
             }
-            .onChange(of: 📱.🕰TimeFadeIn) { t︭ime in
-                UserDefaults.standard.setValue(t︭ime, forKey: "TimeFadeIn")
+            .onChange(of: 📱.🕰TimeFadeIn) { 🅃ime in
+                UserDefaults.standard.setValue(🅃ime, forKey: "TimeFadeIn")
             }
             .disabled( 📱.🔛 != .PowerOff )
             .accessibilityLabel("Set time to start fade-in")

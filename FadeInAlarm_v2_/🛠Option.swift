@@ -24,7 +24,7 @@ struct 🛠Option: View {
                     
                     Divider()
                     
-                    //TODO: 実装
+                    //TODO: implement
                     Toggle("自動スタート", isOn: $自動スタート)
                     
                     Divider()

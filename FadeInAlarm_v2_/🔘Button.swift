@@ -95,19 +95,19 @@ struct 🔘Button: View {
 
 
 struct 🔘Button_Previews: PreviewProvider {
-    static let 📱p:📱Model = {
+    static let 📱PowerOff: 📱Model = {
         let a = 📱Model()
         a.🔛 = .PowerOff
         return a
     }()
     
-    static let 📱m:📱Model = {
+    static let 📱MaxVolume: 📱Model = {
         let a = 📱Model()
         a.🔛 = .MaxVolume
         return a
     }()
     
-    static let 📱f:📱Model = {
+    static let 📱FadeOut: 📱Model = {
         let a = 📱Model()
         a.🔛 = .FadeOut
         return a
@@ -116,25 +116,25 @@ struct 🔘Button_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             🔘Button()
-                .environmentObject(📱p)
+                .environmentObject(📱PowerOff)
             
             🔘Button()
-                .environmentObject(📱m)
+                .environmentObject(📱MaxVolume)
             
             🔘Button()
-                .environmentObject(📱f)
+                .environmentObject(📱FadeOut)
         }
         .previewLayout(.fixed(width: 300, height: 500))
         
         VStack {
             🔘Button()
-                .environmentObject(📱p)
+                .environmentObject(📱PowerOff)
             
             🔘Button()
-                .environmentObject(📱m)
+                .environmentObject(📱MaxVolume)
             
             🔘Button()
-                .environmentObject(📱f)
+                .environmentObject(📱FadeOut)
         }
         .preferredColorScheme(.dark)
         .previewLayout(.fixed(width: 300, height: 500))

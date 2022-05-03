@@ -7,7 +7,7 @@ class 📻AlarmPlayer {
     
     var ⓟlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
     
-    func ⓟlay(_ 🕰: Date,_ 🕛: TimeInterval) {
+    func ⓟlay(_ 🕰: Date, _ 🕛: TimeInterval) {
         let 🗄 = FileManager.default
         let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
@@ -16,7 +16,7 @@ class 📻AlarmPlayer {
             if let 💽 = 🗂.first {
                 do {
                     ⓟlayer = try AVAudioPlayer(contentsOf: 💽)
-                } catch { print("👿",error) }
+                } catch { print("👿", error) }
             }
         } catch { print(error) }
         
@@ -26,7 +26,7 @@ class 📻AlarmPlayer {
         
         do {
             try AVAudioSession().setCategory(.playback)
-        } catch { print("👿",error) }
+        } catch { print("👿", error) }
         
         let 🄵rom = 🕰.formatted(date: .omitted, time: .standard)
         let 🅃o = 🕰.addingTimeInterval(🕛).formatted(date: .omitted, time: .standard)
