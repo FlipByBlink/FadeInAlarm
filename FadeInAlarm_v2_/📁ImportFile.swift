@@ -18,7 +18,7 @@ struct 📁ImportFile: View {
         Button {
             📂.toggle()
         } label: {
-            HStack {
+            VStack {
                 Image(systemName: "folder")
                 
                 Text(💽Name)
@@ -32,7 +32,7 @@ struct 📁ImportFile: View {
                     }
             }
         }
-        .font(.title.bold())
+        .font(.title)
         .accessibilityLabel("Import file")
         .fileImporter(isPresented: $📂, allowedContentTypes: [.audio]) { 🅁esult in
             do {

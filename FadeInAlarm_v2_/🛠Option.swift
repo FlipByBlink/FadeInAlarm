@@ -1,8 +1,6 @@
 
 import SwiftUI
 
-//popoverではなく他も検討
-//VStackではなくListを検討
 
 struct 🛠Option: View {
     
@@ -18,26 +16,39 @@ struct 🛠Option: View {
                 .font(.headline)
         }
         .popover(isPresented: $🛠) {
-            VStack(spacing: 24) {
-                📁ImportFile()
+            ZStack {
+                Color.clear
                 
-                //TODO: 実装
-                Toggle("自動スタート", isOn: $自動スタート)
-                
-                Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
-                    Label("AppStore", systemImage: "link")
+                VStack(spacing: 16) {
+                    📁ImportFile()
+                    
+                    Divider()
+                    
+                    //TODO: 実装
+                    Toggle("自動スタート", isOn: $自動スタート)
+                    
+                    Divider()
+                    
+                    Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
+                        Label("AppStore", systemImage: "link")
+                    }
+                    
+                    Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
+                        Label("Source code", systemImage: "link")
+                    }
                 }
-                
-                Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
-                    Label("Source code", systemImage: "link")
-                }
-                
-                //FIXME: iphone横向きでpopover向け実装
-                Button("×") {
+                .frame(maxWidth: 300)
+                .padding(.top, 16)
+            }
+            .overlay(alignment: .topLeading) {
+                Button {
                     🛠 = false
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.caption)
                 }
             }
-            .padding(32)
+            .padding()
         }
     }
 }
