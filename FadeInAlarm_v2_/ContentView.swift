@@ -148,36 +148,22 @@ struct ContentView: View {
                         .shadow(radius: 6)
                 }
                 .padding(32)
-                
+                .frame(maxWidth: 500)
                 
                 🔊SystemVolume()
                 
-                🔊LocalVolume()
-            }
-            .background {
-                Color(.secondarySystemBackground)
-                    .ignoresSafeArea()
+                🛠Option()
             }
             
             
             .overlay(alignment: .bottomTrailing) {
                 HStack(alignment: .bottom) {
-                    🛠Option()
-                        .padding(8)
+                    🔊LocalVolume()
                     
                     🔘Button(🚡) // ⏻ ✓
                 }
                 .padding()
             }
-            
-            
-//            .overlay(alignment: .topTrailing) {
-//                VStack(alignment: .trailing) {
-//                    🔊SystemVolume()
-//
-//                    🔊LocalVolume()
-//                }
-//            }
             
             
             .animation(.default, value: 📱.🔛)
@@ -203,13 +189,23 @@ struct ContentView_Previews: PreviewProvider {
     static let 📱 = 📱Model()
     
     static var previews: some View {
-        ContentView()
-            .environmentObject(📱)
-            .previewLayout(.fixed(width: 350, height: 700))
+        ZStack {
+            Color(.secondarySystemBackground)
+                .ignoresSafeArea()
+            
+            ContentView()
+                .environmentObject(📱)
+        }
+        .previewLayout(.fixed(width: 350, height: 700))
         
-        ContentView()
-            .environmentObject(📱)
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 800, height: 600))
+        ZStack {
+            Color(.secondarySystemBackground)
+                .ignoresSafeArea()
+            
+            ContentView()
+                .environmentObject(📱)
+        }
+        .preferredColorScheme(.dark)
+        .previewLayout(.fixed(width: 800, height: 600))
     }
 }
