@@ -18,11 +18,10 @@ struct 📁ImportFile: View {
         Button {
             📂.toggle()
         } label: {
-            VStack {
+            HStack {
                 Image(systemName: "folder")
                 
                 Text(💽Name)
-                    .padding(2)
                     .onAppear {
                         do {
                             let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
@@ -42,7 +41,7 @@ struct 📁ImportFile: View {
                 do {
                     let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
                     if let 📍 = 🗂.first {
-                        do { try 🗄.removeItem(at: 📍) } catch { print("👿",error) }
+                        do { try 🗄.removeItem(at: 📍) } catch { print("👿", error) }
                     }
                 } catch { print(error) }
                 
@@ -52,10 +51,10 @@ struct 📁ImportFile: View {
                     do {
                         try 🗄.copyItem(at: 📦, to: 🄽ewURL)
                         💽Name = 🄽ewURL.lastPathComponent
-                    } catch { print("👿",error) }
+                    } catch { print("👿", error) }
                 }
                 📦.stopAccessingSecurityScopedResource()
-            } catch { print("👿",error) }
+            } catch { print("👿", error) }
         }
     }
 }
@@ -65,8 +64,48 @@ struct 📁FileName: View {
     @AppStorage("💽Name") var 💽Name = "preset.mp3"
     
     var body: some View {
-        Text(💽Name)
-            .foregroundStyle(.secondary)
+        HStack {
+            Text(💽Name)
+                .foregroundStyle(.secondary)
+                .font(.body.weight(.semibold))
+            
+            📁FileTestPlay()
+        }
+        
+    }
+}
+
+
+struct 📁FileTestPlay: View {
+    @EnvironmentObject var 📱: 📱Model
+    
+    @State private var nowTestPlaying: Bool = false
+    
+    var body: some View {
+        Button {
+            if 📱.🔛 != .PowerOff {
+                return
+            }
+            
+            if nowTestPlaying {
+                📱.📻.ⓟlayer.stop()
+                nowTestPlaying = false
+            } else {
+                📱.📻.testPlay()
+                nowTestPlaying = true
+            }
+        } label: {
+            Image(systemName: "playpause")
+                .font(.body.weight(.semibold))
+                .foregroundColor(nowTestPlaying ? .red : nil)
+                .disabled(📱.🔛 != .PowerOff)
+                .opacity(0.75)
+        }
+        .onChange(of: 📱.🔛) { newValue in
+            if newValue == .Waiting {
+                nowTestPlaying = false
+            }
+        }
     }
 }
 

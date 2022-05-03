@@ -117,15 +117,14 @@ struct ContentView: View {
             HStack {
                 Spacer()
                 
-                VStack(spacing: 32) {
+                VStack(spacing: 48) {
                     🔊SystemVolume()
                     
                     📁FileName()
                     
                     🛠Option()
-                        .disabled(📱.📻.ⓟlayer.isPlaying)
                 }
-                .padding(.bottom, 36)
+                .padding(.bottom, 100)
                 
                 Spacer()
             }

@@ -3,6 +3,7 @@ import SwiftUI
 
 
 struct 🛠Option: View {
+    @EnvironmentObject var 📱: 📱Model
     
     @State private var 🛠 = false
     
@@ -13,8 +14,9 @@ struct 🛠Option: View {
             🛠 = true
         } label: {
             Image(systemName: "gearshape")
-                .font(.headline)
+                .font(.title)
         }
+        .disabled(📱.🔛 != .PowerOff)
         .popover(isPresented: $🛠) {
             ZStack {
                 Color.clear

@@ -72,4 +72,26 @@ class 📻AlarmPlayer {
         default: print("👿")
         }
     }
+    
+    
+    func testPlay() {
+        let 🗄 = FileManager.default
+        let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        
+        do {
+            let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
+            if let 💽 = 🗂.first {
+                do {
+                    ⓟlayer = try AVAudioPlayer(contentsOf: 💽)
+                } catch { print("👿", error) }
+            }
+        } catch { print(error) }
+        
+        ⓟlayer.prepareToPlay()
+        
+        ⓟlayer.numberOfLoops = 1
+        ⓟlayer.volume = 1
+        
+        ⓟlayer.play()
+    }
 }
