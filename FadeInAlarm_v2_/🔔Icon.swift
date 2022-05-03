@@ -40,19 +40,19 @@ struct 🔔IconWaiting: View {
 struct 🔔IconFadeIn: View {
     @EnvironmentObject var 📱: 📱Model
     
-    @State private var 🔍 = 0.4
+//    @State private var 🔍 = 0.4
     
     @State private var 🄾pacity = 0.0
     
     var body: some View {
         🔔Icon(.FadeIn)
-            .scaleEffect(🔍)
+            .scaleEffect(📱.🪧LVP🔍FadeIn)
             .opacity(🄾pacity)
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 1 / 30 , repeats: true) { _ in
-                    🔍 += ( 1 - 0.4 ) / ( 30 * 4 )
+                    📱.🪧LVP🔍FadeIn += ( 1 - 0.4 ) / ( 30 * 4 )
                     
-                    if 🔍 > 1.0 - ( 1 / 30 ) * 0.35 {
+                    if 📱.🪧LVP🔍FadeIn > 1.0 - ( 1 / 30 ) * 0.35 {
                         🄾pacity -= 1.0 / ( 30 * 0.35 )
                     } else {
                         if 🄾pacity < 1.0 {
@@ -60,8 +60,8 @@ struct 🔔IconFadeIn: View {
                         }
                     }
                     
-                    if 🔍 >= 1 && 🄾pacity <= 0 {
-                        🔍 = 0.4
+                    if 📱.🪧LVP🔍FadeIn >= 1 && 🄾pacity <= 0 {
+                        📱.🪧LVP🔍FadeIn = 0.4
                     }
                 }
             }
@@ -81,19 +81,19 @@ struct 🔔IconMaxVolume: View {
 struct 🔔IconFadeOut: View {
     @EnvironmentObject var 📱: 📱Model
     
-    @State private var 🔍 = 0.4
+//    @State private var 🔍 = 0.4
     
     @State private var 🄾pacity = 0.0
     
     var body: some View {
         🔔Icon(.FadeOut)
-            .scaleEffect(🔍)
+            .scaleEffect(📱.🪧LVP🔍FadeOut)
             .opacity(🄾pacity)
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 1 / 30 , repeats: true) { _ in
-                    🔍 -= ( 1 - 0.4 ) / ( 30 * 4 )
+                    📱.🪧LVP🔍FadeOut -= ( 1 - 0.4 ) / ( 30 * 4 )
                     
-                    if 🔍 < 0.4 + ( 1 / 30 ) * 0.35 {
+                    if 📱.🪧LVP🔍FadeOut < 0.4 + ( 1 / 30 ) * 0.35 {
                         🄾pacity -= 1.0 / ( 30 * 0.35 )
                     } else {
                         if 🄾pacity < 1.0 {
@@ -101,8 +101,8 @@ struct 🔔IconFadeOut: View {
                         }
                     }
                     
-                    if 🔍 <= 0.4 && 🄾pacity <= 0 {
-                        🔍 = 1.0
+                    if 📱.🪧LVP🔍FadeOut <= 0.4 && 🄾pacity <= 0 {
+                        📱.🪧LVP🔍FadeOut = 1.0
                     }
                 }
             }

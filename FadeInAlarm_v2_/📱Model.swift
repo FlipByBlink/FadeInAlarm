@@ -5,6 +5,8 @@ import SwiftUI
 
 class 📱Model: ObservableObject {
     
+    let 📻 = 📻AlarmPlayer()
+    
     @AppStorage("VolumeOnWaiting") var 🔊VolumeOnWaiting = 3
     
     @Published var 🕰TimeFadeIn = Date.now + 180
@@ -17,5 +19,10 @@ class 📱Model: ObservableObject {
     
     @Published var 🔔Volume: Int = 0
     
-    let 📻 = 📻AlarmPlayer()
+    
+    
+    
+    @Published var 🪧LVP🔍FadeIn = 0.4
+    
+    @Published var 🪧LVP🔍FadeOut = 0.4
 }
