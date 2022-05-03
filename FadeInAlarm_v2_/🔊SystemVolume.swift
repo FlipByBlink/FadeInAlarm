@@ -4,7 +4,6 @@ import MediaPlayer
 
 
 struct 🔊SystemVolume: View {
-    
     var body: some View {
         🎚VolumeSlider()
             .contrast(0)

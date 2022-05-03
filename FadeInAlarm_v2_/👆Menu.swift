@@ -3,7 +3,6 @@ import SwiftUI
 
 
 struct 👆VolumeOnWaiting: View {
-    
     @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
@@ -29,7 +28,6 @@ struct 👆VolumeOnWaiting: View {
 
 
 struct 👆TimeFadeIn: View {
-    
     @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
@@ -139,7 +137,6 @@ struct 👆HourFadeOut: View {
 
 
 struct 👆Menu_Previews: PreviewProvider {
-    
     static let 📱 = 📱Model()
 
     static var previews: some View {

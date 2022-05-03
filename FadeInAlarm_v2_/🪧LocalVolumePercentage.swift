@@ -25,7 +25,6 @@ struct 🪧LocalVolumePercentage: View {
 
 
 struct 🪧LocalVolumePercentageFadeIn: View {
-    
     @EnvironmentObject var 📱: 📱Model
     
     var 🔍Percentage: String {
@@ -46,7 +45,6 @@ struct 🪧LocalVolumePercentageFadeIn: View {
 
 
 struct 🪧LocalVolumePercentageFadeOut: View {
-    
     @EnvironmentObject var 📱: 📱Model
     
     var 🄿ercentage: String {

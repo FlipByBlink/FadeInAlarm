@@ -48,7 +48,6 @@ struct ContentView: View {
                 
                 
                 HStack {
-//                    🪧LocalVolumePercentage("60%", .secondary) //TODO: implement
                     🪧LocalVolumePercentageFadeIn()
                     
                     🔔IconFadeIn()
@@ -95,7 +94,6 @@ struct ContentView: View {
                 
                 
                 HStack {
-//                    🪧LocalVolumePercentage("33%") //TODO: implement
                     🪧LocalVolumePercentageFadeOut()
                     
                     🔔IconFadeOut()

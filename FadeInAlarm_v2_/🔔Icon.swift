@@ -7,7 +7,6 @@ struct 🔔Icon: View {
     
     var ⓟhase: 🔛Phase
     
-    
     var body: some View {
         Image(systemName: "bell")
             .symbolVariant( 📱.🔛 == ⓟhase ? .fill : .none)
