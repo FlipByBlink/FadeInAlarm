@@ -120,8 +120,7 @@ struct ContentView: View {
                 VStack(spacing: 32) {
                     🔊SystemVolume()
                     
-                    Text("placeholder.mp3") //TODO: implement
-                        .foregroundStyle(.secondary)
+                    📁FileName()
                     
                     🛠Option()
                         .disabled(📱.📻.ⓟlayer.isPlaying)

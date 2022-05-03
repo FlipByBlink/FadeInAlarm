@@ -6,7 +6,7 @@ struct 📁ImportFile: View {
     
     @State private var 📂 = false
     
-    @State private var 💽Name = "preset.mp3"
+    @AppStorage("💽Name") var 💽Name = "preset.mp3"
     
     
     let 🗄 = FileManager.default
@@ -60,11 +60,25 @@ struct 📁ImportFile: View {
 }
 
 
+struct 📁FileName: View {
+    @AppStorage("💽Name") var 💽Name = "preset.mp3"
+    
+    var body: some View {
+        Text(💽Name)
+            .foregroundStyle(.secondary)
+    }
+}
+
+
 
 
 struct 📁ImportFile_Previews: PreviewProvider {
     static var previews: some View {
-        📁ImportFile()
-            .previewLayout(.fixed(width: 400, height: 400))
+        VStack {
+            📁ImportFile()
+            
+            📁FileName()
+        }
+        .previewLayout(.fixed(width: 400, height: 400))
     }
 }
