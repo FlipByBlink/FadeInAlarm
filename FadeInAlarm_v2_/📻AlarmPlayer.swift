@@ -7,10 +7,11 @@ class 📻AlarmPlayer {
     
     var ⓟlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
     
+    
+    let 🗄 = FileManager.default
+    let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    
     func ⓟlay(_ 🕰: Date, _ 🕛: TimeInterval) {
-        let 🗄 = FileManager.default
-        let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        
         do {
             let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
             if let 💽 = 🗂.first {
@@ -75,9 +76,6 @@ class 📻AlarmPlayer {
     
     
     func ⓟreview() {
-        let 🗄 = FileManager.default
-        let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        
         do {
             let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
             if let 💽 = 🗂.first {

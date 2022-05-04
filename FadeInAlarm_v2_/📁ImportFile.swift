@@ -3,15 +3,9 @@ import SwiftUI
 
 
 struct 📁ImportFile: View {
-    @AppStorage("💽Name") var 💽Name = "preset.mp3" //urlを検討？
+    @AppStorage("💽Name") var 💽Name = "preset.mp3"
     
     @State private var 📂 = false
-    
-    let 🗄 = FileManager.default
-    
-    var 🗃: URL {
-        🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    }
     
     var body: some View {
         Button {
@@ -21,9 +15,11 @@ struct 📁ImportFile: View {
                 .symbolRenderingMode(.multicolor)
                 .font(.largeTitle)
         }
-        .font(.title2)
         .accessibilityLabel("Import file")
         .fileImporter(isPresented: $📂, allowedContentTypes: [.audio]) { 🅁esult in
+            let 🗄 = FileManager.default
+            let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            
             do {
                 let 📦 = try 🅁esult.get()
                 
@@ -57,6 +53,16 @@ struct 📁FileName: View {
             .kerning(1.2)
             .foregroundStyle(.secondary)
             .font(.body.weight(.semibold))
+            .task {
+                let 🗄 = FileManager.default
+                let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                do {
+                    let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
+                    if let 📍 = 🗂.first {
+                        💽Name = 📍.lastPathComponent
+                    }
+                } catch { print(error) }
+            }
     }
 }
 

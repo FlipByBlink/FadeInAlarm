@@ -25,4 +25,19 @@ class 📱Model: ObservableObject {
     @Published var 🪧LVP🔍FadeIn = 0.4
     
     @Published var 🪧LVP🔍FadeOut = 0.4
+    
+    
+//    @Published var 📁URL: URL? = {
+//        let 🗄 = FileManager.default
+//        let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        
+//        do {
+//            let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
+//            if let 📍 = 🗂.first {
+//                return 📍
+//            }
+//        } catch { print(error) }
+//        
+//        return nil
+//    }()
 }
