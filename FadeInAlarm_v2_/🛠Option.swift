@@ -24,8 +24,9 @@ struct 🛠Option: View { // ⚙️
                     
                     Divider()
                     
-                    //TODO: implement
                     Toggle("Automatic start", isOn: $📱.🛠AutoStart)
+                        .font(.headline)
+                        .foregroundStyle(.secondary)
                     
                     Divider()
                     

@@ -26,7 +26,7 @@ struct 🔘Button: View {
     var body: some View {
         Button {
             if 📱.🔛 == .PowerOff { // ⏻
-                🅂tart()
+                🤖Start()
             } else { // ✓
                 if 📱.🔛 == .Waiting {
                     📱.🔛 = .PowerOff
@@ -48,12 +48,12 @@ struct 🔘Button: View {
         .animation(.default, value: 📱.🔛)
         .onChange(of: ⓢcenePhase) { ⓢcene in
             if 📱.🛠AutoStart && ⓢcene == .active {
-                🅂tart()
+                🤖Start()
             }
         }
     }
     
-    func 🅂tart() {
+    func 🤖Start() {
         📱.🔛 = .Waiting
         
         📱.📻.ⓟlay(📱.🕰TimeFadeIn, 📱.🕛HourFadein)

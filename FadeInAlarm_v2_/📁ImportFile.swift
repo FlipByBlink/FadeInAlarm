@@ -56,9 +56,9 @@ struct 📁FileName: View {
     
     var body: some View {
         Text(💽Name)
-            .kerning(1.2)
+            .kerning(1.5)
             .foregroundStyle(.secondary)
-            .font(.body.weight(.semibold))
+            .font(.headline)
             .task {
                 let 🗄 = FileManager.default
                 let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
