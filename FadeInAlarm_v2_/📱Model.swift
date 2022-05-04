@@ -21,7 +21,7 @@ class 📱Model: ObservableObject {
     @Published var 🔔Volume: Int = 0
     
     
-    @AppStorage("🛠AutoStart") var 🛠AutoStart = false
+    //@AppStorage("🛠AutoStart") var 🛠AutoStart = false
     
     
     @Published var 🪧LVP🔍FadeIn = 0.4

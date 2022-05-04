@@ -7,7 +7,7 @@ struct 🔘Button: View {
     
     @EnvironmentObject var 📱: 📱Model
     
-    @Environment(\.scenePhase) var ⓢcenePhase: ScenePhase
+    //@Environment(\.scenePhase) var ⓢcenePhase: ScenePhase
     
     var 🎨: Color {
         switch 📱.🔛 {
@@ -46,11 +46,11 @@ struct 🔘Button: View {
         .opacity(📱.🔛 == .FadeOut ? 0.6 : 1.0)
         .accessibilityLabel(📱.🔛 == .PowerOff ? "Set alarm" : "Stop alarm")
         .animation(.default, value: 📱.🔛)
-        .onChange(of: ⓢcenePhase) { ⓢcene in
+        /*.onChange(of: ⓢcenePhase) { ⓢcene in
             if 📱.🛠AutoStart && ⓢcene == .active {
                 🤖Start()
             }
-        }
+        }*/
     }
     
     func 🤖Start() {
