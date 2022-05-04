@@ -7,8 +7,6 @@ struct 🛠Option: View { // ⚙️
     
     @State private var 🛠 = false
     
-    @AppStorage("自動スタート") var 自動スタート = false
-    
     var body: some View {
         Button {
             🛠 = true
@@ -27,7 +25,7 @@ struct 🛠Option: View { // ⚙️
                     Divider()
                     
                     //TODO: implement
-                    Toggle("自動スタート", isOn: $自動スタート)
+                    Toggle("Automatic start", isOn: $📱.🛠AutoStart)
                     
                     Divider()
                     

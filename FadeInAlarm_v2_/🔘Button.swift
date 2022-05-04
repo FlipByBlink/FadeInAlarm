@@ -7,6 +7,8 @@ struct 🔘Button: View {
     
     @EnvironmentObject var 📱: 📱Model
     
+    @Environment(\.scenePhase) var ⓢcenePhase: ScenePhase
+    
     var 🎨: Color {
         switch 📱.🔛 {
         case .Waiting: return .red
@@ -24,51 +26,7 @@ struct 🔘Button: View {
     var body: some View {
         Button {
             if 📱.🔛 == .PowerOff { // ⏻
-                📱.🔛 = .Waiting
-                
-                📱.📻.ⓟlay(📱.🕰TimeFadeIn, 📱.🕛HourFadein)
-                
-                Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🤖 in
-                    
-                    switch 📱.🔛 {
-                    case .Waiting:
-                        📱.📻.ⓟlayer.volume = Float(📱.🔊VolumeOnWaiting) / 100
-                        let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
-                        let 🄰larmTime = 📱.🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
-                        if 🄽ow == 🄰larmTime {
-                            📱.🔛 = .FadeIn
-                        }
-                        
-                    case .FadeIn:
-                        📱.📻.ⓟlayer.volume += Float( 0.5 / 📱.🕛HourFadein )
-                        if 📱.📻.ⓟlayer.volume > 1.0 {
-                            📱.📻.ⓟlayer.volume = 1.0
-                            📱.🔛 = .MaxVolume
-                        }
-                        
-                    case .MaxVolume: break
-                        
-                    case .FadeOut:
-                        📱.📻.ⓟlayer.volume -= Float( 0.5 / 📱.🕛HourFadeOut )
-                        if 📱.📻.ⓟlayer.volume < 0.0 {
-                            📱.📻.ⓟlayer.volume = 0.0
-                            📱.🔛 = .PowerOff
-                        }
-                        
-                    case .PowerOff:
-                        📱.📻.ⓟlayer.stop()
-                        MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
-                        🤖.invalidate()
-                    }
-                    
-                    📱.🔔Volume = Int( 📱.📻.ⓟlayer.volume * 100 )
-                }
-                
-                MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
-                    📱.🔛 = .FadeOut
-                    return .success
-                }
-                
+                🅂tart()
             } else { // ✓
                 if 📱.🔛 == .Waiting {
                     📱.🔛 = .PowerOff
@@ -88,6 +46,58 @@ struct 🔘Button: View {
         .opacity(📱.🔛 == .FadeOut ? 0.6 : 1.0)
         .accessibilityLabel(📱.🔛 == .PowerOff ? "Set alarm" : "Stop alarm")
         .animation(.default, value: 📱.🔛)
+        .onChange(of: ⓢcenePhase) { ⓢcene in
+            if 📱.🛠AutoStart && ⓢcene == .active {
+                🅂tart()
+            }
+        }
+    }
+    
+    func 🅂tart() {
+        📱.🔛 = .Waiting
+        
+        📱.📻.ⓟlay(📱.🕰TimeFadeIn, 📱.🕛HourFadein)
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { 🤖 in
+            
+            switch 📱.🔛 {
+            case .Waiting:
+                📱.📻.ⓟlayer.volume = Float(📱.🔊VolumeOnWaiting) / 100
+                let 🄽ow = Date.now.formatted(date: .omitted, time: .shortened)
+                let 🄰larmTime = 📱.🕰TimeFadeIn.formatted(date: .omitted, time: .shortened)
+                if 🄽ow == 🄰larmTime {
+                    📱.🔛 = .FadeIn
+                }
+                
+            case .FadeIn:
+                📱.📻.ⓟlayer.volume += Float( 0.5 / 📱.🕛HourFadein )
+                if 📱.📻.ⓟlayer.volume > 1.0 {
+                    📱.📻.ⓟlayer.volume = 1.0
+                    📱.🔛 = .MaxVolume
+                }
+                
+            case .MaxVolume: break
+                
+            case .FadeOut:
+                📱.📻.ⓟlayer.volume -= Float( 0.5 / 📱.🕛HourFadeOut )
+                if 📱.📻.ⓟlayer.volume < 0.0 {
+                    📱.📻.ⓟlayer.volume = 0.0
+                    📱.🔛 = .PowerOff
+                }
+                
+            case .PowerOff:
+                📱.📻.ⓟlayer.stop()
+                MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
+                🤖.invalidate()
+            }
+            
+            📱.🔔Volume = Int( 📱.📻.ⓟlayer.volume * 100 )
+        }
+        
+        MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
+            📱.🔛 = .FadeOut
+            return .success
+        }
     }
 }
 
