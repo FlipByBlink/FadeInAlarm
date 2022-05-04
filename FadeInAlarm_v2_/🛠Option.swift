@@ -19,7 +19,7 @@ struct 🛠Option: View { // ⚙️
             ZStack {
                 Color.clear
                 
-                VStack(spacing: 24) {
+                VStack(spacing: 16) {
                     📁ImportFile()
                     
                     Divider()
@@ -32,14 +32,16 @@ struct 🛠Option: View { // ⚙️
                     
                     Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
                         Label("AppStore", systemImage: "link")
+                            .font(.footnote)
                     }
                     
                     Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
                         Label("Source code", systemImage: "link")
+                            .font(.footnote)
                     }
                 }
                 .frame(maxWidth: 300)
-                .padding(.top, 16)
+                .padding(.vertical, 16)
             }
             .overlay(alignment: .topLeading) {
                 Button {
