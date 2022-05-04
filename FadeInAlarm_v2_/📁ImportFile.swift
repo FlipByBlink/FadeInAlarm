@@ -8,14 +8,20 @@ struct 📁ImportFile: View {
     @State private var 📂 = false
     
     var body: some View {
-        Button {
-            📂.toggle()
-        } label: {
-            Image(systemName: "folder.badge.plus")
-                .symbolRenderingMode(.multicolor)
-                .font(.largeTitle)
+        VStack(spacing: 7) {
+            Button {
+                📂.toggle()
+            } label: {
+                Image(systemName: "folder.badge.plus")
+                    .symbolRenderingMode(.multicolor)
+                    .font(.largeTitle)
+            }
+            .accessibilityLabel("Import file")
+            
+            📁FileName()
+            
+            📁FilePreview()
         }
-        .accessibilityLabel("Import file")
         .fileImporter(isPresented: $📂, allowedContentTypes: [.audio]) { 🅁esult in
             let 🗄 = FileManager.default
             let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -83,7 +89,6 @@ struct 📁FilePreview: View {
             Image(systemName: "playpause")
                 .font(.body.weight(.semibold))
                 .foregroundColor(📱.📻.ⓟlayer.isPlaying ? .red : nil)
-                .disabled(📱.🔛 != .PowerOff)
                 .opacity(0.75)
                 .onChange(of: 💽Name) { _ in
                     📱.📻.ⓟlayer.stop()
@@ -99,7 +104,7 @@ struct 📁ImportFile_Previews: PreviewProvider {
     static let 📱 = 📱Model()
     
     static var previews: some View {
-        VStack(spacing: 6) {
+        VStack(spacing: 7) {
             📁ImportFile()
             
             📁FileName()

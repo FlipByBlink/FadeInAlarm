@@ -22,13 +22,7 @@ struct 🛠Option: View { // ⚙️
                 Color.clear
                 
                 VStack(spacing: 24) {
-                    VStack(spacing: 6) {
-                        📁ImportFile()
-                        
-                        📁FileName()
-                        
-                        📁FilePreview()
-                    }
+                    📁ImportFile()
                     
                     Divider()
                     
