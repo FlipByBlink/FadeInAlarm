@@ -117,14 +117,15 @@ struct ContentView: View {
             HStack {
                 Spacer()
                 
-                VStack(spacing: 48) {
+                VStack(spacing: 32) {
                     🔊SystemVolume()
                     
                     📁FileName()
                     
                     🛠Option()
                 }
-                .padding(.bottom, 100)
+                .padding()
+                .padding(.bottom, 120)
                 
                 Spacer()
             }

@@ -9,17 +9,20 @@ struct 🔔LocalVolumeNow: View {
         Group {
             if 📱.🔛 != .PowerOff {
                 ZStack {
-                    Label( 📱.🔔Volume.description + "%" , systemImage: "bell")
-                        .opacity(0.9)
-                        .foregroundColor(.secondary)
-                        .padding()
+                    VStack(spacing: 4) {
+                        Image(systemName: "bell")
+                        
+                        Text(📱.🔔Volume.description + "%")
+                            .font(.caption)
+                    }
+                    .opacity(0.9)
+                    .foregroundColor(.secondary)
+                    .padding()
                     
-                    TimelineView(.periodic(from: .now, by: 1)) { _ in
-                        if 📱.📻.ⓟlayer.isPlaying == false {
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .foregroundColor(.secondary)
-                                .opacity(0.7)
-                        }
+                    if 📱.📻.ⓟlayer.isPlaying == false {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.secondary)
+                            .font(.title.weight(.medium))
                     }
                 }
                 .padding()

@@ -8,7 +8,7 @@ struct 📁ImportFile: View {
     @State private var 📂 = false
     
     var body: some View {
-        VStack(spacing: 7) {
+        VStack(spacing: 8) {
             Button {
                 📂.toggle()
             } label: {
@@ -100,11 +100,15 @@ struct 📁FilePreview: View {
 
 
 
+
+
+
+
 struct 📁ImportFile_Previews: PreviewProvider {
     static let 📱 = 📱Model()
     
     static var previews: some View {
-        VStack(spacing: 7) {
+        VStack(spacing: 8) {
             📁ImportFile()
             
             📁FileName()
