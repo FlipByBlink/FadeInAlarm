@@ -3,34 +3,23 @@ import SwiftUI
 
 
 struct 📁ImportFile: View {
+    @AppStorage("💽Name") var 💽Name = "preset.mp3" //urlを検討？
     
     @State private var 📂 = false
     
-    @AppStorage("💽Name") var 💽Name = "preset.mp3"
-    
-    
     let 🗄 = FileManager.default
     
-    let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    
+    var 🗃: URL {
+        🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
     
     var body: some View {
         Button {
             📂.toggle()
         } label: {
-            HStack {
-                Image(systemName: "folder")
-                
-                Text(💽Name)
-                    .onAppear {
-                        do {
-                            let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
-                            if let 📍 = 🗂.first {
-                                💽Name = 📍.lastPathComponent
-                            }
-                        } catch { print(error) }
-                    }
-            }
+            Image(systemName: "folder.badge.plus")
+                .symbolRenderingMode(.multicolor)
+                .font(.largeTitle)
         }
         .font(.title2)
         .accessibilityLabel("Import file")
@@ -64,47 +53,35 @@ struct 📁FileName: View {
     @AppStorage("💽Name") var 💽Name = "preset.mp3"
     
     var body: some View {
-        HStack {
-            Text(💽Name)
-                .foregroundStyle(.secondary)
-                .font(.body.weight(.semibold))
-            
-            📁FileTestPlay()
-        }
-        
+        Text(💽Name)
+            .kerning(1.2)
+            .foregroundStyle(.secondary)
+            .font(.body.weight(.semibold))
     }
 }
 
 
-struct 📁FileTestPlay: View {
+struct 📁FilePreview: View {
     @EnvironmentObject var 📱: 📱Model
     
-    @State private var nowTestPlaying: Bool = false
+    @AppStorage("💽Name") var 💽Name = "preset.mp3"
     
     var body: some View {
         Button {
-            if 📱.🔛 != .PowerOff {
-                return
-            }
-            
-            if nowTestPlaying {
+            if 📱.📻.ⓟlayer.isPlaying {
                 📱.📻.ⓟlayer.stop()
-                nowTestPlaying = false
             } else {
-                📱.📻.testPlay()
-                nowTestPlaying = true
+                📱.📻.ⓟreview()
             }
         } label: {
             Image(systemName: "playpause")
                 .font(.body.weight(.semibold))
-                .foregroundColor(nowTestPlaying ? .red : nil)
+                .foregroundColor(📱.📻.ⓟlayer.isPlaying ? .red : nil)
                 .disabled(📱.🔛 != .PowerOff)
                 .opacity(0.75)
-        }
-        .onChange(of: 📱.🔛) { newValue in
-            if newValue == .Waiting {
-                nowTestPlaying = false
-            }
+                .onChange(of: 💽Name) { _ in
+                    📱.📻.ⓟlayer.stop()
+                }
         }
     }
 }
@@ -113,12 +90,17 @@ struct 📁FileTestPlay: View {
 
 
 struct 📁ImportFile_Previews: PreviewProvider {
+    static let 📱 = 📱Model()
+    
     static var previews: some View {
-        VStack {
+        VStack(spacing: 6) {
             📁ImportFile()
             
             📁FileName()
+            
+            📁FilePreview()
         }
-        .previewLayout(.fixed(width: 400, height: 400))
+        .previewLayout(.fixed(width: 200, height: 200))
+        .environmentObject(📱)
     }
 }

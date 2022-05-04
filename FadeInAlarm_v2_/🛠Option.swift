@@ -2,7 +2,7 @@
 import SwiftUI
 
 
-struct 🛠Option: View {
+struct 🛠Option: View { // ⚙️
     @EnvironmentObject var 📱: 📱Model
     
     @State private var 🛠 = false
@@ -21,8 +21,14 @@ struct 🛠Option: View {
             ZStack {
                 Color.clear
                 
-                VStack(spacing: 16) {
-                    📁ImportFile()
+                VStack(spacing: 24) {
+                    VStack(spacing: 6) {
+                        📁ImportFile()
+                        
+                        📁FileName()
+                        
+                        📁FilePreview()
+                    }
                     
                     Divider()
                     

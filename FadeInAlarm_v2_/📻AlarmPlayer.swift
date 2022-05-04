@@ -74,7 +74,7 @@ class 📻AlarmPlayer {
     }
     
     
-    func testPlay() {
+    func ⓟreview() {
         let 🗄 = FileManager.default
         let 🗃 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
@@ -86,11 +86,6 @@ class 📻AlarmPlayer {
                 } catch { print("👿", error) }
             }
         } catch { print(error) }
-        
-        ⓟlayer.prepareToPlay()
-        
-        ⓟlayer.numberOfLoops = 1
-        ⓟlayer.volume = 1
         
         ⓟlayer.play()
     }
