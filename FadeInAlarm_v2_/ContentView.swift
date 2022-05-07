@@ -122,7 +122,7 @@ struct ContentView: View {
                     
                     📁FileName()
                     
-                    🛠Option()
+                    🛠OptionButton()
                 }
                 .padding()
                 .padding(.bottom, 120)

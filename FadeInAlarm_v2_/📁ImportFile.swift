@@ -14,7 +14,7 @@ struct 📁ImportFile: View {
                     Image(systemName: "folder.badge.plus")
                         .symbolRenderingMode(.multicolor)
                         .font(.largeTitle.weight(.semibold))
-                        .padding()
+                        .padding(8)
                     
                     📁FileName()
                 }
@@ -26,7 +26,7 @@ struct 📁ImportFile: View {
             📁FilePreview()
                 .buttonStyle(.borderless)
         }
-        .padding()
+        .padding(8)
     }
 }
 
@@ -38,7 +38,7 @@ struct 📁FileName: View {
         Text(💽Name)
             .kerning(1.5)
             .foregroundStyle(.secondary)
-            .font(.title.bold())
+            .font(.title2.bold())
             .task {
                 let 🗄 = FileManager.default
                 let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -68,7 +68,6 @@ struct 📁FilePreview: View {
                 .onChange(of: 📱.💽Name) { _ in
                     📱.📻.ⓟlayer.stop()
                 }
-                .padding(4)
         }
         .buttonStyle(.bordered)
         .tint(📱.📻.ⓟlayer.isPlaying ? .red : nil)
