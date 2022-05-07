@@ -65,7 +65,6 @@ struct 📁FilePreview: View {
                 .onChange(of: 📱.💽Name) { _ in
                     📱.📻.ⓟlayer.stop()
                 }
-//                .padding(8)
         }
         .buttonStyle(.bordered)
         .tint(📱.📻.ⓟlayer.isPlaying ? .red : nil)
