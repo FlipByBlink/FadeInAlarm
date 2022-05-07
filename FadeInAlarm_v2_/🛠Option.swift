@@ -15,7 +15,7 @@ struct 🛠Option: View { // ⚙️
                 .font(.title)
         }
         .disabled(📱.🔛 != .PowerOff)
-        .popover(isPresented: $🛠) {
+        .sheet(isPresented: $🛠) {
             ZStack {
                 Color.clear
                 
