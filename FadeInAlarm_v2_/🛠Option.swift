@@ -134,6 +134,10 @@ struct 📄Document: View {
                     """)
                 .font(.caption)
                 .padding()
+                
+                Text("version 2.1")
+                    .font(.caption)
+                    .padding()
             } header: {
                 Text("About")
             }
