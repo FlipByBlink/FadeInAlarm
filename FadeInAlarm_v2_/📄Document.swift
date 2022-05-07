@@ -2,7 +2,7 @@
 import SwiftUI
 
 
-struct Document: View {
+struct 📄Document: View {
     var body: some View {
         List {
             Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
@@ -80,8 +80,8 @@ struct Document: View {
 
 
 
-struct Document_Previews: PreviewProvider {
+struct 📄Document_Previews: PreviewProvider {
     static var previews: some View {
-        Document()
+        📄Document()
     }
 }
