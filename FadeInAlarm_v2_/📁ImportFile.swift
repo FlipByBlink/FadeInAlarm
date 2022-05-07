@@ -34,7 +34,7 @@ struct 📁FileName: View {
         Text(💽Name)
             .kerning(1.5)
             .foregroundStyle(.secondary)
-            .font(.largeTitle.bold())
+            .font(.title.bold())
             .task {
                 let 🗄 = FileManager.default
                 let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
