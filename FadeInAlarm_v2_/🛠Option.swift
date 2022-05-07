@@ -26,20 +26,22 @@ struct 🛠Option: View { // ⚙️
     
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    📁ImportFile()
+            VStack {
+                Spacer()
+                
+                📁ImportFile()
+                
+                Spacer()
+                
+                NavigationLink {
+                    Text("destination")
+                } label: {
+                    Image(systemName: "doc.text.magnifyingglass")
+                        .font(.title.bold())
+                        .foregroundStyle(.secondary)
                 }
                 
-                Section {
-                    Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
-                        Label("AppStore", systemImage: "link")
-                    }
-                    
-                    Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
-                        Label("Source code", systemImage: "link")
-                    }
-                }
+                Spacer()
             }
             .navigationTitle("FadeInAlarm")
             .toolbar {
@@ -85,6 +87,21 @@ struct 🛠Option: View { // ⚙️
 }
 
 
+struct 📄Document: View {
+    var body: some View {
+        List {
+            Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
+                Label("AppStore link", systemImage: "link")
+            }
+            
+            Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
+                Label("Source code", systemImage: "link")
+            }
+        }
+        .navigationTitle("Document")
+    }
+}
+
 
 
 struct 🛠Option_Previews: PreviewProvider {
@@ -94,6 +111,10 @@ struct 🛠Option_Previews: PreviewProvider {
     static var previews: some View {
         🛠Option()
             .environmentObject(📱)
-            .previewLayout(.fixed(width: 500, height: 700))
+            .previewLayout(.fixed(width: 500, height: 600))
+        
+        📄Document()
+            .environmentObject(📱)
+            .previewLayout(.fixed(width: 400, height: 400))
     }
 }

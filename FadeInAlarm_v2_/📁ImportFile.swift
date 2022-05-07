@@ -6,27 +6,23 @@ struct 📁ImportFile: View {
     @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
-        HStack {
+        VStack {
             Button {
                 📱.📂.toggle()
             } label: {
-                HStack {
+                VStack(spacing: 12) {
                     Image(systemName: "folder.badge.plus")
+                        .font(.system(size: 72).bold())
                         .symbolRenderingMode(.multicolor)
-                        .font(.largeTitle.weight(.semibold))
-                        .padding(8)
                     
                     📁FileName()
                 }
             }
             .accessibilityLabel("Import file")
             
-            Spacer()
-            
             📁FilePreview()
-                .buttonStyle(.borderless)
         }
-        .padding(8)
+        .padding()
     }
 }
 
@@ -38,7 +34,7 @@ struct 📁FileName: View {
         Text(💽Name)
             .kerning(1.5)
             .foregroundStyle(.secondary)
-            .font(.title2.bold())
+            .font(.largeTitle.bold())
             .task {
                 let 🗄 = FileManager.default
                 let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -65,9 +61,11 @@ struct 📁FilePreview: View {
             }
         } label: {
             Image(systemName: "playpause.fill")
+                .foregroundStyle(.secondary)
                 .onChange(of: 📱.💽Name) { _ in
                     📱.📻.ⓟlayer.stop()
                 }
+//                .padding(8)
         }
         .buttonStyle(.bordered)
         .tint(📱.📻.ⓟlayer.isPlaying ? .red : nil)
