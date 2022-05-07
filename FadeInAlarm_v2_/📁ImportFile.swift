@@ -3,14 +3,12 @@ import SwiftUI
 
 
 struct 📁ImportFile: View {
-    @AppStorage("💽Name") var 💽Name = "preset.mp3"
-    
-    @State private var 📂 = false
+    @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
-        VStack(spacing: 8) {
+        Section {
             Button {
-                📂.toggle()
+                📱.📂.toggle()
             } label: {
                 Image(systemName: "folder.badge.plus")
                     .symbolRenderingMode(.multicolor)
@@ -21,31 +19,6 @@ struct 📁ImportFile: View {
             📁FileName()
             
             📁FilePreview()
-        }
-        .fileImporter(isPresented: $📂, allowedContentTypes: [.audio]) { 🅁esult in
-            let 🗄 = FileManager.default
-            let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            
-            do {
-                let 📦 = try 🅁esult.get()
-                
-                do {
-                    let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
-                    if let 📍 = 🗂.first {
-                        do { try 🗄.removeItem(at: 📍) } catch { print("👿", error) }
-                    }
-                } catch { print(error) }
-                
-                let 🄽ewURL = 🗃.appendingPathComponent(📦.lastPathComponent)
-                
-                if 📦.startAccessingSecurityScopedResource() {
-                    do {
-                        try 🗄.copyItem(at: 📦, to: 🄽ewURL)
-                        💽Name = 🄽ewURL.lastPathComponent
-                    } catch { print("👿", error) }
-                }
-                📦.stopAccessingSecurityScopedResource()
-            } catch { print("👿", error) }
         }
     }
 }
@@ -76,8 +49,6 @@ struct 📁FileName: View {
 struct 📁FilePreview: View {
     @EnvironmentObject var 📱: 📱Model
     
-    @AppStorage("💽Name") var 💽Name = "preset.mp3"
-    
     var body: some View {
         Button {
             if 📱.📻.ⓟlayer.isPlaying {
@@ -90,7 +61,7 @@ struct 📁FilePreview: View {
                 .font(.body.weight(.semibold))
                 .foregroundColor(📱.📻.ⓟlayer.isPlaying ? .red : nil)
                 .opacity(0.75)
-                .onChange(of: 💽Name) { _ in
+                .onChange(of: 📱.💽Name) { _ in
                     📱.📻.ⓟlayer.stop()
                 }
         }

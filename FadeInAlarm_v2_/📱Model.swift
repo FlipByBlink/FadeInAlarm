@@ -24,4 +24,9 @@ class 📱Model: ObservableObject {
     @Published var 🪧LVP🔍FadeIn = 0.4
     
     @Published var 🪧LVP🔍FadeOut = 0.4
+    
+    
+    @Published var 📂 = false
+    
+    @AppStorage("💽Name") var 💽Name = "preset.mp3"
 }
