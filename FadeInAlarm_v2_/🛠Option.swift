@@ -16,13 +16,9 @@ struct 🛠Option: View { // ⚙️
         }
         .disabled(📱.🔛 != .PowerOff)
         .sheet(isPresented: $🛠) {
-            ZStack {
-                Color.clear
-                
-                VStack(spacing: 16) {
+            NavigationView {
+                List {
                     📁ImportFile()
-                    
-                    Divider()
                     
                     Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
                         Label("AppStore", systemImage: "link")
@@ -32,18 +28,18 @@ struct 🛠Option: View { // ⚙️
                         Label("Source code", systemImage: "link")
                     }
                 }
-                .frame(maxWidth: 300)
-                .padding(.vertical, 16)
-            }
-            .overlay(alignment: .topLeading) {
-                Button {
-                    🛠 = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.caption)
+                .navigationTitle("FadeInAlarm")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            🛠 = false
+                        } label: {
+                            Image(systemName: "xmark")
+                                .font(.caption)
+                        }
+                    }
                 }
             }
-            .padding()
         }
     }
 }
