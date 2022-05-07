@@ -6,20 +6,27 @@ struct 📁ImportFile: View {
     @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
-        Section {
+        HStack {
             Button {
                 📱.📂.toggle()
             } label: {
-                Image(systemName: "folder.badge.plus")
-                    .symbolRenderingMode(.multicolor)
-                    .font(.largeTitle)
+                HStack {
+                    Image(systemName: "folder.badge.plus")
+                        .symbolRenderingMode(.multicolor)
+                        .font(.largeTitle.weight(.semibold))
+                        .padding()
+                    
+                    📁FileName()
+                }
             }
             .accessibilityLabel("Import file")
             
-            📁FileName()
+            Spacer()
             
             📁FilePreview()
+                .buttonStyle(.borderless)
         }
+        .padding()
     }
 }
 
@@ -31,7 +38,7 @@ struct 📁FileName: View {
         Text(💽Name)
             .kerning(1.5)
             .foregroundStyle(.secondary)
-            .font(.headline)
+            .font(.title.bold())
             .task {
                 let 🗄 = FileManager.default
                 let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -57,14 +64,14 @@ struct 📁FilePreview: View {
                 📱.📻.ⓟreview()
             }
         } label: {
-            Image(systemName: "playpause")
-                .font(.body.weight(.semibold))
-                .foregroundColor(📱.📻.ⓟlayer.isPlaying ? .red : nil)
-                .opacity(0.75)
+            Image(systemName: "playpause.fill")
                 .onChange(of: 📱.💽Name) { _ in
                     📱.📻.ⓟlayer.stop()
                 }
+                .padding(4)
         }
+        .buttonStyle(.bordered)
+        .tint(📱.📻.ⓟlayer.isPlaying ? .red : nil)
     }
 }
 
@@ -86,7 +93,7 @@ struct 📁ImportFile_Previews: PreviewProvider {
             
             📁FilePreview()
         }
-        .previewLayout(.fixed(width: 200, height: 200))
+        .previewLayout(.fixed(width: 400, height: 600))
         .environmentObject(📱)
     }
 }

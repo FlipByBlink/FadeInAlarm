@@ -5,7 +5,7 @@ import SwiftUI
 struct 🛠Option: View { // ⚙️
     @EnvironmentObject var 📱: 📱Model
     
-    @State private var 🛠 = false
+    @State private var 🛠 = true
     
     var body: some View {
         Button {
@@ -20,12 +20,14 @@ struct 🛠Option: View { // ⚙️
                 List {
                     📁ImportFile()
                     
-                    Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
-                        Label("AppStore", systemImage: "link")
-                    }
-                    
-                    Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
-                        Label("Source code", systemImage: "link")
+                    Section {
+                        Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
+                            Label("AppStore", systemImage: "link")
+                        }
+                        
+                        Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
+                            Label("Source code", systemImage: "link")
+                        }
                     }
                 }
                 .navigationTitle("FadeInAlarm")
