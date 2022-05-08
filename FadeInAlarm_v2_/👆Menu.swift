@@ -86,7 +86,7 @@ struct 👆HourFadeIn: View {
                 }
             }
         }
-        .font(.body.bold())
+        .font(.body.weight(.heavy))
         .accessibilityLabel("Select hour fade-in")
         .disabled( 📱.🔛 != .PowerOff )
         .foregroundColor(📱.🔛 != .PowerOff ? .secondary : nil)

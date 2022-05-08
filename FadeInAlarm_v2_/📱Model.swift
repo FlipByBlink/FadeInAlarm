@@ -26,7 +26,7 @@ class 📱Model: ObservableObject {
     @Published var 🪧LVP🔍FadeOut = 0.4
     
     
-    @Published var 🛠OptionAppear = true
+    @Published var 🛠OptionAppear = false
     
     
     @Published var 📂ImporterAppear = false
