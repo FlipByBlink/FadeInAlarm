@@ -62,12 +62,12 @@ struct 📁FilePreview: View {
         } label: {
             Image(systemName: "playpause.fill")
                 .foregroundStyle(.secondary)
-                .onChange(of: 📱.💽Name) { _ in
-                    📱.📻.ⓟlayer.stop()
-                }
         }
         .buttonStyle(.bordered)
         .tint(📱.📻.ⓟlayer.isPlaying ? .red : nil)
+        .onChange(of: 📱.💽Name) { _ in
+            📱.📻.ⓟlayer.stop()
+        }
     }
 }
 
