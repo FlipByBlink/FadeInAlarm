@@ -96,7 +96,7 @@ struct 📄View: View {
 
 let 🄱undleMainInfoDictionary = Bundle.main.infoDictionary!.description
 
-struct  📑BundleMainInfoDictionary: View {
+struct 📑BundleMainInfoDictionary: View {
     var body: some View {
         Section {
             NavigationLink("Bundle.main.infoDictionary") {
