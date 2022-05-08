@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		120F098128278D20001D8FAF /* SourceCodeDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* SourceCodeDoc.swift */; };
+		120F098428278E43001D8FAF /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911127C6F117005D99D1 /* ContentView.swift */; };
+		120F098528278E43001D8FAF /* 📱Model.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱Model.swift */; };
+		120F098628278E43001D8FAF /* 📻AlarmPlayer.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */; };
+		120F098728278E67001D8FAF /* 🔘Button.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D912227C6F18F005D99D1 /* 🔘Button.swift */; };
+		120F098928278E9F001D8FAF /* 🔛Phase.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D912127C6F18F005D99D1 /* 🔛Phase.swift */; };
+		120F098A28278E9F001D8FAF /* 🛠Option.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12F56F57282001AE007E7D89 /* 🛠Option.swift */; };
+		120F098B28278E9F001D8FAF /* 👆Menu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 124A43DA27E5B73C00DB1447 /* 👆Menu.swift */; };
+		120F098C28278E9F001D8FAF /* 📁ImportFile.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */; };
+		120F098E28278EDB001D8FAF /* README.md in CopyFiles */ = {isa = PBXBuildFile; fileRef = 123D146A27C8671F00A3C1E0 /* README.md */; };
+		120F099028278EDB001D8FAF /* 📄Document.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄Document.swift */; };
+		120F099128278EDB001D8FAF /* SourceCodeDoc.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* SourceCodeDoc.swift */; };
+		120F099228278EDB001D8FAF /* 🔔Icon.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911D27C6F18F005D99D1 /* 🔔Icon.swift */; };
+		120F099328278EDB001D8FAF /* 🪧LocalVolumePercentage.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */; };
+		120F099428278EDB001D8FAF /* 🔊SystemVolume.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */; };
+		120F099528278EDB001D8FAF /* 🔔LocalVolumeNow.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */; };
+		120F099728278FD4001D8FAF /* FadeInAlarm_v2_App.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */; };
 		124A43DB27E5B73C00DB1447 /* 👆Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A43DA27E5B73C00DB1447 /* 👆Menu.swift */; };
 		125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */; };
 		125D911227C6F117005D99D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911127C6F117005D99D1 /* ContentView.swift */; };
@@ -25,6 +41,61 @@
 		12C9480A2826934B00F1EAAF /* 📄Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄Document.swift */; };
 		12F56F58282001AE007E7D89 /* 🛠Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F56F57282001AE007E7D89 /* 🛠Option.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		120F098228278E1D001D8FAF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "📁₁";
+			dstSubfolderSpec = 7;
+			files = (
+				120F098728278E67001D8FAF /* 🔘Button.swift in CopyFiles */,
+				120F098428278E43001D8FAF /* ContentView.swift in CopyFiles */,
+				120F098528278E43001D8FAF /* 📱Model.swift in CopyFiles */,
+				120F098628278E43001D8FAF /* 📻AlarmPlayer.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		120F098828278E77001D8FAF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "📁₂";
+			dstSubfolderSpec = 7;
+			files = (
+				120F098928278E9F001D8FAF /* 🔛Phase.swift in CopyFiles */,
+				120F098A28278E9F001D8FAF /* 🛠Option.swift in CopyFiles */,
+				120F098B28278E9F001D8FAF /* 👆Menu.swift in CopyFiles */,
+				120F098C28278E9F001D8FAF /* 📁ImportFile.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		120F098D28278EB3001D8FAF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "📁₃";
+			dstSubfolderSpec = 7;
+			files = (
+				120F098E28278EDB001D8FAF /* README.md in CopyFiles */,
+				120F099028278EDB001D8FAF /* 📄Document.swift in CopyFiles */,
+				120F099128278EDB001D8FAF /* SourceCodeDoc.swift in CopyFiles */,
+				120F099228278EDB001D8FAF /* 🔔Icon.swift in CopyFiles */,
+				120F099328278EDB001D8FAF /* 🪧LocalVolumePercentage.swift in CopyFiles */,
+				120F099428278EDB001D8FAF /* 🔊SystemVolume.swift in CopyFiles */,
+				120F099528278EDB001D8FAF /* 🔔LocalVolumeNow.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		120F099628278FCE001D8FAF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "📁₀";
+			dstSubfolderSpec = 7;
+			files = (
+				120F099728278FD4001D8FAF /* FadeInAlarm_v2_App.swift in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		120F098028278D20001D8FAF /* SourceCodeDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeDoc.swift; sourceTree = "<group>"; };
@@ -120,6 +191,10 @@
 				125D910827C6F117005D99D1 /* Sources */,
 				125D910927C6F117005D99D1 /* Frameworks */,
 				125D910A27C6F117005D99D1 /* Resources */,
+				120F099628278FCE001D8FAF /* CopyFiles */,
+				120F098228278E1D001D8FAF /* CopyFiles */,
+				120F098828278E77001D8FAF /* CopyFiles */,
+				120F098D28278EB3001D8FAF /* CopyFiles */,
 			);
 			buildRules = (
 			);

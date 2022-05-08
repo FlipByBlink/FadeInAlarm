@@ -8,18 +8,19 @@ struct SourceCodeDoc: View {
     
     var body: some View {
         List {
+            📑Section("📁₀")
+            
             📑Section("📁₁")
             
             📑Section("📁₂")
             
             📑Section("📁₃")
             
-            📑LocalizableSection()
             
             Section {
                 NavigationLink("Bundle.main.infoDictionary") {
                     ScrollView {
-                        📄View(Bundle.main.infoDictionary!.description)
+                        📄View(🄱undleMainInfoDictionary)
                     }
                 }
             }
@@ -80,34 +81,6 @@ struct 📑Section: View {
 }
 
 
-struct 📑LocalizableSection: View {
-    
-    var 📁URL: URL {
-        Bundle.main.bundleURL.appendingPathComponent("📁Localizable")
-    }
-    
-    var 📦: [String] {
-        ["ja.lproj/Localizable.strings", "en.lproj/Localizable.strings"]
-    }
-    
-    var body: some View {
-        Section {
-            ForEach(📦, id: \.self) { 📃 in
-                NavigationLink(📃) {
-                    let 📍 = 📁URL.appendingPathComponent(📃)
-                    
-                    ScrollView(.vertical) {
-                        📄View(try! String(contentsOf: 📍))
-                    }
-                    .navigationBarTitle(📃)
-                    .navigationBarTitleDisplayMode(.inline)
-                }
-            }
-        }
-    }
-}
-
-
 struct 📄View: View {
     
     var 📄: String
@@ -123,6 +96,8 @@ struct 📄View: View {
     }
 }
 
+
+let 🄱undleMainInfoDictionary = Bundle.main.infoDictionary!.description
 
 
 

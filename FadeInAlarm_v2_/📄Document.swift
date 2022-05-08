@@ -75,8 +75,10 @@ struct 📄Document: View {
                 Text("Privacy Policy")
             }
             
-            Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
-                Label("Source code", systemImage: "link")
+            NavigationLink {
+                SourceCodeDoc()
+            } label: {
+                Label("Source code", systemImage: "doc")
             }
             .font(.subheadline)
         }

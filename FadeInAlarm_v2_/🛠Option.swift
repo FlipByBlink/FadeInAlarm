@@ -15,6 +15,7 @@ struct 🛠OptionButton: View { // ⚙️
         .disabled(📱.🔛 != .PowerOff)
         .sheet(isPresented: $📱.🛠OptionAppear) {
             🛠Option()
+                .environmentObject(📱)//patch MacOS crash
         }
     }
 }
