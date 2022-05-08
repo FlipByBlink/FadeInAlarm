@@ -85,6 +85,8 @@ struct ContentView: View {
                 }
                 
                 Divider ()
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 16)
                 
                 HStack {
                     🪧LocalVolumePercentage(100)
@@ -107,7 +109,8 @@ struct ContentView: View {
                     }
                 }
             }
-            .padding(24)
+            .padding(.vertical, 32)
+            .padding(.horizontal, 16)
             .background {
                 RoundedRectangle(cornerRadius: 14, style: .continuous)
                     .foregroundColor(Color(.systemBackground))
