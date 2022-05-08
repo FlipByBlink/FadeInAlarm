@@ -11,9 +11,11 @@ struct 🔔LocalVolumeNow: View {
                 ZStack {
                     VStack(spacing: 4) {
                         Image(systemName: "bell")
+                            .font(.body.weight(.semibold))
                         
                         Text(📱.🔔Volume.description + "%")
-                            .font(.caption)
+                            .font(.caption.weight(.semibold))
+                            .monospacedDigit()
                     }
                     .opacity(0.9)
                     .foregroundColor(.secondary)
@@ -28,6 +30,7 @@ struct 🔔LocalVolumeNow: View {
                 .padding()
             }
         }
+        .animation(.default, value: 📱.🔔Volume)
         .animation(.default, value: 📱.🔛)
     }
 }

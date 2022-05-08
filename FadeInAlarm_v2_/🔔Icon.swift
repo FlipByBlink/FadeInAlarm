@@ -9,6 +9,7 @@ struct 🔔Icon: View {
     
     var body: some View {
         Image(systemName: "bell")
+            .font(.body.bold())
             .symbolVariant( 📱.🔛 == ⓟhase ? .fill : .none)
             .foregroundColor( 📱.🔛 == ⓟhase ? nil : .secondary)
     }

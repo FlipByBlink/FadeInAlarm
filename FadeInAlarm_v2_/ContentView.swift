@@ -16,15 +16,16 @@ struct ContentView: View {
                     
                     Image(systemName: "power.circle") // ⏻
                         .foregroundColor(.secondary)
-                        .font(.body.weight(.light))
+                        .scaleEffect(1.2)
                         .onTapGesture(count: 2) {
                             📱.🕰TimeFadeIn = Date.now
                         }
                         .accessibilityHidden(true)
-                    
+                                            
                     if 📱.🔛 == .PowerOff {
                         Image(systemName: "arrow.left") // ←
                             .foregroundStyle(.secondary)
+                            .padding(.leading, 4)
                     }
                 }
                 
@@ -65,6 +66,7 @@ struct ContentView: View {
                     
                     Text(📱.🕰TimeFadeIn.addingTimeInterval(📱.🕛HourFadein), style: .time)
                         .foregroundColor(.secondary)
+                        .font(.footnote.weight(.medium))
                 }
                 
                 
@@ -74,7 +76,7 @@ struct ContentView: View {
                     🔔IconMaxVolume()
                     
                     Image(systemName: "repeat")
-                        .font(.caption)
+                        .font(.caption.weight(.semibold))
                         .foregroundStyle(.tertiary)
                     
                     if 📱.🔛 == .MaxVolume {
@@ -88,8 +90,8 @@ struct ContentView: View {
                     🪧LocalVolumePercentage(100)
                     
                     Image(systemName: "checkmark.circle") // ✓
-                        .font(.body.weight(.light))
                         .foregroundColor(.secondary)
+                        .scaleEffect(1.2)
                 }
                 
                 
