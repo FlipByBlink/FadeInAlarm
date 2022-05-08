@@ -21,15 +21,15 @@ class 📱Model: ObservableObject {
     @Published var 🔔Volume: Int = 0
     
     
-    @Published var 🪧LVP🔍FadeIn = 0.4
-    
-    @Published var 🪧LVP🔍FadeOut = 0.4
-    
-    
     @Published var 🛠OptionAppear = false
     
     
     @Published var 📂ImporterAppear = false
     
     @AppStorage("💽Name") var 💽Name = "preset.mp3"
+    
+    
+    @Published var 🪧LVP🔍FadeIn = 0.4
+    
+    @Published var 🪧LVP🔍FadeOut = 0.4
 }
