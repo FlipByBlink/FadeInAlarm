@@ -5,15 +5,11 @@ import SwiftUI
 struct 📄Document: View {
     var body: some View {
         List {
-            Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
-                Label("AppStore link", systemImage: "link")
-            }
-            
-            Link(destination: URL(string: "https://www.youtube.com/watch?v=d66thA-K5Dg")!) {
-                Label("Demo video link", systemImage: "link")
-            }
-            
             Section {
+                Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
+                    Label("AppStore link", systemImage: "link")
+                }
+                
                 Text("""
                     Alarm clock with taking a long time from small volume to max volume.
                     任意の時刻になるとゆったりと少しずつ音量が大きくなるアラームアプリ。
@@ -73,7 +69,7 @@ struct 📄Document: View {
                 Label("Source code", systemImage: "link")
             }
         }
-        .navigationTitle("📄 Document")
+        .navigationTitle("Document")
     }
 }
 
