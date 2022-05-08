@@ -76,7 +76,7 @@ struct 📄Document: View {
             }
             
             NavigationLink {
-                SourceCodeDoc()
+                📓SourceCodeDoc()
             } label: {
                 Label("Source code", systemImage: "doc")
             }

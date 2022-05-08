@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		120F098128278D20001D8FAF /* SourceCodeDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* SourceCodeDoc.swift */; };
+		120F098128278D20001D8FAF /* 📓SourceCodeDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */; };
 		120F098428278E43001D8FAF /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911127C6F117005D99D1 /* ContentView.swift */; };
 		120F098528278E43001D8FAF /* 📱Model.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱Model.swift */; };
 		120F098628278E43001D8FAF /* 📻AlarmPlayer.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */; };
@@ -18,7 +18,7 @@
 		120F098C28278E9F001D8FAF /* 📁ImportFile.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */; };
 		120F098E28278EDB001D8FAF /* README.md in CopyFiles */ = {isa = PBXBuildFile; fileRef = 123D146A27C8671F00A3C1E0 /* README.md */; };
 		120F099028278EDB001D8FAF /* 📄Document.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄Document.swift */; };
-		120F099128278EDB001D8FAF /* SourceCodeDoc.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* SourceCodeDoc.swift */; };
+		120F099128278EDB001D8FAF /* 📓SourceCodeDoc.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */; };
 		120F099228278EDB001D8FAF /* 🔔Icon.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911D27C6F18F005D99D1 /* 🔔Icon.swift */; };
 		120F099328278EDB001D8FAF /* 🪧LocalVolumePercentage.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */; };
 		120F099428278EDB001D8FAF /* 🔊SystemVolume.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */; };
@@ -77,7 +77,7 @@
 			files = (
 				120F098E28278EDB001D8FAF /* README.md in CopyFiles */,
 				120F099028278EDB001D8FAF /* 📄Document.swift in CopyFiles */,
-				120F099128278EDB001D8FAF /* SourceCodeDoc.swift in CopyFiles */,
+				120F099128278EDB001D8FAF /* 📓SourceCodeDoc.swift in CopyFiles */,
 				120F099228278EDB001D8FAF /* 🔔Icon.swift in CopyFiles */,
 				120F099328278EDB001D8FAF /* 🪧LocalVolumePercentage.swift in CopyFiles */,
 				120F099428278EDB001D8FAF /* 🔊SystemVolume.swift in CopyFiles */,
@@ -98,7 +98,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		120F098028278D20001D8FAF /* SourceCodeDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeDoc.swift; sourceTree = "<group>"; };
+		120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📓SourceCodeDoc.swift"; sourceTree = "<group>"; };
 		123D146A27C8671F00A3C1E0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		124A43DA27E5B73C00DB1447 /* 👆Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👆Menu.swift"; sourceTree = "<group>"; };
 		125D910C27C6F117005D99D1 /* FadeInAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FadeInAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,7 +162,7 @@
 				124A43DA27E5B73C00DB1447 /* 👆Menu.swift */,
 				125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */,
 				12C948092826934B00F1EAAF /* 📄Document.swift */,
-				120F098028278D20001D8FAF /* SourceCodeDoc.swift */,
+				120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */,
 				125D911D27C6F18F005D99D1 /* 🔔Icon.swift */,
 				12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */,
 				125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */,
@@ -262,7 +262,7 @@
 				125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */,
 				12A081922821027600C8040A /* 🪧LocalVolumePercentage.swift in Sources */,
 				125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */,
-				120F098128278D20001D8FAF /* SourceCodeDoc.swift in Sources */,
+				120F098128278D20001D8FAF /* 📓SourceCodeDoc.swift in Sources */,
 				125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */,
 				12F56F58282001AE007E7D89 /* 🛠Option.swift in Sources */,
 				12A675EA281D149C00D24E15 /* 🔔LocalVolumeNow.swift in Sources */,

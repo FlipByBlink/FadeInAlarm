@@ -2,7 +2,7 @@
 import SwiftUI
 
 
-struct SourceCodeDoc: View {
+struct 📓SourceCodeDoc: View {
     
     @Environment(\.dismiss) var 🔙: DismissAction
     
@@ -21,6 +21,8 @@ struct SourceCodeDoc: View {
                 NavigationLink("Bundle.main.infoDictionary") {
                     ScrollView {
                         📄View(🄱undleMainInfoDictionary)
+                            .navigationBarTitle("Bundle.main.infoDictionary")
+                            .navigationBarTitleDisplayMode(.inline)
                     }
                 }
             }
@@ -102,8 +104,8 @@ let 🄱undleMainInfoDictionary = Bundle.main.infoDictionary!.description
 
 
 
-struct SourceCodeDoc_Previews: PreviewProvider {
+struct 📓SourceCodeDoc_Previews: PreviewProvider {
     static var previews: some View {
-        SourceCodeDoc()
+        📓SourceCodeDoc()
     }
 }
