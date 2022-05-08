@@ -7,13 +7,13 @@ struct 🛠OptionButton: View { // ⚙️
     
     var body: some View {
         Button {
-            📱.🛠 = true
+            📱.🛠OptionAppear = true
         } label: {
             Image(systemName: "gearshape")
                 .font(.title)
         }
         .disabled(📱.🔛 != .PowerOff)
-        .sheet(isPresented: $📱.🛠) {
+        .sheet(isPresented: $📱.🛠OptionAppear) {
             🛠Option()
         }
     }
@@ -58,7 +58,7 @@ struct 🛠Option: View { // ⚙️
                     .accessibilityLabel("Dismiss")
                 }
             }
-            .fileImporter(isPresented: $📱.📂, allowedContentTypes: [.audio]) { 🅁esult in
+            .fileImporter(isPresented: $📱.📂ImporterAppear, allowedContentTypes: [.audio]) { 🅁esult in
                 let 🗄 = FileManager.default
                 let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
                 

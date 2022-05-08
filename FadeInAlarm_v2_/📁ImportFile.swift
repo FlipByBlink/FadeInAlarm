@@ -8,7 +8,7 @@ struct 📁ImportFile: View {
     var body: some View {
         VStack {
             Button {
-                📱.📂.toggle()
+                📱.📂ImporterAppear.toggle()
             } label: {
                 VStack(spacing: 12) {
                     Image(systemName: "folder.badge.plus")
