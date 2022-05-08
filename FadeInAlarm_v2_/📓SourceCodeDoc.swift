@@ -17,15 +17,7 @@ struct 📓SourceCodeDoc: View {
             📑Section("📁₃")
             
             
-            Section {
-                NavigationLink("Bundle.main.infoDictionary") {
-                    ScrollView {
-                        📄View(🄱undleMainInfoDictionary)
-                            .navigationBarTitle("Bundle.main.infoDictionary")
-                            .navigationBarTitleDisplayMode(.inline)
-                    }
-                }
-            }
+            📑BundleMainInfoDictionary()
             
             let 🔗 = "https://github.com/FlipByBlink/FadeInAlarm_v2"
             Section {
@@ -100,6 +92,20 @@ struct 📄View: View {
 
 
 let 🄱undleMainInfoDictionary = Bundle.main.infoDictionary!.description
+
+struct  📑BundleMainInfoDictionary: View {
+    var body: some View {
+        Section {
+            NavigationLink("Bundle.main.infoDictionary") {
+                ScrollView {
+                    📄View(🄱undleMainInfoDictionary)
+                        .navigationBarTitle("Bundle.main.infoDictionary")
+                        .navigationBarTitleDisplayMode(.inline)
+                }
+            }
+        }
+    }
+}
 
 
 
