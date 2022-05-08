@@ -5,7 +5,6 @@ import MediaPlayer
 
 
 struct ContentView: View {
-    
     @EnvironmentObject var 📱: 📱Model
     
     var body: some View {

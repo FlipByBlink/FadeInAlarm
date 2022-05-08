@@ -13,7 +13,6 @@ struct 🔊SystemVolume: View {
 
 
 struct 🎚VolumeSlider: UIViewRepresentable {
-    
     func makeUIView(context: Context) -> MPVolumeView {
         MPVolumeView(frame: .zero)
     }

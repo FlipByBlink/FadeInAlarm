@@ -3,7 +3,6 @@ import SwiftUI
 
 
 struct 🪧LocalVolumePercentage: View {
-    
     var 🪧: Int
     
     var 🎨: HierarchicalShapeStyle

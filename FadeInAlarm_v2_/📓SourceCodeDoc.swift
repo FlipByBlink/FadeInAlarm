@@ -3,7 +3,6 @@ import SwiftUI
 
 
 struct 📓SourceCodeDoc: View {
-    
     @Environment(\.dismiss) var 🔙: DismissAction
     
     var body: some View {
@@ -40,7 +39,6 @@ struct 📓SourceCodeDoc: View {
 
 
 struct 📑Section: View {
-    
     var ⓓirPath: String
     
     var 📁URL: URL {
@@ -56,9 +54,10 @@ struct 📑Section: View {
             ForEach(📦, id: \.self) { 📃 in
                 NavigationLink(📃) {
                     let 📍 = 📁URL.appendingPathComponent(📃)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        📄View(try! String(contentsOf: 📍), 📃)
+                    ScrollView {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            📄View(try! String(contentsOf: 📍), 📃)
+                        }
                     }
                 }
             }
@@ -72,19 +71,16 @@ struct 📑Section: View {
 
 
 struct 📄View: View {
-    
     var 📄: String
     
     var 🏷: String
     
     var body: some View {
-        ScrollView {
-            Text(📄)
-                .navigationBarTitle(🏷)
-                .navigationBarTitleDisplayMode(.inline)
-                .font(.caption.monospaced())
-                .padding()
-        }
+        Text(📄)
+            .navigationBarTitle(🏷)
+            .navigationBarTitleDisplayMode(.inline)
+            .font(.caption.monospaced())
+            .padding()
     }
     
     init(_ 📄: String, _ 🏷: String) {
@@ -95,16 +91,21 @@ struct 📄View: View {
 
 
 let 🄱undleMainInfoDictionary = Bundle.main.infoDictionary!.description
-
 struct 📑BundleMainInfoDictionary: View {
     var body: some View {
         Section {
             NavigationLink("Bundle.main.infoDictionary") {
-                📄View(🄱undleMainInfoDictionary, "Bundle.main.infoDictionary")
+                ScrollView {
+                    📄View(🄱undleMainInfoDictionary, "Bundle.main.infoDictionary")
+                }
             }
         }
     }
 }
+
+
+
+
 
 
 

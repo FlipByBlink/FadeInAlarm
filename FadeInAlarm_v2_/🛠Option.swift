@@ -92,7 +92,6 @@ struct 🛠Option: View { // ⚙️
 
 
 struct 🛠Option_Previews: PreviewProvider {
-    
     static let 📱 = 📱Model()
     
     static var previews: some View {
