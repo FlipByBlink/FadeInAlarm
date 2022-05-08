@@ -57,13 +57,9 @@ struct 📑Section: View {
                 NavigationLink(📃) {
                     let 📍 = 📁URL.appendingPathComponent(📃)
                     
-                    ScrollView(.vertical) {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            📄View(try! String(contentsOf: 📍))
-                        }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        📄View(try! String(contentsOf: 📍), 📃)
                     }
-                    .navigationBarTitle(📃)
-                    .navigationBarTitleDisplayMode(.inline)
                 }
             }
         }
@@ -79,14 +75,21 @@ struct 📄View: View {
     
     var 📄: String
     
+    var 🏷: String
+    
     var body: some View {
-        Text(📄)
-            .font(.caption.monospaced())
-            .padding()
+        ScrollView {
+            Text(📄)
+                .navigationBarTitle(🏷)
+                .navigationBarTitleDisplayMode(.inline)
+                .font(.caption.monospaced())
+                .padding()
+        }
     }
     
-    init(_ 📄: String) {
+    init(_ 📄: String, _ 🏷: String) {
         self.📄 = 📄
+        self.🏷 = 🏷
     }
 }
 
@@ -97,11 +100,7 @@ struct  📑BundleMainInfoDictionary: View {
     var body: some View {
         Section {
             NavigationLink("Bundle.main.infoDictionary") {
-                ScrollView {
-                    📄View(🄱undleMainInfoDictionary)
-                        .navigationBarTitle("Bundle.main.infoDictionary")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
+                📄View(🄱undleMainInfoDictionary, "Bundle.main.infoDictionary")
             }
         }
     }
