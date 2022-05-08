@@ -16,6 +16,7 @@ struct 📁ImportFile: View {
                         .symbolRenderingMode(.multicolor)
                     
                     📁FileName()
+                        .font(.title.bold())
                 }
             }
             .accessibilityLabel("Import file")
@@ -34,7 +35,6 @@ struct 📁FileName: View {
         Text(💽Name)
             .kerning(1.5)
             .foregroundStyle(.secondary)
-            .font(.title.bold())
             .task {
                 let 🗄 = FileManager.default
                 let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]

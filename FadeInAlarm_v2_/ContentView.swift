@@ -126,6 +126,7 @@ struct ContentView: View {
                     🔊SystemVolume()
                     
                     📁FileName()
+                        .font(.title3.weight(.bold))
                     
                     🛠OptionButton()
                 }
