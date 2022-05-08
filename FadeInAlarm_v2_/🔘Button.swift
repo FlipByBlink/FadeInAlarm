@@ -80,7 +80,7 @@ struct 🔘Button: View {
                 .font(.system(size: 96))
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(Color(.systemBackground), 🎨)
-                .shadow(radius: 4, x: 1, y: 1.5)
+                .shadow(radius: 4, x: -2, y: 2)
         }
         .padding()
         .disabled(📱.🔛 == .FadeOut)

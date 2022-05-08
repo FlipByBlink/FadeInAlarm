@@ -109,12 +109,12 @@ struct ContentView: View {
                     }
                 }
             }
-            .padding(.vertical, 32)
-            .padding(.horizontal, 16)
+            .padding(.vertical, 28)
+            .padding(.horizontal, 10)
             .background {
-                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                RoundedRectangle(cornerRadius: 32, style: .continuous)
                     .foregroundColor(Color(.systemBackground))
-                    .shadow(radius: 4)
+                    .shadow(radius: 6, x: -2, y: 2)
             }
             .padding(32)
             .frame(maxWidth: 460)
