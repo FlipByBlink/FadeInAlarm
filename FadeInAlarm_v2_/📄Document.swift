@@ -30,12 +30,14 @@ struct 📄Document: View {
                     ・5:00
                     ・30:00
                     ・1:00:00
+                    
                     Hour fade-out フェードアウト時間
                     ・0:03
                     ・0:07
                     ・0:15
                     ・0:30
                     ・1:00
+                    
                     Volume on waiting 待機中の音量
                     ・10%
                     ・5%
@@ -52,7 +54,7 @@ struct 📄Document: View {
                     事前にアプリを起動させておく必要があります。
                     """)
                 .font(.subheadline)
-                .padding()
+                .padding(8)
                 
                 Label("version 2.1", systemImage: "signpost.left")
                     .font(.subheadline)
@@ -64,11 +66,11 @@ struct 📄Document: View {
             Section {
                 Text("""
                     2022-02-25
-                    (Japanese)このアプリ自身において、ユーザーの情報を一切収集しません。
                     (English)This application don't collect user infomation.
+                    (Japanese)このアプリ自身において、ユーザーの情報を一切収集しません。
                     """)
                 .font(.subheadline)
-                .padding()
+                .padding(8)
             } header: {
                 Text("Privacy Policy")
             }
