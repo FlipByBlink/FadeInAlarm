@@ -6,9 +6,17 @@ struct 📄Document: View {
     var body: some View {
         List {
             Section {
-                Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
-                    Label("AppStore link", systemImage: "link")
+                let 🔗 = "https://apps.apple.com/app/id1465336070"
+                Link(destination: URL(string: 🔗)!) {
+                    HStack {
+                        Label("Open AppStore page", systemImage: "link")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "arrow.up.forward.app")
+                    }
                 }
+                .font(.subheadline)
                 
                 Text("""
                     Alarm clock with taking a long time from small volume to max volume.
@@ -43,12 +51,12 @@ struct 📄Document: View {
                     App must be launched beforehand in advance.
                     事前にアプリを起動させておく必要があります。
                     """)
-                .font(.caption)
+                .font(.subheadline)
                 .padding()
                 
-                Text("version 2.1")
-                    .font(.caption)
-                    .padding()
+                Label("version 2.1", systemImage: "signpost.left")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
             } header: {
                 Text("About")
             }
@@ -59,7 +67,7 @@ struct 📄Document: View {
                     (Japanese)このアプリ自身において、ユーザーの情報を一切収集しません。
                     (English)This application don't collect user infomation.
                     """)
-                .font(.caption)
+                .font(.subheadline)
                 .padding()
             } header: {
                 Text("Privacy Policy")
@@ -68,6 +76,7 @@ struct 📄Document: View {
             Link(destination: URL(string: "https://github.com/FlipByBlink/FadeInAlarm_v2")!) {
                 Label("Source code", systemImage: "link")
             }
+            .font(.subheadline)
         }
         .navigationTitle("Document")
     }
