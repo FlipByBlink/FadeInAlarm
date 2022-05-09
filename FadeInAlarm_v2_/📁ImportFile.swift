@@ -16,20 +16,18 @@ struct 📁ImportFile: View {
             } label: {
                 HStack(spacing: 7) {
                     Image(systemName: "folder")
-                        .foregroundStyle(.secondary)
                         .font(.title3.weight(.semibold))
                     
                     Text(📱.💽Name)
                         .font(.title3.bold())
                         .kerning(1.5)
                 }
-                .foregroundStyle(.secondary)
+                .foregroundStyle(📱.🔛 == .PowerOff ? .secondary : .tertiary)
             }
             .accessibilityLabel("Import file")
             
             📁FilePreview()
         }
-        .opacity(📱.🔛 != .PowerOff ? 0.6 : 1.0)
         .disabled(📱.🔛 != .PowerOff)
         .padding()
         .fileImporter(isPresented: $📱.📂ImporterAppear, allowedContentTypes: [.audio]) { 🅁esult in
@@ -81,7 +79,7 @@ struct 📁FilePreview: View {
             }
         } label: {
             Image(systemName: "playpause.fill")
-                .foregroundStyle(.secondary)
+                .foregroundStyle(📱.🔛 == .PowerOff ? .secondary : .tertiary)
         }
         .font(.subheadline)
         .buttonStyle(.bordered)

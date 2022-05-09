@@ -23,6 +23,7 @@ struct 🔔LocalVolumeNow: View {
                     .background {
                         Circle()
                             .foregroundColor(Color(.secondarySystemBackground))
+                            .opacity(0.8)
                     }
                     
                     if 📱.📻.ⓟlayer.isPlaying == false {

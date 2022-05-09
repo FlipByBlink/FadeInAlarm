@@ -11,9 +11,8 @@ struct 📄DocumentButton: View { // ⚙️
         } label: {
             Image(systemName: "doc.plaintext")
                 .font(.title3)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(📱.🔛 == .PowerOff ? .secondary : .tertiary)
         }
-        .opacity(📱.🔛 != .PowerOff ? 0.6 : 1.0)
         .disabled(📱.🔛 != .PowerOff)
         .sheet(isPresented: $📱.🛠OptionAppear) {
             NavigationView {
