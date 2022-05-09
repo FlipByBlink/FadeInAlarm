@@ -26,7 +26,7 @@ class 📱Model: ObservableObject {
     
     @Published var 📂ImporterAppear = false
     
-    @AppStorage("💽Name") var 💽Name = "preset.mp3"
+    @Published var 💽Name = "preset.mp3"
     
     
     @Published var 🪧LVP🔍FadeIn = 0.4

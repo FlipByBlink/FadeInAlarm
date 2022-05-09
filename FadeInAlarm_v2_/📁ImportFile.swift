@@ -1,14 +1,18 @@
 
 import SwiftUI
+import AVFAudio
 
 
 struct 📁ImportFile: View {
     @EnvironmentObject var 📱: 📱Model
     
+    @State private var 🚩FailPlay: Bool = false
+    
     var body: some View {
         VStack {
             Button {
                 📱.📂ImporterAppear.toggle()
+                📱.📻.ⓟlayer.stop()
             } label: {
                 VStack(spacing: 12) {
                     Image(systemName: "folder.badge.plus")
@@ -31,33 +35,41 @@ struct 📁ImportFile: View {
             do {
                 let 📦 = try 🅁esult.get()
                 
-                do {
-                    let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
-                    if let 📍 = 🗂.first {
-                        do { try 🗄.removeItem(at: 📍) } catch { print("👿", error) }
-                    }
-                } catch { print(error) }
-                
-                let 🄽ewURL = 🗃.appendingPathComponent(📦.lastPathComponent)
-                
                 if 📦.startAccessingSecurityScopedResource() {
-                    do {
-                        try 🗄.copyItem(at: 📦, to: 🄽ewURL)
-                        📱.💽Name = 🄽ewURL.lastPathComponent
-                    } catch { print("👿", error) }
+                    if let _ = try? AVAudioPlayer(contentsOf: 📦) {
+                        do {
+                            let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
+                            if let 🄾ldURL = 🗂.first {
+                                do { try 🗄.removeItem(at: 🄾ldURL) } catch { print("👿", error) }
+                            }
+                        } catch { print(error) }
+                        
+                        let 🄽ewURL = 🗃.appendingPathComponent(📦.lastPathComponent)
+                        
+                        do {
+                            try 🗄.copyItem(at: 📦, to: 🄽ewURL)
+                            📱.💽Name = 🄽ewURL.lastPathComponent
+                            📱.📻.ⓟreview()
+                        } catch { print("👿", error) }
+                    } else {
+                        🚩FailPlay = true
+                    }
                 }
                 📦.stopAccessingSecurityScopedResource()
             } catch { print("👿", error) }
+        }
+        .alert("Fail play file 😱", isPresented: $🚩FailPlay) {
+            EmptyView()
         }
     }
 }
 
 
 struct 📁FileName: View {
-    @AppStorage("💽Name") var 💽Name = "preset.mp3"
+    @EnvironmentObject var 📱: 📱Model
     
     var body: some View {
-        Text(💽Name)
+        Text(📱.💽Name)
             .kerning(1.5)
             .foregroundStyle(.secondary)
             .task {
@@ -66,7 +78,7 @@ struct 📁FileName: View {
                 do {
                     let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
                     if let 📍 = 🗂.first {
-                        💽Name = 📍.lastPathComponent
+                        📱.💽Name = 📍.lastPathComponent
                     }
                 } catch { print(error) }
             }
@@ -90,7 +102,7 @@ struct 📁FilePreview: View {
         }
         .buttonStyle(.bordered)
         .tint(📱.📻.ⓟlayer.isPlaying ? .red : nil)
-        .onChange(of: 📱.💽Name) { _ in
+        .onChange(of: 📱.🛠OptionAppear) { _ in
             📱.📻.ⓟlayer.stop()
         }
     }
