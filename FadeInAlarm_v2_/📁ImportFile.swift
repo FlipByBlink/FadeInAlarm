@@ -85,6 +85,7 @@ struct 📁FilePreview: View {
         .buttonStyle(.bordered)
         .controlSize(.mini)
         .tint(📱.📻.ⓟlayer.isPlaying ? .red : nil)
+        .accessibilityLabel("Preview")
         .onChange(of: 📱.🛠OptionAppear) { _ in
             📱.📻.ⓟlayer.stop()
         }

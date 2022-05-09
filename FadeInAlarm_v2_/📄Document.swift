@@ -14,6 +14,7 @@ struct 📄DocumentButton: View { // ⚙️
                 .foregroundStyle(📱.🔛 == .PowerOff ? .secondary : .tertiary)
         }
         .disabled(📱.🔛 != .PowerOff)
+        .accessibilityLabel("Document")
         .sheet(isPresented: $📱.🛠OptionAppear) {
             NavigationView {
                 📄Document()
