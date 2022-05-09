@@ -20,6 +20,10 @@ struct 🔔LocalVolumeNow: View {
                     .opacity(0.9)
                     .foregroundColor(.secondary)
                     .padding()
+                    .background {
+                        Circle()
+                            .foregroundColor(Color(.secondarySystemBackground))
+                    }
                     
                     if 📱.📻.ⓟlayer.isPlaying == false {
                         Image(systemName: "xmark")

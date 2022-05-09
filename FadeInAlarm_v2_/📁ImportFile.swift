@@ -14,18 +14,23 @@ struct 📁ImportFile: View {
                 📱.📂ImporterAppear.toggle()
                 📱.📻.ⓟlayer.stop()
             } label: {
-                HStack(spacing: 4) {
+                HStack(spacing: 7) {
                     Image(systemName: "folder")
                         .foregroundStyle(.secondary)
                         .font(.title3.weight(.semibold))
                     
-                    📁FileName()
+                    Text(📱.💽Name)
+                        .font(.title3.bold())
+                        .kerning(1.5)
                 }
+                .foregroundStyle(.secondary)
             }
             .accessibilityLabel("Import file")
             
             📁FilePreview()
         }
+        .opacity(📱.🔛 != .PowerOff ? 0.6 : 1.0)
+        .disabled(📱.🔛 != .PowerOff)
         .padding()
         .fileImporter(isPresented: $📱.📂ImporterAppear, allowedContentTypes: [.audio]) { 🅁esult in
             let 🗄 = FileManager.default
@@ -60,28 +65,6 @@ struct 📁ImportFile: View {
         .alert("Fail play file 😱", isPresented: $🚩FailPlay) {
             EmptyView()
         }
-    }
-}
-
-
-struct 📁FileName: View {
-    @EnvironmentObject var 📱: 📱Model
-    
-    var body: some View {
-        Text(📱.💽Name)
-            .font(.title3.bold())
-            .kerning(1.5)
-            .foregroundStyle(.secondary)
-            .task {
-                let 🗄 = FileManager.default
-                let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                do {
-                    let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
-                    if let 📍 = 🗂.first {
-                        📱.💽Name = 📍.lastPathComponent
-                    }
-                } catch { print(error) }
-            }
     }
 }
 
@@ -121,10 +104,8 @@ struct 📁ImportFile_Previews: PreviewProvider {
     static let 📱 = 📱Model()
     
     static var previews: some View {
-        VStack(spacing: 8) {
+        HStack {
             📁ImportFile()
-            
-            📁FileName()
             
             📁FilePreview()
         }

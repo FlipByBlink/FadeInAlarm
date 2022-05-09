@@ -26,10 +26,25 @@ class 📱Model: ObservableObject {
     
     @Published var 📂ImporterAppear = false
     
-    @Published var 💽Name = "preset.mp3"
+    @Published var 💽Name: String
     
     
     @Published var 🪧LVP🔍FadeIn = 0.4
     
     @Published var 🪧LVP🔍FadeOut = 0.4
+    
+    
+    init () {
+        let 🗄 = FileManager.default
+        let 🗃 = 🗄.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let 🗂 = try 🗄.contentsOfDirectory(at: 🗃, includingPropertiesForKeys: nil)
+            if let 📍 = 🗂.first {
+                💽Name = 📍.lastPathComponent
+                return
+            }
+        } catch { print("👿", error) }
+        
+        💽Name = "preset.mp3"
+    }
 }
