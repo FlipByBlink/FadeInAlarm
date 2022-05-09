@@ -121,16 +121,15 @@ struct ContentView: View {
             HStack {
                 Spacer()
                 
-                VStack(spacing: 32) {
+                VStack(spacing: 36) {
                     🔊SystemVolume()
                     
                     📁ImportFile()
                     
-                    
                     🛠OptionButton()
                 }
                 .padding()
-                .padding(.bottom, 120)
+                .padding(.bottom, 140)
                 
                 Spacer()
             }

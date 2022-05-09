@@ -82,7 +82,6 @@ struct 📄Document: View {
             }
             .font(.subheadline)
         }
-        .navigationTitle("Document")
     }
 }
 

@@ -16,6 +16,7 @@ struct 📁ImportFile: View {
             } label: {
                 HStack(spacing: 4) {
                     Image(systemName: "folder")
+                        .foregroundStyle(.secondary)
                         .font(.title3.weight(.semibold))
                     
                     📁FileName()

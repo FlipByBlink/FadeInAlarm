@@ -7,7 +7,7 @@ struct 🔊SystemVolume: View {
     var body: some View {
         🎚VolumeSlider()
             .contrast(0)
-            .frame(width: 160, height: 36)
+            .frame(width: 160, height: 20)
     }
 }
 
