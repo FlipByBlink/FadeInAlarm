@@ -8,6 +8,7 @@ struct 🔊SystemVolume: View {
         🎚VolumeSlider()
             .contrast(0)
             .frame(width: 160, height: 20)
+            .accessibilityHidden(true)
     }
 }
 
