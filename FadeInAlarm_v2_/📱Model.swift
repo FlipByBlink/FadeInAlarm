@@ -21,12 +21,12 @@ class 📱Model: ObservableObject {
     @Published var 🔔Volume: Int = 0
     
     
-    @Published var 🛠OptionAppear = false
-    
-    
     @Published var 📂ImporterAppear = false
     
     @Published var 💽Name: String
+    
+    
+    @Published var 📄DocumentAppear = false
     
     
     @Published var 🪧LVP🔍FadeIn = 0.4

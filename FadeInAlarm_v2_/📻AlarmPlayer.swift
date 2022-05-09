@@ -85,6 +85,7 @@ class 📻AlarmPlayer {
             }
         } catch { print(error) }
         
+        ⓟlayer.volume = 1.0
         ⓟlayer.play()
     }
 }

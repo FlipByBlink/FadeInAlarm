@@ -7,7 +7,7 @@ struct 📄DocumentButton: View { // ⚙️
     
     var body: some View {
         Button {
-            📱.🛠OptionAppear = true
+            📱.📄DocumentAppear = true
         } label: {
             Image(systemName: "doc.plaintext")
                 .font(.title3)
@@ -15,13 +15,13 @@ struct 📄DocumentButton: View { // ⚙️
         }
         .disabled(📱.🔛 != .PowerOff)
         .accessibilityLabel("Document")
-        .sheet(isPresented: $📱.🛠OptionAppear) {
+        .sheet(isPresented: $📱.📄DocumentAppear) {
             NavigationView {
                 📄Document()
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                📱.🛠OptionAppear = false
+                                📱.📄DocumentAppear = false
                             } label: {
                                 Image(systemName: "chevron.down")
                                     .foregroundStyle(.secondary)
