@@ -125,13 +125,15 @@ struct 📄Document: View {
 
 
 
+
+
+
+
 struct 📄Document_Previews: PreviewProvider {
     static let 📱 = 📱Model()
-    
     static var previews: some View {
         VStack {
             📄DocumentButton()
-            
             📄Document()
         }
         .environmentObject(📱)

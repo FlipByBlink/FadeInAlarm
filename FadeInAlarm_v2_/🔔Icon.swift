@@ -109,9 +109,12 @@ struct 🔔IconFadeOut: View {
 
 
 
+
+
+
+
 struct 🔔Icon_Previews: PreviewProvider {
     static let 📱 = 📱Model()
-    
     static var previews: some View {
         VStack {
             🔔IconWaiting()

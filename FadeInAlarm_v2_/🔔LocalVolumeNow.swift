@@ -44,7 +44,6 @@ struct 🔔LocalVolumeNow: View {
 
 struct 🔔LocalVolumeNow_Previews: PreviewProvider {
     static let 📱 = 📱Model()
-    
     static var previews: some View {
         🔔LocalVolumeNow()
             .environmentObject(📱)

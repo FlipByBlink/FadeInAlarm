@@ -19,12 +19,3 @@ struct 🎚VolumeSlider: UIViewRepresentable {
     
     func updateUIView(_ view: MPVolumeView, context: Context) {}
 }
-
-
-
-
-struct 🔊SystemVolume_Previews: PreviewProvider {
-    static var previews: some View {
-        🔊SystemVolume()
-    }
-}

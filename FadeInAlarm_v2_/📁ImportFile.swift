@@ -102,11 +102,9 @@ struct 📁FilePreview: View {
 
 struct 📁ImportFile_Previews: PreviewProvider {
     static let 📱 = 📱Model()
-    
     static var previews: some View {
         HStack {
             📁ImportFile()
-            
             📁FilePreview()
         }
         .previewLayout(.fixed(width: 400, height: 600))

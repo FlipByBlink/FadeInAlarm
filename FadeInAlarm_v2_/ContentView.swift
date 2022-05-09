@@ -143,23 +143,16 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static let 📱 = 📱Model()
-    
     static var previews: some View {
         ZStack {
-            Color(.secondarySystemBackground)
-                .ignoresSafeArea()
-            
-            ContentView()
-                .environmentObject(📱)
+            Color(.secondarySystemBackground).ignoresSafeArea()
+            ContentView().environmentObject(📱)
         }
         .previewLayout(.fixed(width: 350, height: 700))
         
         ZStack {
-            Color(.secondarySystemBackground)
-                .ignoresSafeArea()
-            
-            ContentView()
-                .environmentObject(📱)
+            Color(.secondarySystemBackground).ignoresSafeArea()
+            ContentView().environmentObject(📱)
         }
         .preferredColorScheme(.dark)
         .previewLayout(.fixed(width: 800, height: 600))

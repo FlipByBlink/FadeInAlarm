@@ -139,7 +139,6 @@ struct 👆HourFadeOut: View {
 
 struct 👆Menu_Previews: PreviewProvider {
     static let 📱 = 📱Model()
-
     static var previews: some View {
         VStack {
             👆VolumeOnWaiting()
