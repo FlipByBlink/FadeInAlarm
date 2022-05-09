@@ -9,18 +9,16 @@ struct 📁ImportFile: View {
     @State private var 🚩FailPlay: Bool = false
     
     var body: some View {
-        VStack {
+        HStack {
             Button {
                 📱.📂ImporterAppear.toggle()
                 📱.📻.ⓟlayer.stop()
             } label: {
-                VStack(spacing: 12) {
-                    Image(systemName: "folder.badge.plus")
-                        .font(.system(size: 72).bold())
-                        .symbolRenderingMode(.multicolor)
+                HStack(spacing: 4) {
+                    Image(systemName: "folder")
+                        .font(.title3.weight(.semibold))
                     
                     📁FileName()
-                        .font(.title.bold())
                 }
             }
             .accessibilityLabel("Import file")
@@ -70,6 +68,7 @@ struct 📁FileName: View {
     
     var body: some View {
         Text(📱.💽Name)
+            .font(.title3.bold())
             .kerning(1.5)
             .foregroundStyle(.secondary)
             .task {
@@ -100,7 +99,9 @@ struct 📁FilePreview: View {
             Image(systemName: "playpause.fill")
                 .foregroundStyle(.secondary)
         }
+        .font(.subheadline)
         .buttonStyle(.bordered)
+        .controlSize(.mini)
         .tint(📱.📻.ⓟlayer.isPlaying ? .red : nil)
         .onChange(of: 📱.🛠OptionAppear) { _ in
             📱.📻.ⓟlayer.stop()
