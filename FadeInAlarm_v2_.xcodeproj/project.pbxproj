@@ -131,9 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				123D146A27C8671F00A3C1E0 /* README.md */,
-				125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */,
-				125D911127C6F117005D99D1 /* ContentView.swift */,
-				12A675E5281CCFFC00D24E15 /* 📱Model.swift */,
 				125D910E27C6F117005D99D1 /* FadeInAlarm_v2_ */,
 				125D910D27C6F117005D99D1 /* Products */,
 			);
@@ -150,6 +147,9 @@
 		125D910E27C6F117005D99D1 /* FadeInAlarm_v2_ */ = {
 			isa = PBXGroup;
 			children = (
+				125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */,
+				125D911127C6F117005D99D1 /* ContentView.swift */,
+				12A675E5281CCFFC00D24E15 /* 📱Model.swift */,
 				125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */,
 				125D912127C6F18F005D99D1 /* 🔛Phase.swift */,
 				125D912227C6F18F005D99D1 /* 🔘Button.swift */,
