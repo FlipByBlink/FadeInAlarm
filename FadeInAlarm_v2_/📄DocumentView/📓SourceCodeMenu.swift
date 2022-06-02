@@ -2,7 +2,7 @@
 import SwiftUI
 
 
-struct 📓SourceCodeDoc: View {
+struct 📓SourceCodeMenu: View {
     @Environment(\.dismiss) var 🔙: DismissAction
     
     var body: some View {
@@ -39,10 +39,10 @@ struct 📓SourceCodeDoc: View {
 
 
 struct 📑Section: View {
-    var ⓓirPath: String
+    var 🄳irectoryPath: String
     
     var 📁URL: URL {
-        Bundle.main.bundleURL.appendingPathComponent(ⓓirPath)
+        Bundle.main.bundleURL.appendingPathComponent(🄳irectoryPath)
     }
     
     var 📦: [String] {
@@ -64,8 +64,8 @@ struct 📑Section: View {
         }
     }
     
-    init(_ ⓓirPath: String) {
-        self.ⓓirPath = ⓓirPath
+    init(_ ⓓirectoryPath: String) {
+        🄳irectoryPath = ⓓirectoryPath
     }
 }
 
@@ -110,8 +110,8 @@ struct 📑BundleMainInfoDictionary: View {
 
 
 
-struct 📓SourceCodeDoc_Previews: PreviewProvider {
+struct 📓SourceCodeMenu_Previews: PreviewProvider {
     static var previews: some View {
-        📓SourceCodeDoc()
+        📓SourceCodeMenu()
     }
 }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		120F098128278D20001D8FAF /* 📓SourceCodeDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */; };
+		120F098128278D20001D8FAF /* 📓SourceCodeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* 📓SourceCodeMenu.swift */; };
 		120F098428278E43001D8FAF /* ContentView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911127C6F117005D99D1 /* ContentView.swift */; };
 		120F098528278E43001D8FAF /* 📱Model.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱Model.swift */; };
 		120F098628278E43001D8FAF /* 📻AlarmPlayer.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */; };
@@ -16,15 +16,15 @@
 		120F098B28278E9F001D8FAF /* 👆Menu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 124A43DA27E5B73C00DB1447 /* 👆Menu.swift */; };
 		120F098C28278E9F001D8FAF /* 📁ImportFile.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */; };
 		120F098E28278EDB001D8FAF /* README.md in CopyFiles */ = {isa = PBXBuildFile; fileRef = 123D146A27C8671F00A3C1E0 /* README.md */; };
-		120F099028278EDB001D8FAF /* 📄DocumentMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄DocumentMenu.swift */; };
-		120F099128278EDB001D8FAF /* 📓SourceCodeDoc.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */; };
+		120F099028278EDB001D8FAF /* 📄DocMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄DocMenu.swift */; };
+		120F099128278EDB001D8FAF /* 📓SourceCodeMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* 📓SourceCodeMenu.swift */; };
 		120F099228278EDB001D8FAF /* 🔔Icon.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D911D27C6F18F005D99D1 /* 🔔Icon.swift */; };
 		120F099328278EDB001D8FAF /* 🪧LocalVolumePercentage.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */; };
 		120F099428278EDB001D8FAF /* 🔊SystemVolume.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */; };
 		120F099528278EDB001D8FAF /* 🔔LocalVolumeNow.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */; };
 		120F099728278FD4001D8FAF /* FadeInAlarm_v2_App.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */; };
-		12428DC728485303006837F9 /* 📄DocumentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12428DC628485303006837F9 /* 📄DocumentButton.swift */; };
-		12428DC8284853D7006837F9 /* 📄DocumentButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12428DC628485303006837F9 /* 📄DocumentButton.swift */; };
+		12428DC728485303006837F9 /* 📄DocButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12428DC628485303006837F9 /* 📄DocButton.swift */; };
+		12428DC8284853D7006837F9 /* 📄DocButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12428DC628485303006837F9 /* 📄DocButton.swift */; };
 		124A43DB27E5B73C00DB1447 /* 👆Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A43DA27E5B73C00DB1447 /* 👆Menu.swift */; };
 		125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */; };
 		125D911227C6F117005D99D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D911127C6F117005D99D1 /* ContentView.swift */; };
@@ -39,7 +39,7 @@
 		12A081922821027600C8040A /* 🪧LocalVolumePercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */; };
 		12A675E6281CCFFC00D24E15 /* 📱Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱Model.swift */; };
 		12A675EA281D149C00D24E15 /* 🔔LocalVolumeNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */; };
-		12C9480A2826934B00F1EAAF /* 📄DocumentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄DocumentMenu.swift */; };
+		12C9480A2826934B00F1EAAF /* 📄DocMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄DocMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,10 +74,10 @@
 			dstPath = "📁₃";
 			dstSubfolderSpec = 7;
 			files = (
-				12428DC8284853D7006837F9 /* 📄DocumentButton.swift in CopyFiles */,
+				12428DC8284853D7006837F9 /* 📄DocButton.swift in CopyFiles */,
 				120F098E28278EDB001D8FAF /* README.md in CopyFiles */,
-				120F099028278EDB001D8FAF /* 📄DocumentMenu.swift in CopyFiles */,
-				120F099128278EDB001D8FAF /* 📓SourceCodeDoc.swift in CopyFiles */,
+				120F099028278EDB001D8FAF /* 📄DocMenu.swift in CopyFiles */,
+				120F099128278EDB001D8FAF /* 📓SourceCodeMenu.swift in CopyFiles */,
 				120F099228278EDB001D8FAF /* 🔔Icon.swift in CopyFiles */,
 				120F099328278EDB001D8FAF /* 🪧LocalVolumePercentage.swift in CopyFiles */,
 				120F099428278EDB001D8FAF /* 🔊SystemVolume.swift in CopyFiles */,
@@ -98,9 +98,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📓SourceCodeDoc.swift"; sourceTree = "<group>"; };
+		120F098028278D20001D8FAF /* 📓SourceCodeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📓SourceCodeMenu.swift"; sourceTree = "<group>"; };
 		123D146A27C8671F00A3C1E0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		12428DC628485303006837F9 /* 📄DocumentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📄DocumentButton.swift"; sourceTree = "<group>"; };
+		12428DC628485303006837F9 /* 📄DocButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📄DocButton.swift"; sourceTree = "<group>"; };
 		124A43DA27E5B73C00DB1447 /* 👆Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👆Menu.swift"; sourceTree = "<group>"; };
 		125D910C27C6F117005D99D1 /* FadeInAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FadeInAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInAlarm_v2_App.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧LocalVolumePercentage.swift"; sourceTree = "<group>"; };
 		12A675E5281CCFFC00D24E15 /* 📱Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱Model.swift"; sourceTree = "<group>"; };
 		12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔔LocalVolumeNow.swift"; sourceTree = "<group>"; };
-		12C948092826934B00F1EAAF /* 📄DocumentMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📄DocumentMenu.swift"; sourceTree = "<group>"; };
+		12C948092826934B00F1EAAF /* 📄DocMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📄DocMenu.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,9 +134,9 @@
 		12428DC52848523A006837F9 /* 📄DocumentView */ = {
 			isa = PBXGroup;
 			children = (
-				12428DC628485303006837F9 /* 📄DocumentButton.swift */,
-				12C948092826934B00F1EAAF /* 📄DocumentMenu.swift */,
-				120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */,
+				12428DC628485303006837F9 /* 📄DocButton.swift */,
+				12C948092826934B00F1EAAF /* 📄DocMenu.swift */,
+				120F098028278D20001D8FAF /* 📓SourceCodeMenu.swift */,
 			);
 			path = "📄DocumentView";
 			sourceTree = "<group>";
@@ -265,18 +265,18 @@
 			files = (
 				125D912327C6F18F005D99D1 /* 🔔Icon.swift in Sources */,
 				125D912427C6F18F005D99D1 /* 📻AlarmPlayer.swift in Sources */,
-				12428DC728485303006837F9 /* 📄DocumentButton.swift in Sources */,
+				12428DC728485303006837F9 /* 📄DocButton.swift in Sources */,
 				125D912827C6F18F005D99D1 /* 🔘Button.swift in Sources */,
 				125D911227C6F117005D99D1 /* ContentView.swift in Sources */,
 				125D911027C6F117005D99D1 /* FadeInAlarm_v2_App.swift in Sources */,
 				12A081922821027600C8040A /* 🪧LocalVolumePercentage.swift in Sources */,
 				125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */,
-				120F098128278D20001D8FAF /* 📓SourceCodeDoc.swift in Sources */,
+				120F098128278D20001D8FAF /* 📓SourceCodeMenu.swift in Sources */,
 				125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */,
 				12A675EA281D149C00D24E15 /* 🔔LocalVolumeNow.swift in Sources */,
 				124A43DB27E5B73C00DB1447 /* 👆Menu.swift in Sources */,
 				12A675E6281CCFFC00D24E15 /* 📱Model.swift in Sources */,
-				12C9480A2826934B00F1EAAF /* 📄DocumentMenu.swift in Sources */,
+				12C9480A2826934B00F1EAAF /* 📄DocMenu.swift in Sources */,
 				125D912627C6F18F005D99D1 /* 🔊SystemVolume.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
