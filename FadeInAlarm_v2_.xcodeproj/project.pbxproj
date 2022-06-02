@@ -109,7 +109,7 @@
 		125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔊SystemVolume.swift"; sourceTree = "<group>"; };
 		125D912127C6F18F005D99D1 /* 🔛Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔛Phase.swift"; sourceTree = "<group>"; };
 		125D912227C6F18F005D99D1 /* 🔘Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔘Button.swift"; sourceTree = "<group>"; };
-		125D912927C6F2DE005D99D1 /* FadeInAlarm-v2--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FadeInAlarm-v2--Info.plist"; sourceTree = SOURCE_ROOT; };
+		125D912927C6F2DE005D99D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🪧LocalVolumePercentage.swift"; sourceTree = "<group>"; };
 		12A675E5281CCFFC00D24E15 /* 📱Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱Model.swift"; sourceTree = "<group>"; };
 		12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔔LocalVolumeNow.swift"; sourceTree = "<group>"; };
@@ -147,7 +147,6 @@
 		125D910E27C6F117005D99D1 /* FadeInAlarm_v2_ */ = {
 			isa = PBXGroup;
 			children = (
-				125D912927C6F2DE005D99D1 /* FadeInAlarm-v2--Info.plist */,
 				125D910F27C6F117005D99D1 /* FadeInAlarm_v2_App.swift */,
 				125D911127C6F117005D99D1 /* ContentView.swift */,
 				12A675E5281CCFFC00D24E15 /* 📱Model.swift */,
@@ -162,6 +161,7 @@
 				12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */,
 				12C948092826934B00F1EAAF /* 📄Document.swift */,
 				120F098028278D20001D8FAF /* 📓SourceCodeDoc.swift */,
+				125D912927C6F2DE005D99D1 /* Info.plist */,
 				125D911327C6F118005D99D1 /* Assets.xcassets */,
 				125D911527C6F118005D99D1 /* Preview Content */,
 			);
@@ -397,7 +397,7 @@
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "FadeInAlarm-v2--Info.plist";
+				INFOPLIST_FILE = FadeInAlarm_v2_/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -425,7 +425,7 @@
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "FadeInAlarm-v2--Info.plist";
+				INFOPLIST_FILE = FadeInAlarm_v2_/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
