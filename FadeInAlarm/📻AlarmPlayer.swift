@@ -5,20 +5,13 @@ class 📻AlarmPlayer {
     
     var ⓟlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
     
-    private static let ⓓocumentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    
-    func ⓟlay(_ 🕰: Date, _ 🕛: TimeInterval) {
-        do {
-            let 🗂 = try FileManager.default.contentsOfDirectory(at: Self.ⓓocumentDirectoryURL, includingPropertiesForKeys: nil)
-            if let 💽 = 🗂.first {
-                do {
-                    self.ⓟlayer = try AVAudioPlayer(contentsOf: 💽)
-                } catch {
-                    print("🚨", error)
-                }
+    func ⓟlay(_ 🕰timeFadeIn: Date, _ 🕛hourFadein: TimeInterval) {
+        if let ⓤrl = 💾FileManager.getUserFileURL() {
+            do {
+                self.ⓟlayer = try AVAudioPlayer(contentsOf: ⓤrl)
+            } catch {
+                print("🚨", error)
             }
-        } catch {
-            print(error)
         }
         
         self.ⓟlayer.numberOfLoops = -1
@@ -31,11 +24,11 @@ class 📻AlarmPlayer {
             print("🚨", error)
         }
         
-        let ⓕrom = 🕰.formatted(date: .omitted, time: .standard)
-        let ⓣo = 🕰.addingTimeInterval(🕛).formatted(date: .omitted, time: .standard)
-        self.🪧.nowPlayingInfo![MPMediaItemPropertyTitle] = ⓕrom + " → " + ⓣo
+        let ⓕrom = 🕰timeFadeIn.formatted(date: .omitted, time: .standard)
+        let ⓣo = 🕰timeFadeIn.addingTimeInterval(🕛hourFadein).formatted(date: .omitted, time: .standard)
+        self.🪧nowPlayingCenter.nowPlayingInfo![MPMediaItemPropertyTitle] = ⓕrom + " → " + ⓣo
         
-        self.🪧.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = self.ⓟlayer.url?.lastPathComponent
+        self.🪧nowPlayingCenter.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = self.ⓟlayer.url?.lastPathComponent
         
         self.ⓟlayer.play()
         
@@ -45,7 +38,7 @@ class 📻AlarmPlayer {
                                                object: AVAudioSession.sharedInstance())
     }
     
-    private let 🪧: MPNowPlayingInfoCenter = {
+    private let 🪧nowPlayingCenter: MPNowPlayingInfoCenter = {
         let ⓒenter = MPNowPlayingInfoCenter.default()
         let ⓐrtwork = MPMediaItemArtwork(boundsSize: .init(width: 1000, height: 1000)) { _ in
             UIImage(named: "COVER1000")!
@@ -70,17 +63,12 @@ class 📻AlarmPlayer {
     }
     
     func ⓟreview() {
-        do {
-            let 🗂 = try FileManager.default.contentsOfDirectory(at: Self.ⓓocumentDirectoryURL, includingPropertiesForKeys: nil)
-            if let 💽 = 🗂.first {
-                do {
-                    self.ⓟlayer = try AVAudioPlayer(contentsOf: 💽)
-                } catch {
-                    print("🚨", error)
-                }
+        if let ⓤrl = 💾FileManager.getUserFileURL() {
+            do {
+                self.ⓟlayer = try AVAudioPlayer(contentsOf: ⓤrl)
+            } catch {
+                print("🚨", error)
             }
-        } catch {
-            print(error)
         }
         self.ⓟlayer.volume = 1.0
         self.ⓟlayer.play()

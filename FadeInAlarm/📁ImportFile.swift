@@ -3,7 +3,7 @@ import AVFAudio
 
 struct 📁ImportFile: View {
     @EnvironmentObject private var 📱: 📱AppModel
-    @State private var 🚩failPlay: Bool = false
+    @State private var 🚩failToPlay: Bool = false
     var body: some View {
         HStack {
             Button {
@@ -25,34 +25,19 @@ struct 📁ImportFile: View {
         .disabled(📱.🔛phase != .powerOff)
         .padding()
         .fileImporter(isPresented: $📱.📂showImporter, allowedContentTypes: [.audio]) { ⓡesult in
-            let ⓓocumentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             do {
                 let 📦 = try ⓡesult.get()
                 if 📦.startAccessingSecurityScopedResource() {
                     if let _ = try? AVAudioPlayer(contentsOf: 📦) {
-                        do {
-                            let 🗂 = try FileManager.default.contentsOfDirectory(at: ⓓocumentDirectoryURL,
-                                                                                 includingPropertiesForKeys: nil)
-                            if let ⓞldURL = 🗂.first {
-                                do {
-                                    try FileManager.default.removeItem(at: ⓞldURL)
-                                } catch {
-                                    print("🚨", error)
-                                }
-                            }
-                        } catch {
-                            print(error)
+                        if let ⓞldURL = 💾FileManager.getUserFileURL() {
+                            💾FileManager.removeItem(at: ⓞldURL)
                         }
-                        let ⓝewURL = ⓓocumentDirectoryURL.appendingPathComponent(📦.lastPathComponent)
-                        do {
-                            try FileManager.default.copyItem(at: 📦, to: ⓝewURL)
-                            📱.💽soundFileName = ⓝewURL.lastPathComponent
-                            📱.📻alarm.ⓟreview()
-                        } catch {
-                            print("🚨", error)
-                        }
+                        let ⓝewURL = 💾FileManager.documentDirectoryURL.appendingPathComponent(📦.lastPathComponent)
+                        💾FileManager.copyItem(at: 📦, to: ⓝewURL)
+                        📱.💽soundFileName = ⓝewURL.lastPathComponent
+                        📱.📻alarm.ⓟreview()
                     } else {
-                        self.🚩failPlay = true
+                        self.🚩failToPlay = true
                     }
                 }
                 📦.stopAccessingSecurityScopedResource()
@@ -60,7 +45,7 @@ struct 📁ImportFile: View {
                 print("🚨", error)
             }
         }
-        .alert("Fail play file 😱", isPresented: self.$🚩failPlay) {
+        .alert("Fail play file 😱", isPresented: self.$🚩failToPlay) {
             EmptyView()
         }
     }

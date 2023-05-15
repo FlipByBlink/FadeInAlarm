@@ -33,20 +33,20 @@ struct 🔔IconFadeIn: View {
     @State private var ⓞpacity = 0.0
     var body: some View {
         🔔Icon(.fadeIn)
-            .scaleEffect(📱.🪧LVP🔍FadeIn)
+            .scaleEffect(📱.🔍scaleLVPFadeIn)
             .opacity(self.ⓞpacity)
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 1 / 30 , repeats: true) { _ in
-                    📱.🪧LVP🔍FadeIn += (1 - 0.4) / (30 * 4)
-                    if 📱.🪧LVP🔍FadeIn > 1.0 - (1 / 30) * 0.35 {
+                    📱.🔍scaleLVPFadeIn += (1 - 0.4) / (30 * 4)
+                    if 📱.🔍scaleLVPFadeIn > 1.0 - (1 / 30) * 0.35 {
                         self.ⓞpacity -= 1.0 / (30 * 0.35)
                     } else {
                         if self.ⓞpacity < 1.0 {
                             self.ⓞpacity += 1.0 / (30 * 0.35)
                         }
                     }
-                    if 📱.🪧LVP🔍FadeIn >= 1 && self.ⓞpacity <= 0 {
-                        📱.🪧LVP🔍FadeIn = 0.4
+                    if 📱.🔍scaleLVPFadeIn >= 1 && self.ⓞpacity <= 0 {
+                        📱.🔍scaleLVPFadeIn = 0.4
                     }
                 }
             }
@@ -64,20 +64,20 @@ struct 🔔IconFadeOut: View {
     @State private var ⓞpacity = 0.0
     var body: some View {
         🔔Icon(.fadeOut)
-            .scaleEffect(📱.🪧LVP🔍FadeOut)
+            .scaleEffect(📱.🔍scaleLVPFadeOut)
             .opacity(self.ⓞpacity)
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 1 / 30 , repeats: true) { _ in
-                    📱.🪧LVP🔍FadeOut -= (1 - 0.4) / (30 * 4)
-                    if 📱.🪧LVP🔍FadeOut < 0.4 + (1 / 30) * 0.35 {
+                    📱.🔍scaleLVPFadeOut -= (1 - 0.4) / (30 * 4)
+                    if 📱.🔍scaleLVPFadeOut < 0.4 + (1 / 30) * 0.35 {
                         self.ⓞpacity -= 1.0 / (30 * 0.35)
                     } else {
                         if self.ⓞpacity < 1.0 {
                             self.ⓞpacity += 1.0 / (30 * 0.35)
                         }
                     }
-                    if 📱.🪧LVP🔍FadeOut <= 0.4 && self.ⓞpacity <= 0 {
-                        📱.🪧LVP🔍FadeOut = 1.0
+                    if 📱.🔍scaleLVPFadeOut <= 0.4 && self.ⓞpacity <= 0 {
+                        📱.🔍scaleLVPFadeOut = 1.0
                     }
                 }
             }

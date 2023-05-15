@@ -1,8 +1,14 @@
-FadeInAlarm
-------------
-Alarm clock with taking a long time from small volume to max volume.
+FadeInAlarm: iPhone, iPad, Mac
+-------------------------------
+_Alarm clock with taking a long time from small volume to max volume._
 
-時間をかけて少しずつ音量が大きくなるアラームアプリ。
+_時間をかけて少しずつ音量が大きくなるアラームアプリ。_
+
+<img src="AppTemplate/Assets.xcassets/RoundedIcon.imageset/icon.png" width="64">
+
+<a href="https://apps.apple.com/app/id1465336070" target="blank">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+</a>
 
 
 Description
@@ -58,14 +64,23 @@ Import your favorite audio file such as mp3.
 App must be launched beforehand in advance.
 
 
-AppStore
----------
+AppStore link
+--------------
 https://apps.apple.com/app/id1465336070
 
 
-Source code
-------------
+Source code link
+-----------------
 https://github.com/FlipByBlink/FadeInAlarm_v2
+
+### Source code (Mirror) link
+https://gitlab.com/FlipByBlink/FadeInAlarm_v2_Mirror
+
+
+Contact
+--------
+sear_pandora_0x@icloud.com
+
 
 
 Demo video
@@ -94,3 +109,8 @@ This application don't collect user infomation.
 <br>
 
 * * *
+
+<!-- URL "Support page for AppStore" -->
+<!-- https://flipbyblink.github.io/❓/ -->
+<!-- URL "Privacy Policy for AppStore" -->
+<!-- https://flipbyblink.github.io/❓/#privacy-policy-for-appstore -->

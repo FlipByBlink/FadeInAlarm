@@ -6,7 +6,7 @@ struct FadeInAlarmApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack {
-                Color(.secondarySystemBackground)
+                Color(uiColor: .secondarySystemBackground)
                     .ignoresSafeArea()
                 ContentView()
             }

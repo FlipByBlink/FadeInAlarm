@@ -39,6 +39,11 @@
 		12A675E6281CCFFC00D24E15 /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱AppModel.swift */; };
 		12A675EA281D149C00D24E15 /* 🔔LocalVolumeNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */; };
 		12C9480A2826934B00F1EAAF /* 📄DocMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄DocMenu.swift */; };
+		F5E065072A12FB2700D83A7C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */; };
+		F5E065152A12FBDB00D83A7C /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E065092A12FBDB00D83A7C /* 🌏AppStoreDescription.strings */; };
+		F5E065162A12FBDB00D83A7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E0650B2A12FBDB00D83A7C /* Localizable.strings */; };
+		F5E065172A12FBDB00D83A7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E0650D2A12FBDB00D83A7C /* InfoPlist.strings */; };
+		F5E065182A12FBDB00D83A7C /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E0650F2A12FBDB00D83A7C /* 🌏VersionDescription.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -116,6 +121,15 @@
 		12A675E5281CCFFC00D24E15 /* 📱AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel.swift"; sourceTree = "<group>"; };
 		12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔔LocalVolumeNow.swift"; sourceTree = "<group>"; };
 		12C948092826934B00F1EAAF /* 📄DocMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📄DocMenu.swift"; sourceTree = "<group>"; };
+		F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F5E0650A2A12FBDB00D83A7C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = "ja.lproj/🌏AppStoreDescription.strings"; sourceTree = "<group>"; };
+		F5E0650C2A12FBDB00D83A7C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5E0650E2A12FBDB00D83A7C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F5E065102A12FBDB00D83A7C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = "ja.lproj/🌏VersionDescription.strings"; sourceTree = "<group>"; };
+		F5E065112A12FBDB00D83A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/🌏AppStoreDescription.strings"; sourceTree = "<group>"; };
+		F5E065122A12FBDB00D83A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F5E065132A12FBDB00D83A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F5E065142A12FBDB00D83A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/🌏VersionDescription.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,9 +187,22 @@
 				12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */,
 				12428DC52848523A006837F9 /* 📄DocumentView */,
 				125D912927C6F2DE005D99D1 /* Info.plist */,
+				F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */,
 				125D911327C6F118005D99D1 /* Assets.xcassets */,
+				F5E065082A12FBDB00D83A7C /* 🌏Localization */,
 			);
 			path = FadeInAlarm;
+			sourceTree = "<group>";
+		};
+		F5E065082A12FBDB00D83A7C /* 🌏Localization */ = {
+			isa = PBXGroup;
+			children = (
+				F5E0650B2A12FBDB00D83A7C /* Localizable.strings */,
+				F5E0650D2A12FBDB00D83A7C /* InfoPlist.strings */,
+				F5E065092A12FBDB00D83A7C /* 🌏AppStoreDescription.strings */,
+				F5E0650F2A12FBDB00D83A7C /* 🌏VersionDescription.strings */,
+			);
+			path = "🌏Localization";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +251,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 125D910327C6F117005D99D1;
 			productRefGroup = 125D910D27C6F117005D99D1 /* Products */;
@@ -240,7 +268,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E065072A12FB2700D83A7C /* Launch Screen.storyboard in Resources */,
+				F5E065162A12FBDB00D83A7C /* Localizable.strings in Resources */,
 				125D911427C6F118005D99D1 /* Assets.xcassets in Resources */,
+				F5E065182A12FBDB00D83A7C /* 🌏VersionDescription.strings in Resources */,
+				F5E065152A12FBDB00D83A7C /* 🌏AppStoreDescription.strings in Resources */,
+				F5E065172A12FBDB00D83A7C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +303,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F5E065092A12FBDB00D83A7C /* 🌏AppStoreDescription.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5E0650A2A12FBDB00D83A7C /* ja */,
+				F5E065112A12FBDB00D83A7C /* en */,
+			);
+			name = "🌏AppStoreDescription.strings";
+			sourceTree = "<group>";
+		};
+		F5E0650B2A12FBDB00D83A7C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5E0650C2A12FBDB00D83A7C /* ja */,
+				F5E065122A12FBDB00D83A7C /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F5E0650D2A12FBDB00D83A7C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5E0650E2A12FBDB00D83A7C /* ja */,
+				F5E065132A12FBDB00D83A7C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F5E0650F2A12FBDB00D83A7C /* 🌏VersionDescription.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5E065102A12FBDB00D83A7C /* ja */,
+				F5E065142A12FBDB00D83A7C /* en */,
+			);
+			name = "🌏VersionDescription.strings";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		125D911827C6F118005D99D1 /* Debug */ = {
@@ -401,6 +473,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FadeInAlarm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -430,6 +503,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FadeInAlarm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

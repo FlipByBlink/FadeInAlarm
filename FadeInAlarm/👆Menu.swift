@@ -3,7 +3,7 @@ import SwiftUI
 struct 👆VolumeOnWaiting: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu(📱.🔊volumeOnWaiting.description + " %") {
+        Menu("\(📱.🔊volumeOnWaiting) %") {
             Picker("Volume on waiting", selection: $📱.🔊volumeOnWaiting) {
                 Text("0 %").tag(0)
                 Text("1 %").tag(1)
@@ -28,8 +28,8 @@ struct 👆TimeFadeIn: View {
         DatePicker("Time fade-In", selection: $📱.🕰timeFadeIn, displayedComponents: .hourAndMinute)
             .labelsHidden()
             .onAppear {
-                if let 📦 = UserDefaults.standard.value(forKey: "TimeFadeIn") {
-                    📱.🕰timeFadeIn = 📦 as! Date
+                if let ⓢavedValue = UserDefaults.standard.value(forKey: "TimeFadeIn") {
+                    📱.🕰timeFadeIn = ⓢavedValue as! Date
                 } else {
                     📱.🕰timeFadeIn = .now + 180
                 }
@@ -45,14 +45,14 @@ struct 👆TimeFadeIn: View {
 struct 👆HourFadeIn: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu("+ " + (🄲hoices(rawValue: 📱.🕛hourFadein)?.ⓣext ?? "👿") ) {
+        Menu("+ " + (🄲hoices(rawValue: 📱.🕛hourFadein)?.description ?? "👿") ) {
             Picker("Hour fade-in", selection: $📱.🕛hourFadein) {
-                ForEach(🄲hoices.allCases) { Text($0.ⓣext) }
+                ForEach(🄲hoices.allCases) { Text($0.description) }
             }
         }
         .font(.body.weight(.heavy))
         .accessibilityLabel("Select hour fade-in")
-        .disabled( 📱.🔛phase != .powerOff )
+        .disabled(📱.🔛phase != .powerOff)
         .foregroundColor(📱.🔛phase != .powerOff ? .secondary : nil)
     }
     enum 🄲hoices: Double, CaseIterable, Identifiable {
@@ -63,7 +63,7 @@ struct 👆HourFadeIn: View {
         case minute30 = 1800.0
         case hour01 = 3600.0
         var id: Double { self.rawValue }
-        var ⓣext: String {
+        var description: String {
             switch self {
                 case .second10: return "0:10"
                 case .second30: return "0:30"
@@ -79,9 +79,9 @@ struct 👆HourFadeIn: View {
 struct 👆HourFadeOut: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu("+ " + (🄲hoices(rawValue: 📱.🕛hourFadeOut)?.ⓣext ?? "👿")) {
+        Menu("+ " + (🄲hoices(rawValue: 📱.🕛hourFadeOut)?.description ?? "👿")) {
             Picker("Hour fade-out", selection: 📱.$🕛hourFadeOut) {
-                ForEach(🄲hoices.allCases) { Text($0.ⓣext) }
+                ForEach(🄲hoices.allCases) { Text($0.description) }
             }
         }
         .font(.caption.bold())
@@ -95,7 +95,7 @@ struct 👆HourFadeOut: View {
         case second30 =  30.0
         case minute01 = 60.0
         var id: Double { self.rawValue }
-        var ⓣext: String {
+        var description: String {
             switch self {
                 case .second3: return "0:03"
                 case .second7: return "0:07"

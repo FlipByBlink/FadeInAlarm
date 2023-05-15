@@ -9,7 +9,7 @@ struct 🔔LocalVolumeNow: View {
                     VStack(spacing: 4) {
                         Image(systemName: "bell")
                             .font(.body.weight(.semibold))
-                        Text(📱.🔔volume.description + "%")
+                        Text("\(📱.🔔volume.description)%")
                             .font(.caption.weight(.semibold))
                             .monospacedDigit()
                     }
