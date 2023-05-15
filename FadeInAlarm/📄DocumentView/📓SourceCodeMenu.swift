@@ -1,23 +1,14 @@
-
 import SwiftUI
-
 
 struct 📓SourceCodeMenu: View {
     @Environment(\.dismiss) var 🔙: DismissAction
-    
     var body: some View {
         List {
             📑Section("📁₀")
-            
             📑Section("📁₁")
-            
             📑Section("📁₂")
-            
             📑Section("📁₃")
-            
-            
             📑BundleMainInfoDictionary()
-            
             let 🔗 = "https://github.com/FlipByBlink/FadeInAlarm_v2"
             Section {
                 Link(destination: URL(string: 🔗)!) {
@@ -37,18 +28,14 @@ struct 📓SourceCodeMenu: View {
     }
 }
 
-
 struct 📑Section: View {
     var 🄳irectoryPath: String
-    
     var 📁URL: URL {
         Bundle.main.bundleURL.appendingPathComponent(🄳irectoryPath)
     }
-    
     var 📦: [String] {
         try! FileManager.default.contentsOfDirectory(atPath: 📁URL.path)
     }
-    
     var body: some View {
         Section {
             ForEach(📦, id: \.self) { 📃 in
@@ -63,18 +50,14 @@ struct 📑Section: View {
             }
         }
     }
-    
     init(_ ⓓirectoryPath: String) {
         🄳irectoryPath = ⓓirectoryPath
     }
 }
 
-
 struct 📄View: View {
     var 📄: String
-    
     var 🏷: String
-    
     var body: some View {
         Text(📄)
             .navigationBarTitle(🏷)
@@ -82,13 +65,11 @@ struct 📄View: View {
             .font(.caption.monospaced())
             .padding()
     }
-    
     init(_ 📄: String, _ 🏷: String) {
         self.📄 = 📄
         self.🏷 = 🏷
     }
 }
-
 
 let 🄱undleMainInfoDictionary = Bundle.main.infoDictionary!.description
 struct 📑BundleMainInfoDictionary: View {
@@ -100,18 +81,5 @@ struct 📑BundleMainInfoDictionary: View {
                 }
             }
         }
-    }
-}
-
-
-
-
-
-
-
-
-struct 📓SourceCodeMenu_Previews: PreviewProvider {
-    static var previews: some View {
-        📓SourceCodeMenu()
     }
 }

@@ -1,26 +1,24 @@
-
 import SwiftUI
 
 struct 📄DocumentButton: View { // ⚙️
-    @EnvironmentObject var 📱: 📱Model
-    
+    @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         Button {
-            📱.📄DocumentAppear = true
+            📱.📄showDocument = true
         } label: {
             Image(systemName: "doc.plaintext")
                 .font(.title3)
-                .foregroundStyle(📱.🔛 == .PowerOff ? .secondary : .tertiary)
+                .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
         }
-        .disabled(📱.🔛 != .PowerOff)
+        .disabled(📱.🔛phase != .powerOff)
         .accessibilityLabel("Document")
-        .sheet(isPresented: $📱.📄DocumentAppear) {
-            NavigationView {
+        .sheet(isPresented: $📱.📄showDocument) {
+            NavigationStack {
                 📄DocumentMenu()
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                📱.📄DocumentAppear = false
+                                📱.📄showDocument = false
                             } label: {
                                 Image(systemName: "chevron.down")
                                     .foregroundStyle(.secondary)
@@ -34,19 +32,5 @@ struct 📄DocumentButton: View { // ⚙️
                     .environmentObject(📱) //patch MacOS crash
             }
         }
-    }
-}
-
-
-
-
-struct 📄DocumentButton_Previews: PreviewProvider {
-    static let 📱 = 📱Model()
-    static var previews: some View {
-        VStack {
-            📄DocumentButton()
-        }
-        .environmentObject(📱)
-        .previewLayout(.fixed(width: 500, height: 600))
     }
 }

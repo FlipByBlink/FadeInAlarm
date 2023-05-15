@@ -1,7 +1,5 @@
-
 import SwiftUI
 import MediaPlayer
-
 
 struct 🔊SystemVolume: View {
     var body: some View {
@@ -12,11 +10,7 @@ struct 🔊SystemVolume: View {
     }
 }
 
-
-struct 🎚VolumeSlider: UIViewRepresentable {
-    func makeUIView(context: Context) -> MPVolumeView {
-        MPVolumeView(frame: .zero)
-    }
-    
-    func updateUIView(_ view: MPVolumeView, context: Context) {}
+private struct 🎚VolumeSlider: UIViewRepresentable {
+    func makeUIView(context: Context) -> MPVolumeView { .init(frame: .zero) }
+    func updateUIView(_ view: MPVolumeView, context: Context) { /* Nothing to do */ }
 }

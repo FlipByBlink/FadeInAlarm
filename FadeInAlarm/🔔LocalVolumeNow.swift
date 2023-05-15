@@ -1,19 +1,15 @@
-
 import SwiftUI
 
-
 struct 🔔LocalVolumeNow: View {
-    @EnvironmentObject var 📱: 📱Model
-    
+    @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         Group {
-            if 📱.🔛 != .PowerOff {
+            if 📱.🔛phase != .powerOff {
                 ZStack {
                     VStack(spacing: 4) {
                         Image(systemName: "bell")
                             .font(.body.weight(.semibold))
-                        
-                        Text(📱.🔔Volume.description + "%")
+                        Text(📱.🔔volume.description + "%")
                             .font(.caption.weight(.semibold))
                             .monospacedDigit()
                     }
@@ -25,8 +21,7 @@ struct 🔔LocalVolumeNow: View {
                             .foregroundColor(Color(.secondarySystemBackground))
                             .opacity(0.8)
                     }
-                    
-                    if 📱.📻.ⓟlayer.isPlaying == false {
+                    if 📱.📻alarm.ⓟlayer.isPlaying == false {
                         Image(systemName: "xmark")
                             .foregroundColor(.secondary)
                             .font(.title.weight(.medium))
@@ -35,18 +30,7 @@ struct 🔔LocalVolumeNow: View {
                 .padding()
             }
         }
-        .animation(.default, value: 📱.🔔Volume)
-        .animation(.default, value: 📱.🔛)
-    }
-}
-
-
-
-
-struct 🔔LocalVolumeNow_Previews: PreviewProvider {
-    static let 📱 = 📱Model()
-    static var previews: some View {
-        🔔LocalVolumeNow()
-            .environmentObject(📱)
+        .animation(.default, value: 📱.🔔volume)
+        .animation(.default, value: 📱.🔛phase)
     }
 }

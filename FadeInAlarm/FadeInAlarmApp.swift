@@ -1,18 +1,13 @@
-
 import SwiftUI
 
-
 @main
-struct FadeInAlarm_v2_App: App {
-    
-    @StateObject var 📱 = 📱Model()
-    
+struct FadeInAlarmApp: App {
+    @StateObject private var 📱 = 📱AppModel()
     var body: some Scene {
         WindowGroup {
             ZStack {
                 Color(.secondarySystemBackground)
                     .ignoresSafeArea()
-                
                 ContentView()
             }
             .overlay(alignment: .bottomTrailing) {

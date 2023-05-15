@@ -1,22 +1,17 @@
-
 import SwiftUI
 
 struct 📄DocumentMenu: View {
     var body: some View {
         List {
             Section {
-                let 🔗 = "https://apps.apple.com/app/id1465336070"
-                Link(destination: URL(string: 🔗)!) {
+                Link(destination: URL(string: "https://apps.apple.com/app/id1465336070")!) {
                     HStack {
                         Label("Open AppStore page", systemImage: "link")
-                        
                         Spacer()
-                        
                         Image(systemName: "arrow.up.forward.app")
                     }
                 }
                 .font(.subheadline)
-                
                 Text("""
                     Alarm clock with taking a long time from small volume to max volume.
                     任意の時刻になるとゆったりと少しずつ音量が大きくなるアラームアプリ。
@@ -54,14 +49,12 @@ struct 📄DocumentMenu: View {
                     """)
                 .font(.subheadline)
                 .padding(8)
-                
                 Label("version 2.1", systemImage: "signpost.left")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             } header: {
                 Text("About")
             }
-            
             Section {
                 Text("""
                     2022-02-25
@@ -73,7 +66,6 @@ struct 📄DocumentMenu: View {
             } header: {
                 Text("Privacy Policy")
             }
-            
             NavigationLink {
                 📓SourceCodeMenu()
             } label: {
@@ -81,19 +73,5 @@ struct 📄DocumentMenu: View {
             }
             .font(.subheadline)
         }
-    }
-}
-
-
-
-
-struct 📄DocumentMenu_Previews: PreviewProvider {
-    static let 📱 = 📱Model()
-    static var previews: some View {
-        VStack {
-            📄DocumentMenu()
-        }
-        .environmentObject(📱)
-        .previewLayout(.fixed(width: 500, height: 600))
     }
 }

@@ -1,14 +1,12 @@
-# ⏰ FadeInAlarm ver 2.x
-
-
+FadeInAlarm
+------------
 Alarm clock with taking a long time from small volume to max volume.
-
 
 時間をかけて少しずつ音量が大きくなるアラームアプリ。
 
 
-## 📄 Description
-
+Description
+------------
 Alarm clock with taking a long time from small volume to max volume.
 
 [ OPTIONS ]
@@ -60,28 +58,28 @@ Import your favorite audio file such as mp3.
 App must be launched beforehand in advance.
 
 
-## 🔗 AppStore
+AppStore
+---------
 https://apps.apple.com/app/id1465336070
 
 
-## 🔗 Source code
+Source code
+------------
 https://github.com/FlipByBlink/FadeInAlarm_v2
 
 
-## 📺 Demo video
+Demo video
+-----------
 https://www.youtube.com/watch?v=d66thA-K5Dg
 
 
-
-
-------
+* * *
 
 <br>
-
 <br>
 
-
-## Privacy Policy for AppStore
+Privacy Policy for AppStore
+-----------------------------
 2022-02-25
 
 
@@ -93,7 +91,6 @@ This application don't collect user infomation.
 
 
 <br>
-
 <br>
 
-------
+* * *
