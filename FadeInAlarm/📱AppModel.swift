@@ -11,7 +11,7 @@ class 📱AppModel: ObservableObject {
     @AppStorage("HourFadeOut") var 🕛hourFadeOut: Double = 3.0
     
     @Published var 🔛phase: 🔛Phase = .powerOff
-    @Published var 🔔volume: Int = 0
+    @Published var 🔔localVolume: Int = 0
     
     @Published var 🔍scaleLVPFadeIn: Double = 0.4
     @Published var 🔍scaleLVPFadeOut: Double = 0.4
@@ -45,7 +45,7 @@ class 📱AppModel: ObservableObject {
                     MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
                     ⓣimer.invalidate()
             }
-            self.🔔volume = Int(self.📻player.volume * 100)
+            self.🔔localVolume = Int(self.📻player.volume * 100)
         }
         MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
             self.🔛phase = .fadeOut

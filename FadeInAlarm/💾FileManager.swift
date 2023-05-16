@@ -29,6 +29,7 @@ extension 💾FileManager {
             assertionFailure(); return nil
         }
     }
+    static func getImportedFileName() -> String? { Self.getImportedFileURL()?.lastPathComponent }
     static func urlToSave(_ ⓕileName: String) -> URL {
         Self.documentDirectoryURL.appendingPathComponent(ⓕileName)
     }

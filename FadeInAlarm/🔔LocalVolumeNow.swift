@@ -9,7 +9,7 @@ struct 🔔LocalVolumeNow: View {
                     VStack(spacing: 4) {
                         Image(systemName: "bell")
                             .font(.body.weight(.semibold))
-                        Text("\(📱.🔔volume)%")
+                        Text("\(📱.🔔localVolume)%")
                             .font(.caption.weight(.semibold))
                             .monospacedDigit()
                     }
@@ -30,7 +30,7 @@ struct 🔔LocalVolumeNow: View {
                 .padding()
             }
         }
-        .animation(.default, value: 📱.🔔volume)
+        .animation(.default, value: 📱.🔔localVolume)
         .animation(.default, value: 📱.🔛phase)
     }
 }

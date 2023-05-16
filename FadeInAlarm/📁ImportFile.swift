@@ -4,7 +4,7 @@ import AVFAudio
 struct 📁ImportFileSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var 🚩showImporter: Bool = false
-    @State private var ⓕileName: String
+    @State private var ⓕileName: String = 💾FileManager.getImportedFileName() ?? "preset.mp3"
     @State private var 🚩failToImport: Bool = false
     var body: some View {
         HStack {
@@ -28,9 +28,6 @@ struct 📁ImportFileSection: View {
         .padding()
         .fileImporter(isPresented: self.$🚩showImporter, allowedContentTypes: [.audio]) { self.importAction($0) }
         .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
-    }
-    init() {
-        self.ⓕileName = 💾FileManager.getImportedFileURL()?.lastPathComponent ?? "preset.mp3"
     }
     private func importAction(_ ⓡesult: Result<URL, Error>) {
         do {

@@ -39,6 +39,7 @@
 		12A675E6281CCFFC00D24E15 /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱AppModel.swift */; };
 		12A675EA281D149C00D24E15 /* 🔔LocalVolumeNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */; };
 		12C9480A2826934B00F1EAAF /* 📄DocMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄DocMenu.swift */; };
+		F5A5E6C32A14498100ED931B /* 📝DiagramBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A5E6C22A14498100ED931B /* 📝DiagramBoard.swift */; };
 		F5E065072A12FB2700D83A7C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */; };
 		F5E065152A12FBDB00D83A7C /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E065092A12FBDB00D83A7C /* 🌏AppStoreDescription.strings */; };
 		F5E065162A12FBDB00D83A7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E0650B2A12FBDB00D83A7C /* Localizable.strings */; };
@@ -122,6 +123,7 @@
 		12A675E5281CCFFC00D24E15 /* 📱AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel.swift"; sourceTree = "<group>"; };
 		12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔔LocalVolumeNow.swift"; sourceTree = "<group>"; };
 		12C948092826934B00F1EAAF /* 📄DocMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📄DocMenu.swift"; sourceTree = "<group>"; };
+		F5A5E6C22A14498100ED931B /* 📝DiagramBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📝DiagramBoard.swift"; sourceTree = "<group>"; };
 		F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F5E0650A2A12FBDB00D83A7C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = "ja.lproj/🌏AppStoreDescription.strings"; sourceTree = "<group>"; };
 		F5E0650C2A12FBDB00D83A7C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				125D911127C6F117005D99D1 /* ContentView.swift */,
 				12A675E5281CCFFC00D24E15 /* 📱AppModel.swift */,
 				125D911E27C6F18F005D99D1 /* 📻AlarmPlayer.swift */,
+				F5A5E6C22A14498100ED931B /* 📝DiagramBoard.swift */,
 				125D912127C6F18F005D99D1 /* 🔛Phase.swift */,
 				125D912227C6F18F005D99D1 /* 🔘MainButton.swift */,
 				124A43DA27E5B73C00DB1447 /* 👆Picker.swift */,
@@ -302,6 +305,7 @@
 				124A43DB27E5B73C00DB1447 /* 👆Picker.swift in Sources */,
 				12A675E6281CCFFC00D24E15 /* 📱AppModel.swift in Sources */,
 				12C9480A2826934B00F1EAAF /* 📄DocMenu.swift in Sources */,
+				F5A5E6C32A14498100ED931B /* 📝DiagramBoard.swift in Sources */,
 				125D912627C6F18F005D99D1 /* 🔊SystemVolumeSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
