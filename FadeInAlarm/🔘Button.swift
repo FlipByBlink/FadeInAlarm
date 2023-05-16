@@ -25,47 +25,48 @@ struct 🔘Button: View {
         .animation(.default, value: 📱.🔛phase)
     }
     private func ⓐction() {
-        if 📱.🔛phase == .powerOff { // ⏻
-            📱.🔛phase = .waiting
-            📱.📻alarm.ⓟlay(📱.🕰timeFadeIn, 📱.🕛hourFadein)
-            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { ⓣimer in
-                switch 📱.🔛phase {
-                    case .waiting:
-                        📱.📻alarm.ⓟlayer.volume = Float(📱.🔊volumeOnWaiting) / 100
-                        let ⓝow = Date.now.formatted(date: .omitted, time: .shortened)
-                        let ⓐlarmTime = 📱.🕰timeFadeIn.formatted(date: .omitted, time: .shortened)
-                        if ⓝow == ⓐlarmTime { 📱.🔛phase = .fadeIn }
-                    case .fadeIn:
-                        📱.📻alarm.ⓟlayer.volume += Float(0.5 / 📱.🕛hourFadein)
-                        if 📱.📻alarm.ⓟlayer.volume > 1.0 {
-                            📱.📻alarm.ⓟlayer.volume = 1.0
-                            📱.🔛phase = .maxVolume
-                        }
-                    case .maxVolume:
-                        break
-                    case .fadeOut:
-                        📱.📻alarm.ⓟlayer.volume -= Float(0.5 / 📱.🕛hourFadeOut)
-                        if 📱.📻alarm.ⓟlayer.volume < 0.0 {
-                            📱.📻alarm.ⓟlayer.volume = 0.0
-                            📱.🔛phase = .powerOff
-                        }
-                    case .powerOff:
-                        📱.📻alarm.ⓟlayer.stop()
-                        MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
-                        ⓣimer.invalidate()
+        switch 📱.🔛phase {
+            case .powerOff: // ⏻
+                📱.🔛phase = .waiting
+                📱.📻player.play(📱.🕰timeFadeIn, 📱.🕛hourFadein)
+                Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { ⓣimer in
+                    switch 📱.🔛phase {
+                        case .waiting:
+                            📱.📻player.volume = Float(📱.🔊volumeOnWaiting) / 100
+                            let ⓝow = Date.now.formatted(date: .omitted, time: .shortened)
+                            let ⓐlarmTime = 📱.🕰timeFadeIn.formatted(date: .omitted, time: .shortened)
+                            if ⓝow == ⓐlarmTime { 📱.🔛phase = .fadeIn }
+                        case .fadeIn:
+                            📱.📻player.volume += Float(0.5 / 📱.🕛hourFadein)
+                            if 📱.📻player.volume > 1.0 {
+                                📱.📻player.volume = 1.0
+                                📱.🔛phase = .maxVolume
+                            }
+                        case .maxVolume:
+                            break
+                        case .fadeOut:
+                            📱.📻player.volume -= Float(0.5 / 📱.🕛hourFadeOut)
+                            if 📱.📻player.volume < 0.0 {
+                                📱.📻player.volume = 0.0
+                                📱.🔛phase = .powerOff
+                            }
+                        case .powerOff:
+                            📱.📻player.stop()
+                            MPRemoteCommandCenter.shared().stopCommand.removeTarget(nil)
+                            ⓣimer.invalidate()
+                    }
+                    📱.🔔volume = Int(📱.📻player.volume * 100)
                 }
-                📱.🔔volume = Int(📱.📻alarm.ⓟlayer.volume * 100)
-            }
-            MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
-                📱.🔛phase = .fadeOut
-                return .success
-            }
-        } else { // ✓
-            if 📱.🔛phase == .waiting {
+                MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
+                    📱.🔛phase = .fadeOut
+                    return .success
+                }
+            case .waiting: // ✓
                 📱.🔛phase = .powerOff
-            } else {
+            case .fadeIn, .maxVolume: // ✓
                 📱.🔛phase = .fadeOut
-            }
+            case .fadeOut: // ✓
+                break
         }
     }
 }

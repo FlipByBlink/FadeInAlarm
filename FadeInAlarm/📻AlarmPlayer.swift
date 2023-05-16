@@ -3,35 +3,38 @@ import MediaPlayer
 
 class 📻AlarmPlayer {
     
-    var ⓟlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
+    private var ⓐudioPlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "PRESET")!.data)
     
-    func ⓟlay(_ 🕰timeFadeIn: Date, _ 🕛hourFadein: TimeInterval) {
-        if let ⓤrl = 💾FileManager.getUserFileURL() {
+    var isPlaying: Bool { self.ⓐudioPlayer.isPlaying }
+    
+    var volume: Float {
+        get { self.ⓐudioPlayer.volume }
+        set { self.ⓐudioPlayer.volume = newValue }
+    }
+    
+    func stop() { self.ⓐudioPlayer.stop() }
+    
+    func play(_ 🕰timeFadeIn: Date, _ 🕛hourFadein: TimeInterval) {
+        if let ⓤrl = 💾FileManager.getImportedFileURL() {
             do {
-                self.ⓟlayer = try AVAudioPlayer(contentsOf: ⓤrl)
+                self.ⓐudioPlayer = try AVAudioPlayer(contentsOf: ⓤrl)
             } catch {
                 print("🚨", error)
             }
         }
-        
-        self.ⓟlayer.numberOfLoops = -1
-        self.ⓟlayer.volume = 0
-        self.ⓟlayer.prepareToPlay()
-        
+        self.ⓐudioPlayer.numberOfLoops = -1
+        self.ⓐudioPlayer.volume = 0
+        self.ⓐudioPlayer.prepareToPlay()
         do {
             try AVAudioSession().setCategory(.playback)
         } catch {
             print("🚨", error)
         }
-        
         let ⓕrom = 🕰timeFadeIn.formatted(date: .omitted, time: .standard)
         let ⓣo = 🕰timeFadeIn.addingTimeInterval(🕛hourFadein).formatted(date: .omitted, time: .standard)
         self.🪧nowPlayingCenter.nowPlayingInfo![MPMediaItemPropertyTitle] = ⓕrom + " → " + ⓣo
-        
-        self.🪧nowPlayingCenter.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = self.ⓟlayer.url?.lastPathComponent
-        
-        self.ⓟlayer.play()
-        
+        self.🪧nowPlayingCenter.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = self.ⓐudioPlayer.url?.lastPathComponent
+        self.ⓐudioPlayer.play()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.🚦handleInterruption),
                                                name: AVAudioSession.interruptionNotification,
@@ -56,21 +59,30 @@ class 📻AlarmPlayer {
             return
         }
         switch ⓣype {
-            case .began: self.ⓟlayer.pause()
-            case .ended: self.ⓟlayer.play()
+            case .began: self.ⓐudioPlayer.pause()
+            case .ended: self.ⓐudioPlayer.play()
             default: print("👿")
         }
     }
     
-    func ⓟreview() {
-        if let ⓤrl = 💾FileManager.getUserFileURL() {
+    func preview() {
+        if let ⓤrl = 💾FileManager.getImportedFileURL() {
             do {
-                self.ⓟlayer = try AVAudioPlayer(contentsOf: ⓤrl)
+                self.ⓐudioPlayer = try AVAudioPlayer(contentsOf: ⓤrl)
             } catch {
                 print("🚨", error)
             }
         }
-        self.ⓟlayer.volume = 1.0
-        self.ⓟlayer.play()
+        self.ⓐudioPlayer.volume = 1.0
+        self.ⓐudioPlayer.play()
+    }
+    
+    static func loadable(_ ⓤrl: URL) -> Bool {
+        do {
+            let _ = try AVAudioPlayer(contentsOf: ⓤrl)
+            return true
+        } catch {
+            return false
+        }
     }
 }

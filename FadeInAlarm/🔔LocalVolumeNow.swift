@@ -9,7 +9,7 @@ struct 🔔LocalVolumeNow: View {
                     VStack(spacing: 4) {
                         Image(systemName: "bell")
                             .font(.body.weight(.semibold))
-                        Text("\(📱.🔔volume.description)%")
+                        Text("\(📱.🔔volume)%")
                             .font(.caption.weight(.semibold))
                             .monospacedDigit()
                     }
@@ -21,7 +21,7 @@ struct 🔔LocalVolumeNow: View {
                             .foregroundColor(Color(.secondarySystemBackground))
                             .opacity(0.8)
                     }
-                    if 📱.📻alarm.ⓟlayer.isPlaying == false {
+                    if 📱.📻player.isPlaying == false {
                         Image(systemName: "xmark")
                             .foregroundColor(.secondary)
                             .font(.title.weight(.medium))

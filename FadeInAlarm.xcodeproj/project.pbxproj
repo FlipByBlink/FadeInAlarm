@@ -44,6 +44,7 @@
 		F5E065162A12FBDB00D83A7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E0650B2A12FBDB00D83A7C /* Localizable.strings */; };
 		F5E065172A12FBDB00D83A7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E0650D2A12FBDB00D83A7C /* InfoPlist.strings */; };
 		F5E065182A12FBDB00D83A7C /* 🌏VersionDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E0650F2A12FBDB00D83A7C /* 🌏VersionDescription.strings */; };
+		F5E0651A2A1353B000D83A7C /* 💾FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E065192A1353B000D83A7C /* 💾FileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -130,6 +131,7 @@
 		F5E065122A12FBDB00D83A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5E065132A12FBDB00D83A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F5E065142A12FBDB00D83A7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/🌏VersionDescription.strings"; sourceTree = "<group>"; };
+		F5E065192A1353B000D83A7C /* 💾FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💾FileManager.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				12A081912821027600C8040A /* 🪧LocalVolumePercentage.swift */,
 				125D912027C6F18F005D99D1 /* 🔊SystemVolume.swift */,
 				12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */,
+				F5E065192A1353B000D83A7C /* 💾FileManager.swift */,
 				12428DC52848523A006837F9 /* 📄DocumentView */,
 				125D912927C6F2DE005D99D1 /* Info.plist */,
 				F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */,
@@ -291,6 +294,7 @@
 				125D911227C6F117005D99D1 /* ContentView.swift in Sources */,
 				125D911027C6F117005D99D1 /* FadeInAlarmApp.swift in Sources */,
 				12A081922821027600C8040A /* 🪧LocalVolumePercentage.swift in Sources */,
+				F5E0651A2A1353B000D83A7C /* 💾FileManager.swift in Sources */,
 				125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */,
 				120F098128278D20001D8FAF /* 📓SourceCodeMenu.swift in Sources */,
 				125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */,

@@ -3,12 +3,11 @@ import AVFAudio
 
 struct 📁ImportFile: View {
     @EnvironmentObject private var 📱: 📱AppModel
-    @State private var 🚩failToPlay: Bool = false
     var body: some View {
         HStack {
             Button {
                 📱.📂showImporter.toggle()
-                📱.📻alarm.ⓟlayer.stop()
+                📱.📻player.stop()
             } label: {
                 HStack(spacing: 7) {
                     Image(systemName: "folder")
@@ -20,45 +19,52 @@ struct 📁ImportFile: View {
                 .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
             }
             .accessibilityLabel("Import file")
-            📁FilePreview()
+            🄿reviewButton()
         }
         .disabled(📱.🔛phase != .powerOff)
         .padding()
-        .fileImporter(isPresented: $📱.📂showImporter, allowedContentTypes: [.audio]) { ⓡesult in
-            do {
-                let 📦 = try ⓡesult.get()
-                if 📦.startAccessingSecurityScopedResource() {
-                    if let _ = try? AVAudioPlayer(contentsOf: 📦) {
-                        if let ⓞldURL = 💾FileManager.getUserFileURL() {
-                            💾FileManager.removeItem(at: ⓞldURL)
-                        }
-                        let ⓝewURL = 💾FileManager.documentDirectoryURL.appendingPathComponent(📦.lastPathComponent)
-                        💾FileManager.copyItem(at: 📦, to: ⓝewURL)
-                        📱.💽soundFileName = ⓝewURL.lastPathComponent
-                        📱.📻alarm.ⓟreview()
-                    } else {
-                        self.🚩failToPlay = true
-                    }
-                }
-                📦.stopAccessingSecurityScopedResource()
-            } catch {
-                print("🚨", error)
-            }
-        }
-        .alert("Fail play file 😱", isPresented: self.$🚩failToPlay) {
-            EmptyView()
-        }
+        .modifier(🄵ileImporter())
     }
 }
 
-private struct 📁FilePreview: View {
+private struct 🄵ileImporter: ViewModifier {
+    @EnvironmentObject private var 📱: 📱AppModel
+    @State private var 🚩failToImport: Bool = false
+    func body(content: Content) -> some View {
+        content
+            .fileImporter(isPresented: $📱.📂showImporter, allowedContentTypes: [.audio]) { ⓡesult in
+                do {
+                    let ⓢelectedFileURL = try ⓡesult.get()
+                    if ⓢelectedFileURL.startAccessingSecurityScopedResource() {
+                        if 📻AlarmPlayer.loadable(ⓢelectedFileURL) {
+                            if let ⓞldFileURL = 💾FileManager.getImportedFileURL() {
+                                💾FileManager.removeItem(at: ⓞldFileURL)
+                            }
+                            let ⓝewFileURL = 💾FileManager.urlToSave(ⓢelectedFileURL.lastPathComponent)
+                            💾FileManager.copyItem(at: ⓢelectedFileURL, to: ⓝewFileURL)
+                            📱.💽soundFileName = ⓝewFileURL.lastPathComponent
+                            📱.📻player.preview()
+                        } else {
+                            self.🚩failToImport = true
+                        }
+                    }
+                    ⓢelectedFileURL.stopAccessingSecurityScopedResource()
+                } catch {
+                    print("🚨", error)
+                }
+            }
+            .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
+    }
+}
+
+private struct 🄿reviewButton: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         Button {
-            if 📱.📻alarm.ⓟlayer.isPlaying {
-                📱.📻alarm.ⓟlayer.stop()
+            if 📱.📻player.isPlaying {
+                📱.📻player.stop()
             } else {
-                📱.📻alarm.ⓟreview()
+                📱.📻player.preview()
             }
         } label: {
             Image(systemName: "playpause.fill")
@@ -67,7 +73,7 @@ private struct 📁FilePreview: View {
         .font(.subheadline)
         .buttonStyle(.bordered)
         .controlSize(.mini)
-        .tint(📱.📻alarm.ⓟlayer.isPlaying ? .red : nil)
+        .tint(📱.📻player.isPlaying ? .red : nil)
         .accessibilityLabel("Preview")
     }
 }
