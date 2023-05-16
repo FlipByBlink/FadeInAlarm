@@ -11,7 +11,7 @@ struct FadeInAlarmApp: App {
                 ContentView()
             }
             .overlay(alignment: .bottomTrailing) {
-                🔘Button() // ⏻ ✓
+                🔘MainButton() // ⏻ ✓
             }
             .overlay(alignment: .bottomLeading) {
                 🔔LocalVolumeNow()

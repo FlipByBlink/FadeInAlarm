@@ -14,30 +14,24 @@ struct ContentView: View {
                         .scaleEffect(1.2)
                         .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
                         .accessibilityHidden(true)
-                    if 📱.🔛phase == .powerOff {
-                        Image(systemName: "arrow.left") // ←
-                            .foregroundStyle(.secondary)
-                            .padding(.leading, 4)
-                    }
+                    self.ⓟhaseIndicator(.powerOff)
+                        .foregroundStyle(.secondary)
+                        .padding(.leading, 4)
                 }
                 HStack {
-                    👆VolumeOnWaiting()
+                    👆WaitingVolumePicker()
                     🔔IconWaiting()
-                    if 📱.🔛phase == .waiting {
-                        Image(systemName: "arrow.left") // ←
-                    }
+                    self.ⓟhaseIndicator(.waiting)
                 }
                 HStack {
                     🪧LocalVolumePercentage(📱.🔊volumeOnWaiting)
-                    👆TimeFadeIn()
+                    👆FadeInTimePicker()
                 }
                 HStack {
                     🪧LocalVolumePercentageFadeIn()
                     🔔IconFadeIn()
-                    👆HourFadeIn()
-                    if 📱.🔛phase == .fadeIn {
-                        Image(systemName: "arrow.left") // ←
-                    }
+                    👆FadeInHourPicker()
+                    self.ⓟhaseIndicator(.fadeIn)
                 }
                 HStack {
                     🪧LocalVolumePercentage(100)
@@ -51,9 +45,7 @@ struct ContentView: View {
                     Image(systemName: "repeat")
                         .font(.caption.weight(.semibold))
                         .foregroundStyle(.tertiary)
-                    if 📱.🔛phase == .maxVolume {
-                        Image(systemName: "arrow.left") // ←
-                    }
+                    self.ⓟhaseIndicator(.maxVolume)
                 }
                 Divider ()
                     .padding(.vertical, 10)
@@ -67,10 +59,8 @@ struct ContentView: View {
                 HStack {
                     🪧LocalVolumePercentageFadeOut()
                     🔔IconFadeOut()
-                    👆HourFadeOut()
-                    if 📱.🔛phase == .fadeOut {
-                        Image(systemName: "arrow.left") // ←
-                    }
+                    👆FadeOutHourPicker()
+                    self.ⓟhaseIndicator(.fadeOut)
                 }
             }
             .padding(.vertical, 28)
@@ -85,8 +75,8 @@ struct ContentView: View {
             HStack {
                 Spacer()
                 VStack(spacing: 36) {
-                    🔊SystemVolume()
-                    📁ImportFile()
+                    🔊SystemVolumeSlider()
+                    📁ImportFileSection()
                     📄DocumentButton()
                 }
                 .padding()
@@ -95,5 +85,8 @@ struct ContentView: View {
             }
         }
         .animation(.default, value: 📱.🔛phase)
+    }
+    private func ⓟhaseIndicator(_ ⓟhase: 🔛Phase) -> some View { // ←
+        Group { if 📱.🔛phase == ⓟhase { Image(systemName: "arrow.left") } }
     }
 }

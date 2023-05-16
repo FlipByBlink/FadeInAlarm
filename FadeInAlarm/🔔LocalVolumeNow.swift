@@ -18,7 +18,7 @@ struct 🔔LocalVolumeNow: View {
                     .padding()
                     .background {
                         Circle()
-                            .foregroundColor(Color(.secondarySystemBackground))
+                            .foregroundColor(Color(uiColor: .secondarySystemBackground))
                             .opacity(0.8)
                     }
                     if 📱.📻player.isPlaying == false {

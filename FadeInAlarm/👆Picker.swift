@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct 👆VolumeOnWaiting: View {
+struct 👆WaitingVolumePicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         Menu("\(📱.🔊volumeOnWaiting) %") {
@@ -22,7 +22,7 @@ struct 👆VolumeOnWaiting: View {
     }
 }
 
-struct 👆TimeFadeIn: View {
+struct 👆FadeInTimePicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         DatePicker("Time fade-In", selection: $📱.🕰timeFadeIn, displayedComponents: .hourAndMinute)
@@ -42,12 +42,12 @@ struct 👆TimeFadeIn: View {
     }
 }
 
-struct 👆HourFadeIn: View {
+struct 👆FadeInHourPicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu("+ " + (🄲hoices(rawValue: 📱.🕛hourFadein)?.description ?? "👿") ) {
+        Menu("+ " + (Self.🄲hoices(rawValue: 📱.🕛hourFadein)?.description ?? "👿") ) {
             Picker("Hour fade-in", selection: $📱.🕛hourFadein) {
-                ForEach(🄲hoices.allCases) { Text($0.description) }
+                ForEach(Self.🄲hoices.allCases) { Text($0.description) }
             }
         }
         .font(.body.weight(.heavy))
@@ -76,12 +76,12 @@ struct 👆HourFadeIn: View {
     }
 }
 
-struct 👆HourFadeOut: View {
+struct 👆FadeOutHourPicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu("+ " + (🄲hoices(rawValue: 📱.🕛hourFadeOut)?.description ?? "👿")) {
+        Menu("+ " + (Self.🄲hoices(rawValue: 📱.🕛hourFadeOut)?.description ?? "👿")) {
             Picker("Hour fade-out", selection: 📱.$🕛hourFadeOut) {
-                ForEach(🄲hoices.allCases) { Text($0.description) }
+                ForEach(Self.🄲hoices.allCases) { Text($0.description) }
             }
         }
         .font(.caption.bold())

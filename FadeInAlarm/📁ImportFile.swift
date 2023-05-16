@@ -1,7 +1,7 @@
 import SwiftUI
 import AVFAudio
 
-struct 📁ImportFile: View {
+struct 📁ImportFileSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         HStack {
