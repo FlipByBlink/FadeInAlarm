@@ -32,24 +32,14 @@ class 📻AlarmPlayer {
         }
         let ⓕrom = 🕰timeFadeIn.formatted(date: .omitted, time: .standard)
         let ⓣo = 🕰timeFadeIn.addingTimeInterval(🕛hourFadein).formatted(date: .omitted, time: .standard)
-        self.🪧nowPlayingCenter.nowPlayingInfo![MPMediaItemPropertyTitle] = ⓕrom + " → " + ⓣo
-        self.🪧nowPlayingCenter.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = self.ⓐudioPlayer.url?.lastPathComponent
+        🄽owPlayingInfoCenter.set(title: ⓕrom + " → " + ⓣo,
+                                  subTitle: self.ⓐudioPlayer.url?.lastPathComponent)
         self.ⓐudioPlayer.play()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.🚦handleInterruption),
                                                name: AVAudioSession.interruptionNotification,
                                                object: AVAudioSession.sharedInstance())
     }
-    
-    private let 🪧nowPlayingCenter: MPNowPlayingInfoCenter = {
-        let ⓒenter = MPNowPlayingInfoCenter.default()
-        let ⓐrtwork = MPMediaItemArtwork(boundsSize: .init(width: 1000, height: 1000)) { _ in
-            UIImage(named: "COVER1000")!
-        }
-        ⓒenter.nowPlayingInfo = [MPNowPlayingInfoPropertyIsLiveStream: true,
-                                           MPMediaItemPropertyArtwork: ⓐrtwork]
-        return ⓒenter
-    }()
     
     @objc func 🚦handleInterruption(notification: Notification) {
         guard let ⓤserInfo = notification.userInfo,
@@ -84,5 +74,18 @@ class 📻AlarmPlayer {
         } catch {
             return false
         }
+    }
+}
+
+private enum 🄽owPlayingInfoCenter {
+    private static let api: MPNowPlayingInfoCenter = .default()
+    static func set(title: String, subTitle: String?) {
+        Self.api.nowPlayingInfo = [MPNowPlayingInfoPropertyIsLiveStream: true,
+                                             MPMediaItemPropertyArtwork: Self.artwork]
+        Self.api.nowPlayingInfo![MPMediaItemPropertyTitle] = title
+        //Self.api.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = subTitle //TODO: 有効になってない。再検討
+    }
+    private static var artwork: MPMediaItemArtwork {
+        .init(boundsSize: .init(width: 1000, height: 1000)) { _ in UIImage(named: "COVER1000")! }
     }
 }
