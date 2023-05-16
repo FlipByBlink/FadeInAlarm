@@ -13,21 +13,8 @@ class 📱AppModel: ObservableObject {
     @Published var 🔛phase: 🔛Phase = .powerOff
     @Published var 🔔volume: Int = 0
     
-    @Published var 📂showImporter: Bool = false
-    @Published var 💽soundFileName: String
-    
-    @Published var 📄showDocument: Bool = false
-    
     @Published var 🔍scaleLVPFadeIn: Double = 0.4
     @Published var 🔍scaleLVPFadeOut: Double = 0.4
-    
-    init() {
-        if let ⓤserFileURL = 💾FileManager.getImportedFileURL() {
-            self.💽soundFileName = ⓤserFileURL.lastPathComponent
-        } else {
-            self.💽soundFileName = "preset.mp3"
-        }
-    }
     
     func startAlarm() {
         self.🔛phase = .waiting

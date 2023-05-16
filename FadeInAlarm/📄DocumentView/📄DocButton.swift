@@ -2,9 +2,10 @@ import SwiftUI
 
 struct 📄DocumentButton: View { // ⚙️
     @EnvironmentObject private var 📱: 📱AppModel
+    @State private var 🚩showDocument: Bool = false
     var body: some View {
         Button {
-            📱.📄showDocument = true
+            self.🚩showDocument = true
         } label: {
             Image(systemName: "doc.plaintext")
                 .font(.title3)
@@ -12,13 +13,13 @@ struct 📄DocumentButton: View { // ⚙️
         }
         .disabled(📱.🔛phase != .powerOff)
         .accessibilityLabel("Document")
-        .sheet(isPresented: $📱.📄showDocument) {
+        .sheet(isPresented: self.$🚩showDocument) {
             NavigationStack {
                 📄DocumentMenu()
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                📱.📄showDocument = false
+                                self.🚩showDocument = false
                             } label: {
                                 Image(systemName: "chevron.down")
                                     .foregroundStyle(.secondary)

@@ -3,16 +3,19 @@ import AVFAudio
 
 struct 📁ImportFileSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
+    @State private var 🚩showImporter: Bool = false
+    @State private var ⓕileName: String
+    @State private var 🚩failToImport: Bool = false
     var body: some View {
         HStack {
             Button {
-                📱.📂showImporter.toggle()
+                self.🚩showImporter = true
                 📱.📻player.stop()
             } label: {
                 HStack(spacing: 7) {
                     Image(systemName: "folder")
                         .font(.title3.weight(.semibold))
-                    Text(📱.💽soundFileName)
+                    Text(self.ⓕileName)
                         .font(.title3.bold())
                         .kerning(1.5)
                 }
@@ -23,37 +26,32 @@ struct 📁ImportFileSection: View {
         }
         .disabled(📱.🔛phase != .powerOff)
         .padding()
-        .modifier(🄵ileImporter())
+        .fileImporter(isPresented: self.$🚩showImporter, allowedContentTypes: [.audio]) { self.importAction($0) }
+        .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
     }
-}
-
-private struct 🄵ileImporter: ViewModifier {
-    @EnvironmentObject private var 📱: 📱AppModel
-    @State private var 🚩failToImport: Bool = false
-    func body(content: Content) -> some View {
-        content
-            .fileImporter(isPresented: $📱.📂showImporter, allowedContentTypes: [.audio]) { ⓡesult in
-                do {
-                    let ⓢelectedFileURL = try ⓡesult.get()
-                    if ⓢelectedFileURL.startAccessingSecurityScopedResource() {
-                        if 📻AlarmPlayer.loadable(ⓢelectedFileURL) {
-                            if let ⓞldFileURL = 💾FileManager.getImportedFileURL() {
-                                💾FileManager.removeItem(at: ⓞldFileURL)
-                            }
-                            let ⓝewFileURL = 💾FileManager.urlToSave(ⓢelectedFileURL.lastPathComponent)
-                            💾FileManager.copyItem(at: ⓢelectedFileURL, to: ⓝewFileURL)
-                            📱.💽soundFileName = ⓝewFileURL.lastPathComponent
-                            📱.📻player.preview()
-                        } else {
-                            self.🚩failToImport = true
-                        }
+    init() {
+        self.ⓕileName = 💾FileManager.getImportedFileURL()?.lastPathComponent ?? "preset.mp3"
+    }
+    private func importAction(_ ⓡesult: Result<URL, Error>) {
+        do {
+            let ⓢelectedFileURL = try ⓡesult.get()
+            if ⓢelectedFileURL.startAccessingSecurityScopedResource() {
+                if 📻AlarmPlayer.loadable(ⓢelectedFileURL) {
+                    if let ⓞldFileURL = 💾FileManager.getImportedFileURL() {
+                        💾FileManager.removeItem(at: ⓞldFileURL)
                     }
-                    ⓢelectedFileURL.stopAccessingSecurityScopedResource()
-                } catch {
-                    print("🚨", error)
+                    let ⓝewFileURL = 💾FileManager.urlToSave(ⓢelectedFileURL.lastPathComponent)
+                    💾FileManager.copyItem(at: ⓢelectedFileURL, to: ⓝewFileURL)
+                    self.ⓕileName = ⓝewFileURL.lastPathComponent
+                    📱.📻player.preview()
+                } else {
+                    self.🚩failToImport = true
                 }
             }
-            .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
+            ⓢelectedFileURL.stopAccessingSecurityScopedResource()
+        } catch {
+            print("🚨", error)
+        }
     }
 }
 
