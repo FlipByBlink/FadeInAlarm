@@ -33,11 +33,7 @@ private struct 🄼ainTab: View {
             .overlay(alignment: .bottomLeading) { 🔔LocalVolumeNow() }
             .safeAreaInset(edge: .bottom, alignment: .trailing) { 🎚️SystemVolumeSlider() }
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Text(📱.🔛phase.title)
-                        .fontWeight(.semibold)
-                        .animation(.default, value: 📱.🔛phase)
-                }
+                🗄️PhaseTitle()
                 🔘PrimaryButton()
             }
             .background {

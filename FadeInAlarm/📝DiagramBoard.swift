@@ -5,16 +5,16 @@ struct 📝DiagramBoard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                🪧LocalVolumePercentage(0)
+                🄿ercentageLabel(0)
+                    .foregroundStyle(.tertiary)
                 Image(systemName: "power.circle") // ⏻
                     .foregroundColor(.secondary)
-                    .scaleEffect(1.2)
                     .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
                     .accessibilityHidden(true)
                 Text("Set")
                     .foregroundStyle(.secondary)
-                    .font(.caption.weight(.medium))
-                    .padding(.leading, 2)
+                    .font(.caption.weight(.light))
+                    .padding(.leading, 8)
             }
             HStack {
                 👆WaitingVolumePicker()
@@ -22,19 +22,22 @@ struct 📝DiagramBoard: View {
                 🄰rrowIndicator(phase: .waiting)
             }
             HStack {
-                🪧LocalVolumePercentage(📱.🔊volumeOnWaiting)
+                🄿ercentageLabel(📱.🔊volumeOnWaiting)
+                    .foregroundStyle(.tertiary)
                 👆FadeInTimePicker()
             }
             🄵adeInHourSection()
             HStack {
-                🪧LocalVolumePercentage(100)
+                🄿ercentageLabel(100)
+                    .foregroundStyle(.tertiary)
                 🔈SpeakerIcon(.maxVolume)
                 Text(📱.🕰timeFadeIn.addingTimeInterval(📱.🕛hourFadein).formatted(date: .omitted, time: .standard))
                     .foregroundColor(.secondary)
                     .font(.footnote.weight(.light))
             }
             HStack {
-                🪧LocalVolumePercentage(100)
+                🄿ercentageLabel(100)
+                    .foregroundStyle(.tertiary)
                 🔈SpeakerIcon(.maxVolume)
                 Image(systemName: "repeat")
                     .font(.caption.weight(.semibold))
@@ -44,16 +47,16 @@ struct 📝DiagramBoard: View {
             Divider ()
                 .padding(.vertical, 10)
                 .padding(.horizontal, 16)
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 12) {
                 HStack {
-                    🪧LocalVolumePercentage(100)
+                    🄿ercentageLabel(100)
+                        .foregroundStyle(.tertiary)
                     Image(systemName: "checkmark.circle") // ✓
                         .foregroundColor(.secondary)
-                        .scaleEffect(1.2)
                     Text("Stop")
                         .foregroundStyle(.secondary)
-                        .font(.caption.weight(.medium))
-                        .padding(.leading, 2)
+                        .font(.caption.weight(.light))
+                        .padding(.leading, 8)
                 }
                 🄵adeOutHourSection()
             }
@@ -78,20 +81,35 @@ struct 📝DiagramBoard: View {
     }
 }
 
+private struct 🄿ercentageLabel: View {
+    private var ⓥalue: Int
+    var body: some View {
+        Text("\(self.ⓥalue) %")
+            .font(.caption.monospacedDigit())
+            .frame(width: 54, alignment: .trailing)
+            .lineLimit(1)
+            .minimumScaleFactor(0.1)
+    }
+    init(_ value: Int) {
+        self.ⓥalue = value
+    }
+}
+
 private struct 🄵adeInHourSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var ⓛevel: Int = 0
     @State private var ⓟause: Bool = false
-    private let 🕒timer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
+    private let ⓣimer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
     var body: some View {
         HStack {
-            🪧LocalVolumePercentage(self.ⓛevel, .secondary)
+            🄿ercentageLabel(self.ⓛevel)
+                .foregroundStyle(.secondary)
             🔈SpeakerIcon(.fadeIn(Double(self.ⓛevel) / 100))
                 .animation(.default, value: self.ⓛevel)
             👆FadeInHourPicker()
             🄰rrowIndicator(phase: .fadeIn)
         }
-        .onReceive(self.🕒timer) { _ in
+        .onReceive(self.ⓣimer) { _ in
             guard !self.ⓟause else { return }
             if self.ⓛevel == 100 {
                 Task {
@@ -111,15 +129,16 @@ private struct 🄵adeOutHourSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var ⓛevel: Int = 0
     @State private var ⓟause: Bool = false
-    private let 🕒timer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
+    private let ⓣimer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
     var body: some View {
         HStack {
             HStack {
-                🪧LocalVolumePercentage(self.ⓛevel)
+                🄿ercentageLabel(self.ⓛevel)
+                    .foregroundStyle(.tertiary)
                 🔈SpeakerIcon(.fadeOut(Double(self.ⓛevel) / 100))
                     .animation(.default, value: self.ⓛevel)
             }
-            .onReceive(self.🕒timer) { _ in
+            .onReceive(self.ⓣimer) { _ in
                 guard !self.ⓟause else { return }
                 if self.ⓛevel == 0 {
                     Task {
