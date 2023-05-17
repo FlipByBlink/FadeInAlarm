@@ -3,20 +3,20 @@ import AVFAudio
 
 struct 📁ImportFileSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
-    @State private var 🚩showImporter: Bool = false
+    @State private var 🚩presentImporter: Bool = false
     @State private var ⓕileName: String = 💾FileManager.getImportedFileName() ?? "preset.mp3"
     @State private var 🚩failToImport: Bool = false
     var body: some View {
         HStack {
             Button {
-                self.🚩showImporter = true
+                self.🚩presentImporter = true
                 📱.📻player.stop()
             } label: {
                 HStack(spacing: 7) {
                     Image(systemName: "folder")
-                        .font(.title3.weight(.semibold))
+                        .fontWeight(.semibold)
                     Text(self.ⓕileName)
-                        .font(.title3.bold())
+                        .bold()
                         .kerning(1.5)
                 }
                 .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
@@ -25,9 +25,11 @@ struct 📁ImportFileSection: View {
             🄿reviewButton()
         }
         .disabled(📱.🔛phase != .powerOff)
-        .padding()
-        .fileImporter(isPresented: self.$🚩showImporter, allowedContentTypes: [.audio]) { self.importAction($0) }
+        .padding(32)
         .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
+        .fileImporter(isPresented: self.$🚩presentImporter,
+                      allowedContentTypes: [.audio],
+                      onCompletion: self.importAction(_:))
     }
     private func importAction(_ ⓡesult: Result<URL, Error>) {
         do {
@@ -65,7 +67,7 @@ private struct 🄿reviewButton: View {
             Image(systemName: "playpause.fill")
                 .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
         }
-        .font(.subheadline)
+        .font(.caption)
         .buttonStyle(.bordered)
         .controlSize(.mini)
         .tint(📱.📻player.isPlaying ? .red : nil)

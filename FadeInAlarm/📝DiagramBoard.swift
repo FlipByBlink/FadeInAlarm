@@ -63,11 +63,12 @@ struct 📝DiagramBoard: View {
         .padding(.vertical, 28)
         .padding(.horizontal, 10)
         .background {
-            RoundedRectangle(cornerRadius: 32, style: .continuous)
-                .foregroundColor(Color(.systemBackground))
-                .shadow(radius: 6, x: -2, y: 2)
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .foregroundColor(Color(uiColor: .systemBackground))
+                .shadow(radius: 4)
         }
-        .padding(32)
+        .padding(.top, 32)
+        .padding(.horizontal, 32)
         .frame(maxWidth: 460)
     }
     private func ⓟhaseIndicator(_ ⓟhase: 🔛Phase) -> some View { // ←

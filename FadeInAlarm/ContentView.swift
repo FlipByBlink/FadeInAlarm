@@ -5,26 +5,45 @@ import MediaPlayer
 struct ContentView: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        ZStack {
-            Color(uiColor: .secondarySystemBackground)
-                .ignoresSafeArea()
+        TabView {
+            🄼ainTab()
+                .tabItem { Label("Alarm", systemImage: "alarm") }
+            Text("Option")
+                .tabItem { Label("Option", systemImage: "gear") }
+            Text("Guide")
+                .tabItem { Label("Guide", systemImage: "questionmark") }
+            📄DocumentButton()
+                .tabItem { Label("About", systemImage: "info") }
+        }
+    }
+}
+
+private struct 🄼ainTab: View {
+    @EnvironmentObject private var 📱: 📱AppModel
+    var body: some View {
+        NavigationStack {
             ScrollView {
-                📝DiagramBoard()
-                HStack {
-                    Spacer()
-                    VStack(spacing: 36) {
-                        🔊SystemVolumeSlider()
-                        📁ImportFileSection()
-                        📄DocumentButton()
-                    }
-                    .padding()
-                    .padding(.bottom, 140)
-                    Spacer()
+                VStack(spacing: 16) {
+                    📝DiagramBoard()
+                    📁ImportFileSection()
                 }
             }
+            .frame(maxWidth: .infinity)
             .animation(.default, value: 📱.🔛phase)
+            .overlay(alignment: .bottomLeading) { 🔔LocalVolumeNow() }
+            .safeAreaInset(edge: .bottom, alignment: .trailing) { 🔊SystemVolumeSlider() }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text(📱.🔛phase.title)
+                        .fontWeight(.semibold)
+                        .animation(.default, value: 📱.🔛phase)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) { 🔘MainButton() }
+            }
+            .background {
+                Color(uiColor: .secondarySystemBackground)
+                    .ignoresSafeArea()
+            }
         }
-        .overlay(alignment: .bottomTrailing) { 🔘MainButton() } // ⏻ ✓
-        .overlay(alignment: .bottomLeading) { 🔔LocalVolumeNow() }
     }
 }

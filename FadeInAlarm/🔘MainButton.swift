@@ -13,12 +13,11 @@ struct 🔘MainButton: View {
             }
         } label: {
             Image(systemName: 📱.🔛phase == .powerOff ? "power.circle.fill" : "checkmark.circle.fill")
-                .font(.system(size: 96))
+                .font(.title.weight(.medium))
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(Color(uiColor: .systemBackground), self.ⓒolor)
-                .shadow(radius: 4, x: -2, y: 2)
+                .shadow(radius: 2)
         }
-        .padding()
         .disabled(📱.🔛phase == .fadeOut)
         .opacity(📱.🔛phase == .fadeOut ? 0.6 : 1.0)
         .accessibilityLabel(📱.🔛phase == .powerOff ? "Set alarm" : "Stop alarm")
