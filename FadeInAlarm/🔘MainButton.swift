@@ -3,13 +3,6 @@ import MediaPlayer
 
 struct 🔘MainButton: View {
     @EnvironmentObject private var 📱: 📱AppModel
-    private var ⓒolor: Color {
-        switch 📱.🔛phase {
-            case .waiting, .fadeIn, .maxVolume: return .red
-            case .fadeOut: return .gray
-            case .powerOff: return .accentColor
-        }
-    }
     var body: some View {
         Button {
             switch 📱.🔛phase {
@@ -30,5 +23,12 @@ struct 🔘MainButton: View {
         .opacity(📱.🔛phase == .fadeOut ? 0.6 : 1.0)
         .accessibilityLabel(📱.🔛phase == .powerOff ? "Set alarm" : "Stop alarm")
         .animation(.default, value: 📱.🔛phase)
+    }
+    private var ⓒolor: Color {
+        switch 📱.🔛phase {
+            case .waiting, .fadeIn, .maxVolume: return .red
+            case .fadeOut: return .gray
+            case .powerOff: return .accentColor
+        }
     }
 }

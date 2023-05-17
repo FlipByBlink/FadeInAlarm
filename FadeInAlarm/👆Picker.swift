@@ -45,9 +45,9 @@ struct 👆FadeInTimePicker: View {
 struct 👆FadeInHourPicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu("+ " + (Self.🄲hoices(rawValue: 📱.🕛hourFadein)?.description ?? "👿") ) {
+        Menu("+ " + (Self.🄾ption(rawValue: 📱.🕛hourFadein)?.label ?? "👿") ) {
             Picker("Hour fade-in", selection: $📱.🕛hourFadein) {
-                ForEach(Self.🄲hoices.allCases) { Text($0.description) }
+                ForEach(Self.🄾ption.allCases) { Text($0.label) }
             }
         }
         .font(.body.weight(.heavy))
@@ -55,22 +55,22 @@ struct 👆FadeInHourPicker: View {
         .disabled(📱.🔛phase != .powerOff)
         .foregroundColor(📱.🔛phase != .powerOff ? .secondary : nil)
     }
-    enum 🄲hoices: Double, CaseIterable, Identifiable {
-        case second10 =  10.0
+    enum 🄾ption: Double, CaseIterable, Identifiable {
+        case second10 = 10.0
         case second30 = 30.0
         case minute01 = 60.0
         case minute05 = 300.0
         case minute30 = 1800.0
         case hour01 = 3600.0
-        var id: Double { self.rawValue }
-        var description: String {
+        var id: Self { self }
+        var label: String {
             switch self {
                 case .second10: return "0:10"
                 case .second30: return "0:30"
                 case .minute01: return "1:00"
                 case .minute05: return "5:00"
                 case .minute30: return "30:00"
-                case .hour01:  return "1:00:00"
+                case .hour01: return "1:00:00"
             }
         }
     }
@@ -79,23 +79,23 @@ struct 👆FadeInHourPicker: View {
 struct 👆FadeOutHourPicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu("+ " + (Self.🄲hoices(rawValue: 📱.🕛hourFadeOut)?.description ?? "👿")) {
+        Menu("+ " + (Self.🄾ption(rawValue: 📱.🕛hourFadeOut)?.label ?? "👿")) {
             Picker("Hour fade-out", selection: 📱.$🕛hourFadeOut) {
-                ForEach(Self.🄲hoices.allCases) { Text($0.description) }
+                ForEach(Self.🄾ption.allCases) { Text($0.label) }
             }
         }
         .font(.caption.bold())
         .disabled(📱.🔛phase != .powerOff)
         .accessibilityLabel("Select hour fade-out")
     }
-    enum 🄲hoices: Double, CaseIterable, Identifiable {
-        case second3 =  3.0
-        case second7 =  7.0
+    enum 🄾ption: Double, CaseIterable, Identifiable {
+        case second3 = 3.0
+        case second7 = 7.0
         case second15 = 15.0
-        case second30 =  30.0
+        case second30 = 30.0
         case minute01 = 60.0
-        var id: Double { self.rawValue }
-        var description: String {
+        var id: Self { self }
+        var label: String {
             switch self {
                 case .second3: return "0:03"
                 case .second7: return "0:07"
@@ -106,3 +106,10 @@ struct 👆FadeOutHourPicker: View {
         }
     }
 }
+
+//TODO: 再検討
+//@AppStorage("TimeFadeIn") var 🕰timeFadeIn: Date = .now + 180
+//extension Date: RawRepresentable {
+//    public var rawValue: String { ISO8601DateFormatter().string(from: self) }
+//    public init?(rawValue: String) { self = ISO8601DateFormatter().date(from: rawValue) ?? Self() }
+//}
