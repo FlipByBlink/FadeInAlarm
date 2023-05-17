@@ -1,7 +1,7 @@
 import SwiftUI
 import MediaPlayer
 
-struct 🔊SystemVolumeSlider: View {
+struct 🎚️SystemVolumeSlider: View {
     @Environment(\.colorScheme) var colorScheme
     private var ⓑackgroundColor: Color {
         self.colorScheme == .light ? Color(white: 0.1) : Color(uiColor: .systemBackground)

@@ -17,25 +17,3 @@ struct 🪧LocalVolumePercentage: View {
         self.ⓢhapeStyle = shapeStyle
     }
 }
-
-struct 🪧LocalVolumePercentageFadeIn: View {
-    @EnvironmentObject private var 📱: 📱AppModel
-    private var ⓟercentLabel: Int {
-        let ⓒalculation = Int(((📱.🔍scaleLVPFadeIn - 0.4) / 0.6) * 100)
-        return (ⓒalculation >= 100) ? 100 : ⓒalculation
-    }
-    var body: some View {
-        🪧LocalVolumePercentage(self.ⓟercentLabel, .secondary)
-    }
-}
-
-struct 🪧LocalVolumePercentageFadeOut: View {
-    @EnvironmentObject private var 📱: 📱AppModel
-    private var ⓟercentLabel: Int {
-        let ⓒalculation = Int(((📱.🔍scaleLVPFadeOut - 0.4) / 0.6) * 100)
-        return (ⓒalculation < 0) ? 0 : ⓒalculation
-    }
-    var body: some View {
-        🪧LocalVolumePercentage(self.ⓟercentLabel)
-    }
-}

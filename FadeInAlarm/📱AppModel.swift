@@ -13,9 +13,6 @@ class 📱AppModel: ObservableObject {
     @Published var 🔛phase: 🔛Phase = .powerOff
     @Published var 🔔localVolume: Int = 0
     
-    @Published var 🔍scaleLVPFadeIn: Double = 0.4
-    @Published var 🔍scaleLVPFadeOut: Double = 0.4
-    
     func startAlarm() {
         self.🔛phase = .waiting
         self.📻player.play(self.🕰timeFadeIn, self.🕛hourFadein)

@@ -62,7 +62,7 @@ struct 👆FadeInHourPicker: View {
         case minute05 = 300.0
         case minute30 = 1800.0
         case hour01 = 3600.0
-        var id: Self { self }
+        var id: Double { self.rawValue }
         var label: String {
             switch self {
                 case .second10: return "0:10"
@@ -94,7 +94,7 @@ struct 👆FadeOutHourPicker: View {
         case second15 = 15.0
         case second30 = 30.0
         case minute01 = 60.0
-        var id: Self { self }
+        var id: Double { self.rawValue }
         var label: String {
             switch self {
                 case .second3: return "0:03"

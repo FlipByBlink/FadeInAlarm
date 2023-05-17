@@ -31,14 +31,14 @@ private struct 🄼ainTab: View {
             .frame(maxWidth: .infinity)
             .animation(.default, value: 📱.🔛phase)
             .overlay(alignment: .bottomLeading) { 🔔LocalVolumeNow() }
-            .safeAreaInset(edge: .bottom, alignment: .trailing) { 🔊SystemVolumeSlider() }
+            .safeAreaInset(edge: .bottom, alignment: .trailing) { 🎚️SystemVolumeSlider() }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text(📱.🔛phase.title)
                         .fontWeight(.semibold)
                         .animation(.default, value: 📱.🔛phase)
                 }
-                ToolbarItem(placement: .navigationBarTrailing) { 🔘MainButton() }
+                🔘PrimaryButton()
             }
             .background {
                 Color(uiColor: .secondarySystemBackground)
