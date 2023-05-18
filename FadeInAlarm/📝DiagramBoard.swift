@@ -4,62 +4,17 @@ struct 📝DiagramBoard: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                🄿ercentageLabel(0)
-                    .foregroundStyle(.tertiary)
-                🄸con(name: "power.circle") // ⏻
-                    .foregroundColor(.secondary)
-                    .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
-                    .accessibilityHidden(true)
-                Text("Set")
-                    .foregroundStyle(.secondary)
-                    .font(.caption.weight(.light))
-            }
-            HStack {
-                👆WaitingVolumePicker()
-                🄸con(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
-                      alignment: .leading)
-                .foregroundStyle(📱.🔛phase == .waiting ? .primary : .secondary)
-                🄰rrowIndicator(phase: .waiting)
-            }
-            HStack {
-                🄿ercentageLabel(📱.🔊volumeOnWaiting)
-                    .foregroundStyle(.tertiary)
-                👆FadeInTimePicker()
-            }
-            🄵adeInHourSection()
-            HStack {
-                🄿ercentageLabel(100)
-                    .foregroundStyle(.tertiary)
-                🄸con(name: "speaker.wave.3")
-                    .foregroundStyle(.secondary)
-                Text(📱.🕰timeFadeIn.addingTimeInterval(📱.🕛hourFadein).formatted(date: .omitted, time: .standard))
-                    .foregroundColor(.secondary)
-                    .font(.footnote.weight(.light))
-            }
-            HStack {
-                🄿ercentageLabel(100)
-                    .foregroundStyle(.tertiary)
-                🄸con(name: "speaker.wave.3")
-                    .foregroundStyle(📱.🔛phase == .maxVolume ? .primary : .secondary)
-                Image(systemName: "repeat")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(📱.🔛phase == .maxVolume ? .primary : .tertiary)
-                🄰rrowIndicator(phase: .maxVolume)
-            }
-            Divider ()
+            🅂etAlarmSection()
+            🅆aitingSection()
+            🅂tartFadeInSection()
+            🄳uringFadeInSection()
+            🄴ndFadeInSection()
+            🄼axVolumeSection()
+            Divider()
                 .padding(.vertical, 10)
                 .padding(.horizontal, 16)
             VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    🄿ercentageLabel(100)
-                        .foregroundStyle(.tertiary)
-                    🄸con(name: "checkmark.circle")
-                        .foregroundColor(.secondary)
-                    Text("Stop")
-                        .foregroundStyle(.secondary)
-                        .font(.caption.weight(.light))
-                }
+                🅂topAlarmSection()
                 🄵adeOutHourSection()
             }
         }
@@ -112,19 +67,72 @@ private struct 🄸con: View {
     }
 }
 
-private struct 🄵adeInHourSection: View {
+private struct 🄰rrowIndicator: View { // ←
+    @EnvironmentObject private var 📱: 📱AppModel
+    var phase: 🔛Phase
+    var body: some View {
+        if self.phase == 📱.🔛phase { Image(systemName: "arrow.left") }
+    }
+}
+
+private struct 🅂etAlarmSection: View {
+    @EnvironmentObject private var 📱: 📱AppModel
+    var body: some View {
+        HStack {
+            🄿ercentageLabel(0)
+                .foregroundStyle(.tertiary)
+            🄸con(name: "power.circle") // ⏻
+                .foregroundColor(.secondary)
+                .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
+                .accessibilityHidden(true)
+            Text("Set")
+                .foregroundStyle(.secondary)
+                .font(.caption.weight(.light))
+        }
+    }
+}
+
+private struct 🅆aitingSection: View {
+    @EnvironmentObject private var 📱: 📱AppModel
+    private var ⓐctive: Bool { 📱.🔛phase == .waiting }
+    var body: some View {
+        HStack {
+            👆WaitingVolumePicker()
+                .foregroundColor(self.ⓐctive ? .primary : nil)
+            🄸con(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
+                  alignment: .leading)
+            .foregroundStyle(self.ⓐctive ? .primary : .secondary)
+            🄰rrowIndicator(phase: .waiting)
+        }
+    }
+}
+
+private struct 🅂tartFadeInSection: View {
+    @EnvironmentObject private var 📱: 📱AppModel
+    var body: some View {
+        HStack {
+            🄿ercentageLabel(📱.🔊volumeOnWaiting)
+                .foregroundStyle(.tertiary)
+            👆FadeInTimePicker()
+        }
+    }
+}
+
+private struct 🄳uringFadeInSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var ⓛevel: Int = 0
     @State private var ⓟause: Bool = false
     private let ⓣimer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
     private var ⓦaveValue: Int { Int(Double(self.ⓛevel) / 34) + 1 }
+    private var ⓐctive: Bool { 📱.🔛phase == .fadeIn }
     var body: some View {
         HStack {
             🄿ercentageLabel(self.ⓛevel)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(self.ⓐctive ? .primary : .secondary)
             🄸con(name: "speaker.wave.\(self.ⓦaveValue)", alignment: .leading)
-                .foregroundStyle(📱.🔛phase == .fadeIn ? .primary : .secondary)
+                .foregroundStyle(self.ⓐctive ? .primary : .secondary)
             👆FadeInHourPicker()
+                .foregroundColor(self.ⓐctive ? .primary : nil)
             🄰rrowIndicator(phase: .fadeIn)
         }
         .onReceive(self.ⓣimer) { _ in self.ⓣimerAction() }
@@ -144,6 +152,53 @@ private struct 🄵adeInHourSection: View {
     }
 }
 
+private struct 🄴ndFadeInSection: View {
+    @EnvironmentObject private var 📱: 📱AppModel
+    var body: some View {
+        HStack {
+            🄿ercentageLabel(100)
+                .foregroundStyle(.tertiary)
+            🄸con(name: "speaker.wave.3")
+                .foregroundStyle(.secondary)
+            Text(📱.🕰timeFadeIn.addingTimeInterval(📱.🕛hourFadein).formatted(date: .omitted, time: .standard))
+                .foregroundColor(.secondary)
+                .font(.footnote.weight(.light))
+        }
+    }
+}
+
+private struct 🄼axVolumeSection: View {
+    @EnvironmentObject private var 📱: 📱AppModel
+    private var ⓐctive: Bool { 📱.🔛phase == .maxVolume }
+    var body: some View {
+        HStack {
+            🄿ercentageLabel(100)
+                .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
+            🄸con(name: "speaker.wave.3")
+                .foregroundStyle(self.ⓐctive ? .primary : .secondary)
+            Image(systemName: "repeat")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
+            🄰rrowIndicator(phase: .maxVolume)
+        }
+    }
+}
+
+private struct 🅂topAlarmSection: View {
+    @EnvironmentObject private var 📱: 📱AppModel
+    var body: some View {
+        HStack {
+            🄿ercentageLabel(100)
+                .foregroundStyle(.tertiary)
+            🄸con(name: "checkmark.circle")
+                .foregroundColor(.secondary)
+            Text("Stop")
+                .foregroundStyle(.secondary)
+                .font(.caption.weight(.light))
+        }
+    }
+}
+
 private struct 🄵adeOutHourSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var ⓛevel: Int = 0
@@ -158,13 +213,15 @@ private struct 🄵adeOutHourSection: View {
             default: return "bug"
         }
     }
+    private var ⓐctive: Bool { 📱.🔛phase == .fadeOut }
     var body: some View {
         HStack {
             🄿ercentageLabel(self.ⓛevel)
-                .foregroundStyle(.tertiary)
+                .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
             🄸con(name: self.ⓘmageName, alignment: .leading)
-                .foregroundStyle(📱.🔛phase == .fadeOut ? .primary : .tertiary)
+                .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
             👆FadeOutHourPicker()
+                .foregroundColor(self.ⓐctive ? .primary : nil)
             🄰rrowIndicator(phase: .fadeOut)
         }
         .onReceive(self.ⓣimer) { _ in self.ⓣimerAction() }
@@ -181,13 +238,5 @@ private struct 🄵adeOutHourSection: View {
         } else {
             self.ⓛevel -= 1
         }
-    }
-}
-
-private struct 🄰rrowIndicator: View { // ←
-    @EnvironmentObject private var 📱: 📱AppModel
-    var phase: 🔛Phase
-    var body: some View {
-        if self.phase == 📱.🔛phase { Image(systemName: "arrow.left") }
     }
 }

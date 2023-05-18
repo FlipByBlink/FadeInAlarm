@@ -52,7 +52,6 @@ struct 👆FadeInHourPicker: View {
         .font(.body.weight(.heavy))
         .accessibilityLabel("Select hour fade-in")
         .disabled(📱.🔛phase != .powerOff)
-        .foregroundColor(📱.🔛phase != .powerOff ? .secondary : nil)
     }
     enum 🄾ption: Double, CaseIterable, Identifiable {
         case second10 = 10.0
