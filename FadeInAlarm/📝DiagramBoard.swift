@@ -7,18 +7,19 @@ struct 📝DiagramBoard: View {
             HStack {
                 🄿ercentageLabel(0)
                     .foregroundStyle(.tertiary)
-                Image(systemName: "power.circle") // ⏻
+                🄸con(name: "power.circle") // ⏻
                     .foregroundColor(.secondary)
                     .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
                     .accessibilityHidden(true)
                 Text("Set")
                     .foregroundStyle(.secondary)
                     .font(.caption.weight(.light))
-                    .padding(.leading, 8)
             }
             HStack {
                 👆WaitingVolumePicker()
-                🔈SpeakerIcon(.waiting)
+                🄸con(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
+                      alignment: .leading)
+                .foregroundStyle(📱.🔛phase == .waiting ? .primary : .secondary)
                 🄰rrowIndicator(phase: .waiting)
             }
             HStack {
@@ -30,7 +31,8 @@ struct 📝DiagramBoard: View {
             HStack {
                 🄿ercentageLabel(100)
                     .foregroundStyle(.tertiary)
-                🔈SpeakerIcon(.maxVolume)
+                🄸con(name: "speaker.wave.3")
+                    .foregroundStyle(.secondary)
                 Text(📱.🕰timeFadeIn.addingTimeInterval(📱.🕛hourFadein).formatted(date: .omitted, time: .standard))
                     .foregroundColor(.secondary)
                     .font(.footnote.weight(.light))
@@ -38,10 +40,11 @@ struct 📝DiagramBoard: View {
             HStack {
                 🄿ercentageLabel(100)
                     .foregroundStyle(.tertiary)
-                🔈SpeakerIcon(.maxVolume)
+                🄸con(name: "speaker.wave.3")
+                    .foregroundStyle(📱.🔛phase == .maxVolume ? .primary : .secondary)
                 Image(systemName: "repeat")
                     .font(.caption.weight(.semibold))
-                    .foregroundStyle(.tertiary)
+                    .foregroundStyle(📱.🔛phase == .maxVolume ? .primary : .tertiary)
                 🄰rrowIndicator(phase: .maxVolume)
             }
             Divider ()
@@ -51,12 +54,11 @@ struct 📝DiagramBoard: View {
                 HStack {
                     🄿ercentageLabel(100)
                         .foregroundStyle(.tertiary)
-                    Image(systemName: "checkmark.circle") // ✓
+                    🄸con(name: "checkmark.circle")
                         .foregroundColor(.secondary)
                     Text("Stop")
                         .foregroundStyle(.secondary)
                         .font(.caption.weight(.light))
-                        .padding(.leading, 8)
                 }
                 🄵adeOutHourSection()
             }
@@ -95,32 +97,49 @@ private struct 🄿ercentageLabel: View {
     }
 }
 
+private struct 🄸con: View {
+    var name: String
+    var alignment: Alignment = .center
+    var body: some View {
+        ZStack(alignment: self.alignment) {
+            self.ⓑaseFrame()
+            Image(systemName: self.name)
+        }
+        .fontWeight(.medium)
+    }
+    private func ⓑaseFrame() -> some View {
+        Image(systemName: "speaker.wave.3").opacity(0)
+    }
+}
+
 private struct 🄵adeInHourSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var ⓛevel: Int = 0
     @State private var ⓟause: Bool = false
     private let ⓣimer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
+    private var ⓦaveValue: Int { Int(Double(self.ⓛevel) / 34) + 1 }
     var body: some View {
         HStack {
             🄿ercentageLabel(self.ⓛevel)
                 .foregroundStyle(.secondary)
-            🔈SpeakerIcon(.fadeIn(Double(self.ⓛevel) / 100))
-                .animation(.default, value: self.ⓛevel)
+            🄸con(name: "speaker.wave.\(self.ⓦaveValue)", alignment: .leading)
+                .foregroundStyle(📱.🔛phase == .fadeIn ? .primary : .secondary)
             👆FadeInHourPicker()
             🄰rrowIndicator(phase: .fadeIn)
         }
-        .onReceive(self.ⓣimer) { _ in
-            guard !self.ⓟause else { return }
-            if self.ⓛevel == 100 {
-                Task {
-                    self.ⓟause = true
-                    try? await Task.sleep(for: .seconds(0.35))
-                    self.ⓛevel = 📱.🔊volumeOnWaiting
-                    self.ⓟause = false
-                }
-            } else {
-                self.ⓛevel += 1
+        .onReceive(self.ⓣimer) { _ in self.ⓣimerAction() }
+    }
+    private func ⓣimerAction() {
+        guard !self.ⓟause else { return }
+        if self.ⓛevel == 100 {
+            Task {
+                self.ⓟause = true
+                try? await Task.sleep(for: .seconds(0.35))
+                self.ⓛevel = 📱.🔊volumeOnWaiting
+                self.ⓟause = false
             }
+        } else {
+            self.ⓛevel += 1
         }
     }
 }
@@ -130,80 +149,38 @@ private struct 🄵adeOutHourSection: View {
     @State private var ⓛevel: Int = 0
     @State private var ⓟause: Bool = false
     private let ⓣimer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
+    private var ⓘmageName: String {
+        switch self.ⓛevel {
+            case 80 ... 100: return "speaker.wave.3"
+            case 45 ..< 80: return "speaker.wave.2"
+            case 10 ..< 45: return "speaker.wave.1"
+            case 0 ..< 10: return "speaker"
+            default: return "bug"
+        }
+    }
     var body: some View {
         HStack {
-            HStack {
-                🄿ercentageLabel(self.ⓛevel)
-                    .foregroundStyle(.tertiary)
-                🔈SpeakerIcon(.fadeOut(Double(self.ⓛevel) / 100))
-                    .animation(.default, value: self.ⓛevel)
-            }
-            .onReceive(self.ⓣimer) { _ in
-                guard !self.ⓟause else { return }
-                if self.ⓛevel == 0 {
-                    Task {
-                        self.ⓟause = true
-                        try? await Task.sleep(for: .seconds(0.5))
-                        self.ⓛevel = 100
-                        self.ⓟause = false
-                    }
-                } else {
-                    self.ⓛevel -= 1
-                }
-            }
+            🄿ercentageLabel(self.ⓛevel)
+                .foregroundStyle(.tertiary)
+            🄸con(name: self.ⓘmageName, alignment: .leading)
+                .foregroundStyle(📱.🔛phase == .fadeOut ? .primary : .tertiary)
             👆FadeOutHourPicker()
             🄰rrowIndicator(phase: .fadeOut)
         }
+        .onReceive(self.ⓣimer) { _ in self.ⓣimerAction() }
     }
-}
-
-private struct 🔈SpeakerIcon: View {
-    @EnvironmentObject private var 📱: 📱AppModel
-    var pattern: Self.Pattern
-    private var ⓦorking: Bool {
-        📱.🔛phase == {
-            switch self.pattern {
-                case .waiting: return .waiting
-                case .fadeIn(_): return .fadeIn
-                case .maxVolume: return .maxVolume
-                case .fadeOut(_): return .fadeOut
+    private func ⓣimerAction() {
+        guard !self.ⓟause else { return }
+        if self.ⓛevel == 0 {
+            Task {
+                self.ⓟause = true
+                try? await Task.sleep(for: .seconds(0.35))
+                self.ⓛevel = 100
+                self.ⓟause = false
             }
-        }()
-    }
-    var body: some View {
-        Group {
-            switch self.pattern {
-                case .waiting:
-                    Group {
-                        if 📱.🔊volumeOnWaiting == 0 {
-                            Image(systemName: "speaker")
-                        } else {
-                            Image(systemName: "speaker.wave.1")
-                        }
-                    }
-                    .foregroundStyle(self.ⓦorking ? .primary : .secondary)
-                case .fadeIn(let ⓥariableValue):
-                    Image(systemName: "speaker.wave.3", variableValue: ⓥariableValue)
-                        .foregroundStyle(self.ⓦorking ? .primary : .secondary)
-                case .maxVolume:
-                    Image(systemName: "speaker.wave.3")
-                        .foregroundStyle(self.ⓦorking ? .primary : .secondary)
-                case .fadeOut(let ⓥariableValue):
-                    Image(systemName: "speaker.wave.3", variableValue: ⓥariableValue)
-                        .foregroundStyle(self.ⓦorking ? .primary : .tertiary)
-            }
+        } else {
+            self.ⓛevel -= 1
         }
-        .fontWeight(.semibold)
-        .animation(.default.speed(2), value: self.ⓦorking)
-    }
-    init(_ pattern: Self.Pattern) {
-        self.pattern = pattern
-    }
-    enum Pattern {
-        case waiting
-        case fadeIn(Double)
-        case maxVolume
-        case fadeOut(Double)
     }
 }
 

@@ -11,11 +11,11 @@ enum 🔛Phase {
 extension 🔛Phase {
     var title: LocalizedStringKey {
         switch self {
-            case .waiting: return "Waiting"
-            case .fadeIn: return "Fade in"
-            case .maxVolume: return "Max volume"
-            case .fadeOut: return "Fade out"
-            case .powerOff: return "Power off"
+            case .waiting: return "WAITING"
+            case .fadeIn: return "FADE IN"
+            case .maxVolume: return "MAX VOLUME"
+            case .fadeOut: return "FADE OUT"
+            case .powerOff: return "POWER OFF"
         }
     }
 }
