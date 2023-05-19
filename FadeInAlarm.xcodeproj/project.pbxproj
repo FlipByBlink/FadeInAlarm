@@ -19,7 +19,6 @@
 		120F099028278EDB001D8FAF /* 📄DocMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄DocMenu.swift */; };
 		120F099128278EDB001D8FAF /* 📓SourceCodeMenu.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 120F098028278D20001D8FAF /* 📓SourceCodeMenu.swift */; };
 		120F099428278EDB001D8FAF /* 🎚️SystemVolumeSlider.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D912027C6F18F005D99D1 /* 🎚️SystemVolumeSlider.swift */; };
-		120F099528278EDB001D8FAF /* 🔔LocalVolumeNow.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */; };
 		120F099728278FD4001D8FAF /* FadeInAlarmApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125D910F27C6F117005D99D1 /* FadeInAlarmApp.swift */; };
 		12428DC728485303006837F9 /* 📄DocButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12428DC628485303006837F9 /* 📄DocButton.swift */; };
 		12428DC8284853D7006837F9 /* 📄DocButton.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12428DC628485303006837F9 /* 📄DocButton.swift */; };
@@ -33,7 +32,6 @@
 		125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912127C6F18F005D99D1 /* 🔛Phase.swift */; };
 		125D912827C6F18F005D99D1 /* 🔘PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D912227C6F18F005D99D1 /* 🔘PrimaryButton.swift */; };
 		12A675E6281CCFFC00D24E15 /* 📱AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E5281CCFFC00D24E15 /* 📱AppModel.swift */; };
-		12A675EA281D149C00D24E15 /* 🔔LocalVolumeNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */; };
 		12C9480A2826934B00F1EAAF /* 📄DocMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C948092826934B00F1EAAF /* 📄DocMenu.swift */; };
 		F5A5E6C32A14498100ED931B /* 📝DiagramBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A5E6C22A14498100ED931B /* 📝DiagramBoard.swift */; };
 		F5A5E6C52A14FE2800ED931B /* 🗄️Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A5E6C42A14FE2800ED931B /* 🗄️Rest.swift */; };
@@ -82,7 +80,6 @@
 				120F099028278EDB001D8FAF /* 📄DocMenu.swift in CopyFiles */,
 				120F099128278EDB001D8FAF /* 📓SourceCodeMenu.swift in CopyFiles */,
 				120F099428278EDB001D8FAF /* 🎚️SystemVolumeSlider.swift in CopyFiles */,
-				120F099528278EDB001D8FAF /* 🔔LocalVolumeNow.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +111,6 @@
 		125D912227C6F18F005D99D1 /* 🔘PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🔘PrimaryButton.swift"; sourceTree = "<group>"; };
 		125D912927C6F2DE005D99D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12A675E5281CCFFC00D24E15 /* 📱AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📱AppModel.swift"; sourceTree = "<group>"; };
-		12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🔔LocalVolumeNow.swift"; sourceTree = "<group>"; };
 		12C948092826934B00F1EAAF /* 📄DocMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📄DocMenu.swift"; sourceTree = "<group>"; };
 		F5A5E6C22A14498100ED931B /* 📝DiagramBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📝DiagramBoard.swift"; sourceTree = "<group>"; };
 		F5A5E6C42A14FE2800ED931B /* 🗄️Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🗄️Rest.swift"; sourceTree = "<group>"; };
@@ -181,7 +177,6 @@
 				124A43DA27E5B73C00DB1447 /* 👆Picker.swift */,
 				125D911F27C6F18F005D99D1 /* 📁ImportFile.swift */,
 				125D912027C6F18F005D99D1 /* 🎚️SystemVolumeSlider.swift */,
-				12A675E9281D149C00D24E15 /* 🔔LocalVolumeNow.swift */,
 				F5E065192A1353B000D83A7C /* 💾FileManager.swift */,
 				F5A5E6C42A14FE2800ED931B /* 🗄️Rest.swift */,
 				12428DC52848523A006837F9 /* 📄DocumentView */,
@@ -293,7 +288,6 @@
 				125D912527C6F18F005D99D1 /* 📁ImportFile.swift in Sources */,
 				120F098128278D20001D8FAF /* 📓SourceCodeMenu.swift in Sources */,
 				125D912727C6F18F005D99D1 /* 🔛Phase.swift in Sources */,
-				12A675EA281D149C00D24E15 /* 🔔LocalVolumeNow.swift in Sources */,
 				124A43DB27E5B73C00DB1447 /* 👆Picker.swift in Sources */,
 				12A675E6281CCFFC00D24E15 /* 📱AppModel.swift in Sources */,
 				12C9480A2826934B00F1EAAF /* 📄DocMenu.swift in Sources */,

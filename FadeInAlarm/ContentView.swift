@@ -30,8 +30,9 @@ private struct 🄼ainTab: View {
             }
             .frame(maxWidth: .infinity)
             .animation(.default, value: 📱.🔛phase)
-            .overlay(alignment: .bottomLeading) { 🔔LocalVolumeNow() }
-            .safeAreaInset(edge: .bottom, alignment: .trailing) { 🎚️SystemVolumeSlider() }
+            .safeAreaInset(edge: .bottom, alignment: .trailing) {
+                🎚️SystemVolumeSlider()
+            }
             .toolbar {
                 🗄️PhaseTitle()
                 🔘PrimaryButton()

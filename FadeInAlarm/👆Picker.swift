@@ -12,7 +12,8 @@ struct 👆WaitingVolumePicker: View {
                 Text("10 %").tag(10)
             }
         }
-        .font(.caption.bold())
+        .font(.caption)
+        .fontWeight(📱.🔛phase == .waiting ? .heavy : .bold)
         .frame(width: 54, alignment: .trailing)
         .lineLimit(1)
         .minimumScaleFactor(0.1)

@@ -61,6 +61,7 @@ private struct 🄸con: View {
             Image(systemName: self.name)
         }
         .fontWeight(.medium)
+        .padding(.horizontal, 4)
     }
     private func ⓑaseFrame() -> some View {
         Image(systemName: "speaker.wave.3").opacity(0)
@@ -113,6 +114,9 @@ private struct 🅂tartFadeInSection: View {
         HStack {
             🄿ercentageLabel(📱.🔊volumeOnWaiting)
                 .foregroundStyle(.tertiary)
+            🄸con(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
+                  alignment: .leading)
+            .foregroundStyle(.secondary)
             👆FadeInTimePicker()
         }
     }
@@ -127,8 +131,14 @@ private struct 🄳uringFadeInSection: View {
     private var ⓐctive: Bool { 📱.🔛phase == .fadeIn }
     var body: some View {
         HStack {
-            🄿ercentageLabel(self.ⓛevel)
-                .foregroundStyle(self.ⓐctive ? .primary : .secondary)
+            if self.ⓐctive {
+                🄿ercentageLabel(📱.🔔localVolume)
+                    .fontWeight(.heavy)
+                    .animation(.default, value: 📱.🔔localVolume)
+            } else {
+                🄿ercentageLabel(self.ⓛevel)
+                    .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
+            }
             🄸con(name: "speaker.wave.\(self.ⓦaveValue)", alignment: .leading)
                 .foregroundStyle(self.ⓐctive ? .primary : .secondary)
             👆FadeInHourPicker()
@@ -154,15 +164,19 @@ private struct 🄳uringFadeInSection: View {
 
 private struct 🄴ndFadeInSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
+    private var ⓣimeLabel: String {
+        📱.🕰timeFadeIn.addingTimeInterval(📱.🕛hourFadein)
+            .formatted(date: .omitted, time: .standard)
+    }
     var body: some View {
         HStack {
             🄿ercentageLabel(100)
                 .foregroundStyle(.tertiary)
             🄸con(name: "speaker.wave.3")
                 .foregroundStyle(.secondary)
-            Text(📱.🕰timeFadeIn.addingTimeInterval(📱.🕛hourFadein).formatted(date: .omitted, time: .standard))
+            Text(self.ⓣimeLabel)
                 .foregroundColor(.secondary)
-                .font(.footnote.weight(.light))
+                .font(.caption2.weight(.thin).italic())
         }
     }
 }
@@ -174,6 +188,7 @@ private struct 🄼axVolumeSection: View {
         HStack {
             🄿ercentageLabel(100)
                 .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
+                .fontWeight(self.ⓐctive ? .heavy : nil)
             🄸con(name: "speaker.wave.3")
                 .foregroundStyle(self.ⓐctive ? .primary : .secondary)
             Image(systemName: "repeat")
@@ -216,8 +231,14 @@ private struct 🄵adeOutHourSection: View {
     private var ⓐctive: Bool { 📱.🔛phase == .fadeOut }
     var body: some View {
         HStack {
-            🄿ercentageLabel(self.ⓛevel)
-                .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
+            if self.ⓐctive {
+                🄿ercentageLabel(📱.🔔localVolume)
+                    .fontWeight(.heavy)
+                    .animation(.default, value: 📱.🔔localVolume)
+            } else {
+                🄿ercentageLabel(self.ⓛevel)
+                    .foregroundStyle(.tertiary)
+            }
             🄸con(name: self.ⓘmageName, alignment: .leading)
                 .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
             👆FadeOutHourPicker()
