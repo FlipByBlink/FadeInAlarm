@@ -27,18 +27,20 @@ struct 👆FadeInTimePicker: View {
     var body: some View {
         DatePicker("Time fade-In", selection: $📱.🕰timeFadeIn, displayedComponents: .hourAndMinute)
             .labelsHidden()
-            .onAppear {
-                if let ⓢavedValue = UserDefaults.standard.value(forKey: "TimeFadeIn") {
-                    📱.🕰timeFadeIn = ⓢavedValue as! Date
-                } else {
-                    📱.🕰timeFadeIn = .now + 180
-                }
-            }
-            .onChange(of: 📱.🕰timeFadeIn) {
-                UserDefaults.standard.setValue($0, forKey: "TimeFadeIn")
-            }
+            .onAppear(perform: self.loadValue)
+            .onChange(of: 📱.🕰timeFadeIn, perform: self.saveValue(_:))
             .disabled(📱.🔛phase != .powerOff)
             .accessibilityLabel("Set time to start fade-in")
+    }
+    private func loadValue() {
+        if let ⓢavedValue = UserDefaults.standard.value(forKey: "TimeFadeIn") {
+            📱.🕰timeFadeIn = ⓢavedValue as! Date
+        } else {
+            📱.🕰timeFadeIn = .now + 180
+        }
+    }
+    private func saveValue(_ ⓓate: Date) {
+        UserDefaults.standard.setValue(ⓓate, forKey: "TimeFadeIn")
     }
 }
 

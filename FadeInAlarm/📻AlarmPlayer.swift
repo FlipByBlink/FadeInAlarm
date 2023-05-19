@@ -83,7 +83,7 @@ private enum 🄽owPlayingInfoCenter {
         Self.api.nowPlayingInfo = [MPNowPlayingInfoPropertyIsLiveStream: true,
                                              MPMediaItemPropertyArtwork: Self.artwork]
         Self.api.nowPlayingInfo![MPMediaItemPropertyTitle] = title
-        //Self.api.nowPlayingInfo![MPMediaItemPropertyAlbumTitle] = subTitle //TODO: 有効になってない。再検討
+        Self.api.nowPlayingInfo![MPMediaItemPropertyArtist] = subTitle
     }
     private static var artwork: MPMediaItemArtwork {
         .init(boundsSize: .init(width: 1000, height: 1000)) { _ in UIImage(named: "COVER1000")! }

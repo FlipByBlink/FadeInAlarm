@@ -166,7 +166,7 @@ private struct 🄴ndFadeInSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     private var ⓣimeLabel: String {
         📱.🕰timeFadeIn.addingTimeInterval(📱.🕛hourFadein)
-            .formatted(date: .omitted, time: .standard)
+            .formatted(date: .omitted, time: 📱.🕛hourFadein < 60 ? .standard : .shortened)
     }
     var body: some View {
         HStack {
@@ -176,7 +176,7 @@ private struct 🄴ndFadeInSection: View {
                 .foregroundStyle(.secondary)
             Text(self.ⓣimeLabel)
                 .foregroundColor(.secondary)
-                .font(.caption2.weight(.thin).italic())
+                .font(.caption2.weight(.light).italic())
         }
     }
 }
@@ -192,9 +192,10 @@ private struct 🄼axVolumeSection: View {
             🄸con(name: "speaker.wave.3")
                 .foregroundStyle(self.ⓐctive ? .primary : .secondary)
             Image(systemName: "repeat")
-                .font(.caption.weight(.semibold))
+                .font(.caption.weight(self.ⓐctive ? .heavy : .semibold))
                 .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
             🄰rrowIndicator(phase: .maxVolume)
+                .padding(.leading, 8)
         }
     }
 }
