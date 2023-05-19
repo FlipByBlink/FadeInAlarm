@@ -72,7 +72,11 @@ private struct 🄰rrowIndicator: View { // ←
     @EnvironmentObject private var 📱: 📱AppModel
     var phase: 🔛Phase
     var body: some View {
-        if self.phase == 📱.🔛phase { Image(systemName: "arrow.left") }
+        if self.phase == 📱.🔛phase {
+            Image(systemName: "arrow.left")
+                .fontWeight(.semibold)
+                .padding(.leading, 4)
+        }
     }
 }
 
@@ -195,7 +199,7 @@ private struct 🄼axVolumeSection: View {
                 .font(.caption.weight(self.ⓐctive ? .heavy : .semibold))
                 .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
             🄰rrowIndicator(phase: .maxVolume)
-                .padding(.leading, 8)
+                .padding(.leading, 4)
         }
     }
 }

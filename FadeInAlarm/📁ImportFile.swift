@@ -70,7 +70,7 @@ private struct 🄿reviewButton: View {
         .font(.caption)
         .buttonStyle(.bordered)
         .controlSize(.mini)
-        .tint(📱.📻player.isPlaying ? .red : nil)
+        .tint(📱.📻player.isPlaying ? .red : nil) //FIXME: 適切に動作してない
         .accessibilityLabel("Preview")
     }
 }
