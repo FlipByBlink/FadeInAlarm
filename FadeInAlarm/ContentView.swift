@@ -33,10 +33,8 @@ private struct 🄼ainTab: View {
             .safeAreaInset(edge: .bottom, alignment: .trailing) {
                 🎚️SystemVolumeSlider()
             }
-            .toolbar {
-                🗄️PhaseTitle()
-                🔘PrimaryButton()
-            }
+            .toolbar { 🗄️PhaseTitle() }
+            .navigationBarTitleDisplayMode(.inline)
             .background {
                 Color(uiColor: .secondarySystemBackground)
                     .ignoresSafeArea()

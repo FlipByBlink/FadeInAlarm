@@ -80,19 +80,29 @@ private struct 🄰rrowIndicator: View { // ←
     }
 }
 
-private struct 🅂etAlarmSection: View {
+private struct 🅂etAlarmSection: View { // ⏻
     @EnvironmentObject private var 📱: 📱AppModel
+    private var ⓐctive: Bool { 📱.🔛phase == .powerOff }
     var body: some View {
         HStack {
             🄿ercentageLabel(0)
                 .foregroundStyle(.tertiary)
-            🄸con(name: "power.circle") // ⏻
-                .foregroundColor(.secondary)
-                .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
-                .accessibilityHidden(true)
-            Text("Set")
-                .foregroundStyle(.secondary)
-                .font(.caption.weight(.light))
+                .opacity(0)
+            Button {
+                📱.startAlarm()
+            } label: {
+                Label {
+                    Text("Set")
+                        .padding(.horizontal, 6)
+                } icon: {
+                    Image(systemName: "power")
+                }
+                .fontWeight(.bold)
+            }
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.capsule)
+            .shadow(radius: self.ⓐctive ? 2 : 0)
+            .disabled(!self.ⓐctive)
         }
     }
 }
@@ -118,6 +128,7 @@ private struct 🅂tartFadeInSection: View {
         HStack {
             🄿ercentageLabel(📱.🔊volumeOnWaiting)
                 .foregroundStyle(.tertiary)
+                .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
             🄸con(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
                   alignment: .leading)
             .foregroundStyle(.secondary)
@@ -206,15 +217,34 @@ private struct 🄼axVolumeSection: View {
 
 private struct 🅂topAlarmSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
+    private var ⓐctive: Bool {
+        [.waiting, .fadeIn, .maxVolume].contains(📱.🔛phase)
+    }
     var body: some View {
         HStack {
-            🄿ercentageLabel(100)
+            🄿ercentageLabel(0)
                 .foregroundStyle(.tertiary)
-            🄸con(name: "checkmark.circle")
-                .foregroundColor(.secondary)
-            Text("Stop")
-                .foregroundStyle(.secondary)
-                .font(.caption.weight(.light))
+                .opacity(0)
+            Button {
+                switch 📱.🔛phase {
+                    case .waiting: 📱.🔛phase = .powerOff
+                    case .fadeIn, .maxVolume: 📱.🔛phase = .fadeOut
+                    default: break
+                }
+            } label: {
+                Label {
+                    Text("Stop")
+                        .padding(.horizontal, 6)
+                } icon: {
+                    Image(systemName: "checkmark")
+                }
+                .fontWeight(.bold)
+            }
+            .tint(.red)
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.capsule)
+            .shadow(radius: self.ⓐctive ? 2 : 0)
+            .disabled(!self.ⓐctive)
         }
     }
 }
