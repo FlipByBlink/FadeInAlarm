@@ -26,10 +26,9 @@ private struct 🄼ainTab: View {
             ScrollView {
                 🗄️PhaseTitle()
                 📝DiagramBoard()
+                    .padding(.bottom, 150)
             }
-            .safeAreaInset(edge: .bottom, alignment: .trailing) {
-                🎚️SystemVolumeSlider()
-            }
+            .overlay(alignment: .bottomTrailing) { 🎚️SystemVolumeSlider() }
             .toolbar { 📁ImportFileButtons() }
             .navigationBarTitleDisplayMode(.inline)
             .background {
