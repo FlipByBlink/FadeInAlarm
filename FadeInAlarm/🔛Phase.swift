@@ -9,7 +9,7 @@ enum 🔛Phase {
 }
 
 extension 🔛Phase {
-    var title: LocalizedStringKey {
+    var title: LocalizedStringResource {
         switch self {
             case .waiting: return "Waiting"
             case .fadeIn: return "Fade in"

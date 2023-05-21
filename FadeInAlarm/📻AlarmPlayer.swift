@@ -30,10 +30,9 @@ class 📻AlarmPlayer {
         } catch {
             print("🚨", error)
         }
-        let ⓕrom = 🕰timeFadeIn.formatted(date: .omitted, time: .standard)
-        let ⓣo = 🕰timeFadeIn.addingTimeInterval(🕛hourFadein).formatted(date: .omitted, time: .standard)
-        🄽owPlayingInfoCenter.set(title: ⓕrom + " → " + ⓣo,
-                                  subTitle: self.ⓐudioPlayer.url?.lastPathComponent)
+        let ⓣimeLabel = 🕰timeFadeIn.formatted(date: .omitted, time: .shortened)
+        let ⓗourLabel = 👆FadeInHourPicker.🄾ption(rawValue: 🕛hourFadein)?.label ?? "🐛"
+        📻NowPlayingInfoCenter.setUp(title: "⏰  \(ⓣimeLabel) ( +\(ⓗourLabel) )")
         self.ⓐudioPlayer.play()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.🚦handleInterruption),
@@ -77,15 +76,17 @@ class 📻AlarmPlayer {
     }
 }
 
-private enum 🄽owPlayingInfoCenter {
+enum 📻NowPlayingInfoCenter {
     private static let api: MPNowPlayingInfoCenter = .default()
-    static func set(title: String, subTitle: String?) {
+    static func setUp(title: String) {
         Self.api.nowPlayingInfo = [MPNowPlayingInfoPropertyIsLiveStream: true,
                                              MPMediaItemPropertyArtwork: Self.artwork]
         Self.api.nowPlayingInfo![MPMediaItemPropertyTitle] = title
-        Self.api.nowPlayingInfo![MPMediaItemPropertyArtist] = subTitle
     }
     private static var artwork: MPMediaItemArtwork {
         .init(boundsSize: .init(width: 1000, height: 1000)) { _ in UIImage(named: "COVER1000")! }
+    }
+    static func setSubtitle(_ ⓟhase: 🔛Phase) {
+        Self.api.nowPlayingInfo![MPMediaItemPropertyArtist] = String(localized: ⓟhase.title)
     }
 }

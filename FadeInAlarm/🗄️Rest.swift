@@ -10,3 +10,13 @@ struct 🗄️PhaseTitle: View {
             .animation(.default, value: 📱.🔛phase)
     }
 }
+
+struct 🗄️NowPlayingCenterSubtitleHandling: ViewModifier {
+    @EnvironmentObject private var 📱: 📱AppModel
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: 📱.🔛phase) {
+                📻NowPlayingInfoCenter.setSubtitle($0)
+            }
+    }
+}

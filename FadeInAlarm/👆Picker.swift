@@ -70,11 +70,11 @@ struct 👆FadeInHourPicker: View {
         var id: Double { self.rawValue }
         var label: String {
             switch self {
-                case .second10: return "0:10"
-                case .second30: return "0:30"
-                case .minute01: return "1:00"
-                case .minute05: return "5:00"
-                case .minute30: return "30:00"
+                case .second10: return "0:00:10"
+                case .second30: return "0:00:30"
+                case .minute01: return "0:01:00"
+                case .minute05: return "0:05:00"
+                case .minute30: return "0:30:00"
                 case .hour01: return "1:00:00"
             }
         }
@@ -102,11 +102,11 @@ struct 👆FadeOutHourPicker: View {
         var id: Double { self.rawValue }
         var label: String {
             switch self {
-                case .second3: return "0:03"
-                case .second7: return "0:07"
-                case .second15: return "0:15"
-                case .second30: return "0:30"
-                case .minute01: return "1:00"
+                case .second3: return "0:00:03"
+                case .second7: return "0:00:07"
+                case .second15: return "0:00:15"
+                case .second30: return "0:00:30"
+                case .minute01: return "0:01:00"
             }
         }
     }

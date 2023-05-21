@@ -15,6 +15,7 @@ struct ContentView: View {
             📄DocumentButton()
                 .tabItem { Label("About", systemImage: "info") }
         }
+        .modifier(🗄️NowPlayingCenterSubtitleHandling())
     }
 }
 
