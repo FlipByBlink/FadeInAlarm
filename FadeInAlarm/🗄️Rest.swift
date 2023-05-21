@@ -1,12 +1,11 @@
 import SwiftUI
 
-struct 🗄️PhaseTitle: ToolbarContent {
+struct 🗄️PhaseTitle: View {
     @EnvironmentObject private var 📱: 📱AppModel
-    var body: some ToolbarContent {
-        ToolbarItem(placement: .principal) {
-            Text(📱.🔛phase.title)
-                .fontWeight(.semibold)
-                .animation(.default, value: 📱.🔛phase)
-        }
+    var body: some View {
+        Text(📱.🔛phase.title)
+            .font(.largeTitle.bold())
+            .padding(.leading, 24)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

@@ -23,17 +23,16 @@ private struct 🄼ainTab: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack {
-                    📝DiagramBoard()
-                    📁ImportFileSection()
-                }
+                🗄️PhaseTitle()
+                📝DiagramBoard()
             }
             .frame(maxWidth: .infinity)
             .animation(.default, value: 📱.🔛phase)
             .safeAreaInset(edge: .bottom, alignment: .trailing) {
                 🎚️SystemVolumeSlider()
             }
-            .toolbar { 🗄️PhaseTitle() }
+            .toolbar { 📁ImportFileSection() }
+            .toolbar(.visible, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
             .background {
                 Color(uiColor: .secondarySystemBackground)

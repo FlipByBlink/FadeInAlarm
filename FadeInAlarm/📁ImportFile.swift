@@ -7,25 +7,21 @@ struct 📁ImportFileSection: View {
     @State private var ⓕileName: String = 💾FileManager.getImportedFileName() ?? "preset.mp3"
     @State private var 🚩failToImport: Bool = false
     var body: some View {
-        HStack {
+        Group {
             Button {
                 self.🚩presentImporter = true
                 📱.📻player.stop()
             } label: {
-                HStack(spacing: 7) {
-                    Image(systemName: "folder")
-                        .fontWeight(.semibold)
-                    Text(self.ⓕileName)
-                        .bold()
-                        .kerning(1.5)
-                }
-                .foregroundStyle(📱.🔛phase == .powerOff ? .primary : .tertiary)
+                Label(self.ⓕileName, systemImage: "music.note")
+                    .bold()
+                    .labelStyle(.titleAndIcon)
+                    .imageScale(.medium)
+                    .foregroundStyle(📱.🔛phase == .powerOff ? .primary : .tertiary)
             }
             .accessibilityLabel("Import file")
             🄿reviewButton()
         }
         .disabled(📱.🔛phase != .powerOff)
-        .padding(48)
         .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
         .fileImporter(isPresented: self.$🚩presentImporter,
                       allowedContentTypes: [.audio],

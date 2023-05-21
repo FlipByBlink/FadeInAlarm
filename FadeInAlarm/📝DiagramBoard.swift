@@ -25,7 +25,6 @@ struct 📝DiagramBoard: View {
                 .foregroundColor(Color(uiColor: .systemBackground))
                 .shadow(radius: 3)
         }
-        .padding(.top, 24)
         .padding(.horizontal, 24)
         .frame(maxWidth: 460)
         .animation(.default, value: 📱.🔛phase)
