@@ -31,7 +31,7 @@ private struct 🄼ainTab: View {
             .safeAreaInset(edge: .bottom, alignment: .trailing) {
                 🎚️SystemVolumeSlider()
             }
-            .toolbar { 📁ImportFileSection() }
+            .toolbar { 📁ImportFileButtons() }
             .toolbar(.visible, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
             .background {

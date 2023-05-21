@@ -5,7 +5,7 @@ struct 🗄️PhaseTitle: View {
     var body: some View {
         Text(📱.🔛phase.title)
             .font(.largeTitle.bold())
-            .padding(.leading, 24)
+            .padding(.leading, 18)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

@@ -103,6 +103,7 @@ private struct 🅂etAlarmSection: View { // ⏻
         .buttonBorderShape(.capsule)
         .shadow(radius: self.ⓐctive ? 2 : 0)
         .disabled(!self.ⓐctive)
+        .padding(.top, 2)
     }
 }
 
@@ -254,6 +255,7 @@ private struct 🅂topAlarmSection: View {
         .shadow(radius: self.ⓐctive ? 2 : 0)
         .scaleEffect(self.ⓐctive ? 1 : 0.9)
         .disabled(!self.ⓐctive)
+        .padding(.top, 2)
     }
 }
 

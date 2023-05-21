@@ -1,7 +1,7 @@
 import SwiftUI
 import AVFAudio
 
-struct 📁ImportFileSection: View {
+struct 📁ImportFileButtons: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var 🚩presentImporter: Bool = false
     @State private var ⓕileName: String = 💾FileManager.getImportedFileName() ?? "preset.mp3"
@@ -16,7 +16,6 @@ struct 📁ImportFileSection: View {
                     .bold()
                     .labelStyle(.titleAndIcon)
                     .imageScale(.medium)
-                    .foregroundStyle(📱.🔛phase == .powerOff ? .primary : .tertiary)
             }
             .accessibilityLabel("Import file")
             🄿reviewButton()
