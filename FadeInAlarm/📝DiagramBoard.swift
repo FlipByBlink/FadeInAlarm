@@ -3,7 +3,7 @@ import SwiftUI
 struct 📝DiagramBoard: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(spacing: 12) {
             🅂etAlarmSection()
             🅆aitingSection()
             🅂tartFadeInSection()
@@ -11,18 +11,10 @@ struct 📝DiagramBoard: View {
             🄴ndFadeInSection()
             🄼axVolumeSection()
             Divider()
-                .padding(.vertical, 10)
-                .padding(.horizontal, 16)
-            VStack(alignment: .leading, spacing: 12) {
-                🅂topAlarmSection()
-                🄵adeOutHourSection()
-            }
-        }
-        .overlay(alignment: .topTrailing) {
-            Image(systemName: "arrow.down")
-                .font(.title.weight(.black))
-                .foregroundStyle(.quaternary)
-                .offset(x: -16)
+                .padding(.vertical, 8)
+                .padding(.horizontal, 12)
+            🅂topAlarmSection()
+            🄵adeOutHourSection()
         }
         .padding(.vertical, 28)
         .padding(.horizontal, 10)
@@ -43,16 +35,17 @@ private struct 🄿ercentageLabel: View {
     var body: some View {
         Text("\(self.ⓥalue) %")
             .font(.caption.monospacedDigit())
-            .frame(width: 54, alignment: .trailing)
+            .fontWeight(.semibold)
             .lineLimit(1)
-            .minimumScaleFactor(0.1)
+            .minimumScaleFactor(0.5)
+            .fixedSize()
     }
     init(_ value: Int) {
         self.ⓥalue = value
     }
 }
 
-private struct 🄸con: View {
+private struct 🅂peakerIcon: View {
     var name: String
     var alignment: Alignment = .center
     var body: some View {
@@ -60,23 +53,32 @@ private struct 🄸con: View {
             self.ⓑaseFrame()
             Image(systemName: self.name)
         }
-        .fontWeight(.medium)
-        .padding(.horizontal, 4)
+        .fontWeight(.semibold)
+        .padding(.trailing, 6)
     }
     private func ⓑaseFrame() -> some View {
         Image(systemName: "speaker.wave.3").opacity(0)
     }
 }
 
-private struct 🄰rrowIndicator: View { // ←
+private struct 🄸ndicator: View { // ←
     @EnvironmentObject private var 📱: 📱AppModel
     var phase: 🔛Phase
     var body: some View {
         if self.phase == 📱.🔛phase {
-            Image(systemName: "arrow.left")
+            Image(systemName: "arrowshape.right")
                 .fontWeight(.semibold)
-                .padding(.leading, 4)
+                .padding(.trailing, 4)
         }
+    }
+}
+
+private struct 🄵lowArrow: View {
+    var body: some View {
+        Text("⇣")
+            .fontWeight(.bold)
+            .font(.largeTitle)
+            .padding(.horizontal, 4)
     }
 }
 
@@ -84,56 +86,52 @@ private struct 🅂etAlarmSection: View { // ⏻
     @EnvironmentObject private var 📱: 📱AppModel
     private var ⓐctive: Bool { 📱.🔛phase == .powerOff }
     var body: some View {
-        HStack {
-            🄿ercentageLabel(0)
-                .foregroundStyle(.tertiary)
-                .opacity(0)
-            Button {
-                📱.startAlarm()
-            } label: {
-                Label {
-                    Text("Set")
-                        .padding(.horizontal, 6)
-                } icon: {
-                    Image(systemName: "power")
-                }
-                .fontWeight(.bold)
+        Button {
+            📱.startAlarm()
+        } label: {
+            Label {
+                Text("Set")
+                    .padding(.horizontal, 6)
+            } icon: {
+                Image(systemName: "power")
             }
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.capsule)
-            .shadow(radius: self.ⓐctive ? 2 : 0)
-            .disabled(!self.ⓐctive)
+            .fontWeight(.bold)
         }
+        .buttonStyle(.borderedProminent)
+        .buttonBorderShape(.capsule)
+        .shadow(radius: self.ⓐctive ? 2 : 0)
+        .disabled(!self.ⓐctive)
     }
 }
 
 private struct 🅆aitingSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     private var ⓐctive: Bool { 📱.🔛phase == .waiting }
+    private var ⓒalm: Bool { [.fadeIn, .maxVolume, .fadeOut].contains(📱.🔛phase) }
     var body: some View {
-        HStack {
-            👆WaitingVolumePicker()
-                .foregroundColor(self.ⓐctive ? .primary : nil)
-            🄸con(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
-                  alignment: .leading)
-            .foregroundStyle(self.ⓐctive ? .primary : .secondary)
-            🄰rrowIndicator(phase: .waiting)
-        }
+        🄵lowArrow()
+            .foregroundStyle(self.ⓒalm ? .secondary : .primary)
+            .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
+            .overlay(alignment: .leading) {
+                HStack {
+                    🄸ndicator(phase: .waiting)
+                    👆WaitingVolumePicker()
+                        .foregroundColor(self.ⓐctive ? .primary : nil)
+                    🅂peakerIcon(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
+                                 alignment: .leading)
+                    .foregroundStyle(self.ⓐctive ? .primary : .secondary)
+                }
+                .fixedSize()
+                .alignmentGuide(.leading) { $0.width }
+            }
     }
 }
 
 private struct 🅂tartFadeInSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        HStack {
-            🄿ercentageLabel(📱.🔊volumeOnWaiting)
-                .foregroundStyle(.tertiary)
-                .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
-            🄸con(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
-                  alignment: .leading)
-            .foregroundStyle(.secondary)
-            👆FadeInTimePicker()
-        }
+        👆FadeInTimePicker()
+            .opacity([.fadeIn, .maxVolume, .fadeOut].contains(📱.🔛phase) ? 0.6 : 1)
     }
 }
 
@@ -145,22 +143,31 @@ private struct 🄳uringFadeInSection: View {
     private var ⓦaveValue: Int { Int(Double(self.ⓛevel) / 34) + 1 }
     private var ⓐctive: Bool { 📱.🔛phase == .fadeIn }
     var body: some View {
-        HStack {
-            if self.ⓐctive {
-                🄿ercentageLabel(📱.🔔localVolume)
-                    .fontWeight(.heavy)
-                    .animation(.default, value: 📱.🔔localVolume)
-            } else {
-                🄿ercentageLabel(self.ⓛevel)
-                    .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
+        🄵lowArrow()
+            .foregroundStyle([.maxVolume, .fadeOut].contains(📱.🔛phase) ? .secondary : .primary)
+            .overlay(alignment: .leading) {
+                HStack {
+                    🄸ndicator(phase: .fadeIn)
+                    if self.ⓐctive {
+                        🄿ercentageLabel(📱.🔔localVolume)
+                            .fontWeight(.heavy)
+                            .animation(.default, value: 📱.🔔localVolume)
+                    } else {
+                        🄿ercentageLabel(self.ⓛevel)
+                            .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
+                    }
+                    🅂peakerIcon(name: "speaker.wave.\(self.ⓦaveValue)", alignment: .leading)
+                        .foregroundStyle(self.ⓐctive ? .primary : .secondary)
+                }
+                .alignmentGuide(.leading) { $0.width }
             }
-            🄸con(name: "speaker.wave.\(self.ⓦaveValue)", alignment: .leading)
-                .foregroundStyle(self.ⓐctive ? .primary : .secondary)
-            👆FadeInHourPicker()
-                .foregroundColor(self.ⓐctive ? .primary : nil)
-            🄰rrowIndicator(phase: .fadeIn)
-        }
-        .onReceive(self.ⓣimer) { _ in self.ⓣimerAction() }
+            .overlay(alignment: .trailing) {
+                👆FadeInHourPicker()
+                    .foregroundColor(self.ⓐctive ? .primary : nil)
+                    .fixedSize()
+                    .alignmentGuide(.trailing) { _ in -10 }
+            }
+            .onReceive(self.ⓣimer) { _ in self.ⓣimerAction() }
     }
     private func ⓣimerAction() {
         guard !self.ⓟause else { return }
@@ -184,15 +191,9 @@ private struct 🄴ndFadeInSection: View {
             .formatted(date: .omitted, time: 📱.🕛hourFadein < 60 ? .standard : .shortened)
     }
     var body: some View {
-        HStack {
-            🄿ercentageLabel(100)
-                .foregroundStyle(.tertiary)
-            🄸con(name: "speaker.wave.3")
-                .foregroundStyle(.secondary)
-            Text(self.ⓣimeLabel)
-                .foregroundColor(.secondary)
-                .font(.caption2.weight(.light).italic())
-        }
+        Text(self.ⓣimeLabel)
+            .font(.caption2.weight(.regular).italic())
+            .foregroundStyle([.maxVolume, .fadeOut].contains(📱.🔛phase) ? .secondary : .primary)
     }
 }
 
@@ -200,18 +201,25 @@ private struct 🄼axVolumeSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     private var ⓐctive: Bool { 📱.🔛phase == .maxVolume }
     var body: some View {
-        HStack {
-            🄿ercentageLabel(100)
-                .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
-                .fontWeight(self.ⓐctive ? .heavy : nil)
-            🄸con(name: "speaker.wave.3")
-                .foregroundStyle(self.ⓐctive ? .primary : .secondary)
-            Image(systemName: "repeat")
-                .font(.caption.weight(self.ⓐctive ? .heavy : .semibold))
-                .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
-            🄰rrowIndicator(phase: .maxVolume)
-                .padding(.leading, 4)
-        }
+        🄵lowArrow()
+            .foregroundStyle(📱.🔛phase == .fadeOut ? .secondary : .primary)
+            .overlay(alignment: .leading) {
+                HStack {
+                    🄸ndicator(phase: .maxVolume)
+                    🄿ercentageLabel(100)
+                        .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
+                        .fontWeight(self.ⓐctive ? .heavy : nil)
+                    🅂peakerIcon(name: "speaker.wave.3")
+                        .foregroundStyle(self.ⓐctive ? .primary : .secondary)
+                }
+                .alignmentGuide(.leading) { $0.width }
+            }
+            .overlay(alignment: .trailing) {
+                Image(systemName: "repeat")
+                    .font(.caption.weight(self.ⓐctive ? .heavy : .bold))
+                    .foregroundStyle(self.ⓐctive ? .primary : .secondary)
+                    .alignmentGuide(.trailing) { _ in -12 }
+            }
     }
 }
 
@@ -221,31 +229,26 @@ private struct 🅂topAlarmSection: View {
         [.waiting, .fadeIn, .maxVolume].contains(📱.🔛phase)
     }
     var body: some View {
-        HStack {
-            🄿ercentageLabel(0)
-                .foregroundStyle(.tertiary)
-                .opacity(0)
-            Button {
-                switch 📱.🔛phase {
-                    case .waiting: 📱.🔛phase = .powerOff
-                    case .fadeIn, .maxVolume: 📱.🔛phase = .fadeOut
-                    default: break
-                }
-            } label: {
-                Label {
-                    Text("Stop")
-                        .padding(.horizontal, 6)
-                } icon: {
-                    Image(systemName: "checkmark")
-                }
-                .fontWeight(.bold)
+        Button {
+            switch 📱.🔛phase {
+                case .waiting: 📱.🔛phase = .powerOff
+                case .fadeIn, .maxVolume: 📱.🔛phase = .fadeOut
+                default: break
             }
-            .tint(.red)
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.capsule)
-            .shadow(radius: self.ⓐctive ? 2 : 0)
-            .disabled(!self.ⓐctive)
+        } label: {
+            Label {
+                Text("Stop")
+                    .padding(.horizontal, 6)
+            } icon: {
+                Image(systemName: "checkmark")
+            }
+            .fontWeight(.bold)
         }
+        .tint(.red)
+        .buttonStyle(.borderedProminent)
+        .buttonBorderShape(.capsule)
+        .shadow(radius: self.ⓐctive ? 2 : 0)
+        .disabled(!self.ⓐctive)
     }
 }
 
@@ -265,22 +268,31 @@ private struct 🄵adeOutHourSection: View {
     }
     private var ⓐctive: Bool { 📱.🔛phase == .fadeOut }
     var body: some View {
-        HStack {
-            if self.ⓐctive {
-                🄿ercentageLabel(📱.🔔localVolume)
-                    .fontWeight(.heavy)
-                    .animation(.default, value: 📱.🔔localVolume)
-            } else {
-                🄿ercentageLabel(self.ⓛevel)
-                    .foregroundStyle(.tertiary)
+        🄵lowArrow()
+            .foregroundStyle(self.ⓐctive ? .primary : .secondary)
+            .overlay(alignment: .leading) {
+                HStack {
+                    🄸ndicator(phase: .fadeOut)
+                    if self.ⓐctive {
+                        🄿ercentageLabel(📱.🔔localVolume)
+                            .fontWeight(.heavy)
+                            .animation(.default, value: 📱.🔔localVolume)
+                    } else {
+                        🄿ercentageLabel(self.ⓛevel)
+                            .foregroundStyle(.tertiary)
+                    }
+                    🅂peakerIcon(name: self.ⓘmageName, alignment: .leading)
+                        .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
+                }
+                .alignmentGuide(.leading) { $0.width }
             }
-            🄸con(name: self.ⓘmageName, alignment: .leading)
-                .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
-            👆FadeOutHourPicker()
-                .foregroundColor(self.ⓐctive ? .primary : nil)
-            🄰rrowIndicator(phase: .fadeOut)
-        }
-        .onReceive(self.ⓣimer) { _ in self.ⓣimerAction() }
+            .overlay(alignment: .trailing) {
+                👆FadeOutHourPicker()
+                    .foregroundColor(self.ⓐctive ? .primary : nil)
+                    .fixedSize()
+                    .alignmentGuide(.trailing) { _ in -12 }
+            }
+            .onReceive(self.ⓣimer) { _ in self.ⓣimerAction() }
     }
     private func ⓣimerAction() {
         guard !self.ⓟause else { return }

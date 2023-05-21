@@ -14,7 +14,6 @@ struct 👆WaitingVolumePicker: View {
         }
         .font(.caption)
         .fontWeight(📱.🔛phase == .waiting ? .heavy : .bold)
-        .frame(width: 54, alignment: .trailing)
         .lineLimit(1)
         .minimumScaleFactor(0.1)
         .disabled(📱.🔛phase != .powerOff)
