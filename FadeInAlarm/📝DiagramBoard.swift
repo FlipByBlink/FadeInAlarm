@@ -2,6 +2,7 @@ import SwiftUI
 
 struct 📝DiagramBoard: View {
     @EnvironmentObject private var 📱: 📱AppModel
+    @ScaledMetric private var ⓦidth = 360.0
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 8) {
@@ -26,8 +27,9 @@ struct 📝DiagramBoard: View {
                 .shadow(radius: 3)
         }
         .padding(.horizontal, 24)
-        .frame(maxWidth: 460)
+        .frame(maxWidth: self.ⓦidth)
         .animation(.default, value: 📱.🔛phase)
+        .dynamicTypeSize(..<DynamicTypeSize.accessibility2)
     }
 }
 

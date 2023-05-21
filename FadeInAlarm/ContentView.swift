@@ -26,7 +26,6 @@ private struct 🄼ainTab: View {
                 🗄️PhaseTitle()
                 📝DiagramBoard()
             }
-            .frame(maxWidth: .infinity)
             .animation(.default, value: 📱.🔛phase)
             .safeAreaInset(edge: .bottom, alignment: .trailing) {
                 🎚️SystemVolumeSlider()
