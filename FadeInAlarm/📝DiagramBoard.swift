@@ -23,7 +23,7 @@ struct 📝DiagramBoard: View {
         }
         .background {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .foregroundColor(Color(uiColor: .systemBackground))
+                .fill(.background)
                 .shadow(radius: 3)
         }
         .padding(.horizontal, 24)
@@ -36,12 +36,20 @@ struct 📝DiagramBoard: View {
 private struct 🄿ercentageLabel: View {
     private var ⓥalue: Int
     var body: some View {
-        Text("\(self.ⓥalue) %")
+        ZStack(alignment: .trailing) {
+            Self.baseFrame()
+            Text("\(self.ⓥalue) %")
+                .font(.caption.monospacedDigit())
+                .fontWeight(.semibold)
+                .fixedSize()
+        }
+    }
+    static func baseFrame() -> some View {
+        Text("100 %")
             .font(.caption.monospacedDigit())
             .fontWeight(.semibold)
-            .lineLimit(1)
-            .minimumScaleFactor(0.5)
             .fixedSize()
+            .opacity(0)
     }
     init(_ value: Int) {
         self.ⓥalue = value
@@ -50,9 +58,8 @@ private struct 🄿ercentageLabel: View {
 
 private struct 🅂peakerIcon: View {
     var name: String
-    var alignment: Alignment = .center
     var body: some View {
-        ZStack(alignment: self.alignment) {
+        ZStack(alignment: .leading) {
             self.ⓑaseFrame()
             Image(systemName: self.name)
         }
@@ -71,7 +78,6 @@ private struct 🄸ndicator: View { // →
         if self.phase == 📱.🔛phase {
             Image(systemName: "arrowshape.right")
                 .fontWeight(.semibold)
-                .padding(.trailing, 4)
         }
     }
 }
@@ -79,8 +85,7 @@ private struct 🄸ndicator: View { // →
 private struct 🄵lowArrow: View {
     var body: some View {
         Text("⇣")
-            .fontWeight(.bold)
-            .font(.largeTitle)
+            .font(.largeTitle.bold())
             .padding(.horizontal, 4)
     }
 }
@@ -112,20 +117,22 @@ private struct 🅂etAlarmSection: View { // ⏻
 private struct 🅆aitingSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     private var ⓐctive: Bool { 📱.🔛phase == .waiting }
-    private var ⓢtyle: HierarchicalShapeStyle {
+    private var ⓐrrowStyle: HierarchicalShapeStyle {
         [.fadeIn, .maxVolume, .fadeOut].contains(📱.🔛phase) ? .secondary : .primary
     }
     var body: some View {
         🄵lowArrow()
-            .foregroundStyle(self.ⓢtyle)
+            .foregroundStyle(self.ⓐrrowStyle)
             .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
             .overlay(alignment: .leading) {
                 HStack {
                     🄸ndicator(phase: .waiting)
-                    👆WaitingVolumePicker()
-                        .foregroundColor(self.ⓐctive ? .primary : nil)
-                    🅂peakerIcon(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1",
-                                 alignment: .leading)
+                    ZStack(alignment: .trailing) {
+                        🄿ercentageLabel.baseFrame()
+                        👆WaitingVolumePicker()
+                            .foregroundColor(self.ⓐctive ? .primary : nil)
+                    }
+                    🅂peakerIcon(name: 📱.🔊volumeOnWaiting == 0 ? "speaker" : "speaker.wave.1")
                     .foregroundStyle(self.ⓐctive ? .primary : .secondary)
                 }
                 .fixedSize()
@@ -144,10 +151,10 @@ private struct 🅂tartFadeInSection: View {
 
 private struct 🄳uringFadeInSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
-    @State private var ⓛevel: Int = 0
+    @State private var ⓟercentage: Int = 0
     @State private var ⓟause: Bool = false
     private let ⓣimer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
-    private var ⓦaveValue: Int { Int(Double(self.ⓛevel) / 34) + 1 }
+    private var ⓦaveValue: Int { Int(Double(self.ⓟercentage) / 34) + 1 }
     private var ⓐctive: Bool { 📱.🔛phase == .fadeIn }
     var body: some View {
         🄵lowArrow()
@@ -160,10 +167,10 @@ private struct 🄳uringFadeInSection: View {
                             .fontWeight(.heavy)
                             .animation(.default, value: 📱.🔔localVolume)
                     } else {
-                        🄿ercentageLabel(self.ⓛevel)
+                        🄿ercentageLabel(self.ⓟercentage)
                             .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
                     }
-                    🅂peakerIcon(name: "speaker.wave.\(self.ⓦaveValue)", alignment: .leading)
+                    🅂peakerIcon(name: "speaker.wave.\(self.ⓦaveValue)")
                         .foregroundStyle(self.ⓐctive ? .primary : .secondary)
                 }
                 .alignmentGuide(.leading) { $0.width }
@@ -178,15 +185,15 @@ private struct 🄳uringFadeInSection: View {
     }
     private func ⓣimerAction() {
         guard !self.ⓟause else { return }
-        if self.ⓛevel == 100 {
+        if self.ⓟercentage == 100 {
             Task {
                 self.ⓟause = true
                 try? await Task.sleep(for: .seconds(0.35))
-                self.ⓛevel = 📱.🔊volumeOnWaiting
+                self.ⓟercentage = 📱.🔊volumeOnWaiting
                 self.ⓟause = false
             }
         } else {
-            self.ⓛevel += 1
+            self.ⓟercentage += 1
         }
     }
 }
@@ -263,11 +270,11 @@ private struct 🅂topAlarmSection: View {
 
 private struct 🄵adeOutHourSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
-    @State private var ⓛevel: Int = 0
+    @State private var ⓟercentage: Int = 0
     @State private var ⓟause: Bool = false
     private let ⓣimer = Timer.publish(every: 1 / 30, on: .main, in: .default).autoconnect()
-    private var ⓘmageName: String {
-        switch self.ⓛevel {
+    private var ⓢpeakerImageName: String {
+        switch self.ⓟercentage {
             case 80 ... 100: return "speaker.wave.3"
             case 45 ..< 80: return "speaker.wave.2"
             case 10 ..< 45: return "speaker.wave.1"
@@ -287,10 +294,10 @@ private struct 🄵adeOutHourSection: View {
                             .fontWeight(.heavy)
                             .animation(.default, value: 📱.🔔localVolume)
                     } else {
-                        🄿ercentageLabel(self.ⓛevel)
+                        🄿ercentageLabel(self.ⓟercentage)
                             .foregroundStyle(.tertiary)
                     }
-                    🅂peakerIcon(name: self.ⓘmageName, alignment: .leading)
+                    🅂peakerIcon(name: self.ⓢpeakerImageName)
                         .foregroundStyle(self.ⓐctive ? .primary : .tertiary)
                 }
                 .alignmentGuide(.leading) { $0.width }
@@ -305,15 +312,15 @@ private struct 🄵adeOutHourSection: View {
     }
     private func ⓣimerAction() {
         guard !self.ⓟause else { return }
-        if self.ⓛevel == 0 {
+        if self.ⓟercentage == 0 {
             Task {
                 self.ⓟause = true
                 try? await Task.sleep(for: .seconds(0.35))
-                self.ⓛevel = 100
+                self.ⓟercentage = 100
                 self.ⓟause = false
             }
         } else {
-            self.ⓛevel -= 1
+            self.ⓟercentage -= 1
         }
     }
 }

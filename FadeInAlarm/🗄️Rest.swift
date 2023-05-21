@@ -7,5 +7,6 @@ struct 🗄️PhaseTitle: View {
             .font(.largeTitle.bold())
             .padding(.leading, 18)
             .frame(maxWidth: .infinity, alignment: .leading)
+            .animation(.default, value: 📱.🔛phase)
     }
 }

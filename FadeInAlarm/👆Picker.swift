@@ -51,7 +51,7 @@ struct 👆FadeInTimePicker: View {
 struct 👆FadeInHourPicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu("+ " + (Self.🄾ption(rawValue: 📱.🕛hourFadein)?.label ?? "👿") ) {
+        Menu("+ \(Self.🄾ption(rawValue: 📱.🕛hourFadein)?.label ?? "👿")") {
             Picker("Hour fade-in", selection: $📱.🕛hourFadein) {
                 ForEach(Self.🄾ption.allCases) { Text($0.label) }
             }
@@ -84,7 +84,7 @@ struct 👆FadeInHourPicker: View {
 struct 👆FadeOutHourPicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        Menu("+ " + (Self.🄾ption(rawValue: 📱.🕛hourFadeOut)?.label ?? "👿")) {
+        Menu("+ \(Self.🄾ption(rawValue: 📱.🕛hourFadeOut)?.label ?? "👿")") {
             Picker("Hour fade-out", selection: 📱.$🕛hourFadeOut) {
                 ForEach(Self.🄾ption.allCases) { Text($0.label) }
             }

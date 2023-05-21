@@ -26,12 +26,10 @@ private struct 🄼ainTab: View {
                 🗄️PhaseTitle()
                 📝DiagramBoard()
             }
-            .animation(.default, value: 📱.🔛phase)
             .safeAreaInset(edge: .bottom, alignment: .trailing) {
                 🎚️SystemVolumeSlider()
             }
             .toolbar { 📁ImportFileButtons() }
-            .toolbar(.visible, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
             .background {
                 Color(uiColor: .secondarySystemBackground)
