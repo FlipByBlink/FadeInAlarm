@@ -4,22 +4,30 @@ struct 📝DiagramBoard: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @ScaledMetric private var ⓦidth = 360.0
     var body: some View {
-        VStack(spacing: 0) {
-            VStack(spacing: 8) {
-                🅂etAlarmSection()
-                🅆aitingSection()
-                🅂tartFadeInSection()
-                🄳uringFadeInSection()
-                🄴ndFadeInSection()
-                🄼axVolumeSection()
+        ScrollViewReader { 🚡 in
+            VStack(spacing: 0) {
+                VStack(spacing: 8) {
+                    🅂etAlarmSection()
+                    🅆aitingSection()
+                    🅂tartFadeInSection()
+                    🄳uringFadeInSection()
+                        .id(🔛Phase.fadeIn)
+                    🄴ndFadeInSection()
+                    🄼axVolumeSection()
+                        .id(🔛Phase.maxVolume)
+                }
+                .padding(24)
+                Divider()
+                VStack(spacing: 8) {
+                    🅂topAlarmSection()
+                    🄵adeOutHourSection()
+                        .id(🔛Phase.fadeOut)
+                }
+                .padding(16)
             }
-            .padding(24)
-            Divider()
-            VStack(spacing: 8) {
-                🅂topAlarmSection()
-                🄵adeOutHourSection()
+            .onChange(of: 📱.🔛phase) { ⓝewValue in
+                withAnimation { 🚡.scrollTo(ⓝewValue) }
             }
-            .padding(16)
         }
         .background {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
