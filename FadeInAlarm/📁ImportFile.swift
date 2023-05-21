@@ -19,13 +19,13 @@ struct 📁ImportFileSection: View {
                         .bold()
                         .kerning(1.5)
                 }
-                .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
+                .foregroundStyle(📱.🔛phase == .powerOff ? .primary : .tertiary)
             }
             .accessibilityLabel("Import file")
             🄿reviewButton()
         }
         .disabled(📱.🔛phase != .powerOff)
-        .padding(32)
+        .padding(48)
         .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
         .fileImporter(isPresented: self.$🚩presentImporter,
                       allowedContentTypes: [.audio],

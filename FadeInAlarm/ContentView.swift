@@ -23,7 +23,7 @@ private struct 🄼ainTab: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 16) {
+                VStack {
                     📝DiagramBoard()
                     📁ImportFileSection()
                 }

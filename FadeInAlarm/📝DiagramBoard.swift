@@ -3,28 +3,30 @@ import SwiftUI
 struct 📝DiagramBoard: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        VStack(spacing: 12) {
-            🅂etAlarmSection()
-            🅆aitingSection()
-            🅂tartFadeInSection()
-            🄳uringFadeInSection()
-            🄴ndFadeInSection()
-            🄼axVolumeSection()
+        VStack(spacing: 0) {
+            VStack(spacing: 8) {
+                🅂etAlarmSection()
+                🅆aitingSection()
+                🅂tartFadeInSection()
+                🄳uringFadeInSection()
+                🄴ndFadeInSection()
+                🄼axVolumeSection()
+            }
+            .padding(24)
             Divider()
-                .padding(.vertical, 8)
-                .padding(.horizontal, 12)
-            🅂topAlarmSection()
-            🄵adeOutHourSection()
+            VStack(spacing: 8) {
+                🅂topAlarmSection()
+                🄵adeOutHourSection()
+            }
+            .padding(16)
         }
-        .padding(.vertical, 28)
-        .padding(.horizontal, 10)
         .background {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .foregroundColor(Color(uiColor: .systemBackground))
-                .shadow(radius: 4)
+                .shadow(radius: 3)
         }
-        .padding(.top, 32)
-        .padding(.horizontal, 32)
+        .padding(.top, 24)
+        .padding(.horizontal, 24)
         .frame(maxWidth: 460)
         .animation(.default, value: 📱.🔛phase)
     }
@@ -61,7 +63,7 @@ private struct 🅂peakerIcon: View {
     }
 }
 
-private struct 🄸ndicator: View { // ←
+private struct 🄸ndicator: View { // →
     @EnvironmentObject private var 📱: 📱AppModel
     var phase: 🔛Phase
     var body: some View {
@@ -95,7 +97,8 @@ private struct 🅂etAlarmSection: View { // ⏻
             } icon: {
                 Image(systemName: "power")
             }
-            .fontWeight(.bold)
+            .bold()
+            .padding(.horizontal, 4)
         }
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)
@@ -107,10 +110,12 @@ private struct 🅂etAlarmSection: View { // ⏻
 private struct 🅆aitingSection: View {
     @EnvironmentObject private var 📱: 📱AppModel
     private var ⓐctive: Bool { 📱.🔛phase == .waiting }
-    private var ⓒalm: Bool { [.fadeIn, .maxVolume, .fadeOut].contains(📱.🔛phase) }
+    private var ⓢtyle: HierarchicalShapeStyle {
+        [.fadeIn, .maxVolume, .fadeOut].contains(📱.🔛phase) ? .secondary : .primary
+    }
     var body: some View {
         🄵lowArrow()
-            .foregroundStyle(self.ⓒalm ? .secondary : .primary)
+            .foregroundStyle(self.ⓢtyle)
             .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
             .overlay(alignment: .leading) {
                 HStack {
@@ -248,6 +253,7 @@ private struct 🅂topAlarmSection: View {
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)
         .shadow(radius: self.ⓐctive ? 2 : 0)
+        .scaleEffect(self.ⓐctive ? 1 : 0.9)
         .disabled(!self.ⓐctive)
     }
 }
