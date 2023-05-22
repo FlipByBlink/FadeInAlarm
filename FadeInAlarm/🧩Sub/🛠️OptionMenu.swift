@@ -13,6 +13,7 @@ struct 🛠️OptionMenu: View {
 }
 
 private struct 🄱ackUpAlertOption: View {
+    @EnvironmentObject private var 📱: 📱AppModel
     @AppStorage("BackUpNotification") private var ⓥalue: Bool = false
     @Environment(\.scenePhase) var scenePhase
     @State private var ⓐuthDenied: Bool = false
@@ -22,6 +23,7 @@ private struct 🄱ackUpAlertOption: View {
                 Toggle(isOn: self.$ⓥalue) {
                     Label("System notification at max volume as back-up", systemImage: "bell.and.waves.left.and.right")
                 }
+                .disabled(📱.🔛phase != .powerOff)
                 if self.ⓐuthDenied {
                     Label("Notification authorization is denied", systemImage: "exclamationmark.triangle")
                         .foregroundStyle(.red)
@@ -29,7 +31,7 @@ private struct 🄱ackUpAlertOption: View {
                 }
             }
         } header: {
-            Text("Back up")
+            Text("Back up notifications")
         } footer: {
             Text("Display system notifications every 10 seconds for 5 minutes at max volume.")
             + Text("\n")

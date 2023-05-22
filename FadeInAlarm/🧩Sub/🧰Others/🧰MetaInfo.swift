@@ -12,9 +12,11 @@ enum 🧰Info {
     static let privacyPolicyDescription = """
         2022-02-25
         
-        (English)This application don't collect user infomation.
+        (English)
+        This application don't collect user infomation.
         
-        (Japanese)このアプリ自身において、ユーザーの情報を一切収集しません。
+        (Japanese)
+        このアプリ自身において、ユーザーの情報を一切収集しません。
         """
     static let webRepositoryURL = URL(string: "https://github.com/FlipByBlink/FadeInAlarm")!
     static let webMirrorRepositoryURL = URL(string: "https://gitlab.com/FlipByBlink/FadeInAlarm_Mirror")!
@@ -36,7 +38,7 @@ enum 🧰Info {
                                    "💾FileManager.swift",
                                    "🔔Notification.swift",
                                    "📣ADContent.swift",
-                                   "💁GuideTab",
+                                   "💁GuideTab.swift",
                                    "🗄️Rest.swift"]
                 case .Others: return ["🧰MetaInfo.swift",
                                       "ℹ️AboutApp.swift",
