@@ -8,10 +8,9 @@ enum 🔔Notification {
         Self.api.removeAllPendingNotificationRequests()
     }
     
-    static func add(title: LocalizedStringResource, sound: UNNotificationSound? = nil) {
+    static func add(title: LocalizedStringResource) {
         let ⓒontent = UNMutableNotificationContent()
         ⓒontent.title = String(localized: title)
-        ⓒontent.sound = sound
         let ⓣrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let ⓡequest = UNNotificationRequest(identifier: title.key,
                                             content: ⓒontent,

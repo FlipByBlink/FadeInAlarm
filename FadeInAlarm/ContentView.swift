@@ -17,7 +17,7 @@ struct ContentView: View {
         }
         .modifier(🗄️NowPlayingCenterSubtitleHandling())
         .modifier(🗄️InterruptionResultHandling())
-        .modifier(🗄️SystemVolumeMuteAlert())
+        .modifier(🗄️SystemVolumeZeroAlert())
         .modifier(🔔Notification.Handling())
     }
 }

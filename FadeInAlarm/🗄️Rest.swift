@@ -27,7 +27,7 @@ struct 🗄️InterruptionResultHandling: ViewModifier {
     }
 }
 
-struct 🗄️SystemVolumeMuteAlert: ViewModifier {
+struct 🗄️SystemVolumeZeroAlert: ViewModifier {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var ⓟresent: Bool = false
     func body(content: Content) -> some View {
