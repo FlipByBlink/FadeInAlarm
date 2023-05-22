@@ -1,31 +1,49 @@
 import SwiftUI
 import AVFAudio
 
-struct 📁ImportFileButtons: View {
+struct 📁ImportFileMenu: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var 🚩presentImporter: Bool = false
-    @State private var ⓕileName: String? = 💾FileManager.getImportedFileName()
+    @State private var 🚩presentSelectedFileAlert: Bool = false
+    @State private var 🚩presentPreviewAlert: Bool = false
     @State private var 🚩failToImport: Bool = false
+    @State private var ⓕileName: String? = 💾FileManager.getImportedFileName()
     var body: some View {
-        Button {
-            self.🚩presentImporter = true
-            📱.📻player.stop()
+        Menu {
+            Button {
+                self.🚩presentImporter = true
+            } label: {
+                Label("Import a sound file", systemImage: "folder")
+            }
+            Button {
+                📱.📻player.preview()
+                self.🚩presentPreviewAlert = true
+            } label: {
+                Label("Preview the sound file", systemImage: "play")
+            }
         } label: {
             Label(self.ⓕileName ?? String(localized: "preset.mp3"),
                   systemImage: "music.note")
             .bold()
             .labelStyle(.titleAndIcon)
             .imageScale(.medium)
-            .frame(maxWidth: 280)
+            .frame(width: 280, alignment: .trailing)
         }
-        .accessibilityLabel("Import file")
+        .alert("Imported \"\(self.ⓕileName ?? "the file")\"", isPresented: self.$🚩presentSelectedFileAlert) {
+            Button("OK") { 📱.📻player.stop() }
+        } message: {
+            Text("Previewing the file")
+        }
+        .alert("▶️ Previewing", isPresented: self.$🚩presentPreviewAlert) {
+            Button("Stop") { 📱.📻player.stop() }
+        } message: {
+            if let ⓕileName { Text(ⓕileName) }
+        }
         .disabled(📱.🔛phase != .powerOff)
         .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
         .fileImporter(isPresented: self.$🚩presentImporter,
                       allowedContentTypes: [.audio],
                       onCompletion: self.importAction(_:))
-        🄿reviewButton()
-            .disabled(📱.🔛phase != .powerOff)
     }
     private func importAction(_ ⓡesult: Result<URL, Error>) {
         do {
@@ -37,8 +55,12 @@ struct 📁ImportFileButtons: View {
                     }
                     let ⓝewFileURL = 💾FileManager.urlToSave(ⓢelectedFileURL.lastPathComponent)
                     💾FileManager.copyItem(at: ⓢelectedFileURL, to: ⓝewFileURL)
-                    self.ⓕileName = ⓝewFileURL.lastPathComponent
                     📱.📻player.preview()
+                    withAnimation { self.ⓕileName = ⓝewFileURL.lastPathComponent }
+                    Task {
+                        try? await Task.sleep(for: .seconds(0.5))
+                        self.🚩presentSelectedFileAlert = true
+                    }
                 } else {
                     self.🚩failToImport = true
                 }
@@ -47,26 +69,5 @@ struct 📁ImportFileButtons: View {
         } catch {
             print("🚨", error)
         }
-    }
-}
-
-private struct 🄿reviewButton: View {
-    @EnvironmentObject private var 📱: 📱AppModel
-    var body: some View {
-        Button {
-            if 📱.📻player.isPlaying {
-                📱.📻player.stop()
-            } else {
-                📱.📻player.preview()
-            }
-        } label: {
-            Image(systemName: "playpause.fill")
-                .foregroundStyle(📱.🔛phase == .powerOff ? .secondary : .tertiary)
-        }
-        .font(.caption)
-        .buttonStyle(.bordered)
-        .controlSize(.mini)
-        .tint(📱.📻player.isPlaying ? .red : nil) //FIXME: 適切に動作してない
-        .accessibilityLabel("Preview")
     }
 }

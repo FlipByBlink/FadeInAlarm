@@ -32,7 +32,7 @@ private struct 🄼ainTab: View {
                     .padding(.bottom, 150)
             }
             .overlay(alignment: .bottomTrailing) { 🎚️SystemVolumeSlider() }
-            .toolbar { 📁ImportFileButtons() }
+            .toolbar { 📁ImportFileMenu() }
             .navigationBarTitleDisplayMode(.inline)
             .background {
                 Color(uiColor: .secondarySystemBackground)

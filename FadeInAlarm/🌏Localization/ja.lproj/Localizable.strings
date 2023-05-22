@@ -28,6 +28,11 @@
 "Notification authorization is denied" = "システム通知の権限が無効です";
 "⚠️ System volume is 0.0!" = "⚠️ システム音量が0です!";
 "Increase system volume" = "システム音量を上げてください";
+"Import a sound file" = "音声ファイルをインポート";
+"Preview the sound file" = "ファイルを試聴";
+"▶️ Previewing" = "▶️ 試聴中";
+"Imported \"%@\"" = "\"%@\"をインポートしました";
+"Previewing the file" = "現在 ファイルを再生しています";
 "" = "";
 
 
