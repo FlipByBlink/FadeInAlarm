@@ -53,6 +53,9 @@ extension 🔔Notification {
                         }
                     }
                 }
+                .onChange(of: 📱.🔛phase) {
+                    if case .fadeOut = $0 { 🔔Notification.removeAllNotifications() }
+                }
         }
     }
 }

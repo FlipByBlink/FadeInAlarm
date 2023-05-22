@@ -16,7 +16,12 @@
 "Time to begin fade In" = "フェードイン開始時刻";
 "Fade in hour" = "フェードイン時間";
 "Fade out hour" = "フェードアウト時間";
-//"" = "";
+"🙅 Alert is pausing" = "🙅 アラームが止まりました";
+"🙆 Alert resume" = "🙆 アラームが再開されました";
+"Back up alert" = "予備のアラート";
+"Begin fade in alarm" = "フェードインを開始しました";
+"Alarm is max volume" = "アラームの音量が最大になりました";
+"" = "";
 
 
 "for iPhone / iPad / Mac" = "iPhone/iPad/Mac向け";

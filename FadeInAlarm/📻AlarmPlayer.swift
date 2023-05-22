@@ -28,7 +28,7 @@ class 📻AlarmPlayer {
         try? AVAudioSession().setCategory(.playback)
         let ⓣimeLabel = 🕰timeFadeIn.formatted(date: .omitted, time: .shortened)
         let ⓗourLabel = 👆FadeInHourPicker.🄾ption(rawValue: 🕛hourFadein)?.label ?? "🐛"
-        📻NowPlayingInfoCenter.setUp(title: "⏰  \(ⓣimeLabel) ( +\(ⓗourLabel) )")
+        📻NowPlayingInfoCenter.setUp(title: "\(ⓣimeLabel) ( +\(ⓗourLabel) )")
         self.ⓐudioPlayer.play()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.🚦handleInterruption),
@@ -85,7 +85,7 @@ enum 📻NowPlayingInfoCenter {
         Self.api.nowPlayingInfo![MPMediaItemPropertyTitle] = title
     }
     private static var artwork: MPMediaItemArtwork {
-        .init(boundsSize: .init(width: 1000, height: 1000)) { _ in UIImage(named: "COVER1000")! }
+        .init(boundsSize: .init(width: 1024, height: 1024)) { _ in UIImage(named: "ARTWORK")! }
     }
     static func setSubtitle(_ ⓟhase: 🔛Phase) {
         Self.api.nowPlayingInfo![MPMediaItemPropertyArtist] = String(localized: ⓟhase.title)
