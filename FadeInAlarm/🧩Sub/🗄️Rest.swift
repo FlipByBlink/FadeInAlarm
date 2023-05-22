@@ -4,7 +4,10 @@ import AVFAudio
 struct 🗄️AboutAppTab: View {
     var body: some View {
         NavigationStack {
-            ℹ️AboutAppMenu()
+            List {
+                ℹ️AboutAppLink()
+            }
+            .navigationTitle("App")
         }
     }
 }

@@ -32,8 +32,8 @@ private struct 🄱ackUpAlertOption: View {
             Text("Back up")
         } footer: {
             Text("Display system notifications every 10 seconds for 5 minutes at max volume.")
-            +
-            Text("Back-up notifications will be displayed even if this app is completely closed.")
+            + Text("\n")
+            + Text("Back-up notifications will be displayed even if this app is completely closed.")
         }
         .task { self.ⓒheckAuth() }
         .onChange(of: self.scenePhase) {
