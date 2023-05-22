@@ -12,12 +12,32 @@ struct 🛠️OptionMenu: View {
 }
 
 private struct 🄱ackUpAlertOption: View {
-    @AppStorage("BackUpAlert") private var ⓥalue: Bool = false
+    @AppStorage("BackUpNotification") private var ⓥalue: Bool = false
+    @Environment(\.scenePhase) var scenePhase
+    @State private var ⓐuthDenied: Bool = false
     var body: some View {
         Section {
-            Toggle(isOn: self.$ⓥalue) {
-                Label("Back up alert on max volume", systemImage: "bell.and.waves.left.and.right")
+            VStack(alignment: .leading, spacing: 8) {
+                Toggle(isOn: self.$ⓥalue) {
+                    Label("System notification at max volume as back-up", systemImage: "bell.and.waves.left.and.right")
+                }
+                if self.ⓐuthDenied {
+                    Label("Notification authorization is denied", systemImage: "exclamationmark.triangle")
+                        .foregroundStyle(.red)
+                        .font(.caption.weight(.light))
+                }
             }
+        } header: {
+            Text("Back up")
+        } footer: {
+            Text("Alert system notification every 10 seconds at max volume")
         }
+        .task { self.ⓒheckAuth() }
+        .onChange(of: self.scenePhase) {
+            if $0 == .active { self.ⓒheckAuth() }
+        }
+    }
+    private func ⓒheckAuth() {
+        Task { self.ⓐuthDenied = await 🔔Notification.checkAuthDenied() }
     }
 }

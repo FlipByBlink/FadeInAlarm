@@ -77,7 +77,7 @@ struct 👆FadeInHourPicker: View {
                     case .minute30: return .init(minute: 30)
                     case .hour01: return .init(hour: 1)
                 }
-            }(), unitsStyle: .short) ?? "🐛"
+            }(), unitsStyle: .full) ?? "🐛"
         }
     }
 }
@@ -110,12 +110,12 @@ struct 👆FadeOutHourPicker: View {
                     case .second30: return .init(second: 30)
                     case .minute01: return .init(minute: 1)
                 }
-            }(), unitsStyle: .short) ?? "🐛"
+            }(), unitsStyle: .full) ?? "🐛"
         }
     }
 }
 
-//TODO: 再検討
+//RawRepresentableで実装し直した場合。互換性が崩れるため保留。
 //@AppStorage("TimeFadeIn") var 🕰timeFadeIn: Date = .now + 180
 //extension Date: RawRepresentable {
 //    public var rawValue: String { ISO8601DateFormatter().string(from: self) }

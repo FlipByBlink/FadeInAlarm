@@ -35,7 +35,7 @@ extension 🔔Notification {
     struct Handling: ViewModifier {
         @EnvironmentObject private var 📱: 📱AppModel
         @Environment(\.scenePhase) var scenePhase
-        @AppStorage("BackUpAlert") private var ⓑackUpAlertOption: Bool = false
+        @AppStorage("BackUpNotification") private var ⓑackUpAlertOption: Bool = false
         func body(content: Content) -> some View {
             content
                 .task { 🔔Notification.setupNotification() }
@@ -48,7 +48,7 @@ extension 🔔Notification {
                             if 📱.🔛phase != .maxVolume {
                                 $0.invalidate()
                             } else {
-                                🔔Notification.add(title: "Back up alert", sound: .default)
+                                🔔Notification.add(title: "Back up notification", sound: .default)
                             }
                         }
                     }
