@@ -29,6 +29,7 @@ struct 📁ImportFileMenu: View {
             .imageScale(.medium)
             .frame(width: 280, alignment: .trailing)
         }
+        .accessibilityLabel("File menu")
         .alert("Imported \"\(self.ⓕileName ?? "the file")\"", isPresented: self.$🚩presentSelectedFileAlert) {
             Button("OK") { 📱.📻player.stop() }
         } message: {
