@@ -18,6 +18,7 @@ extension 📱AppModel {
     func startAlarm() {
         self.🔛phase = .waiting
         self.📻player.play(self.🕰timeFadeIn, self.🕛hourFadein)
+        🔔Notification.setBackUp(self.🕰timeFadeIn.addingTimeInterval(self.🕛hourFadein))
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { ⓣimer in
             switch self.🔛phase {
                 case .waiting:

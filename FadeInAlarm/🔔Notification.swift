@@ -8,12 +8,9 @@ enum 🔔Notification {
         Self.api.removeAllPendingNotificationRequests()
     }
     
-    static func add(title: LocalizedStringResource,
-                    body: LocalizedStringResource? = nil,
-                    sound: UNNotificationSound? = nil) {
+    static func add(title: LocalizedStringResource, sound: UNNotificationSound? = nil) {
         let ⓒontent = UNMutableNotificationContent()
         ⓒontent.title = String(localized: title)
-        if let body { ⓒontent.body = String(localized: body) }
         ⓒontent.sound = sound
         let ⓣrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let ⓡequest = UNNotificationRequest(identifier: title.key,
@@ -29,13 +26,28 @@ enum 🔔Notification {
     static func checkAuthDenied() async -> Bool {
         await Self.api.notificationSettings().authorizationStatus == .denied
     }
+    
+    static func setBackUp(_ ⓜaxVolumeTime: Date) {
+        guard UserDefaults.standard.bool(forKey: "BackUpNotification") else { return }
+        let ⓒontent = UNMutableNotificationContent()
+        ⓒontent.title = String(localized: "Back up notification")
+        ⓒontent.sound = .default
+        (1 ... 30).forEach {
+            let ⓓate = ⓜaxVolumeTime.addingTimeInterval(Double($0 * 10))
+            let ⓓateComonents = Calendar.current.dateComponents([.hour, .minute, .second], from: ⓓate)
+            let ⓣrigger = UNCalendarNotificationTrigger(dateMatching: ⓓateComonents, repeats: false)
+            let ⓡequest = UNNotificationRequest(identifier: "\(ⓓate)",
+                                                content: ⓒontent,
+                                                trigger: ⓣrigger)
+            Task { try? await Self.api.add(ⓡequest) }
+        }
+    }
 }
 
 extension 🔔Notification {
     struct Handling: ViewModifier {
         @EnvironmentObject private var 📱: 📱AppModel
         @Environment(\.scenePhase) var scenePhase
-        @AppStorage("BackUpNotification") private var ⓑackUpAlertOption: Bool = false
         func body(content: Content) -> some View {
             content
                 .task { 🔔Notification.setupNotification() }
@@ -43,18 +55,7 @@ extension 🔔Notification {
                     if $0 == .active { 🔔Notification.removeAllNotifications() }
                 }
                 .onChange(of: 📱.🔛phase) {
-                    if self.ⓑackUpAlertOption, case .maxVolume = $0 {
-                        Timer.scheduledTimer(withTimeInterval: 10, repeats: true) {
-                            if 📱.🔛phase != .maxVolume {
-                                $0.invalidate()
-                            } else {
-                                🔔Notification.add(title: "Back up notification", sound: .default)
-                            }
-                        }
-                    }
-                }
-                .onChange(of: 📱.🔛phase) {
-                    if case .fadeOut = $0 { 🔔Notification.removeAllNotifications() }
+                    if $0 == .fadeOut { 🔔Notification.removeAllNotifications() }
                 }
         }
     }

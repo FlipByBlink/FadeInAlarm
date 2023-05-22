@@ -24,7 +24,7 @@
 "Back up notification" = "予備の通知";
 "System notification at max volume as back-up" = "最大音量時にシステム通知も出す";
 "Back up" = "予備";
-"Alert system notification every 10 seconds at max volume" = "予備として最大音量時にシステム通知を10秒毎に出します";
+"Display system notifications every 10 seconds for 5 minutes at max volume" = "最大音量時にシステム通知を10秒毎に約5分間表示します";
 "Notification authorization is denied" = "システム通知の権限が無効です";
 "" = "";
 
