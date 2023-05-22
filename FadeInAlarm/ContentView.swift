@@ -8,7 +8,7 @@ struct ContentView: View {
         TabView {
             🄼ainTab()
                 .tabItem { Label("Alarm", systemImage: "alarm") }
-            Text("Option")
+            🛠️OptionMenu()
                 .tabItem { Label("Option", systemImage: "gear") }
             Text("Guide")
                 .tabItem { Label("Guide", systemImage: "questionmark") }
@@ -16,6 +16,7 @@ struct ContentView: View {
                 .tabItem { Label("About", systemImage: "info") }
         }
         .modifier(🗄️NowPlayingCenterSubtitleHandling())
+        .modifier(🔔Notification.Handling())
     }
 }
 

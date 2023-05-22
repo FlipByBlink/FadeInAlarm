@@ -7,25 +7,25 @@ struct 📁ImportFileButtons: View {
     @State private var ⓕileName: String? = 💾FileManager.getImportedFileName()
     @State private var 🚩failToImport: Bool = false
     var body: some View {
-        Group {
-            Button {
-                self.🚩presentImporter = true
-                📱.📻player.stop()
-            } label: {
-                Label(self.ⓕileName ?? String(localized: "preset.mp3"),
-                      systemImage: "music.note")
-                .bold()
-                .labelStyle(.titleAndIcon)
-                .imageScale(.medium)
-            }
-            .accessibilityLabel("Import file")
-            🄿reviewButton()
+        Button {
+            self.🚩presentImporter = true
+            📱.📻player.stop()
+        } label: {
+            Label(self.ⓕileName ?? String(localized: "preset.mp3"),
+                  systemImage: "music.note")
+            .bold()
+            .labelStyle(.titleAndIcon)
+            .imageScale(.medium)
+            .frame(maxWidth: 280)
         }
+        .accessibilityLabel("Import file")
         .disabled(📱.🔛phase != .powerOff)
         .alert("Fail to import the file 😱", isPresented: self.$🚩failToImport) { EmptyView() }
         .fileImporter(isPresented: self.$🚩presentImporter,
                       allowedContentTypes: [.audio],
                       onCompletion: self.importAction(_:))
+        🄿reviewButton()
+            .disabled(📱.🔛phase != .powerOff)
     }
     private func importAction(_ ⓡesult: Result<URL, Error>) {
         do {

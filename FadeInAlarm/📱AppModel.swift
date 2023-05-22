@@ -25,12 +25,14 @@ extension 📱AppModel {
                     let ⓗourAndMinute = Calendar.current.dateComponents([.hour, .minute], from: .now)
                     if Calendar.current.date(self.🕰timeFadeIn, matchesComponents: ⓗourAndMinute) {
                         self.🔛phase = .fadeIn
+                        🔔Notification.add(title: "Begin fade in alarm")
                     }
                 case .fadeIn:
                     self.📻player.volume += Float(0.5 / self.🕛hourFadein)
                     if self.📻player.volume > 1.0 {
                         self.📻player.volume = 1.0
                         self.🔛phase = .maxVolume
+                        🔔Notification.add(title: "Alarm is max volume")
                     }
                 case .maxVolume:
                     break
