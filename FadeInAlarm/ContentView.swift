@@ -12,7 +12,7 @@ struct ContentView: View {
                 .tabItem { Label("Option", systemImage: "gear") }
             Text("Guide")
                 .tabItem { Label("Guide", systemImage: "questionmark") }
-            📄DocumentButton()
+            🗄️AboutAppTab()
                 .tabItem { Label("About", systemImage: "info") }
         }
         .modifier(🗄️NowPlayingCenterSubtitleHandling())
