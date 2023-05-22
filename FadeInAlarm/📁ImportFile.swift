@@ -4,7 +4,7 @@ import AVFAudio
 struct 📁ImportFileButtons: View {
     @EnvironmentObject private var 📱: 📱AppModel
     @State private var 🚩presentImporter: Bool = false
-    @State private var ⓕileName: String = 💾FileManager.getImportedFileName() ?? "preset.mp3"
+    @State private var ⓕileName: String? = 💾FileManager.getImportedFileName()
     @State private var 🚩failToImport: Bool = false
     var body: some View {
         Group {
@@ -12,10 +12,11 @@ struct 📁ImportFileButtons: View {
                 self.🚩presentImporter = true
                 📱.📻player.stop()
             } label: {
-                Label(self.ⓕileName, systemImage: "music.note")
-                    .bold()
-                    .labelStyle(.titleAndIcon)
-                    .imageScale(.medium)
+                Label(self.ⓕileName ?? String(localized: "preset.mp3"),
+                      systemImage: "music.note")
+                .bold()
+                .labelStyle(.titleAndIcon)
+                .imageScale(.medium)
             }
             .accessibilityLabel("Import file")
             🄿reviewButton()

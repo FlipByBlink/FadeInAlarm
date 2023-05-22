@@ -1,3 +1,23 @@
+"Set" = "起動";
+"Stop" = "停止";
+"Alarm" = "アラーム";
+"Guide" = "ガイド";
+"About" = "アプリについて";
+"System volume" = "システム音量";
+"Power off" = "起動していません";
+"Waiting" = "アラーム待機中";
+"Fade in" = "フェードイン中";
+"Max volume" = "現在、音量最大";
+"Fade out" = "フェードアウト中";
+"preset.mp3" = "ﾌﾟﾘｾｯﾄ.mp3";
+"Import file" = "ファイルインポート";
+"Preview" = "試聴";
+"Volume on waiting" = "待機中の音量";
+"Time to begin fade In" = "フェードイン開始時刻";
+"Fade in hour" = "フェードイン時間";
+"Fade out hour" = "フェードアウト時間";
+//"" = "";
+
 
 "for iPhone / iPad / Mac" = "iPhone/iPad/Mac向け";
 

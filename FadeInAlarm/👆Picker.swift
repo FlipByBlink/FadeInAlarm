@@ -17,16 +17,15 @@ struct 👆WaitingVolumePicker: View {
         .lineLimit(1)
         .minimumScaleFactor(0.1)
         .disabled(📱.🔛phase != .powerOff)
-        .accessibilityLabel("Select volume on waiting")
+        .accessibilityLabel("Volume on waiting")
     }
 }
 
 struct 👆FadeInTimePicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
-        DatePicker("Time fade-In", selection: $📱.🕰timeFadeIn, displayedComponents: .hourAndMinute)
+        DatePicker("Time to begin fade In", selection: $📱.🕰timeFadeIn, displayedComponents: .hourAndMinute)
             .labelsHidden()
-            .accessibilityLabel("Set time to start fade-in")
             .disabled(📱.🔛phase != .powerOff)
             .onChange(of: 📱.🕰timeFadeIn, perform: self.saveValue(_:))
             .onAppear(perform: self.loadValue)
@@ -52,12 +51,12 @@ struct 👆FadeInHourPicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         Menu("+ \(Self.🄾ption(rawValue: 📱.🕛hourFadein)?.label ?? "👿")") {
-            Picker("Hour fade-in", selection: $📱.🕛hourFadein) {
+            Picker("Fade in hour", selection: $📱.🕛hourFadein) {
                 ForEach(Self.🄾ption.allCases) { Text($0.label) }
             }
         }
         .font(.body.weight(.heavy))
-        .accessibilityLabel("Select hour fade-in")
+        .accessibilityLabel("Fade in hour")
         .disabled(📱.🔛phase != .powerOff)
     }
     enum 🄾ption: Double, CaseIterable, Identifiable {
@@ -69,14 +68,16 @@ struct 👆FadeInHourPicker: View {
         case hour01 = 3600.0
         var id: Double { self.rawValue }
         var label: String {
-            switch self {
-                case .second10: return "0:00:10"
-                case .second30: return "0:00:30"
-                case .minute01: return "0:01:00"
-                case .minute05: return "0:05:00"
-                case .minute30: return "0:30:00"
-                case .hour01: return "1:00:00"
-            }
+            DateComponentsFormatter.localizedString(from: {
+                switch self {
+                    case .second10: return .init(second: 10)
+                    case .second30: return .init(second: 30)
+                    case .minute01: return .init(minute: 1)
+                    case .minute05: return .init(minute: 5)
+                    case .minute30: return .init(minute: 30)
+                    case .hour01: return .init(hour: 1)
+                }
+            }(), unitsStyle: .short) ?? "🐛"
         }
     }
 }
@@ -85,13 +86,13 @@ struct 👆FadeOutHourPicker: View {
     @EnvironmentObject private var 📱: 📱AppModel
     var body: some View {
         Menu("+ \(Self.🄾ption(rawValue: 📱.🕛hourFadeOut)?.label ?? "👿")") {
-            Picker("Hour fade-out", selection: 📱.$🕛hourFadeOut) {
+            Picker("Fade out hour", selection: 📱.$🕛hourFadeOut) {
                 ForEach(Self.🄾ption.allCases) { Text($0.label) }
             }
         }
         .font(.caption.bold())
         .disabled(📱.🔛phase != .powerOff)
-        .accessibilityLabel("Select hour fade-out")
+        .accessibilityLabel("Fade out hour")
     }
     enum 🄾ption: Double, CaseIterable, Identifiable {
         case second3 = 3.0
@@ -101,13 +102,15 @@ struct 👆FadeOutHourPicker: View {
         case minute01 = 60.0
         var id: Double { self.rawValue }
         var label: String {
-            switch self {
-                case .second3: return "0:00:03"
-                case .second7: return "0:00:07"
-                case .second15: return "0:00:15"
-                case .second30: return "0:00:30"
-                case .minute01: return "0:01:00"
-            }
+            DateComponentsFormatter.localizedString(from: {
+                switch self {
+                    case .second3: return .init(second: 3)
+                    case .second7: return .init(second: 7)
+                    case .second15: return .init(second: 15)
+                    case .second30: return .init(second: 30)
+                    case .minute01: return .init(minute: 1)
+                }
+            }(), unitsStyle: .short) ?? "🐛"
         }
     }
 }
