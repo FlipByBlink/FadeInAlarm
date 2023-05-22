@@ -16,6 +16,8 @@ struct ContentView: View {
                 .tabItem { Label("About", systemImage: "info") }
         }
         .modifier(🗄️NowPlayingCenterSubtitleHandling())
+        .modifier(🗄️InterruptionResultHandling())
+        .modifier(🗄️SystemVolumeMuteAlert())
         .modifier(🔔Notification.Handling())
     }
 }
