@@ -36,6 +36,7 @@ enum 🧰Info {
                                    "💾FileManager.swift",
                                    "🔔Notification.swift",
                                    "📣ADContent.swift",
+                                   "💁GuideTab",
                                    "🗄️Rest.swift"]
                 case .Others: return ["🧰MetaInfo.swift",
                                       "ℹ️AboutApp.swift",

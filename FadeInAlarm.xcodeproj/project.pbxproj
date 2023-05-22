@@ -45,6 +45,7 @@
 		F5CC86842A1B7D0A0066BD0F /* 📣ADContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CC86832A1B7D0A0066BD0F /* 📣ADContent.swift */; };
 		F5CC86852A1B7D5C0066BD0F /* 📣ADContent.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CC86832A1B7D0A0066BD0F /* 📣ADContent.swift */; };
 		F5CC86882A1B7D660066BD0F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CC86872A1B7D660066BD0F /* StoreKit.framework */; };
+		F5CC868A2A1B8CD30066BD0F /* 💁GuideTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CC86892A1B8CD30066BD0F /* 💁GuideTab.swift */; };
 		F5E065072A12FB2700D83A7C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */; };
 		F5E065152A12FBDB00D83A7C /* 🌏AppStoreDescription.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E065092A12FBDB00D83A7C /* 🌏AppStoreDescription.strings */; };
 		F5E065162A12FBDB00D83A7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E0650B2A12FBDB00D83A7C /* Localizable.strings */; };
@@ -107,6 +108,7 @@
 		F5CC86702A1B79E70066BD0F /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		F5CC86832A1B7D0A0066BD0F /* 📣ADContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣ADContent.swift"; sourceTree = "<group>"; };
 		F5CC86872A1B7D660066BD0F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F5CC86892A1B8CD30066BD0F /* 💁GuideTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideTab.swift"; sourceTree = "<group>"; };
 		F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F5E0650A2A12FBDB00D83A7C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = "ja.lproj/🌏AppStoreDescription.strings"; sourceTree = "<group>"; };
 		F5E0650C2A12FBDB00D83A7C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				F5E065192A1353B000D83A7C /* 💾FileManager.swift */,
 				F5CC86632A1AF6AA0066BD0F /* 🔔Notification.swift */,
 				F5CC86832A1B7D0A0066BD0F /* 📣ADContent.swift */,
+				F5CC86892A1B8CD30066BD0F /* 💁GuideTab.swift */,
 				F5A5E6C42A14FE2800ED931B /* 🗄️Rest.swift */,
 				F5CC86672A1B79C10066BD0F /* 🧰Others */,
 				125D912927C6F2DE005D99D1 /* Info.plist */,
@@ -296,6 +299,7 @@
 				F5CC86842A1B7D0A0066BD0F /* 📣ADContent.swift in Sources */,
 				F5CC866E2A1B79CF0066BD0F /* ℹ️AboutApp.swift in Sources */,
 				125D911227C6F117005D99D1 /* ContentView.swift in Sources */,
+				F5CC868A2A1B8CD30066BD0F /* 💁GuideTab.swift in Sources */,
 				125D911027C6F117005D99D1 /* FadeInAlarmApp.swift in Sources */,
 				F5CC866F2A1B79CF0066BD0F /* 🛒InAppPurchase.swift in Sources */,
 				F5E0651A2A1353B000D83A7C /* 💾FileManager.swift in Sources */,

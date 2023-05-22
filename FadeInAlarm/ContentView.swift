@@ -10,7 +10,7 @@ struct ContentView: View {
                 .tabItem { Label("Alarm", systemImage: "alarm") }
             🛠️OptionMenu()
                 .tabItem { Label("Option", systemImage: "gear") }
-            Text("Guide")
+            💁GuideTab()
                 .tabItem { Label("Guide", systemImage: "questionmark") }
             🗄️AboutAppTab()
                 .tabItem { Label("About", systemImage: "info") }
