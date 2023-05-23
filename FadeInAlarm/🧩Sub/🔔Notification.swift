@@ -18,7 +18,7 @@ enum 🔔Notification {
         Task { try? await Self.api.add(ⓡequest) }
     }
     
-    static func setupNotification() {
+    static func setUpNotification() {
         Task { try await Self.api.requestAuthorization(options: [.alert, .sound]) }
     }
     
@@ -49,7 +49,7 @@ extension 🔔Notification {
         @Environment(\.scenePhase) var scenePhase
         func body(content: Content) -> some View {
             content
-                .task { 🔔Notification.setupNotification() }
+                .task { 🔔Notification.setUpNotification() }
                 .onChange(of: self.scenePhase) {
                     if $0 == .active { 🔔Notification.removeAllNotifications() }
                 }
