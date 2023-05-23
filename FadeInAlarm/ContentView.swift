@@ -19,6 +19,7 @@ struct ContentView: View {
         .modifier(🗄️InterruptionResultHandling())
         .modifier(🗄️SystemVolumeZeroAlert())
         .modifier(🔔Notification.Handling())
+        .modifier(📣ADSheet())
     }
 }
 

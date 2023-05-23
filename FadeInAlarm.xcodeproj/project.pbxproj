@@ -42,8 +42,8 @@
 		F5CC86802A1B7BBA0066BD0F /* ℹ️AboutApp.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CC866A2A1B79CE0066BD0F /* ℹ️AboutApp.swift */; };
 		F5CC86812A1B7BBA0066BD0F /* 📣AD.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CC86692A1B79CE0066BD0F /* 📣AD.swift */; };
 		F5CC86822A1B7BBA0066BD0F /* 🛒InAppPurchase.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CC866B2A1B79CE0066BD0F /* 🛒InAppPurchase.swift */; };
-		F5CC86842A1B7D0A0066BD0F /* 📣ADContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CC86832A1B7D0A0066BD0F /* 📣ADContent.swift */; };
-		F5CC86852A1B7D5C0066BD0F /* 📣ADContent.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CC86832A1B7D0A0066BD0F /* 📣ADContent.swift */; };
+		F5CC86842A1B7D0A0066BD0F /* 📣ADSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CC86832A1B7D0A0066BD0F /* 📣ADSheet.swift */; };
+		F5CC86852A1B7D5C0066BD0F /* 📣ADSheet.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CC86832A1B7D0A0066BD0F /* 📣ADSheet.swift */; };
 		F5CC86882A1B7D660066BD0F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CC86872A1B7D660066BD0F /* StoreKit.framework */; };
 		F5CC868A2A1B8CD30066BD0F /* 💁GuideTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CC86892A1B8CD30066BD0F /* 💁GuideTab.swift */; };
 		F5CC868B2A1B94CE0066BD0F /* 💁GuideTab.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5CC86892A1B8CD30066BD0F /* 💁GuideTab.swift */; };
@@ -63,7 +63,7 @@
 			dstSubfolderSpec = 7;
 			files = (
 				F5CC868B2A1B94CE0066BD0F /* 💁GuideTab.swift in CopyFiles */,
-				F5CC86852A1B7D5C0066BD0F /* 📣ADContent.swift in CopyFiles */,
+				F5CC86852A1B7D5C0066BD0F /* 📣ADSheet.swift in CopyFiles */,
 				F5CC86732A1B7BBA0066BD0F /* ContentView.swift in CopyFiles */,
 				F5CC86742A1B7BBA0066BD0F /* 📱AppModel.swift in CopyFiles */,
 				F5CC86752A1B7BBA0066BD0F /* 📻AlarmPlayer.swift in CopyFiles */,
@@ -108,7 +108,7 @@
 		F5CC866A2A1B79CE0066BD0F /* ℹ️AboutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ℹ️AboutApp.swift"; sourceTree = "<group>"; };
 		F5CC866B2A1B79CE0066BD0F /* 🛒InAppPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "🛒InAppPurchase.swift"; sourceTree = "<group>"; };
 		F5CC86702A1B79E70066BD0F /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
-		F5CC86832A1B7D0A0066BD0F /* 📣ADContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣ADContent.swift"; sourceTree = "<group>"; };
+		F5CC86832A1B7D0A0066BD0F /* 📣ADSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📣ADSheet.swift"; sourceTree = "<group>"; };
 		F5CC86872A1B7D660066BD0F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F5CC86892A1B8CD30066BD0F /* 💁GuideTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "💁GuideTab.swift"; sourceTree = "<group>"; };
 		F5E065062A12FB2700D83A7C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 				F5CC86652A1B01F50066BD0F /* 🛠️OptionMenu.swift */,
 				F5E065192A1353B000D83A7C /* 💾FileManager.swift */,
 				F5CC86632A1AF6AA0066BD0F /* 🔔Notification.swift */,
-				F5CC86832A1B7D0A0066BD0F /* 📣ADContent.swift */,
+				F5CC86832A1B7D0A0066BD0F /* 📣ADSheet.swift */,
 				F5CC86892A1B8CD30066BD0F /* 💁GuideTab.swift */,
 				F5A5E6C42A14FE2800ED931B /* 🗄️Rest.swift */,
 				F5CC86672A1B79C10066BD0F /* 🧰Others */,
@@ -298,7 +298,7 @@
 			files = (
 				125D912427C6F18F005D99D1 /* 📻AlarmPlayer.swift in Sources */,
 				F5A5E6C52A14FE2800ED931B /* 🗄️Rest.swift in Sources */,
-				F5CC86842A1B7D0A0066BD0F /* 📣ADContent.swift in Sources */,
+				F5CC86842A1B7D0A0066BD0F /* 📣ADSheet.swift in Sources */,
 				F5CC866E2A1B79CF0066BD0F /* ℹ️AboutApp.swift in Sources */,
 				125D911227C6F117005D99D1 /* ContentView.swift in Sources */,
 				F5CC868A2A1B8CD30066BD0F /* 💁GuideTab.swift in Sources */,
