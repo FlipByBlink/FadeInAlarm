@@ -1,4 +1,9 @@
-"2.2" = "a";
+"2.2" = "ADD Notification of unexpected alarm deactivation/resumption.
+ADD Back-up notification function.
+IMPROVE UI.
+CHANGE OS Support 16.0 ~.
+CHANGE Business model from paid model to freemium model.
+Several fix/improve.";
 "2.1" = "Rebuild UI design
 No change of core functionality
 Add function to check alarm sound
