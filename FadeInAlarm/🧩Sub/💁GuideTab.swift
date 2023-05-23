@@ -48,6 +48,7 @@ private struct 🄽oteSection: View {
             Please import sound source files (mp3, etc) prepared by myself.
             The preset sound data is for testing purposes.
             """)
+            .padding(.horizontal, 12)
         }
         Section {
             Label {
@@ -59,16 +60,19 @@ private struct 🄽oteSection: View {
             Text("""
             For various reasons, this app differs from ordinary alarm apps in that it cannot sound an alarm when the app itself is not running at all. You need to start the app beforehand.
             """)
+            .padding(.horizontal, 12)
             Text("""
             For example, if you want to use this app at 6:00 a.m. for alarm purposes, please launch this app just before going to bed and press \"Set\" button.
             """)
             .font(.caption)
+            .padding(.horizontal, 12)
         }
         Section {
             Label("There are limitations while in waiting phase", systemImage: "exclamationmark.triangle")
             Text("""
             While in waiting phase, you can lock the device or use other apps, but you need to be a little careful not to interrupt the alarm waiting state.
             """)
+            .padding(.horizontal, 12)
             Group {
                 Text("""
                 __The following situations will interrupt the alarm waiting state__
@@ -82,6 +86,7 @@ private struct 🄽oteSection: View {
                 """)
             }
             .font(.caption)
+            .padding(.horizontal, 12)
         }
     }
 }
