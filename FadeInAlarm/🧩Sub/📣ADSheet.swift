@@ -14,7 +14,8 @@ struct 📣AdImpMenuLink: View {
                     }
                     .navigationTitle("Purchase")
                 } label: {
-                    Label("Paid for this app before", systemImage: "checkmark")
+                    Label("Confirmed previous payments", systemImage: "checkmark")
+                        .foregroundStyle(.secondary)
                 }
             } header: {
                 Text("Purchase")
@@ -80,7 +81,7 @@ enum 🛒Purchase {
                 case .unverified(let ⓢignedType, let ⓥerificationError):
                     return "unverified, \(ⓢignedType), \(ⓥerificationError)"
                 case .verified(let ⓢignedType):
-                    return ⓢignedType.debugDescription
+                    return ⓢignedType.debugDescription + "\noriginalPurchaseDate: \(ⓢignedType.originalPurchaseDate)"
             }
         } catch {
             return error.localizedDescription

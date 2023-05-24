@@ -17,7 +17,8 @@ struct 🎚️SystemVolumeSlider: View {
                 .frame(maxWidth: 200, alignment: .leading)
             Self.🄼PVolumeView()
                 .accessibilityHidden(true)
-                .frame(width: 200, height: 40)
+                .frame(width: 184, height: 40)
+                .padding(.trailing)
                 .padding(.trailing, Self.ⓞffset)
         }
         .padding(.top)

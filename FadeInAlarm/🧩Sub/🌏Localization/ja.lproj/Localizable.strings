@@ -58,10 +58,8 @@
 ・カメラアプリを利用している場面
 ・システムの何らかの通知で音声が発生する場面";
 
-"Paid for this app before" = "以前の支払いを確認しました";
-"You paid for this app before. So \"Hide AD Banner\" option is unlocked. You don't need to pay in-app-purchase." = "あなたは以前に有料アプリとして購入していたようです。そのため「広告非表示」オプションを支払う必要はありません。";
-"" = "";
-"" = "";
+"Confirmed previous payments" = "以前の支払いを確認しました";
+"You paid for this app before. So \"Hide AD Banner\" option is unlocked. You don't need to pay in-app-purchase." = "あなたは以前にこのアプリを有料アプリとして購入していたようです。そのため、「広告非表示」オプションを支払う必要はありません。";
 
 "App for iPhone / iPad" = "iPhone/iPad向けアプリ";
 
