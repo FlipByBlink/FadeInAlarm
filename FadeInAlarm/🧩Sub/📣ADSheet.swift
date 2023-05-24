@@ -3,19 +3,33 @@ import StoreKit
 
 struct 📣AdImpMenuLink: View {
     @AppStorage("PaidForAppVer_1_2") var ⓟaidForAppVer_1_2: Bool = false
+    @State private var ⓟresentDebugLog: Bool = false
     var body: some View {
         if self.ⓟaidForAppVer_1_2 {
-            NavigationLink {
-                List {
-                    Text("You paid for this app before. So \"Hide AD Banner\" option is unlocked. You don't need to pay in-app-purchase. ")
-                    📣ADMenuLink()
+            Section {
+                NavigationLink {
+                    List {
+                        Text("You paid for this app before. So \"Hide AD Banner\" option is unlocked. You don't need to pay in-app-purchase.")
+                        📣ADMenuLink()
+                    }
+                    .navigationTitle("Purchase")
+                } label: {
+                    Label("Paid for this app before", systemImage: "checkmark")
                 }
-                .navigationTitle("Purchase")
-            } label: {
-                Label("Paid for this app before", systemImage: "checkmark")
+            } header: {
+                Text("Purchase")
             }
         } else {
             📣ADMenuLink()
+        }
+        Button("Present debug log") { self.ⓟresentDebugLog = true }
+            .sheet(isPresented: self.$ⓟresentDebugLog) { Self.🄳ebugLog() }
+    }
+    private struct 🄳ebugLog: View {
+        @State private var ⓛog: String?
+        var body: some View {
+            Text(self.ⓛog ?? "🐛")
+                .task { self.ⓛog = await 🛒Purchase.getDebugLog() }
         }
     }
 }
@@ -57,6 +71,19 @@ enum 🛒Purchase {
         } catch {
             print("🚨", error)
             return false
+        }
+    }
+    static func getDebugLog() async -> String {
+        do {
+            let ⓡesult = try await AppTransaction.shared
+            switch ⓡesult {
+                case .unverified(let ⓢignedType, let ⓥerificationError):
+                    return "unverified, \(ⓢignedType), \(ⓥerificationError)"
+                case .verified(let ⓢignedType):
+                    return ⓢignedType.debugDescription
+            }
+        } catch {
+            return error.localizedDescription
         }
     }
 }
