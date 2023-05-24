@@ -5,7 +5,7 @@ struct 🛠️OptionMenu: View {
         NavigationStack {
             List {
                 🄱ackUpAlertOption()
-                📣ADMenuLink()
+                📣AdImpMenuLink()
             }
             .navigationTitle("Option")
         }

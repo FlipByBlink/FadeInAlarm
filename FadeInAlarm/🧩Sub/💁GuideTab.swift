@@ -37,7 +37,12 @@ private struct 🄵lowSection: View {
 private struct 🄽oteSection: View {
     var body: some View {
         Section {
-            Label("Need to prepare a sound file", systemImage: "music.note")
+            Label {
+                Text("Need to prepare a sound file")
+            } icon: {
+                Text("💽")
+                    .font(.title3)
+            }
             Text("Please import sound source files (mp3, etc) prepared by myself. The preset sound data is for testing purposes.")
                 .padding(.horizontal, 12)
         }
@@ -55,7 +60,12 @@ private struct 🄽oteSection: View {
                 .padding(.horizontal, 12)
         }
         Section {
-            Label("There are limitations while in waiting phase", systemImage: "exclamationmark.triangle")
+            Label {
+                Text("There are limitations while in waiting phase")
+            } icon: {
+                Text("⚠️")
+                    .font(.title3)
+            }
             Text("While in waiting phase, you can lock the device or use other apps, but you need to be a little careful not to interrupt the alarm waiting state.")
                 .padding(.horizontal, 12)
             Group {
