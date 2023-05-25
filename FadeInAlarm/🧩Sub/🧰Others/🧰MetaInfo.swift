@@ -3,7 +3,7 @@ import SwiftUI
 enum 🧰Info {
     static let appName: LocalizedStringKey = "FadeInAlarm"
     static let appSubTitle: LocalizedStringKey = "App for iPhone / iPad"
-    static let versionInfos: [(version: String, date: String)] = [("3.0", "2023-05-23"),
+    static let versionInfos: [(version: String, date: String)] = [("3.0", "2023-05-25"),
                                                                   ("2.1", "2022-05-09"),
                                                                   ("2.0.1", "2022-04-21"),
                                                                   ("2.0", "2022-02-25"),

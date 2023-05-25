@@ -2,14 +2,11 @@ import SwiftUI
 
 enum 🔔Notification {
     private static let api = UNUserNotificationCenter.current()
-    
-    static func removeAllDeliveredNotifications() {
-        Self.api.removeAllDeliveredNotifications()
-    }
-    static func removeAllPendingNotificationRequests() {
-        Self.api.removeAllPendingNotificationRequests()
-    }
-    
+    static func removeAllDeliveredNotifications() { Self.api.removeAllDeliveredNotifications() }
+    static func removeAllPendingNotificationRequests() { Self.api.removeAllPendingNotificationRequests() }
+}
+
+extension 🔔Notification {
     static func add(title: LocalizedStringResource) {
         let ⓒontent = UNMutableNotificationContent()
         ⓒontent.title = String(localized: title)
@@ -20,7 +17,7 @@ enum 🔔Notification {
         Task { try? await Self.api.add(ⓡequest) }
     }
     
-    static func setUpNotification() {
+    static func requestAuth() {
         Task { try await Self.api.requestAuthorization(options: [.alert, .sound]) }
     }
     
@@ -51,10 +48,13 @@ extension 🔔Notification {
         @Environment(\.scenePhase) var scenePhase
         func body(content: Content) -> some View {
             content
-                .task { 🔔Notification.setUpNotification() }
+                .task { 🔔Notification.requestAuth() }
                 .onChange(of: self.scenePhase) {
                     if $0 == .active {
                         🔔Notification.removeAllDeliveredNotifications()
+                        if 📱.🔛phase == .powerOff {
+                            🔔Notification.removeAllPendingNotificationRequests()
+                        }
                     }
                 }
         }

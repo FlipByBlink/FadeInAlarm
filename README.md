@@ -15,53 +15,31 @@ Description
 ------------
 Alarm clock with taking a long time from small volume to max volume.
 
-[ OPTIONS ]
-
 Hour fade-in
-
-・0:10
-
-・0:30
-
-・1:00
-
-・5:00
-
-・30:00
-
-・1:00:00
+- 0:10
+- 0:30
+- 1:00
+- 5:00
+- 30:00
+- 1:00:00
 
 Hour fade-out
-
-・0:03
-
-・0:07
-
-・0:15
-
-・0:30
-
-・1:00
+- 0:03
+- 0:07
+- 0:15
+- 0:30
+- 1:00
 
 Volume on waiting
+- 10%
+- 5%
+- 3%
+- 1%
+- 0%
 
-・10%
-
-・5%
-
-・3%
-
-・1%
-
-・0%
-
-[ REQUIRED ]
-
-Import your favorite audio file such as mp3.
-
-[ NOTICE ]
-
-App must be launched beforehand in advance.
+NOTICE
+- Need to import your favorite audio file such as mp3.
+- App must be launched beforehand in advance.
 
 
 AppStore link
@@ -80,7 +58,6 @@ https://gitlab.com/FlipByBlink/FadeInAlarm_Mirror
 Contact
 --------
 sear_pandora_0x@icloud.com
-
 
 
 Demo video

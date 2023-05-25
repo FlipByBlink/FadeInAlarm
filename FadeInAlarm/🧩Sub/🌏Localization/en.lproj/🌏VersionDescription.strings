@@ -2,7 +2,7 @@
 ADD Back-up notification function.
 IMPROVE UI.
 CHANGE OS Support 16.0 ~.
-CHANGE Business model from paid model to freemium model.
+CHANGE Business model from paid model to freemium model.(Users who purchased this app as a paid app do not have to pay in-app purchases.)
 Several fix/improve.";
 "2.1" = "Rebuild UI design
 No change of core functionality
