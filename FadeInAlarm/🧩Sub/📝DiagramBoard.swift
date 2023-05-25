@@ -131,7 +131,6 @@ private struct 🅆aitingSection: View {
     var body: some View {
         🄵lowArrow()
             .foregroundStyle(self.ⓐrrowStyle)
-            .onTapGesture(count: 2) { 📱.🕰timeFadeIn = .now }
             .accessibilityHidden(true)
             .overlay(alignment: .leading) {
                 HStack {
