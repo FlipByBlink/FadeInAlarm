@@ -15,6 +15,7 @@ class 📱AppModel: ObservableObject {
 
 extension 📱AppModel {
     func startAlarm() {
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
         self.🔛phase = .waiting
         self.📻player.play(self.🕰timeFadeIn, self.🕛hourFadein)
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { ⓣimer in

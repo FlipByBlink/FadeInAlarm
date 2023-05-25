@@ -258,6 +258,7 @@ private struct 🅂topAlarmSection: View {
                 case .fadeIn, .maxVolume: 📱.🔛phase = .fadeOut
                 default: break
             }
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
         } label: {
             Label {
                 Text("Stop")
