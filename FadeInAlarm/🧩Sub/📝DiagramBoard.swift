@@ -253,12 +253,7 @@ private struct 🅂topAlarmSection: View {
     }
     var body: some View {
         Button {
-            switch 📱.🔛phase {
-                case .waiting: 📱.🔛phase = .powerOff
-                case .fadeIn, .maxVolume: 📱.🔛phase = .fadeOut
-                default: break
-            }
-            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+            📱.stopAlarm()
         } label: {
             Label {
                 Text("Stop")

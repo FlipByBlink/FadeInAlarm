@@ -3,8 +3,10 @@ import SwiftUI
 enum 🔔Notification {
     private static let api = UNUserNotificationCenter.current()
     
-    static func removeAllNotifications() {
+    static func removeAllDeliveredNotifications() {
         Self.api.removeAllDeliveredNotifications()
+    }
+    static func removeAllPendingNotificationRequests() {
         Self.api.removeAllPendingNotificationRequests()
     }
     
@@ -51,10 +53,9 @@ extension 🔔Notification {
             content
                 .task { 🔔Notification.setUpNotification() }
                 .onChange(of: self.scenePhase) {
-                    if $0 == .active { 🔔Notification.removeAllNotifications() }
-                }
-                .onChange(of: 📱.🔛phase) {
-                    if $0 == .fadeOut { 🔔Notification.removeAllNotifications() }
+                    if $0 == .active {
+                        🔔Notification.removeAllDeliveredNotifications()
+                    }
                 }
         }
     }

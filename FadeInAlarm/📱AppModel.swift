@@ -50,9 +50,19 @@ extension 📱AppModel {
             self.🔔localVolume = Int(self.📻player.volume * 100)
         }
         MPRemoteCommandCenter.shared().stopCommand.addTarget { _ in
-            self.🔛phase = .fadeOut
+            self.stopAlarm()
             return .success
         }
         🔔Notification.setBackUp(self.🕰timeFadeIn.addingTimeInterval(self.🕛hourFadein))
+    }
+    func stopAlarm() {
+        switch self.🔛phase {
+            case .waiting: self.🔛phase = .powerOff
+            case .fadeIn, .maxVolume: self.🔛phase = .fadeOut
+            default: break
+        }
+        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        🔔Notification.removeAllDeliveredNotifications()
+        🔔Notification.removeAllPendingNotificationRequests()
     }
 }
