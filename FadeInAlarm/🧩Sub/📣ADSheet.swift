@@ -3,7 +3,6 @@ import StoreKit
 
 struct 📣AdImpMenuLink: View {
     @AppStorage("PaidForAppVer_1_2") var ⓟaidForAppVer_1_2: Bool = false
-    @State private var ⓟresentDebugLog: Bool = false
     var body: some View {
         if self.ⓟaidForAppVer_1_2 {
             Section {
@@ -17,20 +16,25 @@ struct 📣AdImpMenuLink: View {
                     Label("Confirmed previous payments", systemImage: "checkmark")
                         .foregroundStyle(.secondary)
                 }
+                .modifier(Self.🄳ebugLog())
             } header: {
                 Text("Purchase")
             }
         } else {
             📣ADMenuLink()
+                .modifier(Self.🄳ebugLog())
         }
-        Button("Present debug log") { self.ⓟresentDebugLog = true }
-            .sheet(isPresented: self.$ⓟresentDebugLog) { Self.🄳ebugLog() }
     }
-    private struct 🄳ebugLog: View {
+    private struct 🄳ebugLog: ViewModifier {
+        @State private var ⓟresentDebugLog: Bool = false
         @State private var ⓛog: String?
-        var body: some View {
-            Text(self.ⓛog ?? "🐛")
-                .task { self.ⓛog = await 🛒Purchase.getDebugLog() }
+        func body(content: Content) -> some View {
+            content
+                .contextMenu { Button("Present debug log") { self.ⓟresentDebugLog = true } }
+                .sheet(isPresented: self.$ⓟresentDebugLog) {
+                    Text(self.ⓛog ?? "🐛")
+                        .task { self.ⓛog = await 🛒Purchase.getDebugLog() }
+                }
         }
     }
 }
