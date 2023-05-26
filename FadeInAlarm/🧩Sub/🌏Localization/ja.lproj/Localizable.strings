@@ -1,0 +1,151 @@
+"Set" = "起動";
+"Stop" = "停止";
+"Alarm" = "アラーム";
+"Guide" = "ガイド";
+"About" = "アプリについて";
+"System volume" = "システム音量";
+"Power off" = "起動していません";
+"Waiting" = "アラーム待機中";
+"Fade in" = "フェードイン中";
+"Max volume" = "現在、音量最大";
+"Fade out" = "フェードアウト中";
+"File menu" = "ファイルメニュー";
+"preset.mp3" = "ﾌﾟﾘｾｯﾄ.mp3";
+"Preview" = "試聴";
+"Volume on waiting" = "待機中の音量";
+"Time to begin fade In" = "フェードイン開始時刻";
+"Fade in hour" = "フェードイン時間";
+"Fade out hour" = "フェードアウト時間";
+"🙅 Alert is pausing" = "🙅 アラームが止まりました";
+"🙆 Alert resume" = "🙆 アラームが再開されました";
+"Back up alert" = "予備のアラート";
+"Begin fade in alarm" = "フェードインを開始しました";
+"Alarm is max volume" = "アラームの音量が最大になりました";
+"Back up notification" = "予備の通知";
+"System notification at max volume as back-up" = "最大音量時にシステム通知も出す";
+"Back up notifications" = "予備通知";
+"Display system notifications every 10 seconds for 5 minutes at max volume." = "最大音量時にシステム通知を10秒毎に約5分間表示します。";
+"Back-up notifications will be displayed even if this app is not running in the background." = "アプリがバックグラウンド起動していない場合でも予備通知は表示されます。";
+"Notification authorization is denied" = "システム通知の権限が無効です";
+"⚠️ System volume is 0.0!" = "⚠️ システム音量が0です!";
+"Increase system volume" = "システム音量を上げてください";
+"Import a sound file" = "音声ファイルをインポート";
+"Preview the sound file" = "ファイルを試聴";
+"▶️ Previewing" = "▶️ 試聴中";
+"Imported \"%@\"" = "\"%@\"をインポートしました";
+"Previewing the file" = "現在 ファイルを再生しています";
+"App" = "アプリ";
+"Operation flow" = "動作の流れ";
+"When the user presses the \"Set\" button, the app starts playing an alarm sound in very low volume." = "起動ボタンを押すと極小音(もしくは無音)でアラーム音声を再生し始めます。";
+"The application will continue to play the alarm sound repeatedly until the user presses the stop button." = "ユーザーが停止ボタンを押すまでアプリはアラーム音声を繰り返し再生し続けます。";
+"At the alarm time, the volume will gradually increase, reaching its full volume after a user-specified time interval (10 seconds - 1 hour)." = "設定した時刻になると音量が少しずつ大きくなり、ユーザーが指定した時間間隔(数十秒から数十分)で本来の音量に達します。";
+"When the \"Stop\" button is pressed, the volume will gradually decrease at user-specified intervals (3 seconds - 1 minute). When the sound is completely silent, the app stops playing the alarm." = "停止ボタンを押すとユーザーが指定した時間間隔(数秒から1分)で音量が少しずつ小さくなります。完全に無音になるとアプリはアラーム音声の再生をストップします。";
+"Need to prepare a sound file" = "音源は自分で用意する必要あり";
+"Please import sound source files (mp3, etc) prepared by myself. The preset sound data is for testing purposes." = "ユーザー自身が用意した音源ファイル(mp3など)をインポートしてください。動作確認用の音声データはアプリ内にプリセットされています。";
+"This app is more inconvenient than ordinary alarm apps." = "普通のアラームアプリより不便な面あり";
+"For various reasons, this app differs from ordinary alarm apps in that it cannot sound an alarm when the app itself is not running at all. You need to start the app beforehand." = "諸事情によりこのアプリは一般的なアラームアプリとは異なり、アプリ自身が全く起動していない状態からアラームを鳴らすことはできません。事前にアプリを起動する必要があります。";
+"For example, if you want to use this app at 6:00 a.m. for alarm purposes, please launch this app just before going to bed and press \"Set\" button." = "例えば、目覚まし目的で朝6時にこのアプリを利用したい場合、就寝する直前にアプリを立ち上げて起動ボタンを押してください。";
+"There are limitations while in waiting phase" = "待機中も制限あり";
+"While in waiting phase, you can lock the device or use other apps, but you need to be a little careful not to interrupt the alarm waiting state." = "待機中は端末をロックしたり他のアプリを利用したりすることは可能ですが、アラーム待機状態が中断されないように少し注意が必要です。";
+"__The following situations will interrupt the alarm waiting state__
+・Situations where you watch long videos in other app
+・Playing a song on the music app" = "__次のような場面ではアラームの待機状態が中断されます。__
+・他のアプリで長時間の動画を見る場面
+・端末の音楽アプリで楽曲を再生する場面";
+"__The alarm waiting state will be interrupted in the following situations, but will resume automatically__
+・When using the camera app
+・Situations in which some kind of system notification generates an audible alarm" = "__次のような場面ではアラームの待機状態が一時中断されますが、自動的に再開されます。__
+・カメラアプリを利用している場面
+・システムの何らかの通知で音声が発生する場面";
+
+"Confirmed previous payments" = "以前の支払いを確認しました";
+"You paid for this app before. So \"Hide AD Banner\" option is unlocked. You don't need to pay in-app-purchase." = "あなたは以前にこのアプリを有料アプリとして購入していたようです。そのため、「広告非表示」オプションを支払う必要はありません。";
+
+"App for iPhone / iPad" = "iPhone/iPad向けアプリ";
+
+// =======================================================
+// ====================== Template =======================
+"Menu" = "メニュー";
+"Open menu" = "メニューを開く";
+"Option" = "オプション";
+"Done" = "完了";
+"Dismiss" = "閉じる";
+"Cancel" = "取り消す";
+"Error" = "エラー";
+"OK" = "了解しました";
+"Description" = "概要";
+
+// ======== About App =========
+"About App" = "アプリについて";
+"Version" = "バージョン";
+"builded on %@" = "%@ にビルドしました";
+"released on %@" = "%@ にリリースしました";
+"Version History" = "バージョン履歴";
+"Open AppStore page" = "AppStoreページを開く";
+"Review on AppStore" = "AppStoreでレビューを書く";
+"Privacy Policy" = "プライバシーポリシー";
+"Source code" = "ソースコード";
+"Web Repository" = "Web リポジトリー";
+"(Mirror)" = "(ミラー)";
+
+// ======== AD / In-App Purchase =========
+"AD" = "広告";
+"AD / Purchase" = "広告/課金";
+"About AD / Purchase" = "広告/課金について";
+"About AD" = "広告について";
+"In-App Purchase" = "アプリ内課金";
+"Purchase" = "アプリ内課金";
+"Buy" = "支払う";
+"Hide AD banner" = "広告を非表示にする";
+"Restore Purchases" = "購入情報を復元する";
+"Restored transactions" = "購入情報を確認しました";
+"Open AD link" = "広告のリンクを開く";
+"FlipByBlink" = "FlipByBlink";
+"FadeInAlarm" = "FadeInAlarm";
+"PlainShogiBoard" = "Plain将棋盤";
+"TapWeight" = "体重登録";
+"TapTemperature" = "体温登録";
+"MemorizeWidget" = "暗記ウィジェット";
+"LockInNote" = "ロックノート";
+"This App shows advertisement about applications on AppStore. These are several Apps by this app's developer. It is activated after you launch this app 5 times." = "AppStoreアプリケーションに関する広告を表示します。本アプリのデベロッパーによるアプリ群が表示対象となります。広告はアプリを5回起動すると有効になります。";
+"E-book reader that can turn a page with slightly longish voluntary blink." = "目を閉じる時間を意識的にわずかに長くさせた瞬きでページめくりができる電子書籍リーダー。";
+"Alarm clock with taking a long time from small volume to max volume." = "時間をかけて少しずつ音量が大きくなるアラームアプリ。";
+"Simplest Shogi board App. Supported SharePlay." = "ただの将棋盤。SharePlayも出来ます。";
+"Register weight data to \"Health\" app pre-installed on iPhone in the fastest way (as manual)." = "「ヘルスケア」アプリに体重データを(手動としては)最速で登録するためのアプリ。";
+"Register body temperature data to \"Health\" app pre-installed on iPhone in the fastest way (as manual)." = "「ヘルスケア」アプリに体温データを(手動としては)最速で登録するためのアプリ。";
+"Flashcard on widget. Memorize a note in everyday life." = "ウィジェットを暗記帳にしよう。日常の中で知識を脳に染み込ませるアプリです。";
+"Notes widget on lock screen." = "ロック画面ウィジェットをメモ帳にしよう。";
+
+// ======== Transparency Report ========
+"Transparency Report" = "透明性レポート";
+"Developer / Publisher" = "開発 / パブリッシャー";
+"AppStore Release" = "AppStore リリース";
+"Individual" = "個人系";
+"The System" = "構成";
+"Name" = "名前";
+"only one person" = "1人のみ";
+"identity / circumstance / background" = "身元 / 素性 / 境遇";
+"age" = "年齢";
+"about 28" = "約28才";
+"country" = "国";
+"Japan" = "日本";
+"native language" = "ネイティブ言語";
+"Japanese" = "日本語";
+"income" = "収入";
+"As of 2021" = "2021年時点";
+"Image" = "写真";
+"Taken on 2021-11" = "2021年11月に撮影";
+"Timeline" = "タイムライン";
+"Finished from high school in Okayama Prefecture. Entranced into University-of-the-Ryukyus/faculty-of-engineering in Okinawa Prefecture." = "岡山県の高等学校を卒業。沖縄県の琉球大学工学部に入学。";
+"Final year as an undergraduate student. Developed an iOS application(FlipByBlink) as software for the purpose of research experiments." = "大学学部生として最終学年。研究実験を目的としたiOSアプリ(FlipByBlink)の開発を行う。";
+"Released ebook reader app \"FlipByBlink\" ver 1.0 on AppStore. Special feature is to turn a page by slightly-longish-voluntary-blink." = "特殊なまばたきでページめくりができる電子書籍リーダーアプリ「FlipByBlink」をver1.0としてAppStoreにリリース。";
+"Graduated from University-of-the-Ryukyus." = "琉球大学を卒業。";
+"Released alarm clock app with taking a long time \"FadeInAlarm\" ver 1.0. First paid app." = "時間をかけて徐々に音が大きくなるアラームアプリ「FadeInAlarm」ver1.0をリリース。初めてとなる有料アプリ。";
+"Migrated to Okayama Prefecture." = "岡山に移住。";
+"Released FlipByBlink ver 3.0 for the first time in three years since ver 2.0." = "FlipByBlink、ver2.0以来 約3年ぶりとなるver3.0をリリース。";
+"Released FadeInAlarm ver 2.0 for the first time in three years since ver 1.0." = "FadeInAlarm、ver1.0以来 約3年ぶりとなるver2.0をリリース。";
+"Released simple shogi board app \"PlainShogiBoard\" ver 1.0." = "シンプルな将棋盤アプリ「Plain将棋盤」ver1.0をリリース。";
+"Released body weight registration app \"TapWeight\" ver 1.0." = "体重登録アプリ「TapWeight」ver1.0をリリース。";
+"Released body temperature registration app \"TapTemperature\" ver 1.0." = "体温登録アプリ「TapTemperature」ver1.0をリリース。";
+"Adopted In-App Purchase model for the first time on TapWeight ver 1.1.1" = "TapWeight、有料課金モデルを初めて採用したver1.1.1をリリース。";
+"Released LockInNote and MemorizeWidget on iOS16 release occasion." = "iOS16のリリースに合わせて「ロックノート」と「暗記ウィジェット」をリリース。";

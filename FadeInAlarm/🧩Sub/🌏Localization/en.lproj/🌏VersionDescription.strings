@@ -1,0 +1,15 @@
+"3.0" = "ADD Notification of unexpected alarm deactivation/resumption.
+ADD Back-up notification function.
+IMPROVE UI.
+CHANGE OS Support 16.0 ~.
+CHANGE Business model from paid model to freemium model.(Users who purchased this app as a paid app do not have to pay in-app purchases.)
+Several fix/improve.";
+"2.1" = "Rebuild UI design
+No change of core functionality
+Add function to check alarm sound
+Add function to check source code in app
+Small fix/improve";
+"2.0.1" = "Adjust UI only.
+No change in functionality.";
+"2.0" = "Renewal big update";
+"1.0" = "Initial release";
