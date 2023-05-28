@@ -60,11 +60,6 @@ Contact
 sear_pandora_0x@icloud.com
 
 
-Demo video
------------
-https://www.youtube.com/watch?v=d66thA-K5Dg
-
-
 * * *
 
 <br>
