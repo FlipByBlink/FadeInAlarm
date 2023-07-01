@@ -1,4 +1,4 @@
-FadeInAlarm: iPhone, iPad
+FadeInAlarm - iPhone, iPad
 ---------------------------
 _Alarm clock with taking a long time from small volume to max volume._
 
@@ -9,6 +9,8 @@ _時間をかけて少しずつ音量が大きくなるアラームアプリ。_
 <a href="https://apps.apple.com/app/id1465336070" target="blank">
     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
 </a>
+
+<img src="FadeInAlarm/🧩Sub/Assets.xcassets/ConceptImage.imageset/ConceptImage.png" width="600">
 
 
 Description
